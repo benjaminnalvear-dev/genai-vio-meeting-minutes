@@ -139,15 +139,22 @@ Verdict & \textbf{\color{alert}DID NOT PASS} & \textbf{\color{alert}DID NOT PASS
 
 \sectionbar{5. THREE OPEN-WEIGHT CANDIDATES ($<8$B)}
 
-\begin{tabularx}{\linewidth}{>{\bfseries}p{0.22\linewidth}p{0.12\linewidth}X}
+{\fontsize{7.2}{7.8}\selectfont
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\begin{tabularx}{\linewidth}{>{\bfseries\raggedright\arraybackslash}m{0.22\linewidth}>{\raggedright\arraybackslash}m{0.12\linewidth}>{\raggedright\arraybackslash}X}
 \toprule
 Model & Params. & Benchmark- and task-grounded rationale \\
 \midrule
 \href{https://artificialanalysis.ai/models/ministral-3-3b}{Ministral 3} & 3B class & AA 7, 256K context, open weights, Apache 2.0, and native JSON. The pilot supports it as the extraction baseline. \\
+\midrule
 \href{https://artificialanalysis.ai/models/qwen3-5-4b}{Qwen 3.5 4B} & 4.7B & AA 20 (reasoning, estimated) and 16 (non-reasoning), 262K context, and Apache 2.0. It recovered 2/2 obsolete dates: a constrained temporal candidate despite truncation and errors. \\
+\midrule
 \href{https://artificialanalysis.ai/models/phi-4-mini}{Phi-4 Mini} & 3.8B & AA 6 (estimated), 128K context, open weights, and MIT. A distinct architecture for evidence verification. \\
 \bottomrule
 \end{tabularx}
+}
 
 \callout{\textbf{Selection.} \href{https://artificialanalysis.ai/models/}{Artificial Analysis} supplies the common framework and local pilots provide task evidence. The final choice will use F1, evidence precision, unsupported claims, JSON validity, and runtime.}
 

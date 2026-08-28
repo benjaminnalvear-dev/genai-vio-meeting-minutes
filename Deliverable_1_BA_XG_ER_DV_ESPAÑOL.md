@@ -139,15 +139,22 @@ Veredicto & \textbf{\color{alert}NO APROBÓ} & \textbf{\color{alert}NO APROBÓ} 
 
 \sectionbar{5. TRES CANDIDATOS DE PESOS ABIERTOS ($<8$B)}
 
-\begin{tabularx}{\linewidth}{>{\bfseries}p{0.22\linewidth}p{0.12\linewidth}X}
+{\fontsize{7.2}{7.8}\selectfont
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\begin{tabularx}{\linewidth}{>{\bfseries\raggedright\arraybackslash}m{0.22\linewidth}>{\raggedright\arraybackslash}m{0.12\linewidth}>{\raggedright\arraybackslash}X}
 \toprule
 Modelo & Parám. & Justificación basada en benchmarks y tarea \\
 \midrule
 \href{https://artificialanalysis.ai/models/ministral-3-3b}{Ministral 3} & Clase 3B & AA 7, contexto 256K, pesos abiertos, Apache 2.0 y JSON nativo. El piloto lo sostiene como línea base de extracción. \\
+\midrule
 \href{https://artificialanalysis.ai/models/qwen3-5-4b}{Qwen 3.5 4B} & 4.7B & AA 20 (razonamiento, estimado) y 16 (sin razonamiento), contexto 262K y Apache 2.0. Recuperó 2/2 fechas obsoletas: candidato restringido para resolución temporal pese al corte y errores. \\
+\midrule
 \href{https://artificialanalysis.ai/models/phi-4-mini}{Phi-4 Mini} & 3.8B & AA 6 (estimado), contexto 128K, pesos abiertos y MIT. Arquitectura distinta para verificar evidencia. \\
 \bottomrule
 \end{tabularx}
+}
 
 \callout{\textbf{Selección.} \href{https://artificialanalysis.ai/models/}{Artificial Analysis} aporta el marco común y los pilotos, evidencia de la tarea. La decisión final usará F1, precisión de evidencia, afirmaciones sin respaldo, validez JSON y tiempo.}
 
