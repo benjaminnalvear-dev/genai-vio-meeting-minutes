@@ -88,7 +88,7 @@ Use the transcript byte-for-byte with the canonical prompt when comparing models
 |   |-- 02_salida_qwen_8k.json                 # Raw Qwen response and Ollama metrics
 |   `-- 02_auditoria_qwen.md                   # Evidence-backed Qwen audit
 `-- scripts/
-    `-- run_ministral_test.ps1                 # Reproduction script
+    `-- run_model_test.ps1                     # Model-agnostic reproduction script
 ```
 
 ## Reproduce the controlled run
@@ -102,10 +102,10 @@ Requirements:
 From the repository root:
 
 ```powershell
-.\scripts\run_ministral_test.ps1
+.\scripts\run_model_test.ps1
 
 # Equivalent Qwen run
-.\scripts\run_ministral_test.ps1 -Model qwen3.5:4b
+.\scripts\run_model_test.ps1 -Model qwen3.5:4b
 ```
 
 If the local execution policy blocks scripts, invoke the same command with `powershell -NoProfile -ExecutionPolicy Bypass -File`. The script reads and transports UTF-8 explicitly, uses an 8192-token context, temperature 0, seed 42, native JSON mode, and a 3000-token output limit. It creates a model-specific timestamped JSON result without overwriting an audited run.
