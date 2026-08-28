@@ -130,13 +130,13 @@ Ampliar el contexto y forzar JSON nativo corrigió el formato y recuperó la fec
 \toprule
 Modelo & Parám. & Justificación basada en benchmarks y tarea \\
 \midrule
-Ministral 3 & 3.8B & JSON/extracción nativos y soporte de español. Resultados oficiales: MMLU multilingüe 65.2; WildBench 56.8. El piloto local revela las debilidades que debe corregir el sistema. \\
-Qwen 3.5 4B & 4B LM & Mejor candidato para resolver estados temporales: IFEval 89.8, LongBench v2 50.0 y MMMLU multilingüe 76.1; contexto nativo de 262K. \\
-Phi-4 Mini & 3.8B & Candidato a verificador independiente: BigBench Hard 70.4 y MMLU multilingüe 49.3; soporte de español y contexto de 128K. \\
+\href{https://artificialanalysis.ai/models/ministral-3-3b}{Ministral 3} & Clase 3B & Índice AA 7, contexto 256K, pesos abiertos y licencia Apache 2.0. Su JSON/extracción nativos y el piloto local lo convierten en la línea base de extracción. \\
+\href{https://artificialanalysis.ai/models/qwen3-5-4b}{Qwen 3.5 4B} & 4.7B & Índice AA 20 (razonamiento, estimado) y 16 (sin razonamiento), contexto 262K y Apache 2.0. Su mayor puntaje independiente lo hace el candidato principal para resolución temporal. \\
+\href{https://artificialanalysis.ai/models/phi-4-mini}{Phi-4 Mini} & 3.8B & Índice AA 6 (estimado), contexto 128K, pesos abiertos y licencia MIT. Aporta una arquitectura distinta para probar la verificación de evidencia. \\
 \bottomrule
 \end{tabularx}
 
-\callout{\textbf{Caso para bonificación.} Todos los candidatos tienen cerca de la mitad del límite de 8B. Se eligieron por capacidades complementarias de extracción, resolución multilingüe de contexto largo y verificación, no solo por su tamaño.}
+\callout{\textbf{Evidencia independiente de selección.} \href{https://artificialanalysis.ai/models/}{Artificial Analysis} compara modelos bajo un mismo marco de inteligencia, contexto, apertura, velocidad y latencia, respaldando a Qwen como candidato principal inicial mientras los tres cumplen el límite de 8B. Estos resultados generales y de API alojadas orientan la preselección; el F1 sobre transcripciones, la precisión de evidencia, la tasa de alucinaciones y el tiempo local determinarán el modelo y los roles finales.}
 
 \sectionbar{6. SISTEMA PROPUESTO}
 
@@ -203,6 +203,7 @@ Fuentes públicas de modelos y benchmarks:
 \href{https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512}{Mistral AI, Ministral 3 3B};
 \href{https://huggingface.co/Qwen/Qwen3.5-4B}{Qwen, Qwen3.5-4B};
 \href{https://huggingface.co/microsoft/Phi-4-mini-instruct}{Microsoft, Phi-4 Mini Instruct}.
+Comparación independiente consultada el 28 de agosto de 2026: \href{https://artificialanalysis.ai/models/}{Artificial Analysis, Model Benchmarks}.
 }
 
 \end{minipage}

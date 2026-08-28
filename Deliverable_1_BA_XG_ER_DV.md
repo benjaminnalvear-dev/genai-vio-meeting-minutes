@@ -130,13 +130,13 @@ Expanding context and enforcing native JSON fixed the output format and recovere
 \toprule
 Model & Params. & Benchmark- and task-grounded rationale \\
 \midrule
-Ministral 3 & 3.8B & Native JSON/data extraction and Spanish support. Official results: Multilingual MMLU 65.2; WildBench 56.8. Local pilot exposes the exact weaknesses the pipeline must correct. \\
-Qwen 3.5 4B & 4B LM & Best temporal resolver candidate: IFEval 89.8, LongBench v2 50.0, and multilingual MMMLU 76.1; 262K native context. \\
-Phi-4 Mini & 3.8B & Independent verifier candidate: BigBench Hard 70.4 and Multilingual MMLU 49.3; Spanish support and 128K context. \\
+\href{https://artificialanalysis.ai/models/ministral-3-3b}{Ministral 3} & 3B class & Artificial Analysis (AA) Index 7, 256K context, open weights, and Apache 2.0. Native JSON/data extraction and the local pilot make it the extraction baseline. \\
+\href{https://artificialanalysis.ai/models/qwen3-5-4b}{Qwen 3.5 4B} & 4.7B & AA Index 20 (reasoning, estimated) and 16 (non-reasoning), with 262K context and Apache 2.0. Its leading independent score makes it the primary temporal-resolver candidate. \\
+\href{https://artificialanalysis.ai/models/phi-4-mini}{Phi-4 Mini} & 3.8B & AA Index 6 (estimated), 128K context, open weights, and MIT license. It provides a distinct architecture for testing evidence verification. \\
 \bottomrule
 \end{tabularx}
 
-\callout{\textbf{Bonus case.} All candidates are roughly half the 8B ceiling. They were chosen for complementary extraction, long-context multilingual resolution, and verification capabilities---not for size alone.}
+\callout{\textbf{Independent selection evidence.} \href{https://artificialanalysis.ai/models/}{Artificial Analysis} compares models under one framework for intelligence, context, openness, speed, and latency, supporting Qwen as the initial lead while all three remain under 8B. These general and hosted-API results guide preselection; transcript-specific F1, evidence precision, hallucination rate, and local runtime will determine the final model and roles.}
 
 \sectionbar{6. PROPOSED SYSTEM}
 
@@ -203,6 +203,7 @@ Public benchmark/model sources:
 \href{https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512}{Mistral AI, Ministral 3 3B};
 \href{https://huggingface.co/Qwen/Qwen3.5-4B}{Qwen, Qwen3.5-4B};
 \href{https://huggingface.co/microsoft/Phi-4-mini-instruct}{Microsoft, Phi-4 Mini Instruct}.
+Independent comparison accessed August 28, 2026: \href{https://artificialanalysis.ai/models/}{Artificial Analysis, Model Benchmarks}.
 }
 
 \end{minipage}
