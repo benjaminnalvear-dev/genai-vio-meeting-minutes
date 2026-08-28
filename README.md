@@ -58,6 +58,21 @@ The prompt requires every model to:
 
 For a standardized model comparison, use this prompt and the same transcript without modifications, keep the reference annotation hidden, and record the model version, context size, output limit, temperature, seed, JSON mode, raw response, and runtime metrics. Any future prompt revision should be saved as a new version rather than overwriting this baseline.
 
+## Standardized simulation transcript
+
+The exact simulated meeting used in both controlled runs is preserved in [`pruebas/01_transcripcion_reunion_simulada.md`](./pruebas/01_transcripcion_reunion_simulada.md). It is the canonical input fixture for future baseline comparisons.
+
+The simulation contains 69 timestamped utterances from four participants and separately identifies three people who are mentioned but are not present. It deliberately tests:
+
+- interruptions and topic switching;
+- launch dates that change from a proposal to rejected and superseded states before the final agreement;
+- rejected tools and communication channels;
+- conditional tasks, dependencies, missing owners, and revised deadlines;
+- relative expressions such as “tomorrow” and “Monday” that must be resolved from the meeting date;
+- the distinction between attendees, absent people, proposals, decisions, and pending issues.
+
+Use the transcript byte-for-byte with the canonical prompt when comparing models. Do not include [`pruebas/01_gold_referencia.md`](./pruebas/01_gold_referencia.md) in the model context: it is reserved exclusively for evaluation. New simulations or corrections must be saved as separately versioned fixtures so previous results remain reproducible.
+
 ## Repository structure
 
 ```text
