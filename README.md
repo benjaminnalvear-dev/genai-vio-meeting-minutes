@@ -43,6 +43,21 @@ The 8K run recovered the final launch date, SMTP/MailFast decision, and several 
 
 Qwen represented both obsolete launch dates and recovered the WhatsApp rejection, but it was overly verbose and stopped inside its eighth action item. It also produced invalid decision states, invented or contradicted tasks, misresolved at least four calendar dates, and used non-entailing evidence. The model loaded locally at 75% CPU / 25% GPU with about 1.74 GB of observed VRAM use, demonstrating execution feasibility but not task completion.
 
+## Standardized baseline prompt
+
+The exact Spanish prompt used in the controlled Ministral and Qwen runs is preserved in [`pruebas/01_prompt_directo_ministral.md`](./pruebas/01_prompt_directo_ministral.md). Despite its historical filename, it is model-independent and is the canonical direct-prompt baseline for future comparisons.
+
+The prompt requires every model to:
+
+- return only valid JSON using the fixed `meeting`, `decisions`, `action_items`, `pending_issues`, and `review_alerts` structure;
+- distinguish final, superseded, and rejected decisions without treating proposals as agreements;
+- extract each task's assignee, deadline, conditions, and status, using `null` when information was not agreed;
+- resolve relative dates from the meeting date;
+- attach exact transcript quotes and utterance IDs that actually support each reported item;
+- avoid inventing people, dates, tools, responsibilities, or agreements.
+
+For a standardized model comparison, use this prompt and the same transcript without modifications, keep the reference annotation hidden, and record the model version, context size, output limit, temperature, seed, JSON mode, raw response, and runtime metrics. Any future prompt revision should be saved as a new version rather than overwriting this baseline.
+
 ## Repository structure
 
 ```text
