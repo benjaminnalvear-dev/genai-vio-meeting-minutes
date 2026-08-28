@@ -24,16 +24,16 @@
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{1.3pt}
+\setlength{\parskip}{0.9pt}
 \setlist[itemize]{leftmargin=1.1em,itemsep=0.35pt,topsep=0.65pt,parsep=0pt}
 \setlist[enumerate]{leftmargin=1.35em,itemsep=0.35pt,topsep=0.65pt,parsep=0pt}
 \renewcommand{\arraystretch}{1.06}
 \color{ink}
 
 \newcommand{\sectionbar}[1]{%
-  \vspace{1pt}%
+  \vspace{0.25pt}%
   \colorbox{navy}{\parbox{\dimexpr\linewidth-2\fboxsep}{\color{white}\bfseries\sffamily #1}}%
-  \vspace{1pt}%
+  \vspace{0.25pt}%
 }
 \newcommand{\callout}[1]{%
   \colorbox{ice}{\parbox{\dimexpr\linewidth-2\fboxsep}{#1}}%
@@ -42,7 +42,7 @@
 
 \begin{document}
 \sffamily
-\fontsize{8.55}{9.3}\selectfont
+\fontsize{7.9}{8.5}\selectfont
 
 \colorbox{navy}{%
   \parbox{\dimexpr\textwidth-2\fboxsep}{%
@@ -55,7 +55,7 @@
   }%
 }
 
-\vspace{3pt}
+\vspace{2pt}
 
 \begin{minipage}[t]{0.318\textwidth}
 \vspace{0pt}
@@ -102,27 +102,40 @@ Las reuniones reales son desordenadas: las personas se interrumpen, cambian de t
 \begin{minipage}[t]{0.349\textwidth}
 \vspace{0pt}
 \raggedright
-\sectionbar{4. FALLA OBSERVADA DEL PROMPT DIRECTO}
+\fontsize{7.7}{8.25}\selectfont
+\sectionbar{4. LA PRUEBA Y SU RESULTADO}
 
-\textbf{Prueba reproducible.} Una reunión sintética de estilo espontáneo, con 69 intervenciones, cuatro asistentes y tres personas solo mencionadas, se entregó a \texttt{ministral-3:3b}. El prompt directo exigió estados finales/sustituidos/rechazados, tareas, condiciones y evidencia exacta.
+\textbf{Qué pidió el prompt.} Convertir 69 intervenciones en solo JSON válido; separar decisiones finales, sustituidas y rechazadas; extraer tareas con responsable, plazo, condición y estado; resolver fechas relativas; y citar evidencia textual exacta sin inventar datos. La pauta no se entregó al modelo.
 
-\begin{tabularx}{\linewidth}{>{\bfseries}p{0.43\linewidth}X}
+{\fontsize{7.2}{7.8}\selectfont
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\begin{tabularx}{\linewidth}{>{\bfseries\raggedright\arraybackslash}m{0.24\linewidth}>{\raggedright\arraybackslash}m{0.31\linewidth}>{\raggedright\arraybackslash}X}
 \toprule
-Elemento auditado & Resultado observado \\
+Criterio & Ministral 3B & Qwen 3.5 4B \\
 \midrule
-Contexto 4K predeterminado & Entrada recortada; Markdown en vez de JSON \\
-8K controlado + modo JSON & JSON válido; 22m06s; 1.86 tok/s \\
-Estados sustituidos & 0 de 2 esperados \\
-Ideas rechazadas & 0; omitió el rechazo de WhatsApp \\
-Tareas & 6 de 7; mezcló dos responsabilidades \\
-Responsable sin respaldo & Asignó a Paula pese al rechazo explícito \\
-Plazo revisado & Incorrecto: 01:00 en vez de 13:00 \\
-Evidencia no concluyente & Al menos 5 vínculos de campo \\
+Salida final & JSON completo, pero no confiable & JSON truncado e inválido \\
+\midrule
+Fechas de apertura & Omitió viernes y lunes descartados & Registró viernes $\rightarrow$ lunes $\rightarrow$ miércoles final \\
+\midrule
+Canal de soporte & Omitió la decisión de usar solo correo & Registró correo; WhatsApp descartado \\
+\midrule
+Tareas & 6 de 7; mezcló 2 & Escribió 7; al menos 3 eran incorrectas \\
+\midrule
+Plazos & Cambió 13:00 por 01:00 & Al menos 4 fechas erróneas \\
+\midrule
+Citas de respaldo & Al menos 5 incorrectas & Al menos 6 incorrectas \\
+\midrule
+Tiempo & 22m06s & 16m08s; cerca de 6m más rápido \\
+\midrule
+Veredicto & \textbf{\color{alert}NO APROBÓ} & \textbf{\color{alert}NO APROBÓ} \\
 \bottomrule
 \end{tabularx}
+}
 
 \vspace{1pt}
-Ampliar el contexto y forzar JSON nativo corrigió el formato y recuperó la fecha final del piloto, pero no el estado completo de la reunión. El modelo aún mezcló temas, omitió revisiones y rechazos, asignó a una persona ausente y citó evidencia que contradecía sus propios campos.
+\callout{\textbf{Por qué no funcionó.} Ministral cumplió el formato, pero omitió revisiones y usó citas que no respaldaban sus campos. Qwen siguió mejor los cambios, pero agotó los 3.000 tokens, dejó JSON inválido, inventó tareas y normalizó mal fechas. \textbf{Ninguno produjo el acta verificable solicitada.}}
 
 \sectionbar{5. TRES CANDIDATOS DE PESOS ABIERTOS ($<8$B)}
 
@@ -130,13 +143,13 @@ Ampliar el contexto y forzar JSON nativo corrigió el formato y recuperó la fec
 \toprule
 Modelo & Parám. & Justificación basada en benchmarks y tarea \\
 \midrule
-\href{https://artificialanalysis.ai/models/ministral-3-3b}{Ministral 3} & Clase 3B & Índice AA 7, contexto 256K, pesos abiertos y licencia Apache 2.0. Su JSON/extracción nativos y el piloto local lo convierten en la línea base de extracción. \\
-\href{https://artificialanalysis.ai/models/qwen3-5-4b}{Qwen 3.5 4B} & 4.7B & Índice AA 20 (razonamiento, estimado) y 16 (sin razonamiento), contexto 262K y Apache 2.0. Su mayor puntaje independiente lo hace el candidato principal para resolución temporal. \\
-\href{https://artificialanalysis.ai/models/phi-4-mini}{Phi-4 Mini} & 3.8B & Índice AA 6 (estimado), contexto 128K, pesos abiertos y licencia MIT. Aporta una arquitectura distinta para probar la verificación de evidencia. \\
+\href{https://artificialanalysis.ai/models/ministral-3-3b}{Ministral 3} & Clase 3B & AA 7, contexto 256K, pesos abiertos, Apache 2.0 y JSON nativo. El piloto lo sostiene como línea base de extracción. \\
+\href{https://artificialanalysis.ai/models/qwen3-5-4b}{Qwen 3.5 4B} & 4.7B & AA 20 (razonamiento, estimado) y 16 (sin razonamiento), contexto 262K y Apache 2.0. Recuperó 2/2 fechas obsoletas: candidato restringido para resolución temporal pese al corte y errores. \\
+\href{https://artificialanalysis.ai/models/phi-4-mini}{Phi-4 Mini} & 3.8B & AA 6 (estimado), contexto 128K, pesos abiertos y MIT. Arquitectura distinta para verificar evidencia. \\
 \bottomrule
 \end{tabularx}
 
-\callout{\textbf{Evidencia independiente de selección.} \href{https://artificialanalysis.ai/models/}{Artificial Analysis} compara modelos bajo un mismo marco de inteligencia, contexto, apertura, velocidad y latencia, respaldando a Qwen como candidato principal inicial mientras los tres cumplen el límite de 8B. Estos resultados generales y de API alojadas orientan la preselección; el F1 sobre transcripciones, la precisión de evidencia, la tasa de alucinaciones y el tiempo local determinarán el modelo y los roles finales.}
+\callout{\textbf{Selección.} \href{https://artificialanalysis.ai/models/}{Artificial Analysis} aporta el marco común y los pilotos, evidencia de la tarea. La decisión final usará F1, precisión de evidencia, afirmaciones sin respaldo, validez JSON y tiempo.}
 
 \sectionbar{6. SISTEMA PROPUESTO}
 
@@ -155,47 +168,48 @@ Las etapas intercambian JSON validado contra el esquema. Solo los registros veri
 \raggedright
 \sectionbar{7. PLAN DE EVALUACIÓN}
 
-\textbf{Datos de referencia.} Dos integrantes anotan independientemente transcripciones en español con interrupciones, plazos ausentes, tareas condicionales, referencias implícitas, propuestas rechazadas y decisiones revisadas más de una vez; los desacuerdos se adjudican.
+\textbf{Datos de referencia.} Dos integrantes anotan por separado transcripciones en español con interrupciones, plazos ausentes, tareas condicionales, referencias implícitas, rechazos y decisiones revisadas; los desacuerdos se adjudican.
 
 \textbf{Comparaciones controladas}
 \begin{enumerate}
   \item Mismo prompt directo para los tres modelos.
-  \item Mismos roles de agentes con un modelo base a la vez.
+  \item Mismos roles; un modelo base a la vez.
   \item Sistema heterogéneo Ministral $\rightarrow$ Qwen $\rightarrow$ Phi.
   \item Ablaciones sin resolución temporal o verificación.
 \end{enumerate}
 
-\textbf{Controles.} Misma transcripción, esquema, cuantización clase Q4, presupuestos de contexto/salida y temperatura 0. Guardar prompts, salidas sin procesar, tiempo de ejecución y versión del modelo.
+\textbf{Controles.} Misma transcripción, esquema, cuantización Q4, presupuestos de contexto/salida y temperatura 0. Se guardan prompts, salidas crudas, tiempo y versión.
 
 \textbf{Medidas principales}
 \begin{itemize}
   \item F1 de decisiones finales y tareas acordadas;
   \item macro-F1 del estado final/rechazado/sustituido/pendiente;
   \item exactitud de responsable, plazo y condición;
-  \item precisión de evidencia y tasa de afirmaciones sin respaldo;
+  \item precisión de evidencia y afirmaciones sin respaldo;
   \item validez JSON, latencia y máximo uso de RAM/VRAM.
 \end{itemize}
 
 \sectionbar{8. FACTIBILIDAD DE EJECUCIÓN}
 
-\begin{tabularx}{\linewidth}{>{\bfseries}p{0.29\linewidth}X}
+\begin{tabularx}{\linewidth}{>{\bfseries\raggedright\arraybackslash}p{0.29\linewidth}>{\raggedright\arraybackslash}X}
 Hardware & Intel i5-9300H; 15.8 GB RAM; GTX 1050 3 GB \\
-Entorno & Ollama 0.32.15 en Windows \\
-Ejecución medida & Ministral 3 Q4\_K\_M, 3.0 GB: prueba 8K generó 2,386 tokens en 22m06s (1.86 tok/s) \\
-Memoria & Los pesos de 4 bits ocupan aprox. 1.9--2.5 GB/modelo; cada uno cabe por separado en 15.8 GB RAM más la sobrecarga \\
-Despliegue & CPU/GPU híbrido secuencial; bloques de 4K--8K; Colab gratuito como respaldo \\
+Entorno & Ollama 0.32.15 / 0.33.1; Windows \\
+Corrida Ministral & Q4\_K\_M, 3.0 GB: 2,386 tokens en 22m06s (1.86 tok/s) \\
+Corrida Qwen & Q4\_K\_M, 3.4 GB: 3,000 tokens en 16m08s (3.24 tok/s); 75/25 CPU/GPU \\
+Memoria & Qwen: aprox. 1.74 GB VRAM y menos de 6 GB privados \\
+Despliegue & CPU/GPU secuencial; bloques 4K--8K; Colab como respaldo \\
 \end{tabularx}
 
-La carga secuencial evita mantener tres modelos simultáneamente en memoria. La ejecución medida de Ministral valida la inferencia local; los otros dos aún deben cronometrarse bajo los mismos controles.
+Ambos modelos generaron localmente; la carga secuencial evita mantenerlos simultáneamente. Falta cronometrar Phi con los mismos controles.
 
 \sectionbar{9. REPOSITORIO Y ESTADO ACTUAL}
 
-\textbf{Repositorio:} \href{\repositoryurl}{\color{blue}\texttt{github.com/benjaminnalvear-dev/genai-vio-meeting-minutes}}
+\textbf{Repositorio:} \href{\repositoryurl}{\color{blue}\texttt{Repositorio del proyecto en GitHub}}
 
-\textbf{Debe contener:} tarea/esquema, equipo, prompt y salida del piloto, auditoría, versiones de modelos/entorno y pasos de reproducción.
+\textbf{Debe contener:} tarea/esquema, equipo, piloto y salida, auditoría, versiones y pasos de reproducción.
 
-\textbf{Completado:} definición; prueba reproducible de 69 intervenciones; corridas Ministral 4K/8K; auditoría de hardware y salida.\par
-\textbf{Siguiente:} anotar más datos de referencia; ejecutar Qwen y Phi; implementar resolución temporal y verificación de evidencia.
+\textbf{Completado:} definición; pauta de 69 intervenciones; corridas controladas Ministral/Qwen; salidas, auditorías y evidencia de hardware.\par
+\textbf{Siguiente:} ejecutar Phi; ampliar la pauta; implementar resolución temporal y verificación de evidencia.
 
 \vfill
 {\fontsize{6.15}{6.8}\selectfont\color{muted}

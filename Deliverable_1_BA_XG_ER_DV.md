@@ -24,16 +24,16 @@
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{1.3pt}
+\setlength{\parskip}{0.9pt}
 \setlist[itemize]{leftmargin=1.1em,itemsep=0.35pt,topsep=0.65pt,parsep=0pt}
 \setlist[enumerate]{leftmargin=1.35em,itemsep=0.35pt,topsep=0.65pt,parsep=0pt}
 \renewcommand{\arraystretch}{1.06}
 \color{ink}
 
 \newcommand{\sectionbar}[1]{%
-  \vspace{1pt}%
+  \vspace{0.25pt}%
   \colorbox{navy}{\parbox{\dimexpr\linewidth-2\fboxsep}{\color{white}\bfseries\sffamily #1}}%
-  \vspace{1pt}%
+  \vspace{0.25pt}%
 }
 \newcommand{\callout}[1]{%
   \colorbox{ice}{\parbox{\dimexpr\linewidth-2\fboxsep}{#1}}%
@@ -42,20 +42,20 @@
 
 \begin{document}
 \sffamily
-\fontsize{8.55}{9.3}\selectfont
+\fontsize{7.9}{8.5}\selectfont
 
 \colorbox{navy}{%
   \parbox{\dimexpr\textwidth-2\fboxsep}{%
     \color{white}
-    {\fontsize{17}{18.5}\selectfont\bfseries Reliable Meeting Minutes from Noisy Transcripts}\hfill
+    {\fontsize{15.5}{17}\selectfont\bfseries Reliable Meeting Minutes from Noisy Transcripts}\hfill
     {\normalsize Deliverable 1}\par
     \vspace{1pt}
-    {\fontsize{7.4}{8}\selectfont Benjamin Alvear \textbullet{} Eduardo Ruiz \textbullet{} Xavier Godoy \textbullet{} Damian Vera
+    {\fontsize{6.8}{7.4}\selectfont Benjamin Alvear \textbullet{} Eduardo Ruiz \textbullet{} Xavier Godoy \textbullet{} Damian Vera
     \hfill Generative Artificial Intelligence (580694) \textbullet{} Due August 31, 2026}
   }%
 }
 
-\vspace{3pt}
+\vspace{2pt}
 
 \begin{minipage}[t]{0.318\textwidth}
 \vspace{0pt}
@@ -102,27 +102,40 @@ Real meetings are disorderly: people interrupt one another, switch topics, chang
 \begin{minipage}[t]{0.349\textwidth}
 \vspace{0pt}
 \raggedright
-\sectionbar{4. OBSERVED DIRECT-PROMPT FAILURE}
+\fontsize{7.7}{8.25}\selectfont
+\sectionbar{4. THE TEST AND ITS RESULT}
 
-\textbf{Reproducible test.} A synthetic but unscripted-style meeting with 69 utterances, four attendees, and three mentioned non-participants was given to \texttt{ministral-3:3b}. The direct prompt required final/superseded/rejected states, tasks, conditions, and exact evidence.
+\textbf{What the prompt required.} Convert 69 utterances into valid JSON only; separate final, superseded, and rejected decisions; extract tasks with assignee, deadline, condition, and status; resolve relative dates; and cite exact textual evidence without inventing data. The reference annotation was withheld.
 
-\begin{tabularx}{\linewidth}{>{\bfseries}p{0.43\linewidth}X}
+{\fontsize{7.2}{7.8}\selectfont
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\begin{tabularx}{\linewidth}{>{\bfseries\raggedright\arraybackslash}m{0.24\linewidth}>{\raggedright\arraybackslash}m{0.31\linewidth}>{\raggedright\arraybackslash}X}
 \toprule
-Audit item & Observed result \\
+Criterion & Ministral 3B & Qwen 3.5 4B \\
 \midrule
-Default 4K context & Input truncated; Markdown instead of JSON \\
-Controlled 8K + JSON mode & Valid JSON; 22m06s; 1.86 tok/s \\
-Superseded states & 0 of 2 expected \\
-Rejected ideas & 0; WhatsApp rejection omitted \\
-Action items & 6 of 7; two responsibilities merged \\
-Unsupported assignee & Paula assigned despite explicit rejection \\
-Revised deadline & Wrong: 01:00 instead of 13:00 \\
-Non-entailing evidence & At least 5 field links \\
+Final output & Complete JSON, but unreliable & Truncated, invalid JSON \\
+\midrule
+Launch dates & Missed discarded Friday and Monday & Recorded Friday $\rightarrow$ Monday $\rightarrow$ final Wednesday \\
+\midrule
+Support channel & Missed the email-only decision & Recorded email; WhatsApp discarded \\
+\midrule
+Tasks & 6 of 7; merged 2 & Wrote 7; at least 3 were wrong \\
+\midrule
+Deadlines & Changed 13:00 to 01:00 & At least 4 wrong dates \\
+\midrule
+Supporting quotes & At least 5 incorrect & At least 6 incorrect \\
+\midrule
+Time & 22m06s & 16m08s; about 6m faster \\
+\midrule
+Verdict & \textbf{\color{alert}DID NOT PASS} & \textbf{\color{alert}DID NOT PASS} \\
 \bottomrule
 \end{tabularx}
+}
 
 \vspace{1pt}
-Expanding context and enforcing native JSON fixed the output format and recovered the final launch date, but not the complete meeting state. The model still merged topics, missed revisions/rejections, assigned an absent person, and cited evidence that contradicted its own fields.
+\callout{\textbf{Why it failed.} Ministral met the format but omitted revisions and cited quotes that did not support its fields. Qwen tracked changes better, but exhausted 3,000 tokens, left invalid JSON, invented tasks, and normalized dates incorrectly. \textbf{Neither produced the requested verifiable minutes.}}
 
 \sectionbar{5. THREE OPEN-WEIGHT CANDIDATES ($<8$B)}
 
@@ -130,13 +143,13 @@ Expanding context and enforcing native JSON fixed the output format and recovere
 \toprule
 Model & Params. & Benchmark- and task-grounded rationale \\
 \midrule
-\href{https://artificialanalysis.ai/models/ministral-3-3b}{Ministral 3} & 3B class & Artificial Analysis (AA) Index 7, 256K context, open weights, and Apache 2.0. Native JSON/data extraction and the local pilot make it the extraction baseline. \\
-\href{https://artificialanalysis.ai/models/qwen3-5-4b}{Qwen 3.5 4B} & 4.7B & AA Index 20 (reasoning, estimated) and 16 (non-reasoning), with 262K context and Apache 2.0. Its leading independent score makes it the primary temporal-resolver candidate. \\
-\href{https://artificialanalysis.ai/models/phi-4-mini}{Phi-4 Mini} & 3.8B & AA Index 6 (estimated), 128K context, open weights, and MIT license. It provides a distinct architecture for testing evidence verification. \\
+\href{https://artificialanalysis.ai/models/ministral-3-3b}{Ministral 3} & 3B class & AA 7, 256K context, open weights, Apache 2.0, and native JSON. The pilot supports it as the extraction baseline. \\
+\href{https://artificialanalysis.ai/models/qwen3-5-4b}{Qwen 3.5 4B} & 4.7B & AA 20 (reasoning, estimated) and 16 (non-reasoning), 262K context, and Apache 2.0. It recovered 2/2 obsolete dates: a constrained temporal candidate despite truncation and errors. \\
+\href{https://artificialanalysis.ai/models/phi-4-mini}{Phi-4 Mini} & 3.8B & AA 6 (estimated), 128K context, open weights, and MIT. A distinct architecture for evidence verification. \\
 \bottomrule
 \end{tabularx}
 
-\callout{\textbf{Independent selection evidence.} \href{https://artificialanalysis.ai/models/}{Artificial Analysis} compares models under one framework for intelligence, context, openness, speed, and latency, supporting Qwen as the initial lead while all three remain under 8B. These general and hosted-API results guide preselection; transcript-specific F1, evidence precision, hallucination rate, and local runtime will determine the final model and roles.}
+\callout{\textbf{Selection.} \href{https://artificialanalysis.ai/models/}{Artificial Analysis} supplies the common framework and local pilots provide task evidence. The final choice will use F1, evidence precision, unsupported claims, JSON validity, and runtime.}
 
 \sectionbar{6. PROPOSED SYSTEM}
 
@@ -178,24 +191,25 @@ Stages exchange schema-validated JSON. Only verified records reach the renderer,
 
 \sectionbar{8. EXECUTION FEASIBILITY}
 
-\begin{tabularx}{\linewidth}{>{\bfseries}p{0.29\linewidth}X}
+\begin{tabularx}{\linewidth}{>{\bfseries\raggedright\arraybackslash}p{0.29\linewidth}>{\raggedright\arraybackslash}X}
 Hardware & Intel i5-9300H; 15.8 GB RAM; GTX 1050 3 GB \\
-Runtime & Ollama 0.32.15 on Windows \\
-Measured run & Ministral 3 Q4\_K\_M, 3.0 GB: 8K test generated 2,386 tokens in 22m06s (1.86 tok/s) \\
-Memory check & Raw 4-bit weights are about 1.9--2.5 GB/model; each fits individually in 15.8 GB RAM plus runtime overhead \\
+Runtime & Ollama 0.32.15 (Ministral) / 0.33.1 (Qwen), Windows \\
+Ministral run & Q4\_K\_M, 3.0 GB: 2,386 tokens in 22m06s (1.86 tok/s) \\
+Qwen run & Q4\_K\_M, 3.4 GB: 3,000 tokens in 16m08s (3.24 tok/s); 75/25 CPU/GPU \\
+Memory check & Qwen used about 1.74 GB VRAM and under 6 GB private memory in observed samples \\
 Deployment & Sequential CPU/GPU hybrid; 4K--8K chunks; free Colab GPU fallback \\
 \end{tabularx}
 
-Sequential loading avoids holding three backbones in memory simultaneously. The measured Ministral run validates the local inference path; the other two remain to be timed under the same controls.
+Both tested backbones loaded and generated locally; sequential loading avoids holding them simultaneously. Phi remains to be timed under the same controls.
 
 \sectionbar{9. REPOSITORY \& CURRENT STATE}
 
-\textbf{Repository:} \href{\repositoryurl}{\color{blue}\texttt{github.com/benjaminnalvear-dev/genai-vio-meeting-minutes}}
+\textbf{Repository:} \href{\repositoryurl}{\color{blue}\texttt{Project repository on GitHub}}
 
 \textbf{Must contain:} task/schema, team, pilot prompt and output, audit, model/runtime versions, and reproducibility steps.
 
-\textbf{Completed:} task definition; reproducible 69-utterance test; controlled 4K/8K Ministral runs; hardware and output audit.\par
-\textbf{Next:} annotate more gold data; run Qwen and Phi; implement temporal resolution and evidence verification.
+\textbf{Completed:} task definition; 69-utterance gold test; controlled Ministral and Qwen runs; raw outputs, audits, and hardware evidence.\par
+\textbf{Next:} run Phi; expand gold data; implement temporal resolution and evidence verification.
 
 \vfill
 {\fontsize{6.15}{6.8}\selectfont\color{muted}
