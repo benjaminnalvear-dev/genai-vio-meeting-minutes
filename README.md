@@ -86,6 +86,7 @@ The script uses the same prompt and transcript with an 8192-token context, tempe
 ## Deliverable sources
 
 - [English executive-summary source](./Deliverable_1_BA_XG_ER_DV.md)
+- [English Overleaf project](https://www.overleaf.com/project/6a908843640c3222e9a668e2)
 - [Spanish executive-summary source](./Deliverable_1_BA_XG_ER_DV_ESPAÑOL.md)
 
 Both files contain LaTeX ready to paste into Overleaf. Any future content or layout change must be applied to both language versions.
