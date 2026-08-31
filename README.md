@@ -38,10 +38,13 @@ The repository includes a synthetic, unscripted-style Spanish meeting with 69 ut
 | Ministral 3 3B, default 4K | Input truncated; Markdown instead of JSON | Exploratory run |
 | Ministral 3 3B, controlled 8K | Valid JSON, but incomplete and semantically inconsistent | 2,386 tokens in 22 min 6 s; 1.86 tok/s |
 | Qwen 3.5 4B Q4_K_M, controlled 8K | Recovered temporal history, but exhausted 3,000 tokens and left invalid JSON | 3,000 tokens in 16 min 8 s; 3.24 tok/s |
+| Phi-4 Mini Q4_K_M, controlled 8K | Valid, complete JSON structure, but lost the final launch state and most tasks | 1,211 tokens in 7 min 58 s; 2.93 tok/s |
 
 The 8K run recovered the final launch date, SMTP/MailFast decision, and several tasks. However, it recovered 0 of 2 superseded states, omitted the WhatsApp rejection, merged responsibilities, assigned support to an absent person despite explicit contrary evidence, and interpreted 13:00 as 01:00.
 
 Qwen represented both obsolete launch dates and recovered the WhatsApp rejection, but it was overly verbose and stopped inside its eighth action item. It also produced invalid decision states, invented or contradicted tasks, misresolved at least four calendar dates, and used non-entailing evidence. The model loaded locally at 75% CPU / 25% GPU with about 1.74 GB of observed VRAM use, demonstrating execution feasibility but not task completion.
+
+Phi produced valid JSON with all five required top-level sections and stopped naturally after 1,211 tokens. It was the fastest run, but it marked the tentative Monday as final, changed August to March, omitted both superseded launch states and the WhatsApp rejection, and recognized only 1 of 7 expected tasks without changing the task or assignee. At least nine evidence links failed to support the generated classification or fields.
 
 ## Standardized baseline prompt
 
@@ -86,7 +89,9 @@ Use the transcript byte-for-byte with the canonical prompt when comparing models
 |   |-- 01_salida_ministral_8k.md              # Raw controlled output
 |   |-- 01_auditoria_ministral.md              # Evidence-backed audit
 |   |-- 02_salida_qwen_8k.json                 # Raw Qwen response and Ollama metrics
-|   `-- 02_auditoria_qwen.md                   # Evidence-backed Qwen audit
+|   |-- 02_auditoria_qwen.md                   # Evidence-backed Qwen audit
+|   |-- 03_salida_phi4_mini_8k.json            # Raw Phi response and Ollama metrics
+|   `-- 03_auditoria_phi4_mini.md              # Evidence-backed Phi audit
 `-- scripts/
     `-- run_model_test.ps1                     # Model-agnostic reproduction script
 ```
@@ -106,6 +111,9 @@ From the repository root:
 
 # Equivalent Qwen run
 .\scripts\run_model_test.ps1 -Model qwen3.5:4b
+
+# Equivalent Phi-4 Mini run
+.\scripts\run_model_test.ps1 -Model phi4-mini
 ```
 
 If the local execution policy blocks scripts, invoke the same command with `powershell -NoProfile -ExecutionPolicy Bypass -File`. The script reads and transports UTF-8 explicitly, uses an 8192-token context, temperature 0, seed 42, native JSON mode, and a 3000-token output limit. It creates a model-specific timestamped JSON result without overwriting an audited run.
@@ -117,7 +125,7 @@ If the local execution policy blocks scripts, invoke the same command with `powe
 - [x] Local Ministral model and hardware path validated
 - [x] Reproducible 4K/8K direct-prompt experiment audited
 - [x] Controlled Qwen 3.5 4B run and evidence audit
-- [ ] Run the same controlled test with Phi-4 Mini
+- [x] Controlled Phi-4 Mini run and evidence audit
 - [ ] Implement temporal resolver and evidence verifier stages
 - [ ] Build and annotate a larger evaluation set
 

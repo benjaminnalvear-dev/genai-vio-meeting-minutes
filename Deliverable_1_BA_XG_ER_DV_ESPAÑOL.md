@@ -107,35 +107,35 @@ Las reuniones reales son desordenadas: las personas se interrumpen, cambian de t
 
 \textbf{Qué pidió el prompt.} Convertir 69 intervenciones en solo JSON válido; separar decisiones finales, sustituidas y rechazadas; extraer tareas con responsable, plazo, condición y estado; resolver fechas relativas; y citar evidencia textual exacta sin inventar datos. La pauta no se entregó al modelo.
 
-{\fontsize{7.2}{7.8}\selectfont
-\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.12}
+{\fontsize{6.35}{6.9}\selectfont
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{1.10}
 \renewcommand{\tabularxcolumn}[1]{m{#1}}
-\begin{tabularx}{\linewidth}{>{\bfseries\raggedright\arraybackslash}m{0.24\linewidth}>{\raggedright\arraybackslash}m{0.31\linewidth}>{\raggedright\arraybackslash}X}
+\begin{tabularx}{\linewidth}{>{\bfseries\raggedright\arraybackslash}m{0.18\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
 \toprule
-Criterio & Ministral 3B & Qwen 3.5 4B \\
+Criterio & Ministral 3B & Qwen 3.5 4B & Phi-4 Mini \\
 \midrule
-Salida final & JSON completo, pero no confiable & JSON truncado e inválido \\
+Salida final & JSON válido; no confiable & JSON truncado e inválido & JSON válido; baja cobertura \\
 \midrule
-Fechas de apertura & Omitió viernes y lunes descartados & Registró viernes $\rightarrow$ lunes $\rightarrow$ miércoles final \\
+Historial apertura & 0/2 estados obsoletos & 2/2 estados obsoletos & 0/2; dejó lunes como final \\
 \midrule
-Canal de soporte & Omitió la decisión de usar solo correo & Registró correo; WhatsApp descartado \\
+Decisiones clave & Omitió soporte solo por correo & Recuperó correo; rechazó WhatsApp & Recuperó SMTP; omitió WhatsApp \\
 \midrule
-Tareas & 6 de 7; mezcló 2 & Escribió 7; al menos 3 eran incorrectas \\
+Tareas & Escribió 6/7; mezcló 2 & Escribió 7; al menos 3 mal & Reconoció 1/7; agregó 2 falsas \\
 \midrule
-Plazos & Cambió 13:00 por 01:00 & Al menos 4 fechas erróneas \\
+Plazos & Cambió 13:00 por 01:00 & Al menos 4 fechas erróneas & Perdió fecha final; usó 01:00/04:00 \\
 \midrule
-Citas de respaldo & Al menos 5 incorrectas & Al menos 6 incorrectas \\
+Enlaces de evidencia & Al menos 5 incorrectos & Al menos 6 incorrectos & Al menos 9 no concluyentes \\
 \midrule
-Tiempo & 22m06s & 16m08s; cerca de 6m más rápido \\
+Tiempo & 22m06s & 16m08s & \textbf{7m58s} \\
 \midrule
-Veredicto & \textbf{\color{alert}NO APROBÓ} & \textbf{\color{alert}NO APROBÓ} \\
+Veredicto & \textbf{\color{alert}NO APROBÓ} & \textbf{\color{alert}NO APROBÓ} & \textbf{\color{alert}NO APROBÓ} \\
 \bottomrule
 \end{tabularx}
 }
 
 \vspace{1pt}
-\callout{\textbf{Por qué no funcionó.} Ministral cumplió el formato, pero omitió revisiones y usó citas que no respaldaban sus campos. Qwen siguió mejor los cambios, pero agotó los 3.000 tokens, dejó JSON inválido, inventó tareas y normalizó mal fechas. \textbf{Ninguno produjo el acta verificable solicitada.}}
+\callout{\textbf{Por qué no funcionó.} Ministral omitió revisiones; Qwen siguió mejor los cambios, pero agotó 3.000 tokens; Phi terminó más rápido y con JSON válido, pero perdió la fecha final y reconoció solo 1/7 tareas. \textbf{Ninguno produjo el acta verificable solicitada.}}
 
 \sectionbar{5. TRES CANDIDATOS DE PESOS ABIERTOS ($<8$B)}
 
@@ -151,12 +151,12 @@ Modelo & Parám. & Justificación basada en benchmarks y tarea \\
 \midrule
 \href{https://artificialanalysis.ai/models/qwen3-5-4b}{Qwen 3.5 4B} & 4.7B & AA 20 (razonamiento, estimado) y 16 (sin razonamiento), contexto 262K y Apache 2.0. Recuperó 2/2 fechas obsoletas: candidato restringido para resolución temporal pese al corte y errores. \\
 \midrule
-\href{https://artificialanalysis.ai/models/phi-4-mini}{Phi-4 Mini} & 3.8B & AA 6 (estimado), contexto 128K, pesos abiertos y MIT. Arquitectura distinta para verificar evidencia. \\
+\href{https://artificialanalysis.ai/models/phi-4-mini}{Phi-4 Mini} & 3.8B & AA 6 (estimado), contexto 128K, pesos abiertos y MIT. Su piloto válido y conciso fue el más rápido, pero solo reconoció bien 1/7 tareas. \\
 \bottomrule
 \end{tabularx}
 }
 
-\callout{\textbf{Selección.} \href{https://artificialanalysis.ai/models/}{Artificial Analysis} aporta el marco común y los pilotos, evidencia de la tarea. La decisión final usará F1, precisión de evidencia, afirmaciones sin respaldo, validez JSON y tiempo.}
+\callout{\textbf{Selección.} \href{https://artificialanalysis.ai/models/}{Artificial Analysis} aporta el marco común; los tres pilotos locales ya entregan evidencia de la tarea. La selección usa F1, precisión de evidencia, afirmaciones sin respaldo, validez JSON y tiempo.}
 
 \sectionbar{6. SISTEMA PROPUESTO}
 
@@ -200,14 +200,15 @@ Las etapas intercambian JSON validado contra el esquema. Solo los registros veri
 
 \begin{tabularx}{\linewidth}{>{\bfseries\raggedright\arraybackslash}p{0.29\linewidth}>{\raggedright\arraybackslash}X}
 Hardware & Intel i5-9300H; 15.8 GB RAM; GTX 1050 3 GB \\
-Entorno & Ollama 0.32.15 / 0.33.1; Windows \\
+Entorno & Ollama 0.32.15--0.33.2; Windows \\
 Corrida Ministral & Q4\_K\_M, 3.0 GB: 2,386 tokens en 22m06s (1.86 tok/s) \\
 Corrida Qwen & Q4\_K\_M, 3.4 GB: 3,000 tokens en 16m08s (3.24 tok/s); 75/25 CPU/GPU \\
-Memoria & Qwen: aprox. 1.74 GB VRAM y menos de 6 GB privados \\
+Corrida Phi & Q4\_K\_M, 2.5 GB: 1,211 tokens en 7m58s (2.93 tok/s); 65/35 CPU/GPU \\
+Memoria & Qwen: aprox. 1.74 GB VRAM; Phi: aprox. 1.49 GB \\
 Despliegue & CPU/GPU secuencial; bloques 4K--8K; Colab como respaldo \\
 \end{tabularx}
 
-Ambos modelos generaron localmente; la carga secuencial evita mantenerlos simultáneamente. Falta cronometrar Phi con los mismos controles.
+Los tres modelos cargaron y generaron localmente. Phi fue el más rápido y conciso, pero tuvo la menor cobertura semántica.
 
 \sectionbar{9. REPOSITORIO Y ESTADO ACTUAL}
 
@@ -215,8 +216,8 @@ Ambos modelos generaron localmente; la carga secuencial evita mantenerlos simult
 
 \textbf{Debe contener:} tarea/esquema, equipo, piloto y salida, auditoría, versiones y pasos de reproducción.
 
-\textbf{Completado:} definición; pauta de 69 intervenciones; corridas controladas Ministral/Qwen; salidas, auditorías y evidencia de hardware.\par
-\textbf{Siguiente:} ejecutar Phi; ampliar la pauta; implementar resolución temporal y verificación de evidencia.
+\textbf{Completado:} definición; pauta de 69 intervenciones; corridas controladas de los tres modelos; salidas, auditorías y evidencia de hardware.\par
+\textbf{Siguiente:} ampliar la pauta; implementar resolución temporal y verificación de evidencia; probar cada modelo en su rol acotado.
 
 \vfill
 {\fontsize{6.15}{6.8}\selectfont\color{muted}

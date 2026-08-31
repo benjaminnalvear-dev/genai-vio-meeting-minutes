@@ -1,0 +1,182 @@
+{
+    "model":  "phi4-mini",
+    "ollama_version":  "ollama version is 0.33.2",
+    "context_size":  8192,
+    "temperature":  0,
+    "seed":  42,
+    "output_limit":  3000,
+    "thinking_enabled":  false,
+    "created_at":  "2026-08-31T16:21:54.9536234-04:00",
+    "load_duration_ns":  47769811400,
+    "total_duration_ns":  477652527300,
+    "prompt_eval_duration_ns":  16912426000,
+    "prompt_eval_count":  3283,
+    "eval_duration_ns":  412783154000,
+    "eval_count":  1211,
+    "done_reason":  "stop",
+    "response_json_valid":  true,
+    "response_raw":  "{\n  \"meeting\": {\n    \"date\": \"2026-08-27\",\n    \"topic\": \"cierre de pendientes y planificación del piloto del Portal Vecinal\"\n  },\n  \"decisions\": [\n    {\n      \"topic\": \"fecha del piloto\",\n      \"outcome\": \"marzo 31 a las 4:00\",\n      \"state\": \"final\",\n      \"evidence\": [\n        {\n          \"utterance_id\": \"U019\",\n          \"exact_quote\": \"Sí, tienes razón. Igual anotemos lunes 31 a las cuatro como fecha tentativa mientras ordenamos lo demás.\"\n        }\n      ]\n    },\n    {\n      \"topic\": \"uso del SMTP institucional\",\n      \"outcome\": \"aplicado para el piloto\",\n      \"state\": \"final\",\n      \"evidence\": [\n        {\n          \"utterance_id\": \"U024\",\n          \"exact_quote\": \"Ya: piloto con SMTP institucional. MailFast queda fuera del piloto y lo revisamos después con legal.\"\n        }\n      ]\n    },\n    {\n      \"topic\": \"demostración con el cliente\",\n      \"outcome\": \"remota\",\n      \"state\": \"final\",\n      \"evidence\": [\n        {\n          \"utterance_id\": \"U039\",\n          \"exact_quote\": \"Entonces cambia a remota, miércoles 2 a las once y media.\"\n        }\n      ]\n    },\n    {\n      \"topic\": \"fecha de la demostración\",\n      \"outcome\": \"miércoles 2 de septiembre a las 10:00\",\n      \"state\": \"final\",\n      \"evidence\": [\n        {\n          \"utterance_id\": \"U041\",\n          \"exact_quote\": \"Entonces fechas finales: miércoles 2 de septiembre a las 10:00.\"\n        }\n      ]\n    },\n    {\n      \"topic\": \"regresión y informe\",\n      \"outcome\": \"martes 1 de septiembre antes de la 1:00\",\n      \"state\": \"final\",\n      \"evidence\": [\n        {\n          \"utterance_id\": \"U044\",\n          \"exact_quote\": \"Yo hago la regresión el martes 1 entre nueve y una, y subo el informe antes de la una.\"\n        }\n      ]\n    },\n    {\n      \"topic\": \"envío de la invitación al cliente\",\n      \"outcome\": \"martes antes de las 4:00\",\n      \"state\": \"final\",\n      \"evidence\": [\n        {\n          \"utterance_id\": \"U045\",\n          \"exact_quote\": \"Entonces yo envío la invitación al cliente el martes antes de las cuatro, pero solo si el informe de Martín sale sin bloqueadores.\"\n        }\n      ]\n    },\n    {\n      \"topic\": \"pantallas y etiquetas\",\n      \"outcome\": \"mañana a mediodía\",\n      \"state\": \"final\",\n      \"evidence\": [\n        {\n          \"utterance_id\": \"U064\",\n          \"exact_quote\": \"Pantallas y etiquetas mañana a mediodía.\"\n        }\n      ]\n    }\n  ],\n  \"action_items\": [\n    {\n      \"task\": \"envío de la credencial del sandbox a Diego\",\n      \"assignee\": \"Andrés\",\n      \"deadline\": \"mañana viernes\",\n      \"conditions\": \"envía la credencial antes de mañana viernes a las doce\",\n      \"status\": \"agreed\",\n      \"evidence\": [\n        {\n          \"field\": \"assignee\",\n          \"utterance_id\": \"U017\",\n          \"exact_quote\": \"Si Andrés la envía antes de mañana viernes a las doce, lo dejo listo el lunes a las seis.\"\n        }\n      ]\n    },\n    {\n      \"task\": \"documentación de la API\",\n      \"assignee\": \"Diego\",\n      \"deadline\": \"sin fecha\",\n      \"conditions\": \"sin bloquear el piloto\",\n      \"status\": \"agreed\",\n      \"evidence\": [\n        {\n          \"field\": \"task\",\n          \"utterance_id\": \"U049\",\n          \"exact_quote\": \"Entra como tarea tuya, pero sin fecha todavía. No bloquea el piloto.\"\n        }\n      ]\n    },\n    {\n      \"task\": \"cobertura de soporte\",\n      \"assignee\": \"Paula\",\n      \"deadline\": \"sin fecha\",\n      \"conditions\": \"fuera de esta reunión\",\n      \"status\": \"pending\",\n      \"evidence\": [\n        {\n          \"field\": \"task\",\n          \"utterance_id\": \"U052\",\n          \"exact_quote\": \"La cobertura de soporte queda pendiente; la cierro con Paula y operaciones fuera de esta reunión.\"\n        }\n      ]\n    }\n  ],\n  \"pending_issues\": [\n    {\n      \"issue\": \"confusión sobre la licencia de MailFast\",\n      \"owner\": \"null\",\n      \"deadline\": \"sin fecha\",\n      \"evidence\": [\n        {\n          \"utterance_id\": \"U022\",\n          \"exact_quote\": \"Yo no lo pondría. La licencia gratis agrega su logo y todavía no revisamos dónde guarda las direcciones.\"\n        }\n      ]\n    },\n    {\n      \"issue\": \"retención de correos\",\n      \"owner\": \"Sergio\",\n      \"deadline\": \"mañana antes de las cinco\",\n      \"evidence\": [\n        {\n          \"utterance_id\": \"U026\",\n          \"exact_quote\": \"Eso no se decide con una conversación de pasillo. Yo le escribo a Sergio antes de mañana a las cinco y dejamos la duración pendiente hasta que responda por escrito.\"\n        }\n      ]\n    }\n  ],\n  \"review_alerts\": [\n    {\n      \"alert\": \"cierre de la reunión\",\n      \"reason\": \"cierre de la reunión\",\n      \"utterance_ids\": [\"U069\"]\n    }\n  ]\n}",
+    "response":  {
+                     "meeting":  {
+                                     "date":  "2026-08-27",
+                                     "topic":  "cierre de pendientes y planificación del piloto del Portal Vecinal"
+                                 },
+                     "decisions":  [
+                                       {
+                                           "topic":  "fecha del piloto",
+                                           "outcome":  "marzo 31 a las 4:00",
+                                           "state":  "final",
+                                           "evidence":  [
+                                                            {
+                                                                "utterance_id":  "U019",
+                                                                "exact_quote":  "Sí, tienes razón. Igual anotemos lunes 31 a las cuatro como fecha tentativa mientras ordenamos lo demás."
+                                                            }
+                                                        ]
+                                       },
+                                       {
+                                           "topic":  "uso del SMTP institucional",
+                                           "outcome":  "aplicado para el piloto",
+                                           "state":  "final",
+                                           "evidence":  [
+                                                            {
+                                                                "utterance_id":  "U024",
+                                                                "exact_quote":  "Ya: piloto con SMTP institucional. MailFast queda fuera del piloto y lo revisamos después con legal."
+                                                            }
+                                                        ]
+                                       },
+                                       {
+                                           "topic":  "demostración con el cliente",
+                                           "outcome":  "remota",
+                                           "state":  "final",
+                                           "evidence":  [
+                                                            {
+                                                                "utterance_id":  "U039",
+                                                                "exact_quote":  "Entonces cambia a remota, miércoles 2 a las once y media."
+                                                            }
+                                                        ]
+                                       },
+                                       {
+                                           "topic":  "fecha de la demostración",
+                                           "outcome":  "miércoles 2 de septiembre a las 10:00",
+                                           "state":  "final",
+                                           "evidence":  [
+                                                            {
+                                                                "utterance_id":  "U041",
+                                                                "exact_quote":  "Entonces fechas finales: miércoles 2 de septiembre a las 10:00."
+                                                            }
+                                                        ]
+                                       },
+                                       {
+                                           "topic":  "regresión y informe",
+                                           "outcome":  "martes 1 de septiembre antes de la 1:00",
+                                           "state":  "final",
+                                           "evidence":  [
+                                                            {
+                                                                "utterance_id":  "U044",
+                                                                "exact_quote":  "Yo hago la regresión el martes 1 entre nueve y una, y subo el informe antes de la una."
+                                                            }
+                                                        ]
+                                       },
+                                       {
+                                           "topic":  "envío de la invitación al cliente",
+                                           "outcome":  "martes antes de las 4:00",
+                                           "state":  "final",
+                                           "evidence":  [
+                                                            {
+                                                                "utterance_id":  "U045",
+                                                                "exact_quote":  "Entonces yo envío la invitación al cliente el martes antes de las cuatro, pero solo si el informe de Martín sale sin bloqueadores."
+                                                            }
+                                                        ]
+                                       },
+                                       {
+                                           "topic":  "pantallas y etiquetas",
+                                           "outcome":  "mañana a mediodía",
+                                           "state":  "final",
+                                           "evidence":  [
+                                                            {
+                                                                "utterance_id":  "U064",
+                                                                "exact_quote":  "Pantallas y etiquetas mañana a mediodía."
+                                                            }
+                                                        ]
+                                       }
+                                   ],
+                     "action_items":  [
+                                          {
+                                              "task":  "envío de la credencial del sandbox a Diego",
+                                              "assignee":  "Andrés",
+                                              "deadline":  "mañana viernes",
+                                              "conditions":  "envía la credencial antes de mañana viernes a las doce",
+                                              "status":  "agreed",
+                                              "evidence":  [
+                                                               {
+                                                                   "field":  "assignee",
+                                                                   "utterance_id":  "U017",
+                                                                   "exact_quote":  "Si Andrés la envía antes de mañana viernes a las doce, lo dejo listo el lunes a las seis."
+                                                               }
+                                                           ]
+                                          },
+                                          {
+                                              "task":  "documentación de la API",
+                                              "assignee":  "Diego",
+                                              "deadline":  "sin fecha",
+                                              "conditions":  "sin bloquear el piloto",
+                                              "status":  "agreed",
+                                              "evidence":  [
+                                                               {
+                                                                   "field":  "task",
+                                                                   "utterance_id":  "U049",
+                                                                   "exact_quote":  "Entra como tarea tuya, pero sin fecha todavía. No bloquea el piloto."
+                                                               }
+                                                           ]
+                                          },
+                                          {
+                                              "task":  "cobertura de soporte",
+                                              "assignee":  "Paula",
+                                              "deadline":  "sin fecha",
+                                              "conditions":  "fuera de esta reunión",
+                                              "status":  "pending",
+                                              "evidence":  [
+                                                               {
+                                                                   "field":  "task",
+                                                                   "utterance_id":  "U052",
+                                                                   "exact_quote":  "La cobertura de soporte queda pendiente; la cierro con Paula y operaciones fuera de esta reunión."
+                                                               }
+                                                           ]
+                                          }
+                                      ],
+                     "pending_issues":  [
+                                            {
+                                                "issue":  "confusión sobre la licencia de MailFast",
+                                                "owner":  "null",
+                                                "deadline":  "sin fecha",
+                                                "evidence":  [
+                                                                 {
+                                                                     "utterance_id":  "U022",
+                                                                     "exact_quote":  "Yo no lo pondría. La licencia gratis agrega su logo y todavía no revisamos dónde guarda las direcciones."
+                                                                 }
+                                                             ]
+                                            },
+                                            {
+                                                "issue":  "retención de correos",
+                                                "owner":  "Sergio",
+                                                "deadline":  "mañana antes de las cinco",
+                                                "evidence":  [
+                                                                 {
+                                                                     "utterance_id":  "U026",
+                                                                     "exact_quote":  "Eso no se decide con una conversación de pasillo. Yo le escribo a Sergio antes de mañana a las cinco y dejamos la duración pendiente hasta que responda por escrito."
+                                                                 }
+                                                             ]
+                                            }
+                                        ],
+                     "review_alerts":  [
+                                           {
+                                               "alert":  "cierre de la reunión",
+                                               "reason":  "cierre de la reunión",
+                                               "utterance_ids":  [
+                                                                     "U069"
+                                                                 ]
+                                           }
+                                       ]
+                 },
+    "thinking":  null
+}
