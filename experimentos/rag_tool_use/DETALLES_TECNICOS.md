@@ -41,9 +41,9 @@ Los nombres son los de la tabla de Ministral del D1.
 ### Colab (hardware de respaldo declarado en el D1)
 
 1. Abrir el notebook directo desde GitHub:
-   <https://colab.research.google.com/github/benjaminnalvear-dev/genai-vio-meeting-minutes/blob/exp/rag-tool-use/experimentos/rag_tool_use/notebooks/d2_colab.ipynb>
+   <https://colab.research.google.com/github/benjaminnalvear-dev/genai-vio-meeting-minutes/blob/main/experimentos/rag_tool_use/notebooks/d2_colab.ipynb>
    (o subir `notebooks/d2_colab.ipynb` con `Archivo → Subir cuaderno`).
-2. Elegir GPU T4 y ejecutar todo. La primera celda clona la rama `exp/rag-tool-use`; con
+2. Elegir GPU T4 y ejecutar todo. La primera celda clona `main`; con
    `USAR_GITHUB = False` pide en cambio el zip del experimento.
 3. Al final se descarga un zip con todos los resultados. Las cinco condiciones suman unos 7 minutos en la T4, más la instalación de Ollama y la descarga del modelo.
 

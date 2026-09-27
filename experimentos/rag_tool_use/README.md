@@ -11,7 +11,7 @@ D1), con la misma transcripción, el mismo modelo y el mismo corrector.
 - **Detalle técnico completo:** [DETALLES_TECNICOS.md](DETALLES_TECNICOS.md).
 
 **Correr en Colab (GPU T4):**
-[abrir el notebook](https://colab.research.google.com/github/benjaminnalvear-dev/genai-vio-meeting-minutes/blob/exp/rag-tool-use/experimentos/rag_tool_use/notebooks/d2_colab.ipynb)
+[abrir el notebook](https://colab.research.google.com/github/benjaminnalvear-dev/genai-vio-meeting-minutes/blob/main/experimentos/rag_tool_use/notebooks/d2_colab.ipynb)
 → `Entorno de ejecución → Cambiar tipo → T4` → `Ejecutar todas`. Tarda unos 10 minutos más la instalación.
 
 ---
