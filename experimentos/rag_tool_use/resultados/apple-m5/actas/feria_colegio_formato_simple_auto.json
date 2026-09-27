@@ -1,0 +1,1173 @@
+{
+  "condicion": "pipeline_auto",
+  "config": {
+    "window": 8,
+    "retrieval": "auto",
+    "verify": false
+  },
+  "acta": {
+    "meeting": {
+      "date": "2026-10-01",
+      "topic": "organización de la feria del colegio"
+    },
+    "decisions": [
+      {
+        "topic": "fecha de la feria",
+        "outcome": "domingo 11 de octubre a las 10:00 [2026-10-11 10:00] (reemplazada por D4)",
+        "state": "superseded",
+        "evidence": [
+          {
+            "utterance_id": "U005",
+            "exact_quote": "Queda domingo 11 a las diez. Esa es la fecha."
+          },
+          {
+            "utterance_id": "U009",
+            "exact_quote": "De acuerdo, vamos con Delicias. Sabores queda fuera."
+          }
+        ],
+        "_id": "D1"
+      },
+      {
+        "topic": "catering",
+        "outcome": "contratar Delicias",
+        "state": "final",
+        "evidence": [
+          {
+            "utterance_id": "U009",
+            "exact_quote": "De acuerdo, vamos con Delicias. Sabores queda fuera."
+          }
+        ],
+        "_id": "D4"
+      },
+      {
+        "topic": "fecha de reserva del gimnasio",
+        "outcome": "reserva confirmada para el viernes 21 de octubre a las 13:00 [2026-10-21 13:00] (reemplazada por D13)",
+        "state": "superseded",
+        "evidence": [
+          {
+            "utterance_id": "U012",
+            "exact_quote": "Si Marta firma antes de mañana al mediodía, yo lo reservo mañana a las tres."
+          },
+          {
+            "utterance_id": "U025",
+            "exact_quote": "Y yo la invitación el viernes 9 a las cinco si Marta aprueba. Estacionamiento pendiente. Cerramos."
+          }
+        ],
+        "_id": "D6"
+      },
+      {
+        "topic": "presupuesto final",
+        "outcome": "Rosa envía presupuesto antes del lunes 23 de octubre a las 12:00 [2026-10-05 12:00]",
+        "state": "final",
+        "evidence": [
+          {
+            "utterance_id": "U013",
+            "exact_quote": "Yo mando el presupuesto final el lunes antes de las doce."
+          }
+        ],
+        "_id": "D7"
+      },
+      {
+        "topic": "afiche de la feria",
+        "outcome": "Tomás prepara el afiche y lo envía a la coordinación para el miércoles 7 de octubre [2026-10-07]",
+        "state": "final",
+        "evidence": [
+          {
+            "utterance_id": "U014",
+            "exact_quote": "Puedo tener el afiche listo el miércoles 7."
+          },
+          {
+            "utterance_id": "U024",
+            "exact_quote": "Afiche el miércoles 7."
+          }
+        ],
+        "_id": "D8"
+      },
+      {
+        "topic": "invitación a apoderados",
+        "outcome": "envío de invitación por parte de Ana el viernes 9 a las cinco p.m. (si Marta aprueba el texto) [2026-10-09 17:00] (reemplazada por D12)",
+        "state": "superseded",
+        "evidence": [
+          {
+            "utterance_id": "U017",
+            "exact_quote": "No, Jorge solo nos pasa la lista de correos. La invitación la envío yo el viernes 9 a las cinco, si Marta aprueba el texto."
+          },
+          {
+            "utterance_id": "U025",
+            "exact_quote": "Y yo la invitación el viernes 9 a las cinco si Marta aprueba. Estacionamiento pendiente. Cerramos."
+          }
+        ],
+        "_id": "D9"
+      },
+      {
+        "topic": "estacionamiento para proveedores",
+        "outcome": "dejar pendiente la revisión del estacionamiento para proveedores (reemplazada por D14)",
+        "state": "superseded",
+        "evidence": [
+          {
+            "utterance_id": "U019",
+            "exact_quote": "Eso lo dejamos pendiente; no tenemos a nadie de la municipalidad acá."
+          },
+          {
+            "utterance_id": "U025",
+            "exact_quote": "Y yo la invitación el viernes 9 a las cinco si Marta aprueba. Estacionamiento pendiente. Cerramos."
+          }
+        ],
+        "_id": "D10"
+      },
+      {
+        "topic": "fecha alternativa para feria",
+        "outcome": "rechazar propuesta del sábado 10 en la tarde por conflicto con torneo [2026-10-03]",
+        "state": "final",
+        "evidence": [
+          {
+            "utterance_id": "U021",
+            "exact_quote": "No, queda el domingo 11. El torneo ocupa todo el sábado."
+          }
+        ],
+        "_id": "D11"
+      },
+      {
+        "topic": "invitación a apoderados",
+        "outcome": "envío de invitación por parte de Ana el viernes 9 de octubre a las 19:00 (si Marta aprueba el texto) [2026-10-09 17:00]",
+        "state": "final",
+        "evidence": [
+          {
+            "utterance_id": "U025",
+            "exact_quote": "Y yo la invitación el viernes 9 a las cinco si Marta aprueba. Estacionamiento pendiente. Cerramos."
+          }
+        ],
+        "_id": "D12"
+      },
+      {
+        "topic": "reserva del gimnasio",
+        "outcome": "reserva confirmada para el viernes 21 de octubre a las 13:00 (con firma de Marta antes del mediodía del jueves 1 de octubre) [2026-10-09 17:00]",
+        "state": "final",
+        "evidence": [
+          {
+            "utterance_id": "U025",
+            "exact_quote": "Y yo la invitación el viernes 9 a las cinco si Marta aprueba. Estacionamiento pendiente. Cerramos."
+          }
+        ],
+        "_id": "D13"
+      }
+    ],
+    "action_items": [
+      {
+        "task": "elegir alternativa para la fecha de la feria (sustituir el sábado 10)",
+        "assignee": "Luis Mora",
+        "deadline": "2026-10-11",
+        "deadline_literal": "domingo 11 a las diez",
+        "deadline_rules": [
+          "literal 'domingo 11 a las diez' anclado a '¿Domingo 11'",
+          "domingo 11"
+        ],
+        "conditions": "domingo 11 a las diez",
+        "status": "conditional",
+        "evidence": [
+          {
+            "field": "task",
+            "utterance_id": "U002",
+            "exact_quote": "Yo había pensado el sábado 10, pero el gimnasio está ocupado ese día por el torneo."
+          },
+          {
+            "field": "deadline",
+            "utterance_id": "U003",
+            "exact_quote": "Entonces el sábado descartado. ¿Domingo 11?"
+          },
+          {
+            "field": "conditions",
+            "utterance_id": "U003",
+            "exact_quote": "Entonces el sábado descartado. ¿Domingo 11?"
+          },
+          {
+            "field": "status",
+            "utterance_id": "U004",
+            "exact_quote": "El domingo me sirve, pero no antes de las diez."
+          }
+        ],
+        "_id": "T1"
+      },
+      {
+        "task": "revisar presupuesto del catering Sabores",
+        "assignee": "Rosa Pinto",
+        "deadline": "2026-10-11 10:00",
+        "deadline_literal": "domingo 11 a las diez",
+        "deadline_rules": [
+          "hora laboral de mañana",
+          "domingo 11"
+        ],
+        "conditions": null,
+        "status": "agreed",
+        "evidence": [
+          {
+            "field": "task",
+            "utterance_id": "U007",
+            "exact_quote": "Sabores subió el doble. No nos alcanza."
+          },
+          {
+            "field": "deadline",
+            "utterance_id": "U007",
+            "exact_quote": "Sabores subió el doble. No nos alcanza."
+          }
+        ],
+        "_id": "T2"
+      },
+      {
+        "task": "contactar con Delicias para confirmar menú vegetariano y precio",
+        "assignee": "Luis Mora",
+        "deadline": "2026-10-11 10:00",
+        "deadline_literal": "domingo 11 a las diez",
+        "deadline_rules": [
+          "hora laboral de mañana",
+          "domingo 11"
+        ],
+        "conditions": null,
+        "status": "agreed",
+        "evidence": [
+          {
+            "field": "task",
+            "utterance_id": "U008",
+            "exact_quote": "Delicias cotizó menos y hace menú vegetariano."
+          },
+          {
+            "field": "deadline",
+            "utterance_id": "U008",
+            "exact_quote": "Delicias cotizó menos y hace menú vegetariano."
+          }
+        ],
+        "_id": "T3"
+      },
+      {
+        "task": "reservar el gimnasio",
+        "assignee": "Luis Mora",
+        "deadline": "2026-10-02 15:00",
+        "deadline_literal": "mañana a las tres",
+        "deadline_rules": [
+          "literal textual",
+          "3 sin am/pm -> 15:00 (horario laboral)",
+          "mañana = reunión + 1"
+        ],
+        "conditions": "si Marta firma la autorización antes de mañana al mediodía",
+        "status": "conditional",
+        "evidence": [
+          {
+            "field": "task",
+            "utterance_id": "U012",
+            "exact_quote": "Si Marta firma antes de mañana al mediodía, yo lo reservo mañana a las tres."
+          },
+          {
+            "field": "deadline",
+            "utterance_id": "U023",
+            "exact_quote": "Yo: gimnasio mañana a las tres si Marta firma."
+          },
+          {
+            "field": "conditions",
+            "utterance_id": "U023",
+            "exact_quote": "Yo: gimnasio mañana a las tres si Marta firma."
+          },
+          {
+            "field": "status",
+            "utterance_id": "U011",
+            "exact_quote": "¿Cuándo lo puedes dejar reservado?"
+          }
+        ],
+        "_id": "T4"
+      },
+      {
+        "task": "mandar el presupuesto final",
+        "assignee": "Rosa Pinto",
+        "deadline": "2026-10-05 12:00",
+        "deadline_literal": "el lunes antes de las doce",
+        "deadline_rules": [
+          "literal textual",
+          "mediodía",
+          "próximo lunes"
+        ],
+        "conditions": null,
+        "status": "agreed",
+        "evidence": [
+          {
+            "field": "task",
+            "utterance_id": "U013",
+            "exact_quote": "Yo mando el presupuesto final el lunes antes de las doce."
+          },
+          {
+            "field": "deadline",
+            "utterance_id": "U013",
+            "exact_quote": "Yo mando el presupuesto final el lunes antes de las doce."
+          },
+          {
+            "field": "status",
+            "utterance_id": "U015",
+            "exact_quote": "Perfecto, afiche a tu nombre, Tomás."
+          }
+        ],
+        "_id": "T5"
+      },
+      {
+        "task": "preparar el afiche",
+        "assignee": "Tomás Vega",
+        "deadline": "2026-10-07",
+        "deadline_literal": "el miércoles 7",
+        "deadline_rules": [
+          "literal textual",
+          "miercoles 7"
+        ],
+        "conditions": null,
+        "status": "agreed",
+        "evidence": [
+          {
+            "field": "task",
+            "utterance_id": "U014",
+            "exact_quote": "Puedo tener el afiche listo el miércoles 7."
+          },
+          {
+            "field": "deadline",
+            "utterance_id": "U014",
+            "exact_quote": "Puedo tener el afiche listo el miércoles 7."
+          },
+          {
+            "field": "status",
+            "utterance_id": "U015",
+            "exact_quote": "Perfecto, afiche a tu nombre, Tomás."
+          },
+          {
+            "field": "status",
+            "utterance_id": "U024",
+            "exact_quote": "Afiche el miércoles 7."
+          }
+        ],
+        "_id": "T6"
+      },
+      {
+        "task": "enviar la invitación a los apoderados",
+        "assignee": "Ana Díaz",
+        "deadline": "2026-10-09 17:00",
+        "deadline_literal": "viernes 9 a las cinco",
+        "deadline_rules": [
+          "literal textual",
+          "5 sin am/pm -> 17:00 (horario laboral)",
+          "viernes 9"
+        ],
+        "conditions": "si Marta aprueba el texto",
+        "status": "conditional",
+        "evidence": [
+          {
+            "field": "task",
+            "utterance_id": "U017",
+            "exact_quote": "No, Jorge solo nos pasa la lista de correos. La invitación la envío yo el viernes 9 a las cinco, si Marta aprueba el texto."
+          },
+          {
+            "field": "deadline",
+            "utterance_id": "U017",
+            "exact_quote": "No, Jorge solo nos pasa la lista de correos. La invitación la envío yo el viernes 9 a las cinco, si Marta aprueba el texto."
+          },
+          {
+            "field": "conditions",
+            "utterance_id": "U017",
+            "exact_quote": "No, Jorge solo nos pasa la lista de correos. La invitación la envío yo el viernes 9 a las cinco, si Marta aprueba el texto."
+          },
+          {
+            "field": "status",
+            "utterance_id": "U025",
+            "exact_quote": "Y yo la invitación el viernes 9 a las cinco si Marta aprueba. Estacionamiento pendiente. Cerramos."
+          }
+        ],
+        "_id": "T7"
+      },
+      {
+        "task": "gestionar el estacionamiento",
+        "assignee": "Tomás Vega",
+        "deadline": null,
+        "deadline_literal": null,
+        "deadline_rules": [
+          "sin plazo"
+        ],
+        "conditions": null,
+        "status": "agreed",
+        "evidence": [
+          {
+            "field": "task",
+            "utterance_id": "U025",
+            "exact_quote": "Y yo la invitación el viernes 9 a las cinco si Marta aprueba. Estacionamiento pendiente. Cerramos."
+          }
+        ],
+        "_id": "T9"
+      }
+    ],
+    "pending_issues": [
+      {
+        "issue": "estacionamiento para proveedores: revisión pendiente del estacionamiento para proveedores",
+        "owner": null,
+        "deadline": null,
+        "evidence": [
+          {
+            "utterance_id": "U025",
+            "exact_quote": "Y yo la invitación el viernes 9 a las cinco si Marta aprueba. Estacionamiento pendiente. Cerramos."
+          }
+        ],
+        "_id": "D14"
+      }
+    ],
+    "review_alerts": [
+      {
+        "alert": "Propuesta sin resolución: catering — contratar Delicias",
+        "reason": "Nunca se aceptó, rechazó ni reemplazó explicitamente.",
+        "utterance_ids": [
+          "U008"
+        ]
+      },
+      {
+        "alert": "Propuesta sin resolución: menú vegetariano — incluir menú vegetariano",
+        "reason": "Nunca se aceptó, rechazó ni reemplazó explicitamente.",
+        "utterance_ids": [
+          "U008"
+        ]
+      },
+      {
+        "alert": "T2: plazo 'domingo 11 a las diez' no aparece en la intervención citada",
+        "reason": "hora laboral de mañana; domingo 11",
+        "utterance_ids": [
+          "U007"
+        ]
+      },
+      {
+        "alert": "T3: plazo 'domingo 11 a las diez' no aparece en la intervención citada",
+        "reason": "hora laboral de mañana; domingo 11",
+        "utterance_ids": [
+          "U008"
+        ]
+      },
+      {
+        "alert": "Propuesta sin resolución: autorización para reserva de gimnasio — Marta firma autorización antes del mediodía del jueves 2026-10-01",
+        "reason": "Nunca se aceptó, rechazó ni reemplazó explicitamente.",
+        "utterance_ids": [
+          "U010"
+        ]
+      }
+    ]
+  },
+  "registro_final": [
+    "D1 [reemplazada por D4] fecha de la feria: domingo 11 de octubre a las 10:00 (U005)",
+    "D2 [propuesta] catering: contratar Delicias (U008)",
+    "D3 [propuesta] menú vegetariano: incluir menú vegetariano (U008)",
+    "T1 Luis: elegir alternativa para la fecha de la feria (sustituir el sábado 10) | plazo: \"domingo 11 a las diez\" | condición: domingo 11 a las diez (U002)",
+    "T2 Rosa: revisar presupuesto del catering Sabores | plazo: \"domingo 11 a las diez\" | condición: - (U007)",
+    "T3 Luis: contactar con Delicias para confirmar menú vegetariano y precio | plazo: \"domingo 11 a las diez\" | condición: - (U008)",
+    "D4 [final] catering: contratar Delicias (U009)",
+    "D5 [propuesta] autorización para reserva de gimnasio: Marta firma autorización antes del mediodía del jueves 2026-10-01 (U010)",
+    "D6 [reemplazada por D13] fecha de reserva del gimnasio: reserva confirmada para el viernes 21 de octubre a las 13:00 (U012)",
+    "D7 [final] presupuesto final: Rosa envía presupuesto antes del lunes 23 de octubre a las 12:00 (U013)",
+    "D8 [final] afiche de la feria: Tomás prepara el afiche y lo envía a la coordinación para el miércoles 7 de octubre (U014)",
+    "T4 Luis: reservar el gimnasio | plazo: \"mañana a las tres\" | condición: si Marta firma la autorización antes de mañana al mediodía (U012)",
+    "T5 Rosa: mandar el presupuesto final | plazo: \"el lunes antes de las doce\" | condición: - (U013)",
+    "T6 Tomás: preparar el afiche | plazo: \"el miércoles 7\" | condición: - (U014)",
+    "D9 [reemplazada por D12] invitación a apoderados: envío de invitación por parte de Ana el viernes 9 a las cinco p.m. (si Marta aprueba el texto) (U017)",
+    "D10 [reemplazada por D14] estacionamiento para proveedores: dejar pendiente la revisión del estacionamiento para proveedores (U019)",
+    "D11 [final] fecha alternativa para feria: rechazar propuesta del sábado 10 en la tarde por conflicto con torneo (U021)",
+    "T7 Ana: enviar la invitación a los apoderados | plazo: \"viernes 9 a las cinco\" | condición: si Marta aprueba el texto (U017)",
+    "D12 [final] invitación a apoderados: envío de invitación por parte de Ana el viernes 9 de octubre a las 19:00 (si Marta aprueba el texto) (U025)",
+    "D13 [final] reserva del gimnasio: reserva confirmada para el viernes 21 de octubre a las 13:00 (con firma de Marta antes del mediodía del jueves 1 de octubre) (U025)",
+    "D14 [pendiente] estacionamiento para proveedores: revisión pendiente del estacionamiento para proveedores (U025)",
+    "T9 Tomás: gestionar el estacionamiento | plazo: null | condición: - (U025)"
+  ],
+  "llamadas_herramientas": [
+    {
+      "pasada": "decisiones",
+      "herramienta": "crear_decision",
+      "id": "D1",
+      "tema": "fecha de la feria",
+      "contenido": "domingo 11 de octubre a las 10:00",
+      "estado": "final",
+      "reemplaza": [],
+      "utterance_id": "U005",
+      "_aplicada_a": "D1"
+    },
+    {
+      "pasada": "decisiones",
+      "herramienta": "crear_decision",
+      "id": "D2",
+      "tema": "catering",
+      "contenido": "contratar Delicias",
+      "estado": "propuesta",
+      "reemplaza": [],
+      "utterance_id": "U008",
+      "_aplicada_a": "D2"
+    },
+    {
+      "pasada": "decisiones",
+      "herramienta": "crear_decision",
+      "id": "D3",
+      "tema": "menú vegetariano",
+      "contenido": "incluir menú vegetariano",
+      "estado": "propuesta",
+      "reemplaza": [],
+      "utterance_id": "U008",
+      "_aplicada_a": "D3"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "crear_tarea",
+      "id": "T1",
+      "responsable": "Luis",
+      "contenido": "elegir alternativa para la fecha de la feria (sustituir el sábado 10)",
+      "plazo_literal": "domingo 11 a las diez",
+      "condicion": null,
+      "utterance_id": "U002",
+      "_aplicada_a": "T1"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "actualizar_tarea",
+      "id": "T1",
+      "responsable": null,
+      "contenido": null,
+      "plazo_literal": "domingo 11 a las diez",
+      "condicion": "domingo 11 a las diez",
+      "utterance_id": "U003",
+      "_aplicada_a": "T1"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "confirmar",
+      "id": "T1",
+      "responsable": null,
+      "contenido": null,
+      "plazo_literal": "domingo 11 a las diez",
+      "condicion": "domingo 11 a las diez",
+      "utterance_id": "U004",
+      "_aplicada_a": "T1"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "crear_tarea",
+      "id": "T2",
+      "responsable": "Rosa",
+      "contenido": "revisar presupuesto del catering Sabores",
+      "plazo_literal": "domingo 11 a las diez",
+      "condicion": null,
+      "utterance_id": "U007",
+      "_aplicada_a": "T2"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "crear_tarea",
+      "id": "T3",
+      "responsable": "Luis",
+      "contenido": "contactar con Delicias para confirmar menú vegetariano y precio",
+      "plazo_literal": "domingo 11 a las diez",
+      "condicion": null,
+      "utterance_id": "U008",
+      "_aplicada_a": "T3"
+    },
+    {
+      "pasada": "decisiones",
+      "herramienta": "crear_decision",
+      "id": "D4",
+      "tema": "catering",
+      "contenido": "contratar Delicias",
+      "estado": "final",
+      "reemplaza": [
+        "D1"
+      ],
+      "utterance_id": "U009",
+      "_aplicada_a": "D4"
+    },
+    {
+      "pasada": "decisiones",
+      "herramienta": "crear_decision",
+      "id": "D5",
+      "tema": "autorización para reserva de gimnasio",
+      "contenido": "Marta firma autorización antes del mediodía del jueves 2026-10-01",
+      "estado": "propuesta",
+      "reemplaza": [],
+      "utterance_id": "U010",
+      "_aplicada_a": "D5"
+    },
+    {
+      "pasada": "decisiones",
+      "herramienta": "crear_decision",
+      "id": "D6",
+      "tema": "fecha de reserva del gimnasio",
+      "contenido": "reserva confirmada para el viernes 21 de octubre a las 13:00",
+      "estado": "pendiente",
+      "reemplaza": [],
+      "utterance_id": "U012",
+      "_aplicada_a": "D6"
+    },
+    {
+      "pasada": "decisiones",
+      "herramienta": "crear_decision",
+      "id": "D7",
+      "tema": "presupuesto final",
+      "contenido": "Rosa envía presupuesto antes del lunes 23 de octubre a las 12:00",
+      "estado": "final",
+      "reemplaza": [],
+      "utterance_id": "U013",
+      "_aplicada_a": "D7"
+    },
+    {
+      "pasada": "decisiones",
+      "herramienta": "crear_decision",
+      "id": "D8",
+      "tema": "afiche de la feria",
+      "contenido": "Tomás prepara el afiche y lo envía a la coordinación para el miércoles 7 de octubre",
+      "estado": "final",
+      "reemplaza": [],
+      "utterance_id": "U014",
+      "_aplicada_a": "D8"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "crear_tarea",
+      "id": "T4",
+      "responsable": "Luis",
+      "contenido": "reservar el gimnasio",
+      "plazo_literal": "mañana a las tres",
+      "condicion": "si Marta firma la autorización antes de mañana al mediodía",
+      "utterance_id": "U012",
+      "_aplicada_a": "T4"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "confirmar",
+      "id": "T4",
+      "responsable": null,
+      "contenido": null,
+      "plazo_literal": null,
+      "condicion": null,
+      "utterance_id": "U011",
+      "_aplicada_a": "T4"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "crear_tarea",
+      "id": "T5",
+      "responsable": "Rosa",
+      "contenido": "mandar el presupuesto final",
+      "plazo_literal": "el lunes antes de las doce",
+      "condicion": null,
+      "utterance_id": "U013",
+      "_aplicada_a": "T5"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "confirmar",
+      "id": "T5",
+      "responsable": null,
+      "contenido": null,
+      "plazo_literal": null,
+      "condicion": null,
+      "utterance_id": "U015",
+      "_aplicada_a": "T5"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "crear_tarea",
+      "id": "T6",
+      "responsable": "Tomás",
+      "contenido": "preparar el afiche",
+      "plazo_literal": "el miércoles 7",
+      "condicion": null,
+      "utterance_id": "U014",
+      "_aplicada_a": "T6"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "confirmar",
+      "id": "T6",
+      "responsable": null,
+      "contenido": null,
+      "plazo_literal": null,
+      "condicion": null,
+      "utterance_id": "U015",
+      "_aplicada_a": "T6"
+    },
+    {
+      "pasada": "decisiones",
+      "herramienta": "crear_decision",
+      "id": "D9",
+      "tema": "invitación a apoderados",
+      "contenido": "envío de invitación por parte de Ana el viernes 9 a las cinco p.m. (si Marta aprueba el texto)",
+      "estado": "propuesta",
+      "reemplaza": [],
+      "utterance_id": "U017",
+      "_aplicada_a": "D9"
+    },
+    {
+      "pasada": "decisiones",
+      "herramienta": "crear_decision",
+      "id": "D10",
+      "tema": "estacionamiento para proveedores",
+      "contenido": "dejar pendiente la revisión del estacionamiento para proveedores",
+      "estado": "pendiente",
+      "reemplaza": [],
+      "utterance_id": "U019",
+      "_aplicada_a": "D10"
+    },
+    {
+      "pasada": "decisiones",
+      "herramienta": "crear_decision",
+      "id": "D11",
+      "tema": "fecha alternativa para feria",
+      "contenido": "rechazar propuesta del sábado 10 en la tarde por conflicto con torneo",
+      "estado": "final",
+      "reemplaza": [],
+      "utterance_id": "U021",
+      "_aplicada_a": "D11"
+    },
+    {
+      "pasada": "decisiones",
+      "herramienta": "confirmar",
+      "id": "D8",
+      "tema": null,
+      "contenido": null,
+      "estado": null,
+      "reemplaza": [],
+      "utterance_id": "U024",
+      "_aplicada_a": "D8"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "crear_tarea",
+      "id": "T7",
+      "responsable": "Ana",
+      "contenido": "enviar la invitación a los apoderados",
+      "plazo_literal": "viernes 9 a las cinco",
+      "condicion": "si Marta aprueba el texto",
+      "utterance_id": "U017",
+      "_aplicada_a": "T7"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "actualizar_tarea",
+      "id": "T4",
+      "responsable": "Luis",
+      "contenido": null,
+      "plazo_literal": "mañana a las tres",
+      "condicion": "si Marta firma la autorización antes de mañana al mediodía",
+      "utterance_id": "U023",
+      "_aplicada_a": "T4"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "confirmar",
+      "id": "T6",
+      "responsable": null,
+      "contenido": null,
+      "plazo_literal": "el miércoles 7",
+      "condicion": null,
+      "utterance_id": "U024",
+      "_aplicada_a": "T6"
+    },
+    {
+      "pasada": "decisiones",
+      "herramienta": "crear_decision",
+      "id": "D12",
+      "tema": "invitación a apoderados",
+      "contenido": "envío de invitación por parte de Ana el viernes 9 de octubre a las 19:00 (si Marta aprueba el texto)",
+      "estado": "final",
+      "reemplaza": [
+        "D9"
+      ],
+      "utterance_id": "U025",
+      "_aplicada_a": "D12"
+    },
+    {
+      "pasada": "decisiones",
+      "herramienta": "crear_decision",
+      "id": "D13",
+      "tema": "reserva del gimnasio",
+      "contenido": "reserva confirmada para el viernes 21 de octubre a las 13:00 (con firma de Marta antes del mediodía del jueves 1 de octubre)",
+      "estado": "final",
+      "reemplaza": [
+        "D6"
+      ],
+      "utterance_id": "U025",
+      "_aplicada_a": "D13"
+    },
+    {
+      "pasada": "decisiones",
+      "herramienta": "crear_decision",
+      "id": "D14",
+      "tema": "estacionamiento para proveedores",
+      "contenido": "revisión pendiente del estacionamiento para proveedores",
+      "estado": "pendiente",
+      "reemplaza": [
+        "D10"
+      ],
+      "utterance_id": "U025",
+      "_aplicada_a": "D14"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "crear_tarea",
+      "id": "T8",
+      "responsable": "Ana",
+      "contenido": "enviar la invitación a los apoderados",
+      "plazo_literal": "viernes 9 a las cinco",
+      "condicion": "si Marta aprueba el texto",
+      "utterance_id": "U025",
+      "_aplicada_a": "T8"
+    },
+    {
+      "pasada": "tareas",
+      "herramienta": "crear_tarea",
+      "id": "T9",
+      "responsable": "Tomás",
+      "contenido": "gestionar el estacionamiento",
+      "plazo_literal": null,
+      "condicion": null,
+      "utterance_id": "U025",
+      "_aplicada_a": "T9"
+    }
+  ],
+  "registro_log": [
+    "D1 reemplazada por D4 en U009",
+    "D9 reemplazada por D12 en U025",
+    "D6 reemplazada por D13 en U025",
+    "D10 reemplazada por D14 en U025",
+    "consolidado: T8 -> T7 (mismo responsable, similitud 1.00, mismo plazo=True)"
+  ],
+  "verificacion_log": [],
+  "llamadas_modelo": [
+    {
+      "endpoint": "/api/chat",
+      "options": {
+        "num_ctx": 8192,
+        "temperature": 0,
+        "seed": 42,
+        "num_predict": 1500
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Eres el secretario de una reunión. En esta pasada registras DECISIONES llamando herramientas; el código guarda el registro y arma el acta. No registres tareas personales.\n\nUna decisión es un acuerdo del grupo sobre cómo se hará algo: fecha, herramienta, proveedor, canal, alcance, regla, modalidad. También registras las propuestas sobre esos asuntos, porque después pueden aceptarse, rechazarse o reemplazarse. Una queja, un problema técnico o una pregunta suelta no es una decisión. El compromiso personal de alguien (\"yo hago X\", \"te dejo X\") es una tarea: no lo registres en esta pasada.\n\nHerramientas:\n- crear_decision: aparece una propuesta o un acuerdo NUEVO.\n  estado = \"propuesta\" si se sugiere o se pregunta; \"final\" si quien dirige lo acepta explícitamente; \"rechazada\" si se descarta; \"pendiente\" si se deja explícitamente sin decidir.\n  reemplaza = ids de decisiones del registro sobre el MISMO asunto que esta deja sin efecto (si no, lista vacía).\n- cambiar_estado: una decisión que ya está en el registro pasa a \"final\", \"rechazada\" o \"pendiente\".\n- confirmar: la intervención solo repite o ratifica una decisión del registro.\n\nReglas generales:\n- Registra solo lo que ocurre en INTERVENCIONES NUEVAS. El registro y el contexto son para entender, no para volver a registrar.\n- Cada llamada cita UNA intervención de INTERVENCIONES NUEVAS en utterance_id.\n- Si el asunto ya está en el registro, usa su id; no lo dupliques.\n- Si no ocurre nada registrable, responde {\"llamadas\": []}.\n\nEjemplo de otra reunión (no es parte de esta):\n[U010 | Ana] ¿Contratamos el catering de Sabores?\n[U011 | Luis] Cobran el doble que el año pasado.\n[U012 | Ana] Entonces Sabores descartado. Vamos con Delicias, reemplaza a Sabores.\n[U013 | Luis] ¿Y el menú vegano?\n[U014 | Ana] Eso lo dejamos pendiente hasta tener la lista de invitados.\n[U015 | Ana] Confirmo: Delicias.\n{\"llamadas\": [\n {\"herramienta\": \"crear_decision\", \"id\": \"D1\", \"tema\": \"catering\", \"contenido\": \"contratar Sabores\", \"estado\": \"propuesta\", \"reemplaza\": [], \"utterance_id\": \"U010\"},\n {\"herramienta\": \"cambiar_estado\", \"id\": \"D1\", \"tema\": null, \"contenido\": null, \"estado\": \"rechazada\", \"reemplaza\": [], \"utterance_id\": \"U012\"},\n {\"herramienta\": \"crear_decision\", \"id\": \"D2\", \"tema\": \"catering\", \"contenido\": \"contratar Delicias\", \"estado\": \"final\", \"reemplaza\": [\"D1\"], \"utterance_id\": \"U012\"},\n {\"herramienta\": \"crear_decision\", \"id\": \"D3\", \"tema\": \"menú vegano\", \"contenido\": \"definir si habrá menú vegano\", \"estado\": \"pendiente\", \"reemplaza\": [], \"utterance_id\": \"U014\"},\n {\"herramienta\": \"confirmar\", \"id\": \"D2\", \"tema\": null, \"contenido\": null, \"estado\": null, \"reemplaza\": [], \"utterance_id\": \"U015\"}\n]}"
+        },
+        {
+          "role": "user",
+          "content": "Reunión: jueves 2026-10-01. Participantes presentes: Ana (coordinadora), Luis (logística), Rosa (finanzas), Tomás (comunicaciones).\nPersonas mencionadas que NO están presentes: Marta, Jorge.\n\nREGISTRO ACTUAL DE DECISIONES:\n(vacío)\n\nINTERVENCIONES NUEVAS (registra lo que ocurre aquí):\n[U001 | Ana] Partamos. Hoy tenemos que cerrar fecha, catering y quién hace qué para la feria.\n[U002 | Luis] Yo había pensado el sábado 10, pero el gimnasio está ocupado ese día por el torneo.\n[U003 | Ana] Entonces el sábado descartado. ¿Domingo 11?\n[U004 | Rosa] El domingo me sirve, pero no antes de las diez.\n[U005 | Ana] Queda domingo 11 a las diez. Esa es la fecha.\n[U006 | Tomás] ¿Y el catering? El año pasado fue Sabores.\n[U007 | Rosa] Sabores subió el doble. No nos alcanza.\n[U008 | Luis] Delicias cotizó menos y hace menú vegetariano.\n\nIds libres para decisiones nuevas: D1, D2, D3, D4, D5."
+        }
+      ],
+      "response_raw": "{\n  \"llamadas\": [\n    {\n      \"herramienta\": \"crear_decision\",\n      \"id\": \"D1\",\n      \"tema\": \"fecha de la feria\",\n      \"contenido\": \"domingo 11 de octubre a las 10:00\",\n      \"estado\": \"final\",\n      \"reemplaza\": [],\n      \"utterance_id\": \"U005\"\n    },\n    {\n      \"herramienta\": \"crear_decision\",\n      \"id\": \"D2\",\n      \"tema\": \"catering\",\n      \"contenido\": \"contratar Delicias\",\n      \"estado\": \"propuesta\",\n      \"reemplaza\": [],\n      \"utterance_id\": \"U008\"\n    },\n    {\n      \"herramienta\": \"crear_decision\",\n      \"id\": \"D3\",\n      \"tema\": \"menú vegetariano\",\n      \"contenido\": \"incluir menú vegetariano\",\n      \"estado\": \"propuesta\",\n      \"reemplaza\": [],\n      \"utterance_id\": \"U008\"\n    }\n  ]\n}",
+      "prompt_eval_count": 1108,
+      "eval_count": 247,
+      "prompt_eval_duration_s": 1.082,
+      "eval_duration_s": 5.66,
+      "load_duration_s": 1.059,
+      "total_duration_s": 7.809,
+      "wall_s": 7.812,
+      "tok_per_s": 43.64,
+      "done_reason": "stop",
+      "tipo": "extraccion",
+      "pasada": "decisiones",
+      "bloque": [
+        "U001",
+        "U008"
+      ],
+      "recuperadas": [],
+      "modo_usado": "sin_rag",
+      "registro_mostrado": "0/0"
+    },
+    {
+      "endpoint": "/api/chat",
+      "options": {
+        "num_ctx": 8192,
+        "temperature": 0,
+        "seed": 42,
+        "num_predict": 1500
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Eres el secretario de una reunión. En esta pasada registras TAREAS llamando herramientas; el código guarda el registro y arma el acta. No registres decisiones generales.\n\nUna tarea es un compromiso concreto de una persona PRESENTE (dice que hará algo) o un encargo que se le asigna explícitamente. Describir un problema, pedir algo, hacer una pregunta, \"confirmar si...\" o \"revisar si...\" no es una tarea.\n\nHerramientas:\n- crear_tarea: aparece un compromiso o encargo NUEVO.\n  responsable = nombre de pila de quien hará la tarea (solo participantes presentes).\n  contenido = qué hará, en pocas palabras.\n  plazo_literal = copia EXACTA de las palabras del plazo, sin convertirlas (null si no hay plazo).\n  condicion = de qué depende la tarea, copiada de la intervención (null si no depende de nada).\n- actualizar_tarea: cambia el plazo o la condición de una tarea que ya está en el registro.\n- confirmar: la intervención repite o ratifica una tarea del registro. En los resúmenes del final casi todo ya está en el registro: usa confirmar con su id.\n\nReglas de tareas:\n- Una tarea por acción y por responsable: dos acciones distintas son dos tareas.\n- Una persona mencionada que no está presente nunca es responsable; lo que deba hacer puede ser la condición de otra tarea.\n\nReglas generales:\n- Registra solo lo que ocurre en INTERVENCIONES NUEVAS. El registro y el contexto son para entender, no para volver a registrar.\n- Cada llamada cita UNA intervención de INTERVENCIONES NUEVAS en utterance_id.\n- Si el asunto ya está en el registro, usa su id; no lo dupliques.\n- Si no ocurre nada registrable, responde {\"llamadas\": []}.\n\nEjemplo de otra reunión (no es parte de esta; Marta no está presente):\n[U020 | Luis] Yo reservo el salón mañana a las tres, si Marta me manda el presupuesto antes.\n[U021 | Ana] Perfecto, a tu nombre. Y yo imprimo los afiches el lunes.\n[U030 | Ana] Resumen: Luis el salón mañana, yo los afiches.\n{\"llamadas\": [\n {\"herramienta\": \"crear_tarea\", \"id\": \"T1\", \"responsable\": \"Luis\", \"contenido\": \"reservar el salón\", \"plazo_literal\": \"mañana a las tres\", \"condicion\": \"si Marta me manda el presupuesto antes\", \"utterance_id\": \"U020\"},\n {\"herramienta\": \"confirmar\", \"id\": \"T1\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U021\"},\n {\"herramienta\": \"crear_tarea\", \"id\": \"T2\", \"responsable\": \"Ana\", \"contenido\": \"imprimir los afiches\", \"plazo_literal\": \"el lunes\", \"condicion\": null, \"utterance_id\": \"U021\"},\n {\"herramienta\": \"confirmar\", \"id\": \"T1\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U030\"},\n {\"herramienta\": \"confirmar\", \"id\": \"T2\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U030\"}\n]}"
+        },
+        {
+          "role": "user",
+          "content": "Reunión: jueves 2026-10-01. Participantes presentes: Ana (coordinadora), Luis (logística), Rosa (finanzas), Tomás (comunicaciones).\nPersonas mencionadas que NO están presentes: Marta, Jorge.\n\nREGISTRO ACTUAL DE TAREAS:\n(vacío)\n\nINTERVENCIONES NUEVAS (registra lo que ocurre aquí):\n[U001 | Ana] Partamos. Hoy tenemos que cerrar fecha, catering y quién hace qué para la feria.\n[U002 | Luis] Yo había pensado el sábado 10, pero el gimnasio está ocupado ese día por el torneo.\n[U003 | Ana] Entonces el sábado descartado. ¿Domingo 11?\n[U004 | Rosa] El domingo me sirve, pero no antes de las diez.\n[U005 | Ana] Queda domingo 11 a las diez. Esa es la fecha.\n[U006 | Tomás] ¿Y el catering? El año pasado fue Sabores.\n[U007 | Rosa] Sabores subió el doble. No nos alcanza.\n[U008 | Luis] Delicias cotizó menos y hace menú vegetariano.\n\nIds libres para tareas nuevas: T1, T2, T3, T4, T5."
+        }
+      ],
+      "response_raw": "{\"llamadas\": [\n    {\"herramienta\": \"crear_tarea\", \"id\": \"T1\", \"responsable\": \"Luis\", \"contenido\": \"elegir alternativa para la fecha de la feria (sustituir el sábado 10)\", \"plazo_literal\": \"domingo 11 a las diez\", \"condicion\": null, \"utterance_id\": \"U002\"},\n    {\"herramienta\": \"actualizar_tarea\", \"id\": \"T1\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": \"domingo 11 a las diez\", \"condicion\": \"domingo 11 a las diez\", \"utterance_id\": \"U003\"},\n    {\"herramienta\": \"confirmar\", \"id\": \"T1\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": \"domingo 11 a las diez\", \"condicion\": \"domingo 11 a las diez\", \"utterance_id\": \"U004\"},\n    {\"herramienta\": \"crear_tarea\", \"id\": \"T2\", \"responsable\": \"Rosa\", \"contenido\": \"revisar presupuesto del catering Sabores\", \"plazo_literal\": \"domingo 11 a las diez\", \"condicion\": null, \"utterance_id\": \"U007\"},\n    {\"herramienta\": \"crear_tarea\", \"id\": \"T3\", \"responsable\": \"Luis\", \"contenido\": \"contactar con Delicias para confirmar menú vegetariano y precio\", \"plazo_literal\": \"domingo 11 a las diez\", \"condicion\": null, \"utterance_id\": \"U008\"}\n]}",
+      "prompt_eval_count": 1099,
+      "eval_count": 399,
+      "prompt_eval_duration_s": 1.153,
+      "eval_duration_s": 9.242,
+      "load_duration_s": 0.002,
+      "total_duration_s": 10.433,
+      "wall_s": 10.435,
+      "tok_per_s": 43.17,
+      "done_reason": "stop",
+      "tipo": "extraccion",
+      "pasada": "tareas",
+      "bloque": [
+        "U001",
+        "U008"
+      ],
+      "recuperadas": [],
+      "modo_usado": "sin_rag",
+      "registro_mostrado": "0/0"
+    },
+    {
+      "endpoint": "/api/chat",
+      "options": {
+        "num_ctx": 8192,
+        "temperature": 0,
+        "seed": 42,
+        "num_predict": 1500
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Eres el secretario de una reunión. En esta pasada registras DECISIONES llamando herramientas; el código guarda el registro y arma el acta. No registres tareas personales.\n\nUna decisión es un acuerdo del grupo sobre cómo se hará algo: fecha, herramienta, proveedor, canal, alcance, regla, modalidad. También registras las propuestas sobre esos asuntos, porque después pueden aceptarse, rechazarse o reemplazarse. Una queja, un problema técnico o una pregunta suelta no es una decisión. El compromiso personal de alguien (\"yo hago X\", \"te dejo X\") es una tarea: no lo registres en esta pasada.\n\nHerramientas:\n- crear_decision: aparece una propuesta o un acuerdo NUEVO.\n  estado = \"propuesta\" si se sugiere o se pregunta; \"final\" si quien dirige lo acepta explícitamente; \"rechazada\" si se descarta; \"pendiente\" si se deja explícitamente sin decidir.\n  reemplaza = ids de decisiones del registro sobre el MISMO asunto que esta deja sin efecto (si no, lista vacía).\n- cambiar_estado: una decisión que ya está en el registro pasa a \"final\", \"rechazada\" o \"pendiente\".\n- confirmar: la intervención solo repite o ratifica una decisión del registro.\n\nReglas generales:\n- Registra solo lo que ocurre en INTERVENCIONES NUEVAS. El registro y el contexto son para entender, no para volver a registrar.\n- Cada llamada cita UNA intervención de INTERVENCIONES NUEVAS en utterance_id.\n- Si el asunto ya está en el registro, usa su id; no lo dupliques.\n- Si no ocurre nada registrable, responde {\"llamadas\": []}.\n\nEjemplo de otra reunión (no es parte de esta):\n[U010 | Ana] ¿Contratamos el catering de Sabores?\n[U011 | Luis] Cobran el doble que el año pasado.\n[U012 | Ana] Entonces Sabores descartado. Vamos con Delicias, reemplaza a Sabores.\n[U013 | Luis] ¿Y el menú vegano?\n[U014 | Ana] Eso lo dejamos pendiente hasta tener la lista de invitados.\n[U015 | Ana] Confirmo: Delicias.\n{\"llamadas\": [\n {\"herramienta\": \"crear_decision\", \"id\": \"D1\", \"tema\": \"catering\", \"contenido\": \"contratar Sabores\", \"estado\": \"propuesta\", \"reemplaza\": [], \"utterance_id\": \"U010\"},\n {\"herramienta\": \"cambiar_estado\", \"id\": \"D1\", \"tema\": null, \"contenido\": null, \"estado\": \"rechazada\", \"reemplaza\": [], \"utterance_id\": \"U012\"},\n {\"herramienta\": \"crear_decision\", \"id\": \"D2\", \"tema\": \"catering\", \"contenido\": \"contratar Delicias\", \"estado\": \"final\", \"reemplaza\": [\"D1\"], \"utterance_id\": \"U012\"},\n {\"herramienta\": \"crear_decision\", \"id\": \"D3\", \"tema\": \"menú vegano\", \"contenido\": \"definir si habrá menú vegano\", \"estado\": \"pendiente\", \"reemplaza\": [], \"utterance_id\": \"U014\"},\n {\"herramienta\": \"confirmar\", \"id\": \"D2\", \"tema\": null, \"contenido\": null, \"estado\": null, \"reemplaza\": [], \"utterance_id\": \"U015\"}\n]}"
+        },
+        {
+          "role": "user",
+          "content": "Reunión: jueves 2026-10-01. Participantes presentes: Ana (coordinadora), Luis (logística), Rosa (finanzas), Tomás (comunicaciones).\nPersonas mencionadas que NO están presentes: Marta, Jorge.\n\nREGISTRO ACTUAL DE DECISIONES:\nD1 [final] fecha de la feria: domingo 11 de octubre a las 10:00 (U005)\nD2 [propuesta] catering: contratar Delicias (U008)\nD3 [propuesta] menú vegetariano: incluir menú vegetariano (U008)\n\nINTERVENCIONES ANTERIORES INMEDIATAS (ya procesadas):\n[U006 | Tomás] ¿Y el catering? El año pasado fue Sabores.\n[U007 | Rosa] Sabores subió el doble. No nos alcanza.\n[U008 | Luis] Delicias cotizó menos y hace menú vegetariano.\n\nINTERVENCIONES NUEVAS (registra lo que ocurre aquí):\n[U009 | Ana] De acuerdo, vamos con Delicias. Sabores queda fuera.\n[U010 | Luis] Para reservar el gimnasio necesito que Marta firme la autorización.\n[U011 | Ana] ¿Cuándo lo puedes dejar reservado?\n[U012 | Luis] Si Marta firma antes de mañana al mediodía, yo lo reservo mañana a las tres.\n[U013 | Rosa] Yo mando el presupuesto final el lunes antes de las doce.\n[U014 | Tomás] Puedo tener el afiche listo el miércoles 7.\n[U015 | Ana] Perfecto, afiche a tu nombre, Tomás.\n[U016 | Rosa] ¿Y la invitación a los apoderados? ¿La manda Jorge?\n\nIds libres para decisiones nuevas: D4, D5, D6, D7, D8."
+        }
+      ],
+      "response_raw": "{\n  \"llamadas\": [\n    {\n      \"herramienta\": \"crear_decision\",\n      \"id\": \"D4\",\n      \"tema\": \"catering\",\n      \"contenido\": \"contratar Delicias\",\n      \"estado\": \"final\",\n      \"reemplaza\": [\"D1\"], \"utterance_id\": \"U009\"\n    },\n    {\n      \"herramienta\": \"crear_decision\",\n      \"id\": \"D5\",\n      \"tema\": \"autorización para reserva de gimnasio\",\n      \"contenido\": \"Marta firma autorización antes del mediodía del jueves 2026-10-01\",\n      \"estado\": \"propuesta\",\n      \"reemplaza\": [],\n      \"utterance_id\": \"U010\"\n    },\n    {\n      \"herramienta\": \"crear_decision\",\n      \"id\": \"D6\",\n      \"tema\": \"fecha de reserva del gimnasio\",\n      \"contenido\": \"reserva confirmada para el viernes 21 de octubre a las 13:00\",\n      \"estado\": \"pendiente\",\n      \"reemplaza\": [],\n      \"utterance_id\": \"U012\"\n    },\n    {\n      \"herramienta\": \"crear_decision\",\n      \"id\": \"D7\",\n      \"tema\": \"presupuesto final\",\n      \"contenido\": \"Rosa envía presupuesto antes del lunes 23 de octubre a las 12:00\",\n      \"estado\": \"final\",\n      \"reemplaza\": [],\n      \"utterance_id\": \"U013\"\n    },\n    {\n      \"herramienta\": \"crear_decision\",\n      \"id\": \"D8\",\n      \"tema\": \"afiche de la feria\",\n      \"contenido\": \"Tomás prepara el afiche y lo envía a la coordinación para el miércoles 7 de octubre\",\n      \"estado\": \"final\",\n      \"reemplaza\": [],\n      \"utterance_id\": \"U014\"\n    }\n  ]\n}",
+      "prompt_eval_count": 1252,
+      "eval_count": 462,
+      "prompt_eval_duration_s": 0.349,
+      "eval_duration_s": 10.062,
+      "load_duration_s": 0.002,
+      "total_duration_s": 10.472,
+      "wall_s": 10.473,
+      "tok_per_s": 45.91,
+      "done_reason": "stop",
+      "tipo": "extraccion",
+      "pasada": "decisiones",
+      "bloque": [
+        "U009",
+        "U016"
+      ],
+      "recuperadas": [],
+      "modo_usado": "sin_rag",
+      "registro_mostrado": "3/3"
+    },
+    {
+      "endpoint": "/api/chat",
+      "options": {
+        "num_ctx": 8192,
+        "temperature": 0,
+        "seed": 42,
+        "num_predict": 1500
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Eres el secretario de una reunión. En esta pasada registras TAREAS llamando herramientas; el código guarda el registro y arma el acta. No registres decisiones generales.\n\nUna tarea es un compromiso concreto de una persona PRESENTE (dice que hará algo) o un encargo que se le asigna explícitamente. Describir un problema, pedir algo, hacer una pregunta, \"confirmar si...\" o \"revisar si...\" no es una tarea.\n\nHerramientas:\n- crear_tarea: aparece un compromiso o encargo NUEVO.\n  responsable = nombre de pila de quien hará la tarea (solo participantes presentes).\n  contenido = qué hará, en pocas palabras.\n  plazo_literal = copia EXACTA de las palabras del plazo, sin convertirlas (null si no hay plazo).\n  condicion = de qué depende la tarea, copiada de la intervención (null si no depende de nada).\n- actualizar_tarea: cambia el plazo o la condición de una tarea que ya está en el registro.\n- confirmar: la intervención repite o ratifica una tarea del registro. En los resúmenes del final casi todo ya está en el registro: usa confirmar con su id.\n\nReglas de tareas:\n- Una tarea por acción y por responsable: dos acciones distintas son dos tareas.\n- Una persona mencionada que no está presente nunca es responsable; lo que deba hacer puede ser la condición de otra tarea.\n\nReglas generales:\n- Registra solo lo que ocurre en INTERVENCIONES NUEVAS. El registro y el contexto son para entender, no para volver a registrar.\n- Cada llamada cita UNA intervención de INTERVENCIONES NUEVAS en utterance_id.\n- Si el asunto ya está en el registro, usa su id; no lo dupliques.\n- Si no ocurre nada registrable, responde {\"llamadas\": []}.\n\nEjemplo de otra reunión (no es parte de esta; Marta no está presente):\n[U020 | Luis] Yo reservo el salón mañana a las tres, si Marta me manda el presupuesto antes.\n[U021 | Ana] Perfecto, a tu nombre. Y yo imprimo los afiches el lunes.\n[U030 | Ana] Resumen: Luis el salón mañana, yo los afiches.\n{\"llamadas\": [\n {\"herramienta\": \"crear_tarea\", \"id\": \"T1\", \"responsable\": \"Luis\", \"contenido\": \"reservar el salón\", \"plazo_literal\": \"mañana a las tres\", \"condicion\": \"si Marta me manda el presupuesto antes\", \"utterance_id\": \"U020\"},\n {\"herramienta\": \"confirmar\", \"id\": \"T1\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U021\"},\n {\"herramienta\": \"crear_tarea\", \"id\": \"T2\", \"responsable\": \"Ana\", \"contenido\": \"imprimir los afiches\", \"plazo_literal\": \"el lunes\", \"condicion\": null, \"utterance_id\": \"U021\"},\n {\"herramienta\": \"confirmar\", \"id\": \"T1\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U030\"},\n {\"herramienta\": \"confirmar\", \"id\": \"T2\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U030\"}\n]}"
+        },
+        {
+          "role": "user",
+          "content": "Reunión: jueves 2026-10-01. Participantes presentes: Ana (coordinadora), Luis (logística), Rosa (finanzas), Tomás (comunicaciones).\nPersonas mencionadas que NO están presentes: Marta, Jorge.\n\nREGISTRO ACTUAL DE TAREAS:\nT1 Luis: elegir alternativa para la fecha de la feria (sustituir el sábado 10) | plazo: \"domingo 11 a las diez\" | condición: domingo 11 a las diez (U002)\nT2 Rosa: revisar presupuesto del catering Sabores | plazo: \"domingo 11 a las diez\" | condición: - (U007)\nT3 Luis: contactar con Delicias para confirmar menú vegetariano y precio | plazo: \"domingo 11 a las diez\" | condición: - (U008)\n\nINTERVENCIONES ANTERIORES INMEDIATAS (ya procesadas):\n[U006 | Tomás] ¿Y el catering? El año pasado fue Sabores.\n[U007 | Rosa] Sabores subió el doble. No nos alcanza.\n[U008 | Luis] Delicias cotizó menos y hace menú vegetariano.\n\nINTERVENCIONES NUEVAS (registra lo que ocurre aquí):\n[U009 | Ana] De acuerdo, vamos con Delicias. Sabores queda fuera.\n[U010 | Luis] Para reservar el gimnasio necesito que Marta firme la autorización.\n[U011 | Ana] ¿Cuándo lo puedes dejar reservado?\n[U012 | Luis] Si Marta firma antes de mañana al mediodía, yo lo reservo mañana a las tres.\n[U013 | Rosa] Yo mando el presupuesto final el lunes antes de las doce.\n[U014 | Tomás] Puedo tener el afiche listo el miércoles 7.\n[U015 | Ana] Perfecto, afiche a tu nombre, Tomás.\n[U016 | Rosa] ¿Y la invitación a los apoderados? ¿La manda Jorge?\n\nIds libres para tareas nuevas: T4, T5, T6, T7, T8."
+        }
+      ],
+      "response_raw": "{\"llamadas\": [\n    {\"herramienta\": \"crear_tarea\", \"id\": \"T4\", \"responsable\": \"Luis\", \"contenido\": \"reservar el gimnasio\", \"plazo_literal\": \"mañana a las tres\", \"condicion\": \"si Marta firma la autorización antes de mañana al mediodía\", \"utterance_id\": \"U012\"},\n    {\"herramienta\": \"confirmar\", \"id\": \"T4\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U011\"},\n    {\"herramienta\": \"crear_tarea\", \"id\": \"T5\", \"responsable\": \"Rosa\", \"contenido\": \"mandar el presupuesto final\", \"plazo_literal\": \"el lunes antes de las doce\", \"condicion\": null, \"utterance_id\": \"U013\"},\n    {\"herramienta\": \"confirmar\", \"id\": \"T5\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U015\"},\n    {\"herramienta\": \"crear_tarea\", \"id\": \"T6\", \"responsable\": \"Tomás\", \"contenido\": \"preparar el afiche\", \"plazo_literal\": \"el miércoles 7\", \"condicion\": null, \"utterance_id\": \"U014\"},\n    {\"herramienta\": \"confirmar\", \"id\": \"T6\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U015\"}\n]}",
+      "prompt_eval_count": 1299,
+      "eval_count": 401,
+      "prompt_eval_duration_s": 0.458,
+      "eval_duration_s": 8.552,
+      "load_duration_s": 0.002,
+      "total_duration_s": 9.068,
+      "wall_s": 9.07,
+      "tok_per_s": 46.89,
+      "done_reason": "stop",
+      "tipo": "extraccion",
+      "pasada": "tareas",
+      "bloque": [
+        "U009",
+        "U016"
+      ],
+      "recuperadas": [],
+      "modo_usado": "sin_rag",
+      "registro_mostrado": "3/3"
+    },
+    {
+      "endpoint": "/api/chat",
+      "options": {
+        "num_ctx": 8192,
+        "temperature": 0,
+        "seed": 42,
+        "num_predict": 1500
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Eres el secretario de una reunión. En esta pasada registras DECISIONES llamando herramientas; el código guarda el registro y arma el acta. No registres tareas personales.\n\nUna decisión es un acuerdo del grupo sobre cómo se hará algo: fecha, herramienta, proveedor, canal, alcance, regla, modalidad. También registras las propuestas sobre esos asuntos, porque después pueden aceptarse, rechazarse o reemplazarse. Una queja, un problema técnico o una pregunta suelta no es una decisión. El compromiso personal de alguien (\"yo hago X\", \"te dejo X\") es una tarea: no lo registres en esta pasada.\n\nHerramientas:\n- crear_decision: aparece una propuesta o un acuerdo NUEVO.\n  estado = \"propuesta\" si se sugiere o se pregunta; \"final\" si quien dirige lo acepta explícitamente; \"rechazada\" si se descarta; \"pendiente\" si se deja explícitamente sin decidir.\n  reemplaza = ids de decisiones del registro sobre el MISMO asunto que esta deja sin efecto (si no, lista vacía).\n- cambiar_estado: una decisión que ya está en el registro pasa a \"final\", \"rechazada\" o \"pendiente\".\n- confirmar: la intervención solo repite o ratifica una decisión del registro.\n\nReglas generales:\n- Registra solo lo que ocurre en INTERVENCIONES NUEVAS. El registro y el contexto son para entender, no para volver a registrar.\n- Cada llamada cita UNA intervención de INTERVENCIONES NUEVAS en utterance_id.\n- Si el asunto ya está en el registro, usa su id; no lo dupliques.\n- Si no ocurre nada registrable, responde {\"llamadas\": []}.\n\nEjemplo de otra reunión (no es parte de esta):\n[U010 | Ana] ¿Contratamos el catering de Sabores?\n[U011 | Luis] Cobran el doble que el año pasado.\n[U012 | Ana] Entonces Sabores descartado. Vamos con Delicias, reemplaza a Sabores.\n[U013 | Luis] ¿Y el menú vegano?\n[U014 | Ana] Eso lo dejamos pendiente hasta tener la lista de invitados.\n[U015 | Ana] Confirmo: Delicias.\n{\"llamadas\": [\n {\"herramienta\": \"crear_decision\", \"id\": \"D1\", \"tema\": \"catering\", \"contenido\": \"contratar Sabores\", \"estado\": \"propuesta\", \"reemplaza\": [], \"utterance_id\": \"U010\"},\n {\"herramienta\": \"cambiar_estado\", \"id\": \"D1\", \"tema\": null, \"contenido\": null, \"estado\": \"rechazada\", \"reemplaza\": [], \"utterance_id\": \"U012\"},\n {\"herramienta\": \"crear_decision\", \"id\": \"D2\", \"tema\": \"catering\", \"contenido\": \"contratar Delicias\", \"estado\": \"final\", \"reemplaza\": [\"D1\"], \"utterance_id\": \"U012\"},\n {\"herramienta\": \"crear_decision\", \"id\": \"D3\", \"tema\": \"menú vegano\", \"contenido\": \"definir si habrá menú vegano\", \"estado\": \"pendiente\", \"reemplaza\": [], \"utterance_id\": \"U014\"},\n {\"herramienta\": \"confirmar\", \"id\": \"D2\", \"tema\": null, \"contenido\": null, \"estado\": null, \"reemplaza\": [], \"utterance_id\": \"U015\"}\n]}"
+        },
+        {
+          "role": "user",
+          "content": "Reunión: jueves 2026-10-01. Participantes presentes: Ana (coordinadora), Luis (logística), Rosa (finanzas), Tomás (comunicaciones).\nPersonas mencionadas que NO están presentes: Marta, Jorge.\n\nREGISTRO ACTUAL DE DECISIONES:\nD1 [reemplazada por D4] fecha de la feria: domingo 11 de octubre a las 10:00 (U005)\nD2 [propuesta] catering: contratar Delicias (U008)\nD3 [propuesta] menú vegetariano: incluir menú vegetariano (U008)\nD4 [final] catering: contratar Delicias (U009)\nD5 [propuesta] autorización para reserva de gimnasio: Marta firma autorización antes del mediodía del jueves 2026-10-01 (U010)\nD6 [pendiente] fecha de reserva del gimnasio: reserva confirmada para el viernes 21 de octubre a las 13:00 (U012)\nD7 [final] presupuesto final: Rosa envía presupuesto antes del lunes 23 de octubre a las 12:00 (U013)\nD8 [final] afiche de la feria: Tomás prepara el afiche y lo envía a la coordinación para el miércoles 7 de octubre (U014)\n\nINTERVENCIONES ANTERIORES INMEDIATAS (ya procesadas):\n[U014 | Tomás] Puedo tener el afiche listo el miércoles 7.\n[U015 | Ana] Perfecto, afiche a tu nombre, Tomás.\n[U016 | Rosa] ¿Y la invitación a los apoderados? ¿La manda Jorge?\n\nINTERVENCIONES NUEVAS (registra lo que ocurre aquí):\n[U017 | Ana] No, Jorge solo nos pasa la lista de correos. La invitación la envío yo el viernes 9 a las cinco, si Marta aprueba el texto.\n[U018 | Luis] Falta ver el estacionamiento para los proveedores.\n[U019 | Ana] Eso lo dejamos pendiente; no tenemos a nadie de la municipalidad acá.\n[U020 | Tomás] Por jugar al abogado del diablo, ¿y si volvemos al sábado 10 en la tarde?\n[U021 | Ana] No, queda el domingo 11. El torneo ocupa todo el sábado.\n[U022 | Rosa] Resumen mío: presupuesto el lunes antes de las doce.\n[U023 | Luis] Yo: gimnasio mañana a las tres si Marta firma.\n[U024 | Tomás] Afiche el miércoles 7.\n\nIds libres para decisiones nuevas: D9, D10, D11, D12, D13."
+        }
+      ],
+      "response_raw": "{\n  \"llamadas\": [\n    {\n      \"herramienta\": \"crear_decision\",\n      \"id\": \"D9\",\n      \"tema\": \"invitación a apoderados\",\n      \"contenido\": \"envío de invitación por parte de Ana el viernes 9 a las cinco p.m. (si Marta aprueba el texto)\",\n      \"estado\": \"propuesta\",\n      \"reemplaza\": [],\n      \"utterance_id\": \"U017\"\n    },\n    {\n      \"herramienta\": \"crear_decision\",\n      \"id\": \"D10\",\n      \"tema\": \"estacionamiento para proveedores\",\n      \"contenido\": \"dejar pendiente la revisión del estacionamiento para proveedores\",\n      \"estado\": \"pendiente\",\n      \"reemplaza\": [],\n      \"utterance_id\": \"U019\"\n    },\n    {\n      \"herramienta\": \"crear_decision\",\n      \"id\": \"D11\",\n      \"tema\": \"fecha alternativa para feria\",\n      \"contenido\": \"rechazar propuesta del sábado 10 en la tarde por conflicto con torneo\",\n      \"estado\": \"final\",\n      \"reemplaza\": [],\n      \"utterance_id\": \"U021\"\n    },\n    {\n      \"herramienta\": \"confirmar\",\n      \"id\": \"D8\",\n      \"tema\": null,\n      \"contenido\": null,\n      \"estado\": null,\n      \"reemplaza\": [],\n      \"utterance_id\": \"U024\"\n    }\n  ]\n}",
+      "prompt_eval_count": 1467,
+      "eval_count": 345,
+      "prompt_eval_duration_s": 0.64,
+      "eval_duration_s": 7.51,
+      "load_duration_s": 0.001,
+      "total_duration_s": 8.199,
+      "wall_s": 8.201,
+      "tok_per_s": 45.94,
+      "done_reason": "stop",
+      "tipo": "extraccion",
+      "pasada": "decisiones",
+      "bloque": [
+        "U017",
+        "U024"
+      ],
+      "recuperadas": [],
+      "modo_usado": "sin_rag",
+      "registro_mostrado": "8/8"
+    },
+    {
+      "endpoint": "/api/chat",
+      "options": {
+        "num_ctx": 8192,
+        "temperature": 0,
+        "seed": 42,
+        "num_predict": 1500
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Eres el secretario de una reunión. En esta pasada registras TAREAS llamando herramientas; el código guarda el registro y arma el acta. No registres decisiones generales.\n\nUna tarea es un compromiso concreto de una persona PRESENTE (dice que hará algo) o un encargo que se le asigna explícitamente. Describir un problema, pedir algo, hacer una pregunta, \"confirmar si...\" o \"revisar si...\" no es una tarea.\n\nHerramientas:\n- crear_tarea: aparece un compromiso o encargo NUEVO.\n  responsable = nombre de pila de quien hará la tarea (solo participantes presentes).\n  contenido = qué hará, en pocas palabras.\n  plazo_literal = copia EXACTA de las palabras del plazo, sin convertirlas (null si no hay plazo).\n  condicion = de qué depende la tarea, copiada de la intervención (null si no depende de nada).\n- actualizar_tarea: cambia el plazo o la condición de una tarea que ya está en el registro.\n- confirmar: la intervención repite o ratifica una tarea del registro. En los resúmenes del final casi todo ya está en el registro: usa confirmar con su id.\n\nReglas de tareas:\n- Una tarea por acción y por responsable: dos acciones distintas son dos tareas.\n- Una persona mencionada que no está presente nunca es responsable; lo que deba hacer puede ser la condición de otra tarea.\n\nReglas generales:\n- Registra solo lo que ocurre en INTERVENCIONES NUEVAS. El registro y el contexto son para entender, no para volver a registrar.\n- Cada llamada cita UNA intervención de INTERVENCIONES NUEVAS en utterance_id.\n- Si el asunto ya está en el registro, usa su id; no lo dupliques.\n- Si no ocurre nada registrable, responde {\"llamadas\": []}.\n\nEjemplo de otra reunión (no es parte de esta; Marta no está presente):\n[U020 | Luis] Yo reservo el salón mañana a las tres, si Marta me manda el presupuesto antes.\n[U021 | Ana] Perfecto, a tu nombre. Y yo imprimo los afiches el lunes.\n[U030 | Ana] Resumen: Luis el salón mañana, yo los afiches.\n{\"llamadas\": [\n {\"herramienta\": \"crear_tarea\", \"id\": \"T1\", \"responsable\": \"Luis\", \"contenido\": \"reservar el salón\", \"plazo_literal\": \"mañana a las tres\", \"condicion\": \"si Marta me manda el presupuesto antes\", \"utterance_id\": \"U020\"},\n {\"herramienta\": \"confirmar\", \"id\": \"T1\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U021\"},\n {\"herramienta\": \"crear_tarea\", \"id\": \"T2\", \"responsable\": \"Ana\", \"contenido\": \"imprimir los afiches\", \"plazo_literal\": \"el lunes\", \"condicion\": null, \"utterance_id\": \"U021\"},\n {\"herramienta\": \"confirmar\", \"id\": \"T1\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U030\"},\n {\"herramienta\": \"confirmar\", \"id\": \"T2\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U030\"}\n]}"
+        },
+        {
+          "role": "user",
+          "content": "Reunión: jueves 2026-10-01. Participantes presentes: Ana (coordinadora), Luis (logística), Rosa (finanzas), Tomás (comunicaciones).\nPersonas mencionadas que NO están presentes: Marta, Jorge.\n\nREGISTRO ACTUAL DE TAREAS:\nT1 Luis: elegir alternativa para la fecha de la feria (sustituir el sábado 10) | plazo: \"domingo 11 a las diez\" | condición: domingo 11 a las diez (U002)\nT2 Rosa: revisar presupuesto del catering Sabores | plazo: \"domingo 11 a las diez\" | condición: - (U007)\nT3 Luis: contactar con Delicias para confirmar menú vegetariano y precio | plazo: \"domingo 11 a las diez\" | condición: - (U008)\nT4 Luis: reservar el gimnasio | plazo: \"mañana a las tres\" | condición: si Marta firma la autorización antes de mañana al mediodía (U012)\nT5 Rosa: mandar el presupuesto final | plazo: \"el lunes antes de las doce\" | condición: - (U013)\nT6 Tomás: preparar el afiche | plazo: \"el miércoles 7\" | condición: - (U014)\n\nINTERVENCIONES ANTERIORES INMEDIATAS (ya procesadas):\n[U014 | Tomás] Puedo tener el afiche listo el miércoles 7.\n[U015 | Ana] Perfecto, afiche a tu nombre, Tomás.\n[U016 | Rosa] ¿Y la invitación a los apoderados? ¿La manda Jorge?\n\nINTERVENCIONES NUEVAS (registra lo que ocurre aquí):\n[U017 | Ana] No, Jorge solo nos pasa la lista de correos. La invitación la envío yo el viernes 9 a las cinco, si Marta aprueba el texto.\n[U018 | Luis] Falta ver el estacionamiento para los proveedores.\n[U019 | Ana] Eso lo dejamos pendiente; no tenemos a nadie de la municipalidad acá.\n[U020 | Tomás] Por jugar al abogado del diablo, ¿y si volvemos al sábado 10 en la tarde?\n[U021 | Ana] No, queda el domingo 11. El torneo ocupa todo el sábado.\n[U022 | Rosa] Resumen mío: presupuesto el lunes antes de las doce.\n[U023 | Luis] Yo: gimnasio mañana a las tres si Marta firma.\n[U024 | Tomás] Afiche el miércoles 7.\n\nIds libres para tareas nuevas: T7, T8, T9, T10, T11."
+        }
+      ],
+      "response_raw": "{\"llamadas\": [\n    {\n        \"herramienta\": \"crear_tarea\",\n        \"id\": \"T7\",\n        \"responsable\": \"Ana\",\n        \"contenido\": \"enviar la invitación a los apoderados\",\n        \"plazo_literal\": \"viernes 9 a las cinco\",\n        \"condicion\": \"si Marta aprueba el texto\",\n        \"utterance_id\": \"U017\"\n    },\n    {\n        \"herramienta\": \"actualizar_tarea\",\n        \"id\": \"T4\",\n        \"responsable\": \"Luis\",\n        \"contenido\": null,\n        \"plazo_literal\": \"mañana a las tres\",\n        \"condicion\": \"si Marta firma la autorización antes de mañana al mediodía\",\n        \"utterance_id\": \"U023\"\n    },\n    {\n        \"herramienta\": \"confirmar\",\n        \"id\": \"T6\",\n        \"responsable\": null,\n        \"contenido\": null,\n        \"plazo_literal\": \"el miércoles 7\",\n        \"condicion\": null,\n        \"utterance_id\": \"U024\"\n    }\n]}",
+      "prompt_eval_count": 1430,
+      "eval_count": 258,
+      "prompt_eval_duration_s": 0.485,
+      "eval_duration_s": 5.804,
+      "load_duration_s": 0.002,
+      "total_duration_s": 6.386,
+      "wall_s": 6.387,
+      "tok_per_s": 44.45,
+      "done_reason": "stop",
+      "tipo": "extraccion",
+      "pasada": "tareas",
+      "bloque": [
+        "U017",
+        "U024"
+      ],
+      "recuperadas": [],
+      "modo_usado": "sin_rag",
+      "registro_mostrado": "6/6"
+    },
+    {
+      "endpoint": "/api/chat",
+      "options": {
+        "num_ctx": 8192,
+        "temperature": 0,
+        "seed": 42,
+        "num_predict": 1500
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Eres el secretario de una reunión. En esta pasada registras DECISIONES llamando herramientas; el código guarda el registro y arma el acta. No registres tareas personales.\n\nUna decisión es un acuerdo del grupo sobre cómo se hará algo: fecha, herramienta, proveedor, canal, alcance, regla, modalidad. También registras las propuestas sobre esos asuntos, porque después pueden aceptarse, rechazarse o reemplazarse. Una queja, un problema técnico o una pregunta suelta no es una decisión. El compromiso personal de alguien (\"yo hago X\", \"te dejo X\") es una tarea: no lo registres en esta pasada.\n\nHerramientas:\n- crear_decision: aparece una propuesta o un acuerdo NUEVO.\n  estado = \"propuesta\" si se sugiere o se pregunta; \"final\" si quien dirige lo acepta explícitamente; \"rechazada\" si se descarta; \"pendiente\" si se deja explícitamente sin decidir.\n  reemplaza = ids de decisiones del registro sobre el MISMO asunto que esta deja sin efecto (si no, lista vacía).\n- cambiar_estado: una decisión que ya está en el registro pasa a \"final\", \"rechazada\" o \"pendiente\".\n- confirmar: la intervención solo repite o ratifica una decisión del registro.\n\nReglas generales:\n- Registra solo lo que ocurre en INTERVENCIONES NUEVAS. El registro y el contexto son para entender, no para volver a registrar.\n- Cada llamada cita UNA intervención de INTERVENCIONES NUEVAS en utterance_id.\n- Si el asunto ya está en el registro, usa su id; no lo dupliques.\n- Si no ocurre nada registrable, responde {\"llamadas\": []}.\n\nEjemplo de otra reunión (no es parte de esta):\n[U010 | Ana] ¿Contratamos el catering de Sabores?\n[U011 | Luis] Cobran el doble que el año pasado.\n[U012 | Ana] Entonces Sabores descartado. Vamos con Delicias, reemplaza a Sabores.\n[U013 | Luis] ¿Y el menú vegano?\n[U014 | Ana] Eso lo dejamos pendiente hasta tener la lista de invitados.\n[U015 | Ana] Confirmo: Delicias.\n{\"llamadas\": [\n {\"herramienta\": \"crear_decision\", \"id\": \"D1\", \"tema\": \"catering\", \"contenido\": \"contratar Sabores\", \"estado\": \"propuesta\", \"reemplaza\": [], \"utterance_id\": \"U010\"},\n {\"herramienta\": \"cambiar_estado\", \"id\": \"D1\", \"tema\": null, \"contenido\": null, \"estado\": \"rechazada\", \"reemplaza\": [], \"utterance_id\": \"U012\"},\n {\"herramienta\": \"crear_decision\", \"id\": \"D2\", \"tema\": \"catering\", \"contenido\": \"contratar Delicias\", \"estado\": \"final\", \"reemplaza\": [\"D1\"], \"utterance_id\": \"U012\"},\n {\"herramienta\": \"crear_decision\", \"id\": \"D3\", \"tema\": \"menú vegano\", \"contenido\": \"definir si habrá menú vegano\", \"estado\": \"pendiente\", \"reemplaza\": [], \"utterance_id\": \"U014\"},\n {\"herramienta\": \"confirmar\", \"id\": \"D2\", \"tema\": null, \"contenido\": null, \"estado\": null, \"reemplaza\": [], \"utterance_id\": \"U015\"}\n]}"
+        },
+        {
+          "role": "user",
+          "content": "Reunión: jueves 2026-10-01. Participantes presentes: Ana (coordinadora), Luis (logística), Rosa (finanzas), Tomás (comunicaciones).\nPersonas mencionadas que NO están presentes: Marta, Jorge.\n\nREGISTRO ACTUAL DE DECISIONES:\nD1 [reemplazada por D4] fecha de la feria: domingo 11 de octubre a las 10:00 (U005)\nD2 [propuesta] catering: contratar Delicias (U008)\nD3 [propuesta] menú vegetariano: incluir menú vegetariano (U008)\nD4 [final] catering: contratar Delicias (U009)\nD5 [propuesta] autorización para reserva de gimnasio: Marta firma autorización antes del mediodía del jueves 2026-10-01 (U010)\nD6 [pendiente] fecha de reserva del gimnasio: reserva confirmada para el viernes 21 de octubre a las 13:00 (U012)\nD7 [final] presupuesto final: Rosa envía presupuesto antes del lunes 23 de octubre a las 12:00 (U013)\nD8 [final] afiche de la feria: Tomás prepara el afiche y lo envía a la coordinación para el miércoles 7 de octubre (U014)\nD9 [propuesta] invitación a apoderados: envío de invitación por parte de Ana el viernes 9 a las cinco p.m. (si Marta aprueba el texto) (U017)\nD10 [pendiente] estacionamiento para proveedores: dejar pendiente la revisión del estacionamiento para proveedores (U019)\nD11 [final] fecha alternativa para feria: rechazar propuesta del sábado 10 en la tarde por conflicto con torneo (U021)\n\nINTERVENCIONES ANTERIORES INMEDIATAS (ya procesadas):\n[U022 | Rosa] Resumen mío: presupuesto el lunes antes de las doce.\n[U023 | Luis] Yo: gimnasio mañana a las tres si Marta firma.\n[U024 | Tomás] Afiche el miércoles 7.\n\nINTERVENCIONES NUEVAS (registra lo que ocurre aquí):\n[U025 | Ana] Y yo la invitación el viernes 9 a las cinco si Marta aprueba. Estacionamiento pendiente. Cerramos.\n\nIds libres para decisiones nuevas: D12, D13, D14, D15, D16."
+        }
+      ],
+      "response_raw": "{\n  \"llamadas\": [\n    {\n      \"herramienta\": \"crear_decision\",\n      \"id\": \"D12\",\n      \"tema\": \"invitación a apoderados\",\n      \"contenido\": \"envío de invitación por parte de Ana el viernes 9 de octubre a las 19:00 (si Marta aprueba el texto)\",\n      \"estado\": \"final\",\n      \"reemplaza\": [\"D9\"],\n      \"utterance_id\": \"U025\"\n    },\n    {\n      \"herramienta\": \"crear_decision\",\n      \"id\": \"D13\",\n      \"tema\": \"reserva del gimnasio\",\n      \"contenido\": \"reserva confirmada para el viernes 21 de octubre a las 13:00 (con firma de Marta antes del mediodía del jueves 1 de octubre)\",\n      \"estado\": \"final\",\n      \"reemplaza\": [\"D6\"],\n      \"utterance_id\": \"U025\"\n    },\n    {\n      \"herramienta\": \"crear_decision\",\n      \"id\": \"D14\",\n      \"tema\": \"estacionamiento para proveedores\",\n      \"contenido\": \"revisión pendiente del estacionamiento para proveedores\",\n      \"estado\": \"pendiente\",\n      \"reemplaza\": [\"D10\"],\n      \"utterance_id\": \"U025\"\n    }\n  ]\n}",
+      "prompt_eval_count": 1405,
+      "eval_count": 317,
+      "prompt_eval_duration_s": 0.335,
+      "eval_duration_s": 6.997,
+      "load_duration_s": 0.002,
+      "total_duration_s": 7.364,
+      "wall_s": 7.366,
+      "tok_per_s": 45.31,
+      "done_reason": "stop",
+      "tipo": "extraccion",
+      "pasada": "decisiones",
+      "bloque": [
+        "U025",
+        "U025"
+      ],
+      "recuperadas": [],
+      "modo_usado": "sin_rag",
+      "registro_mostrado": "11/11"
+    },
+    {
+      "endpoint": "/api/chat",
+      "options": {
+        "num_ctx": 8192,
+        "temperature": 0,
+        "seed": 42,
+        "num_predict": 1500
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Eres el secretario de una reunión. En esta pasada registras TAREAS llamando herramientas; el código guarda el registro y arma el acta. No registres decisiones generales.\n\nUna tarea es un compromiso concreto de una persona PRESENTE (dice que hará algo) o un encargo que se le asigna explícitamente. Describir un problema, pedir algo, hacer una pregunta, \"confirmar si...\" o \"revisar si...\" no es una tarea.\n\nHerramientas:\n- crear_tarea: aparece un compromiso o encargo NUEVO.\n  responsable = nombre de pila de quien hará la tarea (solo participantes presentes).\n  contenido = qué hará, en pocas palabras.\n  plazo_literal = copia EXACTA de las palabras del plazo, sin convertirlas (null si no hay plazo).\n  condicion = de qué depende la tarea, copiada de la intervención (null si no depende de nada).\n- actualizar_tarea: cambia el plazo o la condición de una tarea que ya está en el registro.\n- confirmar: la intervención repite o ratifica una tarea del registro. En los resúmenes del final casi todo ya está en el registro: usa confirmar con su id.\n\nReglas de tareas:\n- Una tarea por acción y por responsable: dos acciones distintas son dos tareas.\n- Una persona mencionada que no está presente nunca es responsable; lo que deba hacer puede ser la condición de otra tarea.\n\nReglas generales:\n- Registra solo lo que ocurre en INTERVENCIONES NUEVAS. El registro y el contexto son para entender, no para volver a registrar.\n- Cada llamada cita UNA intervención de INTERVENCIONES NUEVAS en utterance_id.\n- Si el asunto ya está en el registro, usa su id; no lo dupliques.\n- Si no ocurre nada registrable, responde {\"llamadas\": []}.\n\nEjemplo de otra reunión (no es parte de esta; Marta no está presente):\n[U020 | Luis] Yo reservo el salón mañana a las tres, si Marta me manda el presupuesto antes.\n[U021 | Ana] Perfecto, a tu nombre. Y yo imprimo los afiches el lunes.\n[U030 | Ana] Resumen: Luis el salón mañana, yo los afiches.\n{\"llamadas\": [\n {\"herramienta\": \"crear_tarea\", \"id\": \"T1\", \"responsable\": \"Luis\", \"contenido\": \"reservar el salón\", \"plazo_literal\": \"mañana a las tres\", \"condicion\": \"si Marta me manda el presupuesto antes\", \"utterance_id\": \"U020\"},\n {\"herramienta\": \"confirmar\", \"id\": \"T1\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U021\"},\n {\"herramienta\": \"crear_tarea\", \"id\": \"T2\", \"responsable\": \"Ana\", \"contenido\": \"imprimir los afiches\", \"plazo_literal\": \"el lunes\", \"condicion\": null, \"utterance_id\": \"U021\"},\n {\"herramienta\": \"confirmar\", \"id\": \"T1\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U030\"},\n {\"herramienta\": \"confirmar\", \"id\": \"T2\", \"responsable\": null, \"contenido\": null, \"plazo_literal\": null, \"condicion\": null, \"utterance_id\": \"U030\"}\n]}"
+        },
+        {
+          "role": "user",
+          "content": "Reunión: jueves 2026-10-01. Participantes presentes: Ana (coordinadora), Luis (logística), Rosa (finanzas), Tomás (comunicaciones).\nPersonas mencionadas que NO están presentes: Marta, Jorge.\n\nREGISTRO ACTUAL DE TAREAS:\nT1 Luis: elegir alternativa para la fecha de la feria (sustituir el sábado 10) | plazo: \"domingo 11 a las diez\" | condición: domingo 11 a las diez (U002)\nT2 Rosa: revisar presupuesto del catering Sabores | plazo: \"domingo 11 a las diez\" | condición: - (U007)\nT3 Luis: contactar con Delicias para confirmar menú vegetariano y precio | plazo: \"domingo 11 a las diez\" | condición: - (U008)\nT4 Luis: reservar el gimnasio | plazo: \"mañana a las tres\" | condición: si Marta firma la autorización antes de mañana al mediodía (U012)\nT5 Rosa: mandar el presupuesto final | plazo: \"el lunes antes de las doce\" | condición: - (U013)\nT6 Tomás: preparar el afiche | plazo: \"el miércoles 7\" | condición: - (U014)\nT7 Ana: enviar la invitación a los apoderados | plazo: \"viernes 9 a las cinco\" | condición: si Marta aprueba el texto (U017)\n\nINTERVENCIONES ANTERIORES INMEDIATAS (ya procesadas):\n[U022 | Rosa] Resumen mío: presupuesto el lunes antes de las doce.\n[U023 | Luis] Yo: gimnasio mañana a las tres si Marta firma.\n[U024 | Tomás] Afiche el miércoles 7.\n\nINTERVENCIONES NUEVAS (registra lo que ocurre aquí):\n[U025 | Ana] Y yo la invitación el viernes 9 a las cinco si Marta aprueba. Estacionamiento pendiente. Cerramos.\n\nIds libres para tareas nuevas: T8, T9, T10, T11, T12."
+        }
+      ],
+      "response_raw": "{\"llamadas\": [\n    {\n        \"herramienta\": \"crear_tarea\",\n        \"id\": \"T8\",\n        \"responsable\": \"Ana\",\n        \"contenido\": \"enviar la invitación a los apoderados\",\n        \"plazo_literal\": \"viernes 9 a las cinco\",\n        \"condicion\": \"si Marta aprueba el texto\",\n        \"utterance_id\": \"U025\"\n    },\n    {\n        \"herramienta\": \"crear_tarea\",\n        \"id\": \"T9\",\n        \"responsable\": \"Tomás\",\n        \"contenido\": \"gestionar el estacionamiento\",\n        \"plazo_literal\": null,\n        \"condicion\": null,\n        \"utterance_id\": \"U025\"\n    }\n]}",
+      "prompt_eval_count": 1297,
+      "eval_count": 174,
+      "prompt_eval_duration_s": 0.227,
+      "eval_duration_s": 3.797,
+      "load_duration_s": 0.002,
+      "total_duration_s": 4.055,
+      "wall_s": 4.056,
+      "tok_per_s": 45.82,
+      "done_reason": "stop",
+      "tipo": "extraccion",
+      "pasada": "tareas",
+      "bloque": [
+        "U025",
+        "U025"
+      ],
+      "recuperadas": [],
+      "modo_usado": "sin_rag",
+      "registro_mostrado": "7/7"
+    }
+  ],
+  "n_llamadas": 8,
+  "n_llamadas_extraccion": 8,
+  "prompt_eval_count": 10357,
+  "eval_count": 2603,
+  "bloques_cortados_por_limite": 0,
+  "modos_usados": [
+    "sin_rag"
+  ],
+  "advertencias_transcripcion": [],
+  "wall_total_s": 63.81,
+  "entorno": {
+    "model": "ministral-3:3b",
+    "python": "3.14.7",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "ollama_version": "0.33.3",
+    "model_digest": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+    "model_digest_short": "f04aa1c738f6",
+    "model_details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "mistral3",
+      "families": [
+        "mistral3"
+      ],
+      "parameter_size": "3.8B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 262144,
+      "embedding_length": 3072
+    },
+    "cpu": "Apple M5"
+  },
+  "transcripcion": "ejemplos/feria_colegio_formato_simple.md"
+}

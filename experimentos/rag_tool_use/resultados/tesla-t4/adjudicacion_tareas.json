@@ -1,0 +1,77 @@
+{
+  "criterio": "Revisión manual de la descripción de cada tarea predicha, como en la auditoría del D1. 'recuperadas' asigna a cada tarea del gold el índice de la tarea predicha que la describe (null si no aparece). 'mezcladas' = una tarea predicha que junta acciones de dos tareas del gold (error 'mezcló 2' del D1). 'partidas' = fragmento o duplicado de una tarea del gold que ya está recuperada. 'extra' = no corresponde a ninguna tarea del gold. Los índices son posiciones en acta.action_items.",
+  "revisor": "Claude, revisable; cada juicio lleva su razón",
+  "condiciones": {
+    "d1_original": {
+      "archivo": "../../pruebas/01_salida_ministral_8k.md",
+      "recuperadas": {"T1": 0, "T2": 2, "T3": 3, "T4": 4, "T5": null, "T6": 5, "T7": 1},
+      "mezcladas": [{"indice": 0, "gold": ["T1", "T2"], "razon": "La tarea de Fernanda dice 'Corregir duplicación de invitaciones', que es la tarea de Diego (auditoría D1, error 4)."}],
+      "partidas": [],
+      "extra": []
+    },
+    "baseline": {
+      "recuperadas": {"T1": 0, "T2": 2, "T3": 3, "T4": 4, "T5": null, "T6": null, "T7": 1},
+      "mezcladas": [{"indice": 0, "gold": ["T1", "T2"], "razon": "Idéntica al D1: la tarea de Fernanda incluye 'Corregir duplicación de invitaciones' (de Diego)."}],
+      "partidas": [],
+      "extra": [{"indice": 5, "razon": "'Asignar soporte para correos del piloto': convierte la cobertura de soporte, pendiente sin responsable, en tarea (error penalizado en la pauta)."}]
+    },
+    "pipeline_tool_1pasada": {
+      "recuperadas": {"T1": 1, "T2": 2, "T3": null, "T4": null, "T5": null, "T6": null, "T7": 3},
+      "mezcladas": [],
+      "partidas": [{"indice": 0, "gold": "T1", "razon": "'Pantallas de alto contraste el lunes en la mañana' (U011): oferta de Fernanda reemplazada por la entrega del viernes."}],
+      "extra": []
+    },
+    "pipeline_tool_bloques": {
+      "recuperadas": {"T1": 1, "T2": 5, "T3": 11, "T4": 13, "T5": 10, "T6": 8, "T7": 15},
+      "mezcladas": [],
+      "partidas": [
+        {"indice": 2, "gold": "T1", "razon": "Oferta reemplazada del lunes en la mañana (U011)."},
+        {"indice": 4, "gold": "T2", "razon": "'Recuperar credencial del sandbox': es la condición de T2 (la entrega Andrés), convertida en tarea de Diego."},
+        {"indice": 12, "gold": "T3", "razon": "'Subir el informe de regresión': segunda mitad de T3 separada de la regresión."},
+        {"indice": 18, "gold": "T1", "razon": "'Revisar si las imágenes del lunes...': repite T1 a partir de U063."}
+      ],
+      "extra": [
+        {"indice": 0, "razon": "'Confirmar la fecha del piloto como lunes 31': es una decisión sustituida, no una tarea."},
+        {"indice": 3, "razon": "'Avisar a Paula': U010 dice que Paula necesita una fecha; nadie asigna esa tarea a Camila."},
+        {"indice": 6, "razon": "'Revisar si MailFast puede usarse': es la pregunta de Fernanda (U020), no un compromiso."},
+        {"indice": 7, "razon": "'Informar sobre el límite de cuentas del SMTP': respuesta de Diego (U023), no un compromiso."},
+        {"indice": 9, "razon": "'Proponer un correo de soporte visible': propuesta de Martín (U029), atribuida a Fernanda."},
+        {"indice": 14, "razon": "'Confirmar si el informe de Martín tiene bloqueadores': parte de la condición de T4."},
+        {"indice": 16, "razon": "'Cerrar la cobertura de soporte con Paula y operaciones': la pauta la trata como pendiente sin responsable."},
+        {"indice": 17, "razon": "'Responder el correo de soporte la tarde del lanzamiento': oferta de Martín (U050) atribuida a Fernanda; el asunto quedó pendiente."}
+      ]
+    },
+    "pipeline_tool_bloques_rag": {
+      "recuperadas": {"T1": 2, "T2": 4, "T3": 10, "T4": 11, "T5": 9, "T6": 7, "T7": 13},
+      "mezcladas": [],
+      "partidas": [
+        {"indice": 1, "gold": "T1", "razon": "Oferta reemplazada del lunes en la mañana (U011)."},
+        {"indice": 3, "gold": "T1", "razon": "'Enviar etiquetas definitivas': mitad de T1 separada de las pantallas."},
+        {"indice": 5, "gold": "T2", "razon": "'Reproducir y corregir el sandbox': duplicado de T2 con el plazo de la condición (28-08 12:00)."},
+        {"indice": 12, "gold": "T4", "razon": "'Reunirse con bloqueadores si aparecen': rama alternativa de la condición de T4."},
+        {"indice": 15, "gold": "T2", "razon": "'Dejar invitaciones para el piloto' (U065): duplicado de T2 desde el resumen final."}
+      ],
+      "extra": [
+        {"indice": 0, "razon": "'Confirmar la fecha del piloto como lunes 31': decisión sustituida, no tarea."},
+        {"indice": 6, "razon": "'Revisar uso de SMTP institucional': es la decisión D4, no una tarea."},
+        {"indice": 8, "razon": "'Revisar si el dashboard es viable': pregunta de Camila (U032), no un compromiso."},
+        {"indice": 14, "razon": "'Responder el correo de soporte la tarde del lanzamiento': la cobertura quedó pendiente sin responsable."}
+      ]
+    },
+    "pipeline_tool_bloques_rag_verif": {
+      "recuperadas": {"T1": 2, "T2": 4, "T3": 10, "T4": 11, "T5": 9, "T6": 7, "T7": 13},
+      "mezcladas": [],
+      "partidas": [
+        {"indice": 1, "gold": "T1", "razon": "Oferta reemplazada del lunes en la mañana (U011)."},
+        {"indice": 3, "gold": "T1", "razon": "'Enviar etiquetas definitivas': mitad de T1 separada de las pantallas."},
+        {"indice": 5, "gold": "T2", "razon": "'Reproducir y corregir el sandbox': duplicado de T2 con el plazo de la condición (28-08 12:00)."},
+        {"indice": 12, "gold": "T4", "razon": "'Reunirse con bloqueadores si aparecen': rama alternativa de la condición de T4."}
+      ],
+      "extra": [
+        {"indice": 0, "razon": "'Confirmar la fecha del piloto como lunes 31': decisión sustituida, no tarea."},
+        {"indice": 6, "razon": "'Revisar uso de SMTP institucional': es la decisión D4, no una tarea."},
+        {"indice": 8, "razon": "'Revisar si el dashboard es viable': pregunta de Camila (U032), no un compromiso."}
+      ]
+    }
+  }
+}

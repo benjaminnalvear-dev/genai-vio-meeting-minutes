@@ -1,0 +1,303 @@
+{
+  "fuente": "pruebas/01_gold_referencia.md",
+  "transcripcion": "pruebas/01_transcripcion_reunion_simulada.md",
+  "fecha_reunion": "2026-08-27",
+  "nota": "Conversión estructurada de la pauta de Benjamin. 'respaldo' copia los IDs de la pauta. 'respaldo_extra' son intervenciones que también respaldan el ítem y que la pauta no lista; están separadas para poder revisarlas. Nunca incluir este archivo en el contexto del modelo.",
+  "personas_ausentes": [
+    "Paula",
+    "Sergio",
+    "Andrés"
+  ],
+  "decisiones": [
+    {
+      "id": "D1",
+      "descripcion": "Apertura del piloto mañana (viernes 28) a las 17:00",
+      "estados_aceptados": [
+        "superseded",
+        "rejected"
+      ],
+      "valor": "2026-08-28 17:00",
+      "respaldo": [
+        "U004",
+        "U008"
+      ],
+      "respaldo_extra": [
+        "U041"
+      ],
+      "nota_extra": "U041: 'Reemplaza mañana y el lunes tentativo.'"
+    },
+    {
+      "id": "D2",
+      "descripcion": "Apertura tentativa el lunes 31 a las 16:00",
+      "estados_aceptados": [
+        "superseded"
+      ],
+      "valor": "2026-08-31 16:00",
+      "respaldo": [
+        "U019",
+        "U041"
+      ],
+      "respaldo_extra": [
+        "U008"
+      ],
+      "nota_extra": "U008 propone 'Lunes 31 a las cuatro'."
+    },
+    {
+      "id": "D3",
+      "descripcion": "Apertura final del piloto el miércoles 2 de septiembre de 2026 a las 10:00",
+      "estados_aceptados": [
+        "final"
+      ],
+      "valor": "2026-09-02 10:00",
+      "respaldo": [
+        "U041",
+        "U059"
+      ],
+      "respaldo_extra": []
+    },
+    {
+      "id": "D4",
+      "descripcion": "SMTP institucional para el piloto; MailFast queda fuera y se revisa después con legal",
+      "estados_aceptados": [
+        "final"
+      ],
+      "respaldo": [
+        "U024"
+      ],
+      "respaldo_extra": []
+    },
+    {
+      "id": "D5",
+      "descripcion": "Sin WhatsApp en el piloto; solo correo de soporte",
+      "estados_aceptados": [
+        "final",
+        "rejected"
+      ],
+      "respaldo": [
+        "U030"
+      ],
+      "respaldo_extra": [],
+      "nota": "Se acepta como decisión final (solo correo) o como idea rechazada (WhatsApp)."
+    },
+    {
+      "id": "D6",
+      "descripcion": "Registrar solo eventos de ingreso y error; dashboard completo después del piloto",
+      "estados_aceptados": [
+        "final"
+      ],
+      "respaldo": [
+        "U034"
+      ],
+      "respaldo_extra": []
+    },
+    {
+      "id": "D7",
+      "descripcion": "Demostración remota el miércoles 2 a las 11:30 (sustituye la modalidad presencial)",
+      "estados_aceptados": [
+        "final"
+      ],
+      "valor": "2026-09-02 11:30",
+      "respaldo": [
+        "U039"
+      ],
+      "respaldo_extra": []
+    },
+    {
+      "id": "D7b",
+      "opcional": true,
+      "descripcion": "Demostración presencial a las 11:30 (estado anterior de D7)",
+      "estados_aceptados": [
+        "superseded",
+        "rejected"
+      ],
+      "respaldo": [
+        "U036"
+      ],
+      "respaldo_extra": [],
+      "nota": "La pauta dice 'U036 establece el estado anterior'. No cuenta en el denominador; reportarlo no es falso positivo."
+    },
+    {
+      "id": "D8",
+      "descripcion": "El piloto no abre sin credencial y regresión aprobada",
+      "estados_aceptados": [
+        "final"
+      ],
+      "respaldo": [
+        "U055"
+      ],
+      "respaldo_extra": []
+    },
+    {
+      "id": "D9",
+      "descripcion": "Defectos menores no bloquean; bloqueador = duplicar invitaciones, perder datos o no poder aceptar desde móvil",
+      "estados_aceptados": [
+        "final"
+      ],
+      "respaldo": [
+        "U061",
+        "U062"
+      ],
+      "respaldo_extra": []
+    },
+    {
+      "id": "D10",
+      "opcional": true,
+      "descripcion": "Sugerencia tardía de volver a abrir el lunes 31 a las 16:00, rechazada",
+      "estados_aceptados": [
+        "rejected",
+        "superseded"
+      ],
+      "respaldo": [
+        "U058",
+        "U059"
+      ],
+      "respaldo_extra": [],
+      "nota": "La pauta lo lista como fenómeno ('Una sugerencia tardía que no reemplaza la decisión final') pero no como decisión. Opcional: reportarlo como rechazado no es falso positivo ni suma recall."
+    }
+  ],
+  "tareas": [
+    {
+      "id": "T1",
+      "responsable": "Fernanda",
+      "descripcion": "Entregar pantallas de alto contraste de login, invitación y recuperación, más etiquetas definitivas",
+      "plazo": "2026-08-28 12:00",
+      "requiere_condicion": false,
+      "respaldo": [
+        "U013",
+        "U014",
+        "U057",
+        "U064"
+      ],
+      "respaldo_extra": []
+    },
+    {
+      "id": "T2",
+      "responsable": "Diego",
+      "descripcion": "Corregir la duplicación de invitaciones",
+      "plazo": "2026-08-31 18:00",
+      "requiere_condicion": true,
+      "condicion": "Andrés entrega la credencial del sandbox antes de 2026-08-28 12:00; si no, Diego avisa el 31 a primera hora que no llega",
+      "respaldo": [
+        "U017",
+        "U065"
+      ],
+      "respaldo_extra": [
+        "U015"
+      ],
+      "nota_extra": "U015: 'Para arreglar las invitaciones necesito la credencial del sandbox.'"
+    },
+    {
+      "id": "T3",
+      "responsable": "Martín",
+      "descripcion": "Ejecutar la regresión el 2026-09-01 de 09:00 a 13:00 y subir el informe antes de las 13:00",
+      "plazo": "2026-09-01 13:00",
+      "requiere_condicion": false,
+      "respaldo": [
+        "U044",
+        "U066"
+      ],
+      "respaldo_extra": []
+    },
+    {
+      "id": "T4",
+      "responsable": "Camila",
+      "descripcion": "Enviar la invitación al cliente",
+      "plazo": "2026-09-01 16:00",
+      "requiere_condicion": true,
+      "condicion": "Solo si el informe de Martín sale sin bloqueadores; si hay, no se anuncia y se reúnen",
+      "respaldo": [
+        "U045",
+        "U047"
+      ],
+      "respaldo_extra": [
+        "U067"
+      ],
+      "nota_extra": "U067: 'invitación el martes antes de las cuatro si QA aprueba'."
+    },
+    {
+      "id": "T5",
+      "responsable": "Camila",
+      "descripcion": "Enviar el enlace de la demostración remota junto con el correo al cliente",
+      "plazo": "2026-09-01 16:00",
+      "plazo_nota": "Derivado del envío del correo; la pauta sugiere alerta porque U039 no da hora propia. Se acepta también null.",
+      "plazos_aceptados": [
+        "2026-09-01 16:00",
+        null
+      ],
+      "requiere_condicion": false,
+      "respaldo": [
+        "U039",
+        "U067"
+      ],
+      "respaldo_extra": []
+    },
+    {
+      "id": "T6",
+      "responsable": "Camila",
+      "descripcion": "Escribir a Sergio para resolver la retención",
+      "plazo": "2026-08-28 17:00",
+      "requiere_condicion": false,
+      "respaldo": [
+        "U026",
+        "U067"
+      ],
+      "respaldo_extra": []
+    },
+    {
+      "id": "T7",
+      "responsable": "Diego",
+      "descripcion": "Documentar la API (no bloquea el piloto)",
+      "plazo": null,
+      "requiere_condicion": false,
+      "respaldo": [
+        "U049",
+        "U065"
+      ],
+      "respaldo_extra": [
+        "U048"
+      ],
+      "nota_extra": "U048: 'También me habían pedido documentar la API.'"
+    }
+  ],
+  "pendientes": [
+    {
+      "id": "P1",
+      "descripcion": "Duración de retención de correos, pendiente de respuesta escrita de Sergio",
+      "respaldo": [
+        "U025",
+        "U026"
+      ],
+      "respaldo_extra": []
+    },
+    {
+      "id": "P2",
+      "descripcion": "Cobertura del correo de soporte la tarde del lanzamiento, sin responsable ni plazo",
+      "responsable_esperado": null,
+      "respaldo": [
+        "U050",
+        "U051",
+        "U052",
+        "U067"
+      ],
+      "respaldo_extra": []
+    },
+    {
+      "id": "P3",
+      "descripcion": "Uso futuro de MailFast, a revisar después del piloto con legal",
+      "respaldo": [
+        "U024"
+      ],
+      "respaldo_extra": []
+    },
+    {
+      "id": "P4",
+      "descripcion": "Posible demo con datos locales si falta la credencial; se decide el martes si ocurre",
+      "respaldo": [
+        "U053",
+        "U054",
+        "U055"
+      ],
+      "respaldo_extra": []
+    }
+  ]
+}
