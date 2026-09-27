@@ -2,6 +2,10 @@
 
 > La explicación simple está en [README.md](README.md). Este archivo guarda el registro técnico completo:
 > cómo se mide, las tablas completas, la revisión del RAG, el modo `auto` y las correcciones hechas en el camino.
+>
+> **Corrida oficial vigente:** `resultados/tesla-t4-corrida2/` (Colab T4, 27-sep, las 8 condiciones con el código
+> final). Las tablas de "Resultados oficiales" más abajo son de la corrida 1 (`resultados/tesla-t4/`, 22-sep); en
+> ella S1–S3 dieron respuestas idénticas a la corrida 2, pero el baseline no.
 
 Pregunta: ¿retrieval y tool use corrigen las fallas de Ministral 3 3B diagnosticadas en el D1, y cuánto?
 Todo corre contra la misma transcripción (`pruebas/01_transcripcion_reunion_simulada.md`), el mismo
