@@ -79,58 +79,68 @@ Cómo es un bloque paso a paso (código → modelo → código):
 
 ## 4. Resultados
 
-### 4.1 Resultados oficiales (Colab, Tesla T4)
+### 4.1 Resultados oficiales (Colab, Tesla T4, corrida 2 del 27-sep)
 
-"D1 original" es la salida guardada del D1 (otro equipo), puntuada con el mismo corrector.
+Se corrieron las 8 condiciones con el código final. "D1 original" es la salida guardada del D1 (otro equipo),
+puntuada con el mismo corrector.
 
-| Criterio del D1 | D1 original | B | S1 | S2 | S3 | S4 |
-|---|---|---|---|---|---|---|
-| Salida final (errores de esquema) | 2 | 2 | 0 | 0 | 0 | 0 |
-| Historial apertura (estados obsoletos; fecha final) | 0/2; ✓ | 0/2; ✓ | 0/2; ✗ | 1/2; ✗ | 1/2; ✓ | 1/2; ✓ |
-| Decisiones clave: soporte solo por correo | ✗ | ✓ | ✗ | ✓ | ✓ | ✓ |
-| Tareas recuperadas / mezcladas | 6/7 / 1 | 5/7 / 1 | 3/7 / 0 | 7/7 / 0 | 7/7 / 0 | 7/7 / 0 |
-| Tareas partidas + extra (anotadas de más) | 0 | 1 | 1 | 12 | 9 | 7 |
-| Plazos: errores de am/pm | 1 (01:00) | 1 (06:00) | 0 | 0 | 0 | 0 |
-| Enlaces de evidencia incorrectos | 14 % | 30 % | 19 % | 14 % | 10 % | 11 % |
-| Personas ausentes asignadas | 1 | 0 | 0 | 0 | 0 | 0 |
-| Tiempo | 22 min (Windows) | 46 s | 21 s | 116 s | 116 s | 123 s |
+| Criterio del D1 | D1 original | B | S1 | S2 | S3 | S4 | S3b | Control |
+|---|---|---|---|---|---|---|---|---|
+| Salida final (errores de esquema) | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Historial apertura (estados obsoletos; fecha final) | 0/2; ✓ | 0/2; ✓ | 0/2; ✗ | 1/2; ✗ | 1/2; ✓ | 1/2; ✓ | 1/2; ✗ | **2/2; ✓** |
+| Decisiones clave: soporte solo por correo | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Decisiones correctas /9 (precisión) | 3 (0.75) | 3 (0.75) | 3 (0.75) | 5 (0.25) | 6 (0.24) | 6 (0.26) | 5 (0.23) | 6 (0.46) |
+| Tareas recuperadas / mezcladas | 6/7 / 1 | 5/7 / 1 | 3/7 / 0 | 7/7 / 0 | 7/7 / 0 | 7/7 / 0 | 7/7 / 0 | 7/7 / 0 |
+| Tareas anotadas de más (partidas + extra) | 0 | 1 | 1 | 12 | 9 | 8 | 12 | 14 |
+| Plazos: Martín 13:00 / errores de am/pm | ✗ 01:00 / 1 | ✗ 01:00 / 2 | — / 0 | ✓ / 0 | ✓ / 0 | ✓ / 0 | ✓ / 0 | ✓ / 0 |
+| Enlaces de evidencia incorrectos | 14 % | 14 % | 19 % | 14 % | 10 % | 11 % | 10 % | 9 % |
+| Personas ausentes asignadas | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Tiempo | 22 min (Windows) | 45 s | 22 s | 119 s | 121 s | 127 s | 126 s | 155 s |
 
-Tabla completa: `resultados/tesla-t4/tabla_d1.md`. La fila de tareas se juzgó a mano, como en la auditoría
-del D1, y cada juicio está explicado en `resultados/tesla-t4/adjudicacion_tareas.json`.
+Tablas completas en `resultados/tesla-t4-corrida2/` (`tabla_d1.md`, `comparacion.md`). La fila de tareas se
+juzgó a mano, como en la auditoría del D1, y cada juicio está explicado en `adjudicacion_tareas.json`.
+
+**Reproducibilidad entre las dos corridas de Colab.** La corrida 1 (22-sep) está en `resultados/tesla-t4/`.
+- S1, S2 y S3 dieron **exactamente las mismas respuestas del modelo** en las dos corridas.
+- **El baseline no:** en la corrida 2 reprodujo casi exacto los errores del D1: Martín a las 01:00, la tarea de
+  Fernanda mezclada con la de Diego, "solo correo" omitido y 2 personas ausentes como responsables. En la
+  corrida 1 había acertado las 13:00 y el soporte.
+- La respuesta larga del prompt directo varía entre sesiones del mismo hardware; las llamadas cortas del tool
+  use, no.
 
 ### 4.2 Qué aportó cada pieza
 
-- **Tool use (S1)** arregla lo "mecánico" por construcción: cero errores de esquema, citas siempre exactas,
-  ningún error de am/pm y nadie ausente asignado. Pero en una sola pasada se le escapan tareas (3/7).
-- **Bloques con registro (S2)** hacen que no se escapen cosas (7/7 tareas, sin mezclas) y empiezan a
-  recuperar el historial (1/2). **El costo:** el modelo anota de más (tareas partidas o que no son tareas) y
-  tarda más.
-- **RAG (S3, S3b)** no mejora el acta de forma consistente: en Colab S3 salió mejor que S2 y en el Mac peor
-  (4.3).
-- **Verificación (S4)** saca algo de lo que sobra, pero también borró 2 pendientes correctos.
+- **Tool use (S1)** arregla lo "mecánico" por construcción: cero errores de esquema, ningún error de am/pm y
+  nadie ausente asignado, en todas las corridas. Pero en una sola pasada se le escapan tareas (3/7).
+- **Bloques con registro (S2)** hacen que no se escapen cosas (7/7 tareas, sin mezclas, "solo correo"
+  recuperado) y mejoran el historial (1/2). **El costo:** el modelo anota de más y tarda más.
+- **RAG (S3, S3b)** no mejora de forma consistente frente a S2. S3 recuperó la fecha final en la T4; S3b no.
+- **Más contexto sí parece ayudar.** El control, con todas las intervenciones anteriores, es la única
+  condición con el historial completo (2/2) y la mejor precisión en decisiones (0.46) en la T4. En el Mac
+  quedó igual que S2 en decisiones y mejor en pendientes.
+- **Verificación (S4)** saca algo de lo que sobra, pero también borra pendientes correctos.
 
-### 4.3 Por qué el RAG no aportó (revisión del 27-sep, en el Mac)
+### 4.3 Por qué el RAG no aportó, pero el contexto completo sí un poco
 
-1. **La búsqueda de S3 traía ruido.** Usaba el texto de las 8 intervenciones juntas, que mezclan varios temas,
-   y comparaba palabras exactas ("abrimos" no calza con "abrir"). En el bloque de la fecha final trajo
-   intervenciones que no tenían que ver.
-2. **Mejorarla ayudó poco.** Con búsqueda por intervención y stemmer (S3b), el buscador trae 7 de 19
-   intervenciones relevantes, contra 6 de 19 de S3.
-3. **Lo decisivo fue el control.** Con *todas* las intervenciones anteriores a la vista, el acta tampoco
-   mejora frente a S2: 7/9 decisiones en ambos, 7/7 tareas y 1/2 estados obsoletos. Solo mejoran los
-   pendientes (3/4 contra 1/4), y tarda 1.7 veces más.
+1. **La búsqueda de S3 traía ruido.** Usaba el texto de las 8 intervenciones juntas, que mezclan temas, y
+   comparaba palabras exactas ("abrimos" no calza con "abrir").
+2. **Mejorarla ayudó poco.** Con búsqueda por intervención y stemmer (S3b), trae 7 de 19 intervenciones
+   relevantes, contra 6 de 19 de S3. Todas las variantes que comparan palabras se quedan cerca del 40 %.
+3. **El control trae el 100 %** y es el que mejor resuelve el historial en la T4.
 
-**Conclusión:** en esta reunión, al modelo no le falta contexto. El registro del tool use ya le da la memoria
-que necesita, y lo que queda mal es que **anota de más**. Eso no se arregla trayéndole más texto. La reunión
-tiene unos 4.000 tokens y cabe entera en el contexto; el RAG tiene sentido cuando la reunión no cabe.
+**Conclusión:** en esta reunión, lo que ayuda es darle al modelo el contexto *completo*, y nuestro RAG no llega
+a reproducir eso porque busca mal. Como la reunión cabe entera en el contexto (unos 4.000 tokens), no hace
+falta buscar: se le puede dar todo. **El RAG tiene sentido cuando la reunión no cabe.** Con una sola reunión y
+una corrida por hardware, estas diferencias entre S2, S3 y el control son chicas y pueden ser variación.
 
 ### 4.4 Recomendación
 
-- **Solución propuesta: S2, tool use por bloques.** Es la pieza que ataca la falla central del D1: el historial
-  y los errores formales.
-- **El RAG va como alternativa evaluada:** se probaron tres búsquedas y un control, y ninguna mejoró el acta.
-- **Para reuniones largas**, el modo `auto` activa el RAG solo cuando el registro ya no cabe en el contexto
-  (sección 6).
+- **Solución: tool use por bloques.** Es lo que ataca la falla central del D1 (historial y errores formales) en
+  todas las corridas.
+- **Contexto:** los datos favorecen dar **todo el pasado cuando la reunión cabe** (el control), por encima de no
+  dar nada (S2) o de buscar con RAG (S3, S3b). Hoy el modo `auto` usa S2 cuando la reunión cabe; se puede cambiar
+  para que use el control cuando cabe y el RAG solo cuando no. Decisión pendiente (sección 8).
+- **El RAG va como alternativa evaluada:** se probaron tres búsquedas y un control, y el control ganó.
 
 ### 4.5 Casos de falla (para el documento)
 
@@ -203,7 +213,8 @@ python run.py acta ruta/reunion.md --config baseline  # el prompt directo del D1
 | `calibracion_verificador.py` | Mide el verificador sí/no con ejemplos de otra reunión |
 | `notebooks/d2_colab.ipynb` | Corre todo en Colab y permite subir otra reunión |
 | `ejemplos/` | La reunión de prueba de la feria |
-| `resultados/tesla-t4/` | Resultados oficiales (Colab) |
+| `resultados/tesla-t4-corrida2/` | Resultados oficiales (Colab, 27-sep, las 8 condiciones con el código final) |
+| `resultados/tesla-t4/` | Primera corrida en Colab (22-sep): B y S1–S4; sirve para ver la reproducibilidad |
 | `resultados/apple-m5/` | Resultados de desarrollo (Mac), incluidos S3b, el control y el acta de la feria |
 
 Cada JSON de resultados guarda los prompts, las respuestas crudas del modelo, las llamadas a herramientas, las
@@ -211,7 +222,8 @@ métricas de Ollama y el acta final, así que todo se puede auditar sin volver a
 
 ## 8. Pendiente
 
-1. Correr el notebook en Colab para tener S3b y el control en el hardware oficial.
+1. Decidir si el modo `auto` usa el control (todo el pasado) cuando la reunión cabe, en vez de S2. Es lo que
+   mejor resolvió el historial en la T4.
 2. Alinear este corrector con el evaluador de Eduardo, para usar un solo criterio en el documento.
 3. Una reunión nueva con gold, que no hayamos visto e idealmente larga, para medir sin sesgo y probar el RAG del
    modo `auto`.
