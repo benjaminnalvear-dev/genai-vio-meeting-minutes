@@ -1,137 +1,159 @@
-# Reliable Meeting Minutes from Noisy Transcripts
+# Actas verificables desde transcripciones ruidosas
 
-Semester project for **Generative Artificial Intelligence (580694), Spring 2026**, Universidad de Concepción.
+> Proyecto semestral · Inteligencia Artificial Generativa (580694) · Universidad de Concepción · Primavera 2026
 
-> **Español:** Este proyecto crea actas confiables y verificables desde transcripciones desordenadas de reuniones. La documentación principal se presenta en inglés para la entrega, pero el resumen ejecutivo también está disponible completamente en español.
+[![Estado](https://img.shields.io/badge/entregable%202-listo-1f6e8c)](#entregable-2)
+[![Modelo](https://img.shields.io/badge/modelo-Ministral%203%203B-12324a)](#modelo-e-intervención)
+[![Pruebas](https://github.com/benjaminnalvear-dev/genai-vio-meeting-minutes/actions/workflows/tests.yml/badge.svg)](https://github.com/benjaminnalvear-dev/genai-vio-meeting-minutes/actions/workflows/tests.yml)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776ab?logo=python&logoColor=white)](#reproducción)
 
-## Objective
+Sistema que transforma reuniones en español en actas JSON estructuradas y trazables. Cada decisión y tarea conserva una referencia a la intervención que la respalda; además, el flujo identifica cambios de decisión, responsables, plazos, condiciones y asuntos pendientes.
 
-Build a system that converts a Spanish meeting transcript into clear, structured, and evidence-grounded minutes. It must identify:
+## Entregable 2
 
-- final decisions and decisions revised during the conversation;
-- agreed tasks, assignees, deadlines, conditions, and status;
-- rejected, superseded, and unresolved proposals;
-- pending issues and review alerts;
-- an exact supporting excerpt and utterance ID for every decision or task.
+| Recurso | Contenido |
+|---|---|
+| [Documento técnico (PDF)](./Deliverable_2.pdf) | Resumen vertical de una página requerido para la entrega |
+| [Fuente LaTeX](./Deliverable_2_BA_XG_ER_DV.md) | Código LaTeX reproducible del documento técnico |
+| [Notebook principal](./GenAI%20Constrained%2BTool%20use/Ministral_Minutas_Colab.ipynb) | Ejecución end-to-end en Google Colab con GPU T4 |
+| [Resultados completos](./GenAI%20Constrained%2BTool%20use/minutas_resultados_test.zip) | Salidas de las tres condiciones y métricas agregadas |
+| [Descripción del experimento](./GenAI%20Constrained%2BTool%20use/README.md) | Diseño, entorno, resultados, limitaciones y pasos detallados |
+| [Ablaciones y tool use por bloques](./experimentos/rag_tool_use/README.md) | Experimentos complementarios sobre el caso canónico de D1 |
 
-The first controlled input is a text transcript. A future extension may accept MP3 audio, transcribe it with a separate speech-to-text component, and pass the transcript to the same analysis pipeline.
+### Resultado principal
 
-## Team
+Se evaluaron las tres configuraciones sobre las mismas **10 reuniones de test**: 347 intervenciones, 56 decisiones y 53 tareas de referencia.
 
-- Benjamin Alvear
-- Eduardo Ruiz
-- Xavier Godoy
-- Damian Vera
+| Configuración | JSON válido | F1 decisiones | F1 tareas | Tiempo total |
+|---|---:|---:|---:|---:|
+| Prompt directo (baseline) | 0/10 | 0,477 | 0,667 | 303,8 s |
+| Constrained decoding | 10/10 | 0,559 | 0,709 | **197,9 s** |
+| **Constrained decoding + herramientas** | **10/10** | **0,667** | **0,716** | 288,0 s |
 
-## Why direct prompting is insufficient
+La intervención completa elevó el F1 de decisiones en **39,8 %** y el F1 de tareas en **7,3 %** respecto del baseline. También pasó de 70/75 referencias existentes a 105/105. Esta última métrica valida la existencia del ID, no necesariamente que la evidencia sea semánticamente suficiente.
 
-Meetings contain interruptions, topic switching, implicit agreements, mentioned non-participants, changing decisions, relative dates, and conditional tasks. A small model can produce a fluent summary while still confusing proposals with final decisions, assigning the wrong person, dropping conditions, or inventing unsupported facts.
+## Modelo e intervención
 
-The proposed system separates preprocessing, extraction, temporal state resolution, evidence verification, and deterministic rendering. The planned open-weight candidates are Ministral 3 3B, Qwen 3.5 4B, and Phi-4 Mini.
+Se eligió **Ministral 3 3B Instruct 2512**, cuantizado en Q4_K_M y ejecutado mediante Ollama. Es el candidato más pequeño evaluado y puede correr en una GPU Tesla T4 de 15 GB.
 
-## Reproducible direct-prompt experiments
+El sistema combina dos técnicas:
 
-The repository includes a synthetic, unscripted-style Spanish meeting with 69 utterances, four declared participants, and three people who are only mentioned. The reference annotation was created separately and was not included in the model context.
+1. **Constrained decoding:** un esquema restringe las claves, tipos, estados y estructura de la salida JSON.
+2. **Herramientas determinísticas:** funciones locales inspeccionan la evidencia, resuelven fechas relativas, detectan indicios de revisión y validan IDs y formatos. El modelo recibe esos informes y corrige su primer borrador.
 
-| Model / configuration | Main result | Local performance |
-|---|---|---|
-| Ministral 3 3B, default 4K | Input truncated; Markdown instead of JSON | Exploratory run |
-| Ministral 3 3B, controlled 8K | Valid JSON, but incomplete and semantically inconsistent | 2,386 tokens in 22 min 6 s; 1.86 tok/s |
-| Qwen 3.5 4B Q4_K_M, controlled 8K | Recovered temporal history, but exhausted 3,000 tokens and left invalid JSON | 3,000 tokens in 16 min 8 s; 3.24 tok/s |
-| Phi-4 Mini Q4_K_M, controlled 8K | Valid, complete JSON structure, but lost the final launch state and most tasks | 1,211 tokens in 7 min 58 s; 2.93 tok/s |
+```mermaid
+flowchart LR
+    A[Transcripción] --> B[Extracción con<br/>JSON restringido]
+    B --> C[Herramientas<br/>determinísticas]
+    C --> D[Segunda pasada<br/>de corrección]
+    D --> E[Acta JSON<br/>trazable]
+```
 
-The 8K run recovered the final launch date, SMTP/MailFast decision, and several tasks. However, it recovered 0 of 2 superseded states, omitted the WhatsApp rejection, merged responsibilities, assigned support to an absent person despite explicit contrary evidence, and interpreted 13:00 as 01:00.
+Los pesos del modelo no se modifican. El código Python coordina todas las etapas.
 
-Qwen represented both obsolete launch dates and recovered the WhatsApp rejection, but it was overly verbose and stopped inside its eighth action item. It also produced invalid decision states, invented or contradicted tasks, misresolved at least four calendar dates, and used non-entailing evidence. The model loaded locally at 75% CPU / 25% GPU with about 1.74 GB of observed VRAM use, demonstrating execution feasibility but not task completion.
+## Reproducción
 
-Phi produced valid JSON with all five required top-level sections and stopped naturally after 1,211 tokens. It was the fastest run, but it marked the tentative Monday as final, changed August to March, omitted both superseded launch states and the WhatsApp rejection, and recognized only 1 of 7 expected tasks without changing the task or assignee. At least nine evidence links failed to support the generated classification or fields.
+La ruta recomendada reproduce el experimento agregado de 10 reuniones informado en el documento técnico.
 
-## Standardized baseline prompt
+### Opción A · Google Colab (recomendada)
 
-The exact Spanish prompt used in the controlled Ministral and Qwen runs is preserved in [`pruebas/01_prompt_directo_ministral.md`](./pruebas/01_prompt_directo_ministral.md). Despite its historical filename, it is model-independent and is the canonical direct-prompt baseline for future comparisons.
+1. Abra el [notebook principal en Google Colab](https://colab.research.google.com/github/benjaminnalvear-dev/genai-vio-meeting-minutes/blob/main/GenAI%20Constrained%2BTool%20use/Ministral_Minutas_Colab.ipynb).
+2. Seleccione **Entorno de ejecución → Cambiar tipo de entorno de ejecución → GPU T4**.
+3. Ejecute todas las celdas en orden.
+4. Cuando el notebook lo solicite, cargue [`Fine Tuning.zip`](./GenAI%20Constrained%2BTool%20use/Fine%20Tuning.zip). El nombre es histórico: el experimento **no realiza fine-tuning**.
+5. Espere la descarga del modelo y la ejecución de las 10 reuniones.
+6. Compare `baseline`, `structured` y `combined_v2` en el archivo `summary.json` generado.
 
-The prompt requires every model to:
+El notebook instala el entorno, descarga el modelo, ejecuta las tres configuraciones, calcula las métricas y exporta las salidas. El tiempo depende de la disponibilidad de Colab y de la descarga inicial del modelo.
 
-- return only valid JSON using the fixed `meeting`, `decisions`, `action_items`, `pending_issues`, and `review_alerts` structure;
-- distinguish final, superseded, and rejected decisions without treating proposals as agreements;
-- extract each task's assignee, deadline, conditions, and status, using `null` when information was not agreed;
-- resolve relative dates from the meeting date;
-- attach exact transcript quotes and utterance IDs that actually support each reported item;
-- avoid inventing people, dates, tools, responsibilities, or agreements.
+### Compilar el documento técnico
 
-For a standardized model comparison, use this prompt and the same transcript without modifications, keep the reference annotation hidden, and record the model version, context size, output limit, temperature, seed, JSON mode, raw response, and runtime metrics. Any future prompt revision should be saved as a new version rather than overwriting this baseline.
+Con MiKTeX/TeX Live y Poppler disponibles:
 
-## Standardized simulation transcript
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build_deliverable2.ps1
+```
 
-The exact simulated meeting used in both controlled runs is preserved in [`pruebas/01_transcripcion_reunion_simulada.md`](./pruebas/01_transcripcion_reunion_simulada.md). It is the canonical input fixture for future baseline comparisons.
+El script compila el fuente LaTeX, reemplaza `Deliverable_2.pdf` y falla si el resultado no tiene exactamente una página.
 
-The simulation contains 69 timestamped utterances from four participants and separately identifies three people who are mentioned but are not present. It deliberately tests:
+### Opción B · Pipeline experimental local
 
-- interruptions and topic switching;
-- launch dates that change from a proposal to rejected and superseded states before the final agreement;
-- rejected tools and communication channels;
-- conditional tasks, dependencies, missing owners, and revised deadlines;
-- relative expressions such as “tomorrow” and “Monday” that must be resolved from the meeting date;
-- the distinction between attendees, absent people, proposals, decisions, and pending issues.
+Requisitos: Python 3.10 o posterior, [Ollama](https://ollama.com/) activo y el modelo descargado.
 
-Use the transcript byte-for-byte with the canonical prompt when comparing models. Do not include [`pruebas/01_gold_referencia.md`](./pruebas/01_gold_referencia.md) in the model context: it is reserved exclusively for evaluation. New simulations or corrections must be saved as separately versioned fixtures so previous results remain reproducible.
+```bash
+ollama pull ministral-3:3b
+cd experimentos/rag_tool_use
+python run.py acta ejemplos/feria_colegio_formato_simple.md
+```
 
-## Repository structure
+Para comparar el baseline y todas las ablaciones sobre el caso canónico:
+
+```bash
+cd experimentos/rag_tool_use
+python run.py todo
+```
+
+> La opción local corresponde al banco de ablaciones y a la comprobación del formato completo de D1. No es la misma corrida que produce la tabla agregada de 10 reuniones; esa tabla se reproduce con el notebook de Colab.
+
+## Pruebas automáticas
+
+Las pruebas no requieren Ollama ni conexión a internet. Validan el parser de transcripciones, el resolutor temporal, el evaluador y la selección de contexto para reuniones largas.
+
+```bash
+cd experimentos/rag_tool_use
+python -m unittest discover -s tests -v
+```
+
+Estado verificado: **13/13 pruebas aprobadas**. Estas pruebas cubren el pipeline modular complementario de `experimentos/rag_tool_use`; el notebook oficial de 10 reuniones contiene su implementación y evaluador dentro del propio cuaderno.
+
+## Caso de falla conocido
+
+En la reunión M01, la solución genera JSON válido y referencias existentes, pero todavía mezcla información semántica entre intervenciones cercanas: interpreta «antes de las seis» como 17:00 al combinar la hora de envío con la hora de revisión, fusiona dos tareas y clasifica incorrectamente una fecha reemplazada.
+
+La causa es concreta: las herramientas verifican sintaxis, fechas e IDs, pero la relación entre una cita y cada campo todavía depende del modelo. La segunda pasada puede heredar omisiones del borrador inicial. El [documento técnico](./Deliverable_2.pdf) detalla este caso y las demás limitaciones.
+
+## Estructura del repositorio
 
 ```text
 .
-|-- Deliverable_1_BA_XG_ER_DV.md              # English LaTeX source
-|-- Deliverable_1_BA_XG_ER_DV_ESPAÑOL.md      # Mirrored Spanish LaTeX source
-|-- pruebas/
-|   |-- 01_transcripcion_reunion_simulada.md  # Model-visible transcript
-|   |-- 01_prompt_directo_ministral.md         # Direct-prompt baseline
-|   |-- 01_gold_referencia.md                  # Withheld reference annotation
-|   |-- 01_salida_ministral_8k.md              # Raw controlled output
-|   |-- 01_auditoria_ministral.md              # Evidence-backed audit
-|   |-- 02_salida_qwen_8k.json                 # Raw Qwen response and Ollama metrics
-|   |-- 02_auditoria_qwen.md                   # Evidence-backed Qwen audit
-|   |-- 03_salida_phi4_mini_8k.json            # Raw Phi response and Ollama metrics
-|   `-- 03_auditoria_phi4_mini.md              # Evidence-backed Phi audit
-`-- scripts/
-    `-- run_model_test.ps1                     # Model-agnostic reproduction script
+├── README.md                         # Punto de entrada y reproducción
+├── Deliverable_2.pdf                 # Documento técnico final, una página
+├── Deliverable_2_BA_XG_ER_DV.md      # Fuente LaTeX del documento
+├── GenAI Constrained+Tool use/       # Experimento oficial sobre 10 reuniones
+│   ├── Ministral_Minutas_Colab.ipynb
+│   ├── Fine Tuning.zip               # Dataset; no implica entrenamiento
+│   ├── minutas_resultados_test.zip
+│   └── README.md
+├── experimentos/rag_tool_use/        # Ablaciones y pipeline modular
+│   ├── src/                           # Extracción, retrieval, fechas y evaluación
+│   ├── tests/                         # 13 pruebas unitarias
+│   ├── resultados/                    # Corridas auditables en T4 y Apple M5
+│   ├── notebooks/d2_colab.ipynb
+│   └── README.md
+├── pruebas/                           # Fixture canónico, gold y auditorías de D1
+├── Deliverable 1/                     # Documentación del primer entregable
+└── scripts/                           # Baseline y evaluación originales
 ```
 
-## Reproduce the controlled run
+Los JSON oficiales conservan respuestas crudas, salidas procesadas, informes de herramientas, tiempos y conteos de tokens. Los prompts y el evaluador están versionados en el notebook que produjo esos archivos.
 
-Requirements:
+## Continuidad con el Entregable 1
 
-- Windows PowerShell 5.1 or PowerShell 7;
-- [Ollama](https://ollama.com/) running locally;
-- the selected model installed, for example `ollama pull ministral-3:3b` or `ollama pull qwen3.5:4b`.
+El proyecto conserva la tarea y el criterio de corrección definidos en D1: no confundir propuestas con acuerdos, seguir decisiones reemplazadas, no asignar tareas a personas ausentes, resolver plazos y exigir evidencia textual. La evaluación agregada de 10 reuniones mide el núcleo de decisiones y tareas con un esquema reducido; el formato completo de D1 se evalúa por separado sobre el caso canónico. Esta diferencia se declara para no presentar el benchmark reducido como si cubriera todos los campos de D1.
 
-From the repository root:
+## Video de demostración
 
-```powershell
-.\scripts\run_model_test.ps1
+El guion reproducible de menos de tres minutos está en [`VIDEO_D2.md`](./VIDEO_D2.md). La grabación debe realizarse sobre el commit final y publicarse con acceso abierto; no se incluye una simulación ni una salida hardcodeada.
 
-# Equivalent Qwen run
-.\scripts\run_model_test.ps1 -Model qwen3.5:4b
+Documentación histórica: [D1 en español](./Deliverable%201/Deliverable_1_BA_XG_ER_DV_ESPA%C3%91OL.md) · [D1 en inglés](./Deliverable%201/Deliverable_1_BA_XG_ER_DV.md)
 
-# Equivalent Phi-4 Mini run
-.\scripts\run_model_test.ps1 -Model phi4-mini
-```
+## Equipo
 
-If the local execution policy blocks scripts, invoke the same command with `powershell -NoProfile -ExecutionPolicy Bypass -File`. The script reads and transports UTF-8 explicitly, uses an 8192-token context, temperature 0, seed 42, native JSON mode, and a 3000-token output limit. It creates a model-specific timestamped JSON result without overwriting an audited run.
+- Benjamin Alvear
+- Xavier Godoy
+- Eduardo Ruiz
+- Damian Vera
 
-## Current status
+---
 
-- [x] Task and correctness criteria defined
-- [x] English and Spanish Deliverable 1 sources synchronized
-- [x] Local Ministral model and hardware path validated
-- [x] Reproducible 4K/8K direct-prompt experiment audited
-- [x] Controlled Qwen 3.5 4B run and evidence audit
-- [x] Controlled Phi-4 Mini run and evidence audit
-- [ ] Implement temporal resolver and evidence verifier stages
-- [ ] Build and annotate a larger evaluation set
-
-## Deliverable sources
-
-- [English executive-summary source](./Deliverable_1_BA_XG_ER_DV.md)
-- [Spanish executive-summary source](./Deliverable_1_BA_XG_ER_DV_ESPAÑOL.md)
-
-Both files contain LaTeX ready to paste into Overleaf. Any future content or layout change must be applied to both language versions.
+**Curso:** Inteligencia Artificial Generativa (580694) · **Entrega:** 30 de septiembre de 2026
