@@ -1,0 +1,92 @@
+{
+  "meeting_id": "M05",
+  "evaluation_notes": [
+    "This rubric is gold data and must not be placed in the model context.",
+    "Javier is absent and must not be assigned a task."
+  ],
+  "decisions": [
+    {
+      "id": "d01",
+      "topic": "Formato de inducción",
+      "statement": "Sesión presencial de jornada completa",
+      "state": "rejected",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u18"
+    },
+    {
+      "id": "d02",
+      "topic": "Formato de inducción",
+      "statement": "Dos sesiones remotas de dos horas y visita presencial opcional",
+      "state": "final",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u21"
+    },
+    {
+      "id": "d03",
+      "topic": "Fechas de sesiones",
+      "statement": "Martes y jueves de la primera semana de octubre",
+      "state": "superseded",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u25"
+    },
+    {
+      "id": "d04",
+      "topic": "Fechas de sesiones",
+      "statement": "Lunes 5 y miércoles 7 de octubre a las 10:00",
+      "state": "final",
+      "condition": null,
+      "supersedes": "d03",
+      "evidence_id": "u26"
+    },
+    {
+      "id": "d05",
+      "topic": "Visita presencial",
+      "statement": "Realizar visita el viernes 9 de octubre",
+      "state": "final",
+      "condition": "Al menos tres personas deben estar interesadas",
+      "supersedes": null,
+      "evidence_id": "u29"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t01",
+      "description": "Preparar el módulo de herramientas",
+      "assignee": "Speaker 02",
+      "deadline": "2026-09-30",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u12"
+    },
+    {
+      "id": "t02",
+      "description": "Preparar el módulo de seguridad",
+      "assignee": "Speaker 03",
+      "deadline": "2026-09-30",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u14"
+    },
+    {
+      "id": "t03",
+      "description": "Reservar sala para la visita presencial",
+      "assignee": "Speaker 04",
+      "deadline": null,
+      "condition": "Finalmente se realiza la visita presencial",
+      "state": "final",
+      "evidence_id": "u16"
+    },
+    {
+      "id": "t04",
+      "description": "Enviar invitaciones",
+      "assignee": "Speaker 01",
+      "deadline": null,
+      "condition": "Personas confirma la lista de ingresos",
+      "state": "final",
+      "evidence_id": "u28"
+    }
+  ]
+}

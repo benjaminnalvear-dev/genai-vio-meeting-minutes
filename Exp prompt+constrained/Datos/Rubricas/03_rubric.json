@@ -1,0 +1,174 @@
+{
+  "meeting_id": "M03",
+  "evaluation_notes": [
+    "This rubric is gold data and must be kept outside the model context.",
+    "Martín and the organizer are mentioned but neither receives a task in this meeting.",
+    "Speaker 04 is responsible for guiding the application during the fair, but is explicitly not responsible for the 07:00 setup."
+  ],
+  "decisions": [
+    {
+      "id": "d01",
+      "topic": "Tipo de stand",
+      "statement": "Contratar un stand con pantalla",
+      "state": "rejected",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u18"
+    },
+    {
+      "id": "d02",
+      "topic": "Tipo de stand",
+      "statement": "Contratar un stand básico de dos metros",
+      "state": "final",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u18"
+    },
+    {
+      "id": "d03",
+      "topic": "Contenido de demostración",
+      "statement": "Mostrar solo el módulo de texto sin cámara",
+      "state": "superseded",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u11"
+    },
+    {
+      "id": "d04",
+      "topic": "Contenido de demostración",
+      "statement": "Mostrar texto y voz con audífonos; no mostrar cámara",
+      "state": "final",
+      "condition": "Los audífonos deben funcionar",
+      "supersedes": "d03",
+      "evidence_id": "u45"
+    },
+    {
+      "id": "d05",
+      "topic": "Cantidad de folletos",
+      "statement": "Imprimir 200 folletos",
+      "state": "superseded",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u21"
+    },
+    {
+      "id": "d06",
+      "topic": "Cantidad de folletos",
+      "statement": "Imprimir 120 folletos y usar códigos QR",
+      "state": "final",
+      "condition": null,
+      "supersedes": "d05",
+      "evidence_id": "u39"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t01",
+      "description": "Revisar el contrato del recinto y confirmar si incluye pantalla",
+      "assignee": "Speaker 03",
+      "deadline": "2026-09-23",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u08"
+    },
+    {
+      "id": "t02",
+      "description": "Cotizar cuatro audífonos",
+      "assignee": "Speaker 04",
+      "deadline": "2026-09-24T12:00",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u15"
+    },
+    {
+      "id": "t03",
+      "description": "Responder al proveedor con la opción de stand básico",
+      "assignee": "Speaker 02",
+      "deadline": "2026-09-25",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u20"
+    },
+    {
+      "id": "t04",
+      "description": "Solicitar la estimación de asistentes al organizador",
+      "assignee": "Speaker 03",
+      "deadline": "2026-09-23",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u27"
+    },
+    {
+      "id": "t05",
+      "description": "Presentar el proyecto durante la feria",
+      "assignee": "Speaker 01",
+      "deadline": null,
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u31"
+    },
+    {
+      "id": "t06",
+      "description": "Guiar la prueba de la aplicación durante la feria",
+      "assignee": "Speaker 04",
+      "deadline": null,
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u31"
+    },
+    {
+      "id": "t07",
+      "description": "Registrar los contactos de las personas interesadas",
+      "assignee": "Speaker 02",
+      "deadline": null,
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u31"
+    },
+    {
+      "id": "t08",
+      "description": "Realizar el montaje del stand a las 07:00",
+      "assignee": "Speaker 01",
+      "deadline": null,
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u35"
+    },
+    {
+      "id": "t09",
+      "description": "Realizar el montaje del stand a las 07:00",
+      "assignee": "Speaker 02",
+      "deadline": null,
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u35"
+    },
+    {
+      "id": "t10",
+      "description": "Realizar el montaje del stand a las 07:00",
+      "assignee": "Speaker 03",
+      "deadline": null,
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u35"
+    },
+    {
+      "id": "t11",
+      "description": "Integrarse a la feria a las 09:00",
+      "assignee": "Speaker 04",
+      "deadline": null,
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u35"
+    },
+    {
+      "id": "t12",
+      "description": "Coordinar la impresión de los folletos",
+      "assignee": "Speaker 03",
+      "deadline": null,
+      "condition": "El diseño debe estar aprobado",
+      "state": "final",
+      "evidence_id": "u42"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+meeting_id,baseline_json_valido,pipeline_json_valido,baseline_segundos,pipeline_segundos,baseline_recall_decisiones,pipeline_recall_decisiones,baseline_recall_tareas,pipeline_recall_tareas,baseline_plazos_correctos,pipeline_plazos_correctos,baseline_responsables_correctos,pipeline_responsables_correctos
+M01,True,True,51.18,60.69,0.714,0.571,0.714,0.571,2,1,5,4
+M02,True,True,37.13,89.75,0.5,0.5,0.833,1.0,0,4,5,6
+M03,True,True,38.28,74.61,0.5,1.0,0.5,0.333,4,2,4,4
+M04,True,True,25.46,73.93,0.4,0.6,0.75,1.0,2,1,2,1
+M05,True,True,28.91,49.93,0.4,0.4,1.0,1.0,2,2,3,2
+M06,True,True,23.94,66.78,0.6,0.6,1.0,1.0,3,2,2,2
+M07,True,True,26.29,58.58,0.5,0.5,0.75,0.75,0,2,3,2
+M08,True,True,32.03,56.57,0.5,0.667,1.0,1.0,1,1,5,5
+M09,True,True,22.84,41.07,0.6,0.6,1.0,1.0,1,1,3,3
+M10,True,True,24.73,55.38,0.4,0.6,1.0,1.0,2,2,2,2

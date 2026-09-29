@@ -1,0 +1,101 @@
+{
+  "meeting_id": "M10",
+  "evaluation_notes": [
+    "This rubric is gold data and must not be placed in the model context.",
+    "The manager is mentioned but absent."
+  ],
+  "decisions": [
+    {
+      "id": "d01",
+      "topic": "Formato de actividad de cierre",
+      "statement": "Evento presencial para todo el equipo",
+      "state": "rejected",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u18"
+    },
+    {
+      "id": "d02",
+      "topic": "Formato de actividad de cierre",
+      "statement": "Actividad remota para todos con premios digitales",
+      "state": "final",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u21"
+    },
+    {
+      "id": "d03",
+      "topic": "Fecha de actividad",
+      "statement": "Viernes 18 de diciembre",
+      "state": "superseded",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u25"
+    },
+    {
+      "id": "d04",
+      "topic": "Fecha de actividad",
+      "statement": "Miércoles 16 de diciembre a las 16:00",
+      "state": "final",
+      "condition": null,
+      "supersedes": "d03",
+      "evidence_id": "u26"
+    },
+    {
+      "id": "d05",
+      "topic": "Monto de premios",
+      "statement": "Definir monto de premios digitales",
+      "state": "pending",
+      "condition": "Discusión y aprobación de Finanzas",
+      "supersedes": null,
+      "evidence_id": "u31"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t01",
+      "description": "Consultar disponibilidad de presencia",
+      "assignee": "Speaker 02",
+      "deadline": "2026-12-01",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u11"
+    },
+    {
+      "id": "t02",
+      "description": "Preparar la sección financiera del informe anual",
+      "assignee": "Speaker 03",
+      "deadline": "2026-12-07",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u14"
+    },
+    {
+      "id": "t03",
+      "description": "Preparar la sección de logros del equipo",
+      "assignee": "Speaker 04",
+      "deadline": "2026-12-07",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u16"
+    },
+    {
+      "id": "t04",
+      "description": "Comprar los premios digitales",
+      "assignee": "Speaker 01",
+      "deadline": null,
+      "condition": "Finanzas aprueba el monto",
+      "state": "final",
+      "evidence_id": "u28"
+    },
+    {
+      "id": "t05",
+      "description": "Enviar la invitación",
+      "assignee": "Speaker 02",
+      "deadline": null,
+      "condition": "El presupuesto está confirmado",
+      "state": "final",
+      "evidence_id": "u32"
+    }
+  ]
+}

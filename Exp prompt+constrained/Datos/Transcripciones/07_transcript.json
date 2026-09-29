@@ -1,0 +1,193 @@
+{
+  "meeting_id": "M07",
+  "meeting_date": "2026-10-28",
+  "title": "Informe mensual de gerencia",
+  "participants": [
+    "Speaker 01",
+    "Speaker 02",
+    "Speaker 03",
+    "Speaker 04"
+  ],
+  "utterances": [
+    {
+      "id": "u01",
+      "timestamp": "00:00",
+      "speaker": "Speaker 01",
+      "text": "Hoy revisaremos el informe mensual para gerencia."
+    },
+    {
+      "id": "u02",
+      "timestamp": "00:09",
+      "speaker": "Speaker 02",
+      "text": "El informe anterior salió tarde porque faltaron datos de operaciones."
+    },
+    {
+      "id": "u03",
+      "timestamp": "00:18",
+      "speaker": "Speaker 03",
+      "text": "Andrés de Operaciones avisó eso, pero no está presente."
+    },
+    {
+      "id": "u04",
+      "timestamp": "00:27",
+      "speaker": "Speaker 04",
+      "text": "No asignemos acciones a Andrés."
+    },
+    {
+      "id": "u05",
+      "timestamp": "00:36",
+      "speaker": "Speaker 01",
+      "text": "Propongo mantener el informe en una presentación de veinte diapositivas."
+    },
+    {
+      "id": "u06",
+      "timestamp": "00:45",
+      "speaker": "Speaker 02",
+      "text": "Veinte diapositivas toma demasiado tiempo para una reunión de treinta minutos."
+    },
+    {
+      "id": "u07",
+      "timestamp": "00:54",
+      "speaker": "Speaker 03",
+      "text": "Podríamos usar una página de indicadores y un anexo."
+    },
+    {
+      "id": "u08",
+      "timestamp": "00:63",
+      "speaker": "Speaker 04",
+      "text": "Prefiero la página de indicadores con un anexo descargable."
+    },
+    {
+      "id": "u09",
+      "timestamp": "00:72",
+      "speaker": "Speaker 01",
+      "text": "Queda decidido usar una página de indicadores y un anexo."
+    },
+    {
+      "id": "u10",
+      "timestamp": "00:81",
+      "speaker": "Speaker 02",
+      "text": "Yo puedo definir los cinco indicadores principales."
+    },
+    {
+      "id": "u11",
+      "timestamp": "00:90",
+      "speaker": "Speaker 03",
+      "text": "Speaker 01 define los cinco indicadores antes del jueves."
+    },
+    {
+      "id": "u12",
+      "timestamp": "00:99",
+      "speaker": "Speaker 04",
+      "text": "Necesitamos fecha de envío."
+    },
+    {
+      "id": "u13",
+      "timestamp": "00:108",
+      "speaker": "Speaker 01",
+      "text": "Propongo enviarlo el último día hábil de cada mes."
+    },
+    {
+      "id": "u14",
+      "timestamp": "00:117",
+      "speaker": "Speaker 02",
+      "text": "Ese día los datos de operaciones aún no cierran."
+    },
+    {
+      "id": "u15",
+      "timestamp": "00:126",
+      "speaker": "Speaker 03",
+      "text": "Entonces enviémoslo el segundo día hábil del mes siguiente."
+    },
+    {
+      "id": "u16",
+      "timestamp": "00:135",
+      "speaker": "Speaker 04",
+      "text": "Queda fijado el envío el segundo día hábil del mes siguiente."
+    },
+    {
+      "id": "u17",
+      "timestamp": "00:144",
+      "speaker": "Speaker 01",
+      "text": "¿Quién arma el anexo?"
+    },
+    {
+      "id": "u18",
+      "timestamp": "00:153",
+      "speaker": "Speaker 02",
+      "text": "Speaker 03 puede hacerlo si recibe los datos cerrados."
+    },
+    {
+      "id": "u19",
+      "timestamp": "00:162",
+      "speaker": "Speaker 03",
+      "text": "Speaker 03 arma el anexo cuando reciba los datos cerrados."
+    },
+    {
+      "id": "u20",
+      "timestamp": "00:171",
+      "speaker": "Speaker 04",
+      "text": "Yo reviso la redacción final."
+    },
+    {
+      "id": "u21",
+      "timestamp": "00:180",
+      "speaker": "Speaker 01",
+      "text": "Speaker 02 revisa la redacción antes del envío."
+    },
+    {
+      "id": "u22",
+      "timestamp": "00:189",
+      "speaker": "Speaker 02",
+      "text": "Podríamos agregar una sección de riesgos."
+    },
+    {
+      "id": "u23",
+      "timestamp": "00:198",
+      "speaker": "Speaker 03",
+      "text": "No la agreguemos todavía; no tenemos un criterio común para clasificar riesgos."
+    },
+    {
+      "id": "u24",
+      "timestamp": "00:207",
+      "speaker": "Speaker 04",
+      "text": "La sección de riesgos queda pendiente."
+    },
+    {
+      "id": "u25",
+      "timestamp": "00:216",
+      "speaker": "Speaker 01",
+      "text": "El informe de este mes se enviará el miércoles 4 de noviembre."
+    },
+    {
+      "id": "u26",
+      "timestamp": "00:225",
+      "speaker": "Speaker 02",
+      "text": "Eso reemplaza cualquier interpretación de enviarlo al cierre de octubre."
+    },
+    {
+      "id": "u27",
+      "timestamp": "00:234",
+      "speaker": "Speaker 03",
+      "text": "La fuente de datos seguirá siendo la planilla validada por cada área."
+    },
+    {
+      "id": "u28",
+      "timestamp": "00:243",
+      "speaker": "Speaker 04",
+      "text": "No agreguemos indicadores nuevos este mes porque cambiaría la comparación."
+    },
+    {
+      "id": "u29",
+      "timestamp": "00:252",
+      "speaker": "Speaker 01",
+      "text": "Speaker 01 comparte el formato final con el equipo después de esta reunión."
+    },
+    {
+      "id": "u30",
+      "timestamp": "00:261",
+      "speaker": "Speaker 02",
+      "text": "Cerramos con formato breve, envío posterior al cierre y tareas."
+    }
+  ]
+}

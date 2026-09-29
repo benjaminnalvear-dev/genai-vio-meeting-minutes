@@ -1,0 +1,193 @@
+{
+  "meeting_id": "M05",
+  "meeting_date": "2026-09-29",
+  "title": "Inducción de personas nuevas",
+  "participants": [
+    "Speaker 01",
+    "Speaker 02",
+    "Speaker 03",
+    "Speaker 04"
+  ],
+  "utterances": [
+    {
+      "id": "u01",
+      "timestamp": "00:00",
+      "speaker": "Speaker 01",
+      "text": "La reunión es para organizar la inducción de las personas nuevas."
+    },
+    {
+      "id": "u02",
+      "timestamp": "00:09",
+      "speaker": "Speaker 02",
+      "text": "El área de Personas dijo que podrían ingresar seis personas el próximo mes."
+    },
+    {
+      "id": "u03",
+      "timestamp": "00:18",
+      "speaker": "Speaker 03",
+      "text": "Javier de Personas no está presente; no podemos asignarle tareas."
+    },
+    {
+      "id": "u04",
+      "timestamp": "00:27",
+      "speaker": "Speaker 04",
+      "text": "Primero definamos si la inducción será presencial o remota."
+    },
+    {
+      "id": "u05",
+      "timestamp": "00:36",
+      "speaker": "Speaker 01",
+      "text": "Propongo una sesión presencial de jornada completa."
+    },
+    {
+      "id": "u06",
+      "timestamp": "00:45",
+      "speaker": "Speaker 02",
+      "text": "Una jornada completa es difícil para quienes ingresan desde otras ciudades."
+    },
+    {
+      "id": "u07",
+      "timestamp": "00:54",
+      "speaker": "Speaker 03",
+      "text": "Podríamos hacer dos sesiones remotas de dos horas."
+    },
+    {
+      "id": "u08",
+      "timestamp": "00:63",
+      "speaker": "Speaker 04",
+      "text": "Yo prefiero una parte remota y una visita presencial opcional."
+    },
+    {
+      "id": "u09",
+      "timestamp": "00:72",
+      "speaker": "Speaker 01",
+      "text": "No hay acuerdo aún sobre el formato."
+    },
+    {
+      "id": "u10",
+      "timestamp": "00:81",
+      "speaker": "Speaker 02",
+      "text": "Para contenidos, debemos incluir seguridad, herramientas y recorrido por el equipo."
+    },
+    {
+      "id": "u11",
+      "timestamp": "00:90",
+      "speaker": "Speaker 03",
+      "text": "Yo preparo el módulo de herramientas."
+    },
+    {
+      "id": "u12",
+      "timestamp": "00:99",
+      "speaker": "Speaker 04",
+      "text": "Speaker 02 prepara el módulo de herramientas antes del miércoles."
+    },
+    {
+      "id": "u13",
+      "timestamp": "00:108",
+      "speaker": "Speaker 01",
+      "text": "Yo puedo preparar seguridad y protocolos."
+    },
+    {
+      "id": "u14",
+      "timestamp": "00:117",
+      "speaker": "Speaker 02",
+      "text": "Speaker 03 prepara el módulo de seguridad antes del miércoles."
+    },
+    {
+      "id": "u15",
+      "timestamp": "00:126",
+      "speaker": "Speaker 03",
+      "text": "La visita presencial requiere confirmar una sala."
+    },
+    {
+      "id": "u16",
+      "timestamp": "00:135",
+      "speaker": "Speaker 04",
+      "text": "Speaker 04 puede reservar la sala si finalmente hacemos visita."
+    },
+    {
+      "id": "u17",
+      "timestamp": "00:144",
+      "speaker": "Speaker 01",
+      "text": "Después de revisar disponibilidad, cuatro personas estarán fuera de la ciudad."
+    },
+    {
+      "id": "u18",
+      "timestamp": "00:153",
+      "speaker": "Speaker 02",
+      "text": "Entonces descartemos una inducción completamente presencial."
+    },
+    {
+      "id": "u19",
+      "timestamp": "00:162",
+      "speaker": "Speaker 03",
+      "text": "Propongo dos sesiones remotas de dos horas y una visita presencial voluntaria."
+    },
+    {
+      "id": "u20",
+      "timestamp": "00:171",
+      "speaker": "Speaker 04",
+      "text": "Estoy de acuerdo con ese formato."
+    },
+    {
+      "id": "u21",
+      "timestamp": "00:180",
+      "speaker": "Speaker 01",
+      "text": "Queda decidido: dos sesiones remotas y una visita presencial opcional."
+    },
+    {
+      "id": "u22",
+      "timestamp": "00:189",
+      "speaker": "Speaker 02",
+      "text": "¿En qué fechas?"
+    },
+    {
+      "id": "u23",
+      "timestamp": "00:198",
+      "speaker": "Speaker 03",
+      "text": "Propongo martes y jueves de la primera semana de octubre."
+    },
+    {
+      "id": "u24",
+      "timestamp": "00:207",
+      "speaker": "Speaker 04",
+      "text": "El jueves es feriado para una de las sedes."
+    },
+    {
+      "id": "u25",
+      "timestamp": "00:216",
+      "speaker": "Speaker 01",
+      "text": "Entonces hagámoslas lunes y miércoles de esa semana."
+    },
+    {
+      "id": "u26",
+      "timestamp": "00:225",
+      "speaker": "Speaker 02",
+      "text": "Queda fijado lunes 5 y miércoles 7 de octubre a las 10:00."
+    },
+    {
+      "id": "u27",
+      "timestamp": "00:234",
+      "speaker": "Speaker 03",
+      "text": "Yo envío las invitaciones cuando Personas confirme los nombres."
+    },
+    {
+      "id": "u28",
+      "timestamp": "00:243",
+      "speaker": "Speaker 04",
+      "text": "Speaker 01 envía las invitaciones al confirmar la lista de ingresos."
+    },
+    {
+      "id": "u29",
+      "timestamp": "00:252",
+      "speaker": "Speaker 01",
+      "text": "La visita será el viernes 9 solo si hay al menos tres personas interesadas."
+    },
+    {
+      "id": "u30",
+      "timestamp": "00:261",
+      "speaker": "Speaker 02",
+      "text": "Cerramos con el formato remoto y la visita condicionada."
+    }
+  ]
+}

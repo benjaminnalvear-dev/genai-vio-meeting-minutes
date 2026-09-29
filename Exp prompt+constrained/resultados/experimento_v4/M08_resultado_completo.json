@@ -1,0 +1,593 @@
+{
+  "meeting_id": "M08",
+  "transcript": "08_transcript.json",
+  "rubric": "08_rubric.json",
+  "baseline": {
+    "wall_seconds": 22.806,
+    "response_json_valid": true,
+    "response": {
+      "meeting": {
+        "date": "2026-11-03",
+        "topic": "Entrevistas con usuarios"
+      },
+      "decisions": [
+        {
+          "topic": "División de la muestra de entrevistas",
+          "outcome": "Entrevistar a cinco usuarios frecuentes y cinco nuevos",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u09",
+              "exact_quote": "Queda decidido entrevistar a cinco usuarios frecuentes y cinco nuevos."
+            }
+          ]
+        },
+        {
+          "topic": "Duración de las entrevistas",
+          "outcome": "Forty minutes con encuesta previa",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u13",
+              "exact_quote": "Queda definido ese formato de cuarenta minutos y encuesta previa."
+            }
+          ]
+        }
+      ],
+      "action_items": [
+        {
+          "task": "Redactar guion de entrevista",
+          "assignee": "Speaker 02",
+          "deadline": "2026-11-05",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u14",
+              "exact_quote": "Speaker 02 redacta el guion de entrevista para el viernes."
+            }
+          ]
+        },
+        {
+          "task": "Preparar encuesta previa",
+          "assignee": "Speaker 03",
+          "deadline": "2026-11-05",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u15",
+              "exact_quote": "Yo preparo la encuesta previa para el viernes."
+            },
+            {
+              "field": "assignee",
+              "utterance_id": "u16",
+              "exact_quote": "Speaker 03 prepara la encuesta previa para el viernes."
+            }
+          ]
+        },
+        {
+          "task": "Contactar usuarios frecuentes",
+          "assignee": "Speaker 01",
+          "deadline": "2026-11-07",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u21",
+              "exact_quote": "Yo contacto a los usuarios frecuentes."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u22",
+              "exact_quote": "Speaker 01 contacta a los usuarios frecuentes el lunes."
+            }
+          ]
+        },
+        {
+          "task": "Contactar usuarios nuevos",
+          "assignee": "Speaker 04",
+          "deadline": "2026-11-07",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u24",
+              "exact_quote": "Speaker 04 contacta a los usuarios nuevos el lunes."
+            }
+          ]
+        },
+        {
+          "task": "Contactar usuarios que no volvieron",
+          "assignee": "Speaker 03",
+          "deadline": null,
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u23",
+              "exact_quote": "Yo contacto a quienes se registraron y no volvieron."
+            }
+          ]
+        },
+        {
+          "task": "Iniciar entrevistas",
+          "assignee": null,
+          "deadline": "2026-11-10",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "deadline",
+              "utterance_id": "u27",
+              "exact_quote": "Queda fijado el inicio de entrevistas para el martes 10 de noviembre."
+            }
+          ]
+        },
+        {
+          "task": "Subir notas tras cada entrevista",
+          "assignee": "Speaker 02",
+          "deadline": null,
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u28",
+              "exact_quote": "Después de cada entrevista, Speaker 02 sube las notas a la carpeta."
+            }
+          ]
+        }
+      ],
+      "pending_issues": [
+        {
+          "issue": "Monto del incentivo económico para las entrevistas",
+          "owner": null,
+          "deadline": null,
+          "evidence": [
+            {
+              "utterance_id": "u19",
+              "exact_quote": "No aprobemos monto todavía; Finanzas no confirmó el presupuesto unitario."
+            },
+            {
+              "utterance_id": "u20",
+              "exact_quote": "El monto del incentivo queda pendiente."
+            }
+          ]
+        },
+        {
+          "issue": "Consentimiento para grabación de las entrevistas",
+          "owner": null,
+          "deadline": null,
+          "evidence": [
+            {
+              "utterance_id": "u29",
+              "exact_quote": "Las sesiones serán grabadas solo si cada participante entrega consentimiento."
+            }
+          ]
+        }
+      ],
+      "review_alerts": [
+        {
+          "alert": "Conflicto en la asignación de tareas para la encuesta previa",
+          "reason": "Speaker 03 aparece en dos intervenciones (u15 y u16) con tareas distintas, pero no hay claridad sobre priorización.",
+          "utterance_ids": [
+            "u15",
+            "u16"
+          ]
+        }
+      ]
+    },
+    "retried_repair": false,
+    "context_warning": null,
+    "prompt_eval_count": 2965
+  },
+  "pipeline": {
+    "p1_wall_seconds": 20.54,
+    "p2_wall_seconds": 25.913,
+    "total_wall_seconds": 46.453,
+    "p1_json_valid": true,
+    "p2_json_valid": true,
+    "p1_response": {
+      "meeting": {
+        "date": "2026-11-03",
+        "topic": "Entrevistas con usuarios",
+        "participants": [
+          "Speaker 01",
+          "Speaker 02",
+          "Speaker 03",
+          "Speaker 04"
+        ]
+      },
+      "decision_candidates": [
+        {
+          "candidate_id": "d1",
+          "topic": "División de la muestra de entrevistas",
+          "statement": "Entrevistar a cinco usuarios frecuentes y cinco nuevos",
+          "kind": "agreement",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u09",
+              "exact_quote": "Queda decidido entrevistar a cinco usuarios frecuentes y cinco nuevos."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d2",
+          "topic": "Duración de las entrevistas",
+          "statement": "Formato de cuarenta minutos y encuesta previa",
+          "kind": "agreement",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u13",
+              "exact_quote": "Queda definido ese formato de cuarenta minutos y encuesta previa."
+            }
+          ]
+        }
+      ],
+      "task_candidates": [
+        {
+          "candidate_id": "t1",
+          "task": "Redactar guion de entrevista",
+          "assignee": "Speaker 02",
+          "deadline_expression": "viernes",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u14",
+              "exact_quote": "Speaker 02 redacta el guion de entrevista para el viernes."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t2",
+          "task": "Preparar encuesta previa",
+          "assignee": "Speaker 03",
+          "deadline_expression": "viernes",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u15",
+              "exact_quote": "Yo preparo la encuesta previa para el viernes."
+            },
+            {
+              "field": "assignee",
+              "utterance_id": "u16",
+              "exact_quote": "Speaker 03 prepara la encuesta previa para el viernes."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t3",
+          "task": "Contactar usuarios frecuentes",
+          "assignee": "Speaker 01",
+          "deadline_expression": "lunes",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u22",
+              "exact_quote": "Speaker 01 contacta a los usuarios frecuentes el lunes."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t4",
+          "task": "Contactar usuarios nuevos",
+          "assignee": "Speaker 04",
+          "deadline_expression": "lunes",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u24",
+              "exact_quote": "Speaker 04 contacta a los usuarios nuevos el lunes."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t5",
+          "task": "Contactar usuarios que no volvieron",
+          "assignee": "Speaker 03",
+          "deadline_expression": null,
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u23",
+              "exact_quote": "Yo contacto a quienes se registraron y no volvieron."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t6",
+          "task": "Subir notas a la carpeta después de cada entrevista",
+          "assignee": "Speaker 02",
+          "deadline_expression": null,
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u28",
+              "exact_quote": "Después de cada entrevista, Speaker 02 sube las notas a la carpeta."
+            }
+          ]
+        }
+      ],
+      "pending_issue_candidates": [
+        {
+          "issue": "Monto del incentivo para las entrevistas",
+          "owner": null,
+          "deadline_expression": null,
+          "evidence": [
+            {
+              "utterance_id": "u20",
+              "exact_quote": "El monto del incentivo queda pendiente."
+            },
+            {
+              "utterance_id": "u19",
+              "exact_quote": "No aprobemos monto todavía; Finanzas no confirmó el presupuesto unitario."
+            }
+          ]
+        },
+        {
+          "issue": "Consentimiento para grabación de las entrevistas",
+          "owner": null,
+          "deadline_expression": null,
+          "evidence": [
+            {
+              "utterance_id": "u29",
+              "exact_quote": "Las sesiones serán grabadas solo si cada participante entrega consentimiento."
+            }
+          ]
+        }
+      ]
+    },
+    "p2_response": {
+      "meeting": {
+        "date": "2026-11-03",
+        "topic": "Entrevistas con usuarios"
+      },
+      "decisions": [
+        {
+          "topic": "División de la muestra de entrevistas",
+          "outcome": "Entrevistar a cinco usuarios frecuentes y cinco nuevos",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u09",
+              "exact_quote": "Queda decidido entrevistar a cinco usuarios frecuentes y cinco nuevos."
+            }
+          ]
+        },
+        {
+          "topic": "Duración de las entrevistas",
+          "outcome": "Formato de cuarenta minutos y encuesta previa",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u13",
+              "exact_quote": "Queda definido ese formato de cuarenta minutos y encuesta previa."
+            }
+          ]
+        }
+      ],
+      "action_items": [
+        {
+          "task": "Redactar guion de entrevista",
+          "assignee": "Speaker 02",
+          "deadline": "2026-11-07 00:00",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u14",
+              "exact_quote": "Speaker 02 redacta el guion de entrevista para el viernes."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u25",
+              "exact_quote": "Las primeras entrevistas deberían ser la próxima semana."
+            }
+          ]
+        },
+        {
+          "task": "Preparar encuesta previa",
+          "assignee": "Speaker 03",
+          "deadline": "2026-11-07 00:00",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u15",
+              "exact_quote": "Yo preparo la encuesta previa para el viernes."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u25",
+              "exact_quote": "Las primeras entrevistas deberían ser la próxima semana."
+            }
+          ]
+        },
+        {
+          "task": "Contactar usuarios frecuentes",
+          "assignee": "Speaker 01",
+          "deadline": "2026-11-09",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u22",
+              "exact_quote": "Speaker 01 contacta a los usuarios frecuentes el lunes."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u27",
+              "exact_quote": "Queda fijado el inicio de entrevistas para el martes 10 de noviembre."
+            }
+          ]
+        },
+        {
+          "task": "Contactar usuarios nuevos",
+          "assignee": "Speaker 04",
+          "deadline": "2026-11-09",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u24",
+              "exact_quote": "Speaker 04 contacta a los usuarios nuevos el lunes."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u27",
+              "exact_quote": "Queda fijado el inicio de entrevistas para el martes 10 de noviembre."
+            }
+          ]
+        },
+        {
+          "task": "Contactar usuarios que no volvieron",
+          "assignee": "Speaker 03",
+          "deadline": null,
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u23",
+              "exact_quote": "Yo contacto a quienes se registraron y no volvieron."
+            }
+          ]
+        },
+        {
+          "task": "Subir notas a la carpeta después de cada entrevista",
+          "assignee": "Speaker 02",
+          "deadline": null,
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u28",
+              "exact_quote": "Después de cada entrevista, Speaker 02 sube las notas a la carpeta."
+            }
+          ]
+        }
+      ],
+      "pending_issues": [
+        {
+          "issue": "Monto del incentivo para las entrevistas",
+          "owner": null,
+          "deadline": null,
+          "evidence": [
+            {
+              "utterance_id": "u20",
+              "exact_quote": "El monto del incentivo queda pendiente."
+            },
+            {
+              "utterance_id": "u19",
+              "exact_quote": "No aprobemos monto todavía; Finanzas no confirmó el presupuesto unitario."
+            }
+          ]
+        },
+        {
+          "issue": "Consentimiento para grabación de las entrevistas",
+          "owner": null,
+          "deadline": null,
+          "evidence": [
+            {
+              "utterance_id": "u29",
+              "exact_quote": "Las sesiones serán grabadas solo si cada participante entrega consentimiento."
+            }
+          ]
+        }
+      ],
+      "review_alerts": [
+        {
+          "alert": "Conflicto en la asignación de tareas para la encuesta previa: Speaker 03 aparece como responsable en dos utterances distintas (u15 y u16).",
+          "reason": "La misma persona no puede cumplir dos tareas simultáneamente sin coordinación adicional.",
+          "utterance_ids": [
+            "u15",
+            "u16"
+          ]
+        },
+        {
+          "alert": "Plazo ambiguo para tareas asignadas al viernes: Aunque se menciona 'viernes' en u14 y u15, no hay consenso sobre la fecha exacta (u25 sugiere 'proxima semana').",
+          "reason": "La expresión 'viernes' en u14/u15 no está vinculada a una fecha concreta; se prioriza la evidencia textual de u27 (martes 10) para tareas de contacto.",
+          "utterance_ids": [
+            "u14",
+            "u15",
+            "u25"
+          ]
+        }
+      ]
+    },
+    "p1_retried_repair": false,
+    "p2_retried_repair": false,
+    "p1_context_warning": null,
+    "p2_context_warning": null,
+    "p1_prompt_eval_count": 3274,
+    "p2_prompt_eval_count": 3898
+  },
+  "variant": "experimento_v4",
+  "ollama_version": "ollama version is 0.34.4",
+  "evaluations": {
+    "baseline": {
+      "json_valid": true,
+      "expected_decisions": 6,
+      "found_decisions": 4,
+      "decision_recall": 0.667,
+      "correct_decision_states": 3,
+      "valid_decision_evidence": 4,
+      "expected_tasks": 5,
+      "found_tasks": 5,
+      "task_recall": 1.0,
+      "correct_assignees": 5,
+      "correct_deadlines": 1,
+      "correct_conditions": 4,
+      "valid_task_evidence": 5,
+      "invalid_assignees": [],
+      "missing_decisions": [
+        "Muestra de entrevistas: Entrevistar solo a usuarios frecuentes",
+        "Inicio de entrevistas: Iniciar el martes 10 de noviembre"
+      ],
+      "missing_tasks": []
+    },
+    "pipeline": {
+      "json_valid": true,
+      "expected_decisions": 6,
+      "found_decisions": 4,
+      "decision_recall": 0.667,
+      "correct_decision_states": 3,
+      "valid_decision_evidence": 4,
+      "expected_tasks": 5,
+      "found_tasks": 5,
+      "task_recall": 1.0,
+      "correct_assignees": 5,
+      "correct_deadlines": 3,
+      "correct_conditions": 4,
+      "valid_task_evidence": 5,
+      "invalid_assignees": [],
+      "missing_decisions": [
+        "Muestra de entrevistas: Entrevistar solo a usuarios frecuentes",
+        "Inicio de entrevistas: Iniciar el martes 10 de noviembre"
+      ],
+      "missing_tasks": []
+    }
+  }
+}

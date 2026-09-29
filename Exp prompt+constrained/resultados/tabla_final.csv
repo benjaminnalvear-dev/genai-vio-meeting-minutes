@@ -1,0 +1,11 @@
+,Baseline,v1 json,v2 esquema,v3 regla 7 nueva,v4 final
+Reuniones,10,10,10,10,10
+Decisiones emparejadas,31/56,34/56,27/56,36/56,31/56
+Decisiones con contenido,30/56 (54%),17/56 (30%),27/56 (48%),26/56 (46%),26/56 (46%)
+Estados correctos,22,20,22,25,18
+Decisiones vacías,1,19,0,12,5
+Tareas emparejadas,41/53,41/53,39/53,38/53,38/53
+Responsables correctos,34,31,31,27,31
+Plazos correctos,19,23,24,22,25
+Asignados a no participantes,1,0,0,0,0
+Tiempo promedio (s),21.4,62.7,60.7,57.3,45.9

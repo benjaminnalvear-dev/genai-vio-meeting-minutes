@@ -1,0 +1,193 @@
+{
+  "meeting_id": "M04",
+  "meeting_date": "2026-09-23",
+  "title": "Publicación de versión",
+  "participants": [
+    "Speaker 01",
+    "Speaker 02",
+    "Speaker 03",
+    "Speaker 04"
+  ],
+  "utterances": [
+    {
+      "id": "u01",
+      "timestamp": "00:00",
+      "speaker": "Speaker 01",
+      "text": "Abrimos la reunión para definir la publicación de la versión nueva."
+    },
+    {
+      "id": "u02",
+      "timestamp": "00:09",
+      "speaker": "Speaker 02",
+      "text": "Ayer falló la carga de archivos en dos computadores, pero no sabemos cuántos usuarios fueron afectados."
+    },
+    {
+      "id": "u03",
+      "timestamp": "00:18",
+      "speaker": "Speaker 03",
+      "text": "Camila de soporte envió capturas, aunque ella no está en esta llamada."
+    },
+    {
+      "id": "u04",
+      "timestamp": "00:27",
+      "speaker": "Speaker 04",
+      "text": "No le asignemos acciones a Camila; revisaremos las capturas después."
+    },
+    {
+      "id": "u05",
+      "timestamp": "00:36",
+      "speaker": "Speaker 01",
+      "text": "Propongo publicar la versión este jueves a las 18:00."
+    },
+    {
+      "id": "u06",
+      "timestamp": "00:45",
+      "speaker": "Speaker 02",
+      "text": "No estoy de acuerdo: primero necesitamos corregir el error de carga."
+    },
+    {
+      "id": "u07",
+      "timestamp": "00:54",
+      "speaker": "Speaker 03",
+      "text": "Yo puedo reproducir el error en el equipo de prueba."
+    },
+    {
+      "id": "u08",
+      "timestamp": "00:63",
+      "speaker": "Speaker 04",
+      "text": "Speaker 03 reproduce el error y deja un reporte hoy antes de las 16:00."
+    },
+    {
+      "id": "u09",
+      "timestamp": "00:72",
+      "speaker": "Speaker 01",
+      "text": "Si no se reproduce, podríamos mantener la publicación del jueves."
+    },
+    {
+      "id": "u10",
+      "timestamp": "00:81",
+      "speaker": "Speaker 02",
+      "text": "También falta decidir si activamos la nueva pantalla de reportes."
+    },
+    {
+      "id": "u11",
+      "timestamp": "00:90",
+      "speaker": "Speaker 03",
+      "text": "Mi propuesta es activarla para todos desde el primer día."
+    },
+    {
+      "id": "u12",
+      "timestamp": "00:99",
+      "speaker": "Speaker 04",
+      "text": "Prefiero habilitarla solo para usuarios internos durante una semana."
+    },
+    {
+      "id": "u13",
+      "timestamp": "00:108",
+      "speaker": "Speaker 01",
+      "text": "No hay consenso todavía sobre la pantalla de reportes."
+    },
+    {
+      "id": "u14",
+      "timestamp": "00:117",
+      "speaker": "Speaker 02",
+      "text": "Yo preparo una lista de pruebas manuales para la versión."
+    },
+    {
+      "id": "u15",
+      "timestamp": "00:126",
+      "speaker": "Speaker 03",
+      "text": "Speaker 02 prepara esa lista antes de mañana a las 11:00."
+    },
+    {
+      "id": "u16",
+      "timestamp": "00:135",
+      "speaker": "Speaker 04",
+      "text": "El reporte llegó: el error se reproduce cuando el archivo supera 20 megas."
+    },
+    {
+      "id": "u17",
+      "timestamp": "00:144",
+      "speaker": "Speaker 01",
+      "text": "Entonces no podemos publicar el jueves sin esa corrección."
+    },
+    {
+      "id": "u18",
+      "timestamp": "00:153",
+      "speaker": "Speaker 02",
+      "text": "Propongo mover la publicación al lunes 28 a las 10:00."
+    },
+    {
+      "id": "u19",
+      "timestamp": "00:162",
+      "speaker": "Speaker 03",
+      "text": "Estoy de acuerdo si la corrección pasa las pruebas manuales."
+    },
+    {
+      "id": "u20",
+      "timestamp": "00:171",
+      "speaker": "Speaker 04",
+      "text": "Queda fijada la publicación para el lunes 28 a las 10:00, condicionada a que pasen las pruebas."
+    },
+    {
+      "id": "u21",
+      "timestamp": "00:180",
+      "speaker": "Speaker 01",
+      "text": "Yo corrijo el límite de carga mañana."
+    },
+    {
+      "id": "u22",
+      "timestamp": "00:189",
+      "speaker": "Speaker 02",
+      "text": "Speaker 04 corrige el límite de carga antes del viernes 25."
+    },
+    {
+      "id": "u23",
+      "timestamp": "00:198",
+      "speaker": "Speaker 03",
+      "text": "Para la pantalla de reportes, los usuarios internos ya pueden probarla."
+    },
+    {
+      "id": "u24",
+      "timestamp": "00:207",
+      "speaker": "Speaker 04",
+      "text": "Entonces usemos un piloto interno durante una semana y no la activemos para clientes aún."
+    },
+    {
+      "id": "u25",
+      "timestamp": "00:216",
+      "speaker": "Speaker 01",
+      "text": "Queda aprobado el piloto interno de reportes por una semana."
+    },
+    {
+      "id": "u26",
+      "timestamp": "00:225",
+      "speaker": "Speaker 02",
+      "text": "¿Quién revisa los resultados del piloto?"
+    },
+    {
+      "id": "u27",
+      "timestamp": "00:234",
+      "speaker": "Speaker 03",
+      "text": "Yo puedo consolidar los comentarios internos el próximo viernes."
+    },
+    {
+      "id": "u28",
+      "timestamp": "00:243",
+      "speaker": "Speaker 04",
+      "text": "Speaker 01 consolida los comentarios del piloto el viernes 2 de octubre."
+    },
+    {
+      "id": "u29",
+      "timestamp": "00:252",
+      "speaker": "Speaker 01",
+      "text": "El plan para clientes queda pendiente hasta evaluar ese piloto."
+    },
+    {
+      "id": "u30",
+      "timestamp": "00:261",
+      "speaker": "Speaker 02",
+      "text": "Cerramos: publicación el lunes si pasan pruebas, corrección asignada y reportes solo internos."
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "meeting_id": "M04",
+  "evaluation_notes": [
+    "This rubric is gold data and must not be placed in the model context.",
+    "Camila is mentioned but is absent and must not become an assignee."
+  ],
+  "decisions": [
+    {
+      "id": "d01",
+      "topic": "Fecha de publicación",
+      "statement": "Publicar el jueves a las 18:00",
+      "state": "rejected",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u17"
+    },
+    {
+      "id": "d02",
+      "topic": "Fecha de publicación",
+      "statement": "Publicar el lunes 28 a las 10:00",
+      "state": "final",
+      "condition": "La corrección debe pasar las pruebas manuales",
+      "supersedes": null,
+      "evidence_id": "u20"
+    },
+    {
+      "id": "d03",
+      "topic": "Alcance de pantalla de reportes",
+      "statement": "Activarla para todos desde el primer día",
+      "state": "superseded",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u24"
+    },
+    {
+      "id": "d04",
+      "topic": "Alcance de pantalla de reportes",
+      "statement": "Realizar un piloto interno durante una semana",
+      "state": "final",
+      "condition": null,
+      "supersedes": "d03",
+      "evidence_id": "u25"
+    },
+    {
+      "id": "d05",
+      "topic": "Activación para clientes",
+      "statement": "Definir activación luego de evaluar el piloto interno",
+      "state": "pending",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u29"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t01",
+      "description": "Reproducir el error de carga y dejar un reporte",
+      "assignee": "Speaker 03",
+      "deadline": "2026-09-23T16:00",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u08"
+    },
+    {
+      "id": "t02",
+      "description": "Preparar la lista de pruebas manuales",
+      "assignee": "Speaker 02",
+      "deadline": "2026-09-24T11:00",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u15"
+    },
+    {
+      "id": "t03",
+      "description": "Corregir el límite de carga",
+      "assignee": "Speaker 04",
+      "deadline": "2026-09-25",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u22"
+    },
+    {
+      "id": "t04",
+      "description": "Consolidar los comentarios del piloto interno",
+      "assignee": "Speaker 01",
+      "deadline": "2026-10-02",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u28"
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "meeting_id": "M10",
+  "meeting_date": "2026-12-01",
+  "title": "Cierre anual",
+  "participants": [
+    "Speaker 01",
+    "Speaker 02",
+    "Speaker 03",
+    "Speaker 04"
+  ],
+  "utterances": [
+    {
+      "id": "u01",
+      "timestamp": "00:00",
+      "speaker": "Speaker 01",
+      "text": "Esta reunión es para decidir el plan de cierre del año."
+    },
+    {
+      "id": "u02",
+      "timestamp": "00:09",
+      "speaker": "Speaker 02",
+      "text": "Primero revisemos si haremos evento interno."
+    },
+    {
+      "id": "u03",
+      "timestamp": "00:18",
+      "speaker": "Speaker 03",
+      "text": "El gerente mencionó que quizás asista, pero no está presente."
+    },
+    {
+      "id": "u04",
+      "timestamp": "00:27",
+      "speaker": "Speaker 04",
+      "text": "No se le asigna ninguna tarea al gerente."
+    },
+    {
+      "id": "u05",
+      "timestamp": "00:36",
+      "speaker": "Speaker 01",
+      "text": "Propongo hacer un evento presencial para todo el equipo."
+    },
+    {
+      "id": "u06",
+      "timestamp": "00:45",
+      "speaker": "Speaker 02",
+      "text": "El presupuesto alcanza solo para una actividad pequeña."
+    },
+    {
+      "id": "u07",
+      "timestamp": "00:54",
+      "speaker": "Speaker 03",
+      "text": "Podríamos hacer una actividad híbrida con un grupo presencial reducido."
+    },
+    {
+      "id": "u08",
+      "timestamp": "00:63",
+      "speaker": "Speaker 04",
+      "text": "Prefiero una actividad completamente remota y usar el presupuesto en premios."
+    },
+    {
+      "id": "u09",
+      "timestamp": "00:72",
+      "speaker": "Speaker 01",
+      "text": "No decidamos todavía; falta saber cuántas personas viajarían."
+    },
+    {
+      "id": "u10",
+      "timestamp": "00:81",
+      "speaker": "Speaker 02",
+      "text": "Speaker 02 consulta hoy quiénes estarían en la ciudad."
+    },
+    {
+      "id": "u11",
+      "timestamp": "00:90",
+      "speaker": "Speaker 03",
+      "text": "Speaker 02 consulta disponibilidad de presencia hoy."
+    },
+    {
+      "id": "u12",
+      "timestamp": "00:99",
+      "speaker": "Speaker 04",
+      "text": "También debemos cerrar el informe de resultados del año."
+    },
+    {
+      "id": "u13",
+      "timestamp": "00:108",
+      "speaker": "Speaker 01",
+      "text": "Yo preparo la sección financiera."
+    },
+    {
+      "id": "u14",
+      "timestamp": "00:117",
+      "speaker": "Speaker 02",
+      "text": "Speaker 03 prepara la sección financiera antes del lunes."
+    },
+    {
+      "id": "u15",
+      "timestamp": "00:126",
+      "speaker": "Speaker 03",
+      "text": "Yo preparo los logros del equipo."
+    },
+    {
+      "id": "u16",
+      "timestamp": "00:135",
+      "speaker": "Speaker 04",
+      "text": "Speaker 04 prepara los logros del equipo antes del lunes."
+    },
+    {
+      "id": "u17",
+      "timestamp": "00:144",
+      "speaker": "Speaker 01",
+      "text": "Llegaron respuestas: solo ocho personas estarían en la ciudad."
+    },
+    {
+      "id": "u18",
+      "timestamp": "00:153",
+      "speaker": "Speaker 02",
+      "text": "Con ocho personas, descartemos el evento presencial grande."
+    },
+    {
+      "id": "u19",
+      "timestamp": "00:162",
+      "speaker": "Speaker 03",
+      "text": "Propongo una actividad remota para todos y premios digitales."
+    },
+    {
+      "id": "u20",
+      "timestamp": "00:171",
+      "speaker": "Speaker 04",
+      "text": "Estoy de acuerdo."
+    },
+    {
+      "id": "u21",
+      "timestamp": "00:180",
+      "speaker": "Speaker 01",
+      "text": "Queda decidido hacer actividad remota para todos con premios digitales."
+    },
+    {
+      "id": "u22",
+      "timestamp": "00:189",
+      "speaker": "Speaker 02",
+      "text": "¿Cuándo la hacemos?"
+    },
+    {
+      "id": "u23",
+      "timestamp": "00:198",
+      "speaker": "Speaker 03",
+      "text": "Propongo el viernes 18 de diciembre."
+    },
+    {
+      "id": "u24",
+      "timestamp": "00:207",
+      "speaker": "Speaker 04",
+      "text": "Ese día varias personas ya comienzan vacaciones."
+    },
+    {
+      "id": "u25",
+      "timestamp": "00:216",
+      "speaker": "Speaker 01",
+      "text": "Entonces hagámosla el miércoles 16 a las 16:00."
+    },
+    {
+      "id": "u26",
+      "timestamp": "00:225",
+      "speaker": "Speaker 02",
+      "text": "Queda fijada la actividad para el miércoles 16 de diciembre a las 16:00."
+    },
+    {
+      "id": "u27",
+      "timestamp": "00:234",
+      "speaker": "Speaker 03",
+      "text": "Yo puedo comprar los premios digitales si Finanzas aprueba el monto."
+    },
+    {
+      "id": "u28",
+      "timestamp": "00:243",
+      "speaker": "Speaker 04",
+      "text": "Speaker 01 compra los premios digitales si Finanzas aprueba el monto."
+    },
+    {
+      "id": "u29",
+      "timestamp": "00:252",
+      "speaker": "Speaker 01",
+      "text": "¿Qué monto pediremos?"
+    },
+    {
+      "id": "u30",
+      "timestamp": "00:261",
+      "speaker": "Speaker 02",
+      "text": "Propongo ciento cincuenta mil pesos, pero no hay acuerdo."
+    },
+    {
+      "id": "u31",
+      "timestamp": "00:270",
+      "speaker": "Speaker 03",
+      "text": "El monto de premios queda pendiente de discusión con Finanzas."
+    },
+    {
+      "id": "u32",
+      "timestamp": "00:279",
+      "speaker": "Speaker 04",
+      "text": "Speaker 02 envía la invitación cuando esté confirmado el presupuesto."
+    },
+    {
+      "id": "u33",
+      "timestamp": "00:288",
+      "speaker": "Speaker 01",
+      "text": "Cerramos con actividad remota, fecha definida y presupuesto pendiente."
+    }
+  ]
+}

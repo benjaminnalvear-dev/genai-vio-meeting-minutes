@@ -1,0 +1,121 @@
+{
+  "meeting_id": "M02",
+  "evaluation_notes": [
+    "This rubric is the gold reference and must not be placed in the model context.",
+    "Sofía is mentioned but is not a participant and must never be assigned a task.",
+    "The proposed mass mailing to 640 clients is rejected; the 50-client pilot is the final scope.",
+    "The send date is conditional. The system must not state that the survey will certainly be sent on 2026-09-21."
+  ],
+  "decisions": [
+    {
+      "id": "d01",
+      "topic": "Herramienta para la encuesta",
+      "statement": "Usar Typeform",
+      "state": "rejected",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u26"
+    },
+    {
+      "id": "d02",
+      "topic": "Herramienta para la encuesta",
+      "statement": "Usar Google Forms para el piloto",
+      "state": "final",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u26"
+    },
+    {
+      "id": "d03",
+      "topic": "Alcance de la encuesta",
+      "statement": "Enviar la encuesta a los 640 clientes",
+      "state": "rejected",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u12"
+    },
+    {
+      "id": "d04",
+      "topic": "Alcance de la encuesta",
+      "statement": "Realizar un piloto con 50 clientes equilibrados entre los tres segmentos",
+      "state": "final",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u15"
+    },
+    {
+      "id": "d05",
+      "topic": "Fecha de envío",
+      "statement": "Enviar la encuesta el lunes 21 de septiembre",
+      "state": "final",
+      "condition": "Legal aprueba el texto sin cambios antes de las 15:00 del 21 de septiembre",
+      "supersedes": null,
+      "evidence_id": "u36"
+    },
+    {
+      "id": "d06",
+      "topic": "Plan ante baja respuesta",
+      "statement": "Definir una acción si responde menos del 10% de la muestra",
+      "state": "pending",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u43"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t01",
+      "description": "Seleccionar una muestra piloto de 50 clientes equilibrada entre los tres segmentos",
+      "assignee": "Speaker 03",
+      "deadline": "2026-09-17T12:00",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u15"
+    },
+    {
+      "id": "t02",
+      "description": "Redactar el borrador de preguntas incluyendo una pregunta sobre soporte",
+      "assignee": "Speaker 02",
+      "deadline": "2026-09-18",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u18"
+    },
+    {
+      "id": "t03",
+      "description": "Configurar el formulario",
+      "assignee": "Speaker 02",
+      "deadline": null,
+      "condition": "Las preguntas deben estar aprobadas",
+      "state": "final",
+      "evidence_id": "u28"
+    },
+    {
+      "id": "t04",
+      "description": "Solicitar revisión legal del borrador",
+      "assignee": "Speaker 04",
+      "deadline": null,
+      "condition": "Recibir el borrador de preguntas",
+      "state": "final",
+      "evidence_id": "u31"
+    },
+    {
+      "id": "t05",
+      "description": "Incorporar las correcciones indicadas por Legal",
+      "assignee": "Speaker 02",
+      "deadline": null,
+      "condition": "Legal indica correcciones",
+      "state": "final",
+      "evidence_id": "u39"
+    },
+    {
+      "id": "t06",
+      "description": "Monitorear la tasa de respuesta durante la semana posterior al envío",
+      "assignee": "Speaker 03",
+      "deadline": null,
+      "condition": "La encuesta es enviada",
+      "state": "final",
+      "evidence_id": "u41"
+    }
+  ]
+}

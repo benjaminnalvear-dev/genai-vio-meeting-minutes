@@ -1,0 +1,110 @@
+{
+  "meeting_id": "M08",
+  "evaluation_notes": [
+    "This rubric is gold data and must not be placed in the model context.",
+    "The agency is mentioned but does not receive a task."
+  ],
+  "decisions": [
+    {
+      "id": "d01",
+      "topic": "Muestra de entrevistas",
+      "statement": "Entrevistar solo a usuarios frecuentes",
+      "state": "rejected",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u09"
+    },
+    {
+      "id": "d02",
+      "topic": "Muestra de entrevistas",
+      "statement": "Entrevistar a cinco usuarios frecuentes y cinco nuevos",
+      "state": "final",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u09"
+    },
+    {
+      "id": "d03",
+      "topic": "Formato de entrevista",
+      "statement": "Entrevistas de una hora",
+      "state": "superseded",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u12"
+    },
+    {
+      "id": "d04",
+      "topic": "Formato de entrevista",
+      "statement": "Entrevistas de cuarenta minutos con encuesta previa",
+      "state": "final",
+      "condition": null,
+      "supersedes": "d03",
+      "evidence_id": "u13"
+    },
+    {
+      "id": "d05",
+      "topic": "Monto del incentivo",
+      "statement": "Definir un incentivo por entrevista",
+      "state": "pending",
+      "condition": "Confirmación de Finanzas",
+      "supersedes": null,
+      "evidence_id": "u20"
+    },
+    {
+      "id": "d06",
+      "topic": "Inicio de entrevistas",
+      "statement": "Iniciar el martes 10 de noviembre",
+      "state": "final",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u27"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t01",
+      "description": "Redactar el guion de entrevista",
+      "assignee": "Speaker 02",
+      "deadline": "2026-11-06",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u14"
+    },
+    {
+      "id": "t02",
+      "description": "Preparar la encuesta previa",
+      "assignee": "Speaker 03",
+      "deadline": "2026-11-06",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u16"
+    },
+    {
+      "id": "t03",
+      "description": "Contactar a usuarios frecuentes",
+      "assignee": "Speaker 01",
+      "deadline": "2026-11-09",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u22"
+    },
+    {
+      "id": "t04",
+      "description": "Contactar a usuarios nuevos",
+      "assignee": "Speaker 04",
+      "deadline": "2026-11-09",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u24"
+    },
+    {
+      "id": "t05",
+      "description": "Subir notas de cada entrevista a la carpeta",
+      "assignee": "Speaker 02",
+      "deadline": null,
+      "condition": "Después de cada entrevista",
+      "state": "final",
+      "evidence_id": "u28"
+    }
+  ]
+}

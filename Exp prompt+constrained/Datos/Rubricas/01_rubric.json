@@ -1,0 +1,138 @@
+{
+  "meeting_id": "M01",
+  "evaluation_notes": [
+    "This rubric is the gold reference. Do not include it in the model prompt.",
+    "A mention of Paula is not a task assignment because she is absent and explicitly excluded in u04.",
+    "The exact target date for relative deadlines must be resolved from meeting_date 2026-09-14."
+  ],
+  "decisions": [
+    {
+      "id": "d01",
+      "topic": "Fecha y hora del piloto",
+      "statement": "Realizar el piloto el lunes 21 a las 10:00",
+      "state": "superseded",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u05"
+    },
+    {
+      "id": "d02",
+      "topic": "Fecha y hora del piloto",
+      "statement": "Realizar el piloto el lunes 21 a las 16:00",
+      "state": "superseded",
+      "condition": null,
+      "supersedes": "d01",
+      "evidence_id": "u14"
+    },
+    {
+      "id": "d03",
+      "topic": "Fecha y hora del piloto",
+      "statement": "Realizar el piloto el martes 22 a las 10:00",
+      "state": "final",
+      "condition": null,
+      "supersedes": "d02",
+      "evidence_id": "u31"
+    },
+    {
+      "id": "d04",
+      "topic": "Formato de la actividad",
+      "statement": "Demostración de veinte minutos seguida de encuesta",
+      "state": "superseded",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u12"
+    },
+    {
+      "id": "d05",
+      "topic": "Formato de la actividad",
+      "statement": "Demostración de quince minutos, prueba guiada y encuesta",
+      "state": "final",
+      "condition": null,
+      "supersedes": "d04",
+      "evidence_id": "u25"
+    },
+    {
+      "id": "d06",
+      "topic": "Escenario de la prueba guiada",
+      "statement": "Elegir entre un escenario de feedback o negociación de plazo",
+      "state": "pending",
+      "condition": "Revisar los sectores de las empresas invitadas",
+      "supersedes": null,
+      "evidence_id": "u41"
+    },
+    {
+      "id": "d07",
+      "topic": "Uso de cámara en el piloto",
+      "statement": "No mostrar la funcionalidad de cámara durante el piloto",
+      "state": "final",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u36"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t01",
+      "description": "Preparar un borrador del correo de invitación y enviarlo para revisión",
+      "assignee": "Speaker 02",
+      "deadline": "2026-09-14T18:00",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u08"
+    },
+    {
+      "id": "t02",
+      "description": "Armar y compartir la lista de empresas contactadas en la carpeta",
+      "assignee": "Speaker 03",
+      "deadline": "2026-09-14",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u10"
+    },
+    {
+      "id": "t03",
+      "description": "Presentar la demostración técnica",
+      "assignee": "Speaker 04",
+      "deadline": null,
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u19"
+    },
+    {
+      "id": "t04",
+      "description": "Consolidar las respuestas de la encuesta",
+      "assignee": "Speaker 02",
+      "deadline": "2026-09-24",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u22"
+    },
+    {
+      "id": "t05",
+      "description": "Entregar la versión estable del sistema",
+      "assignee": "Speaker 04",
+      "deadline": "2026-09-18T17:00",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u33"
+    },
+    {
+      "id": "t06",
+      "description": "Revisar el borrador del correo de invitación",
+      "assignee": "Speaker 01",
+      "deadline": "2026-09-14T17:00",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u39"
+    },
+    {
+      "id": "t07",
+      "description": "Enviar el correo de invitación",
+      "assignee": "Speaker 02",
+      "deadline": "2026-09-14",
+      "condition": "El borrador debe ser revisado y estar correcto",
+      "state": "final",
+      "evidence_id": "u38"
+    }
+  ]
+}

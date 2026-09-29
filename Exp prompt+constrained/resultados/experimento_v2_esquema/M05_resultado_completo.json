@@ -1,0 +1,571 @@
+{
+  "meeting_id": "M05",
+  "transcript": "05_transcript.json",
+  "rubric": "05_rubric.json",
+  "baseline": {
+    "wall_seconds": 31.792,
+    "response_json_valid": true,
+    "response": {
+      "meeting": {
+        "date": "2026-09-29",
+        "topic": "Inducción de personas nuevas"
+      },
+      "decisions": [
+        {
+          "topic": "Formato de la inducción",
+          "outcome": "Dos sesiones remotas de dos horas cada una y una visita presencial opcional",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u19",
+              "exact_quote": "Propongo dos sesiones remotas de dos horas y una visita presencial voluntaria."
+            },
+            {
+              "utterance_id": "u20",
+              "exact_quote": "Estoy de acuerdo con ese formato."
+            },
+            {
+              "utterance_id": "u21",
+              "exact_quote": "Queda decidido: dos sesiones remotas y una visita presencial opcional."
+            }
+          ]
+        }
+      ],
+      "action_items": [
+        {
+          "task": "Preparar el módulo de herramientas",
+          "assignee": "Speaker 03",
+          "deadline": null,
+          "conditions": "antes del miércoles (referencia a u12)",
+          "status": "conditional",
+          "evidence": [
+            {
+              "field": "conditions",
+              "utterance_id": "u12",
+              "exact_quote": "Speaker 02 prepara el módulo de herramientas antes del miércoles."
+            },
+            {
+              "field": "assignee",
+              "utterance_id": "u11",
+              "exact_quote": "Yo [Speaker 03] preparo el módulo de herramientas."
+            }
+          ]
+        },
+        {
+          "task": "Preparar el módulo de seguridad",
+          "assignee": "Speaker 03",
+          "deadline": "2026-10-03",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u13",
+              "exact_quote": "Yo puedo preparar seguridad y protocolos."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u14",
+              "exact_quote": "Speaker 03 prepara el módulo de seguridad antes del miércoles."
+            }
+          ]
+        },
+        {
+          "task": "Preparar el módulo de herramientas",
+          "assignee": "Speaker 02",
+          "deadline": "2026-10-03",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u12",
+              "exact_quote": "Speaker 02 prepara el módulo de herramientas antes del miércoles."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u12",
+              "exact_quote": "antes del miércoles."
+            }
+          ]
+        },
+        {
+          "task": "Reservar sala para visita presencial",
+          "assignee": "Speaker 04",
+          "deadline": null,
+          "conditions": "solo si se confirma visita presencial (referencia a u15 y u16)",
+          "status": "conditional",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u16",
+              "exact_quote": "Speaker 04 puede reservar la sala si finalmente hacemos visita."
+            },
+            {
+              "field": "conditions",
+              "utterance_id": "u15",
+              "exact_quote": "La visita presencial requiere confirmar una sala."
+            }
+          ]
+        },
+        {
+          "task": "Enviar invitaciones para sesiones remotas",
+          "assignee": "Speaker 01",
+          "deadline": null,
+          "conditions": "cuando Personas confirme los nombres de las nuevas personas",
+          "status": "conditional",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u27",
+              "exact_quote": "Yo envío las invitaciones cuando Personas confirme los nombres."
+            },
+            {
+              "field": "conditions",
+              "utterance_id": "u27",
+              "exact_quote": "cuando Personas confirme los nombres."
+            }
+          ]
+        },
+        {
+          "task": "Enviar invitaciones para sesiones remotas",
+          "assignee": "Speaker 04",
+          "deadline": null,
+          "conditions": "al confirmar la lista de ingresos",
+          "status": "conditional",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u28",
+              "exact_quote": "Speaker 01 envía las invitaciones al confirmar la lista de ingresos."
+            },
+            {
+              "field": "conditions",
+              "utterance_id": "u28",
+              "exact_quote": "confirmar la lista de ingresos."
+            }
+          ]
+        }
+      ],
+      "pending_issues": [
+        {
+          "issue": "Confirmar confirmación de nombres de nuevas personas por el área de Personas",
+          "owner": "Speaker 01 y Speaker 04",
+          "deadline": null,
+          "evidence": [
+            {
+              "utterance_id": "u27",
+              "exact_quote": "Yo envío las invitaciones cuando Personas confirme los nombres."
+            },
+            {
+              "utterance_id": "u28",
+              "exact_quote": "Speaker 01 envía las invitaciones al confirmar la lista de ingresos."
+            }
+          ]
+        },
+        {
+          "issue": "Confirmar interés en visita presencial y reservar sala",
+          "owner": "null",
+          "deadline": null,
+          "evidence": [
+            {
+              "utterance_id": "u29",
+              "exact_quote": "La visita será el viernes 9 solo si hay al menos tres personas interesadas."
+            }
+          ]
+        }
+      ],
+      "review_alerts": [
+        {
+          "alert": "No hay asignación clara de responsables para confirmar nombres de nuevas personas entre Speaker 01 y Speaker 04.",
+          "reason": "Ambos mencionan enviar invitaciones pero no se especifica quién confirmará los nombres con Personas.",
+          "utterance_ids": [
+            "u27",
+            "u28"
+          ]
+        }
+      ]
+    },
+    "retried_repair": false,
+    "context_warning": null,
+    "prompt_eval_count": 2922
+  },
+  "pipeline": {
+    "p1_wall_seconds": 25.203,
+    "p2_wall_seconds": 28.929,
+    "total_wall_seconds": 54.132,
+    "p1_json_valid": true,
+    "p2_json_valid": true,
+    "p1_response": {
+      "meeting": {
+        "date": "2026-09-29",
+        "topic": "Inducción de personas nuevas",
+        "participants": [
+          "Speaker 01",
+          "Speaker 02",
+          "Speaker 03",
+          "Speaker 04"
+        ]
+      },
+      "decision_candidates": [
+        {
+          "candidate_id": "d1",
+          "topic": "Formato de inducción",
+          "statement": "dos sesiones remotas de dos horas y una visita presencial opcional",
+          "kind": "agreement",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u21",
+              "exact_quote": "Queda decidido: dos sesiones remotas y una visita presencial opcional."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d2",
+          "topic": "Formato alternativo de inducción",
+          "statement": "una parte remota y una visita presencial opcional",
+          "kind": "proposal",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u08",
+              "exact_quote": "Yo prefiero una parte remota y una visita presencial opcional."
+            }
+          ]
+        }
+      ],
+      "task_candidates": [
+        {
+          "candidate_id": "t1",
+          "task": "preparar módulo de herramientas",
+          "assignee": "Speaker 03",
+          "deadline_expression": null,
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u11",
+              "exact_quote": "Yo preparo el módulo de herramientas."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t2",
+          "task": "preparar módulo de herramientas",
+          "assignee": "Speaker 02",
+          "deadline_expression": "antes del miércoles",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u12",
+              "exact_quote": "Speaker 02 prepara el módulo de herramientas antes del miércoles."
+            },
+            {
+              "field": "deadline_expression",
+              "utterance_id": "u12",
+              "exact_quote": "antes del miércoles"
+            }
+          ]
+        },
+        {
+          "candidate_id": "t3",
+          "task": "preparar módulo de seguridad",
+          "assignee": "Speaker 03",
+          "deadline_expression": "antes del miércoles",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u14",
+              "exact_quote": "Speaker 03 prepara el módulo de seguridad antes del miércoles."
+            },
+            {
+              "field": "deadline_expression",
+              "utterance_id": "u14",
+              "exact_quote": "antes del miércoles"
+            }
+          ]
+        },
+        {
+          "candidate_id": "t4",
+          "task": "preparar seguridad y protocolos",
+          "assignee": "Speaker 01",
+          "deadline_expression": null,
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u13",
+              "exact_quote": "Yo puedo preparar seguridad y protocolos."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t5",
+          "task": "reservar sala para visita presencial",
+          "assignee": "Speaker 04",
+          "deadline_expression": null,
+          "conditions": "solo si se hace visita presencial",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u16",
+              "exact_quote": "Speaker 04 puede reservar la sala si finalmente hacemos visita."
+            },
+            {
+              "field": "conditions",
+              "utterance_id": "u16",
+              "exact_quote": "si finalmente hacemos visita"
+            }
+          ]
+        }
+      ],
+      "pending_issue_candidates": [
+        {
+          "issue": "confirmar nombres de las seis personas nuevas",
+          "owner": null,
+          "deadline_expression": null,
+          "evidence": [
+            {
+              "utterance_id": "u27",
+              "exact_quote": "Yo envío las invitaciones cuando Personas confirme los nombres."
+            }
+          ]
+        },
+        {
+          "issue": "confirmar confirmación de al menos tres personas para la visita presencial",
+          "owner": null,
+          "deadline_expression": "viernes 9 de octubre",
+          "evidence": [
+            {
+              "utterance_id": "u29",
+              "exact_quote": "La visita será el viernes 9 solo si hay al menos tres personas interesadas."
+            }
+          ]
+        }
+      ]
+    },
+    "p2_response": {
+      "meeting": {
+        "date": "2026-09-29",
+        "topic": "Inducción de personas nuevas"
+      },
+      "decisions": [
+        {
+          "topic": "Formato de inducción",
+          "outcome": "dos sesiones remotas de dos horas y una visita presencial opcional",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u21",
+              "exact_quote": "Queda decidido: dos sesiones remotas y una visita presencial opcional."
+            },
+            {
+              "utterance_id": "u19",
+              "exact_quote": "Propongo dos sesiones remotas de dos horas y una visita presencial voluntaria."
+            },
+            {
+              "utterance_id": "u20",
+              "exact_quote": "Estoy de acuerdo con ese formato."
+            }
+          ]
+        }
+      ],
+      "action_items": [
+        {
+          "task": "preparar módulo de herramientas",
+          "assignee": "Speaker 03",
+          "deadline": null,
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "task",
+              "utterance_id": "u11",
+              "exact_quote": "Yo preparo el módulo de herramientas."
+            }
+          ]
+        },
+        {
+          "task": "preparar módulo de herramientas",
+          "assignee": "Speaker 02",
+          "deadline": "2026-10-03",
+          "conditions": null,
+          "status": "conditional",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u12",
+              "exact_quote": "Speaker 02 prepara el módulo de herramientas antes del miércoles."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u12",
+              "exact_quote": "antes del miércoles"
+            }
+          ]
+        },
+        {
+          "task": "preparar módulo de seguridad",
+          "assignee": "Speaker 03",
+          "deadline": "2026-10-03",
+          "conditions": null,
+          "status": "conditional",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u14",
+              "exact_quote": "Speaker 03 prepara el módulo de seguridad antes del miércoles."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u14",
+              "exact_quote": "antes del miércoles"
+            }
+          ]
+        },
+        {
+          "task": "preparar seguridad y protocolos",
+          "assignee": "Speaker 01",
+          "deadline": null,
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "task",
+              "utterance_id": "u13",
+              "exact_quote": "Yo puedo preparar seguridad y protocolos."
+            }
+          ]
+        },
+        {
+          "task": "reservar sala para visita presencial",
+          "assignee": "Speaker 04",
+          "deadline": null,
+          "conditions": "solo si se hace visita presencial",
+          "status": "conditional",
+          "evidence": [
+            {
+              "field": "task",
+              "utterance_id": "u16",
+              "exact_quote": "Speaker 04 puede reservar la sala si finalmente hacemos visita."
+            },
+            {
+              "field": "conditions",
+              "utterance_id": "u16",
+              "exact_quote": "si finalmente hacemos visita"
+            }
+          ]
+        },
+        {
+          "task": "fijar fechas de sesiones remotas",
+          "assignee": null,
+          "deadline": null,
+          "conditions": null,
+          "status": "pending",
+          "evidence": [
+            {
+              "field": "task",
+              "utterance_id": "u26",
+              "exact_quote": "Queda fijado lunes 5 y miércoles 7 de octubre a las 10:00."
+            }
+          ]
+        }
+      ],
+      "pending_issues": [
+        {
+          "issue": "confirmar nombres de las seis personas nuevas",
+          "owner": null,
+          "deadline": null,
+          "evidence": [
+            {
+              "utterance_id": "u27",
+              "exact_quote": "Yo envío las invitaciones cuando Personas confirme los nombres."
+            },
+            {
+              "utterance_id": "u28",
+              "exact_quote": "Speaker 01 envía las invitaciones al confirmar la lista de ingresos."
+            }
+          ]
+        },
+        {
+          "issue": "confirmar confirmación de al menos tres personas para la visita presencial",
+          "owner": null,
+          "deadline": "2026-10-09",
+          "evidence": [
+            {
+              "utterance_id": "u29",
+              "exact_quote": "La visita será el viernes 9 solo si hay al menos tres personas interesadas."
+            }
+          ]
+        }
+      ],
+      "review_alerts": [
+        {
+          "alert": "Conflicto de plazos para tareas de preparación (Speaker 02 y Speaker 03 tienen el mismo plazo: antes del miércoles).",
+          "reason": "Ambos tienen la misma fecha límite para tareas relacionadas con el módulo de seguridad y herramientas.",
+          "utterance_ids": [
+            "u12",
+            "u14"
+          ]
+        }
+      ]
+    },
+    "p1_retried_repair": false,
+    "p2_retried_repair": false,
+    "p1_context_warning": null,
+    "p2_context_warning": null,
+    "p1_prompt_eval_count": 3231,
+    "p2_prompt_eval_count": 5436
+  },
+  "variant": "v2_esquema",
+  "evaluations": {
+    "baseline": {
+      "json_valid": true,
+      "expected_decisions": 5,
+      "found_decisions": 3,
+      "decision_recall": 0.6,
+      "correct_decision_states": 1,
+      "valid_decision_evidence": 3,
+      "expected_tasks": 4,
+      "found_tasks": 4,
+      "task_recall": 1.0,
+      "correct_assignees": 3,
+      "correct_deadlines": 2,
+      "correct_conditions": 2,
+      "valid_task_evidence": 4,
+      "invalid_assignees": [],
+      "missing_decisions": [
+        "Fechas de sesiones: Lunes 5 y miércoles 7 de octubre a las 10:00",
+        "Visita presencial: Realizar visita el viernes 9 de octubre"
+      ],
+      "missing_tasks": []
+    },
+    "pipeline": {
+      "json_valid": true,
+      "expected_decisions": 5,
+      "found_decisions": 2,
+      "decision_recall": 0.4,
+      "correct_decision_states": 1,
+      "valid_decision_evidence": 2,
+      "expected_tasks": 4,
+      "found_tasks": 4,
+      "task_recall": 1.0,
+      "correct_assignees": 2,
+      "correct_deadlines": 2,
+      "correct_conditions": 3,
+      "valid_task_evidence": 4,
+      "invalid_assignees": [],
+      "missing_decisions": [
+        "Fechas de sesiones: Martes y jueves de la primera semana de octubre",
+        "Fechas de sesiones: Lunes 5 y miércoles 7 de octubre a las 10:00",
+        "Visita presencial: Realizar visita el viernes 9 de octubre"
+      ],
+      "missing_tasks": []
+    }
+  }
+}

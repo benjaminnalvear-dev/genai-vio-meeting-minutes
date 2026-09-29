@@ -1,0 +1,494 @@
+{
+  "meeting_id": "M03",
+  "transcript": "03_transcript.json",
+  "rubric": "03_rubric.json",
+  "baseline": {
+    "wall_seconds": 29.035,
+    "response_json_valid": true,
+    "response": {
+      "meeting": {
+        "date": "2026-09-23",
+        "topic": "Preparación de demostración para feria"
+      },
+      "decisions": [
+        {
+          "topic": "Tipo de stand para la feria",
+          "outcome": "Elegir el stand básico de dos metros (sin pantalla adicional) para evitar duplicar costos con la pantalla incluida en el recinto.",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u18",
+              "exact_quote": "Correcto, descartamos el stand con pantalla y elegimos el stand básico de dos metros."
+            },
+            {
+              "utterance_id": "u17",
+              "exact_quote": "Entonces pagar por la pantalla del proveedor sería duplicar el costo."
+            }
+          ]
+        },
+        {
+          "topic": "Contenido de la demostración",
+          "outcome": "Mostrar módulo de texto y voz con audífonos, excluyendo análisis corporal por inestabilidad de la cámara.",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u11",
+              "exact_quote": "De acuerdo, la primera propuesta es mostrar el módulo de texto sin cámara."
+            },
+            {
+              "utterance_id": "u45",
+              "exact_quote": "Cambiamos la demostración: mostraremos texto y voz con audífonos; la cámara sigue fuera."
+            }
+          ]
+        }
+      ],
+      "action_items": [
+        {
+          "task": "Responder al proveedor Martín con la opción de stand básico antes del viernes (2026-09-27).",
+          "assignee": "Speaker 02",
+          "deadline": "2026-09-27",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u20",
+              "exact_quote": "Speaker 02 responde al proveedor con la opción de stand básico antes del viernes."
+            }
+          ]
+        },
+        {
+          "task": "Cotizar cuatro audífonos para la feria.",
+          "assignee": "Speaker 04",
+          "deadline": "2026-09-24 12:00",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u15",
+              "exact_quote": "Speaker 04 cotiza los cuatro audífonos para mañana antes de las 12."
+            }
+          ]
+        },
+        {
+          "task": "Solicitar la estimación de asistentes al organizador de la feria.",
+          "assignee": "Speaker 03",
+          "deadline": "2026-09-23",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u27",
+              "exact_quote": "Speaker 03 solicita al organizador la estimación de asistentes hoy."
+            }
+          ]
+        },
+        {
+          "task": "Coordinar la impresión de 120 folletos con códigos QR una vez que el diseño esté aprobado.",
+          "assignee": "Speaker 03",
+          "deadline": "null",
+          "conditions": "Diseño aprobado",
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u42",
+              "exact_quote": "Speaker 03 coordina la impresión una vez que el diseño esté aprobado."
+            }
+          ]
+        },
+        {
+          "task": "Montaje del stand: Speaker 01, Speaker 02 y Speaker 03 a las 7:00 AM; Speaker 04 se integra a las 9:00 AM.",
+          "assignee": "Speaker 01, Speaker 02, Speaker 03 (montaje), Speaker 04 (integración)",
+          "deadline": "2026-09-27 07:00",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u35",
+              "exact_quote": "Entonces el montaje lo hacen Speaker 01, Speaker 02 y Speaker 03; Speaker 04 se integra a las nueve."
+            }
+          ]
+        }
+      ],
+      "pending_issues": [
+        {
+          "issue": "Confirmar la cantidad exacta de folletos impresos según la estimación de asistentes (180 personas).",
+          "owner": null,
+          "deadline": null,
+          "evidence": [
+            {
+              "utterance_id": "u36",
+              "exact_quote": "Acaba de llegar la estimación: esperan alrededor de 180 asistentes."
+            },
+            {
+              "utterance_id": "u37",
+              "exact_quote": "Con 180, 80 folletos puede ser poco."
+            }
+          ]
+        }
+      ],
+      "review_alerts": [
+        {
+          "alert": "Revisar la viabilidad de incluir elementos adicionales (como voz) en la demostración para mayor interactividad.",
+          "reason": "Aunque se decidió mostrar voz con audífonos, hay que asegurar que funcione correctamente y no genere problemas técnicos adicionales.",
+          "utterance_ids": [
+            "u43",
+            "u44"
+          ]
+        }
+      ]
+    },
+    "retried_repair": false,
+    "context_warning": null,
+    "prompt_eval_count": 4119
+  },
+  "pipeline": {
+    "p1_wall_seconds": 25.143,
+    "p2_wall_seconds": 23.947,
+    "total_wall_seconds": 49.09,
+    "p1_json_valid": true,
+    "p2_json_valid": true,
+    "p1_response": {
+      "meeting": {
+        "date": "2026-09-23",
+        "topic": "Preparación de demostración para feria",
+        "participants": [
+          "Speaker 01",
+          "Speaker 02",
+          "Speaker 03",
+          "Speaker 04"
+        ]
+      },
+      "decision_candidates": [
+        {
+          "candidate_id": "d1",
+          "topic": "Opción de stand",
+          "statement": "Elegimos el stand básico de dos metros",
+          "kind": "agreement",
+          "replaces_candidate_ids": [
+            "d1",
+            "d2"
+          ],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u18",
+              "exact_quote": "Correcto, descartamos el stand con pantalla y elegimos el stand básico de dos metros."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d2",
+          "topic": "Opción de stand con pantalla",
+          "statement": "Propuesta inicial de stand con pantalla",
+          "kind": "proposal",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u05",
+              "exact_quote": "Propongo tomar el stand con pantalla y reducir el gasto en material impreso."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d3",
+          "topic": "Demostración de módulo de texto",
+          "statement": "Primera propuesta de mostrar solo el módulo de texto sin cámara",
+          "kind": "proposal",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u11",
+              "exact_quote": "De acuerdo, la primera propuesta es mostrar el módulo de texto sin cámara."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d4",
+          "topic": "Incluir voz en la demostración",
+          "statement": "Cambio a mostrar texto y voz con audífonos",
+          "kind": "replacement",
+          "replaces_candidate_ids": [
+            "d3"
+          ],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u45",
+              "exact_quote": "Cambiamos la demostración: mostraremos texto y voz con audífonos; la cámara sigue fuera."
+            }
+          ]
+        }
+      ],
+      "task_candidates": [
+        {
+          "candidate_id": "t1",
+          "task": "Responder al proveedor Martín con la opción de stand básico",
+          "assignee": "Speaker 02",
+          "deadline_expression": "viernes",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u20",
+              "exact_quote": "Speaker 02 responde al proveedor con la opción de stand básico antes del viernes."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t2",
+          "task": "Cotizar cuatro audífonos",
+          "assignee": "Speaker 04",
+          "deadline_expression": "mañana antes de las 12",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u14",
+              "exact_quote": "Sí, envío tres cotizaciones mañana antes de mediodía."
+            },
+            {
+              "field": "deadline_expression",
+              "utterance_id": "u15",
+              "exact_quote": "Speaker 04 cotiza los cuatro audífonos para mañana antes de las 12."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t3",
+          "task": "Coordinar la impresión de los folletos",
+          "assignee": "Speaker 03",
+          "deadline_expression": null,
+          "conditions": "Diseño aprobado",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u41",
+              "exact_quote": "Puedo enviar el diseño a imprenta cuando esté aprobado."
+            },
+            {
+              "field": "conditions",
+              "utterance_id": "u42",
+              "exact_quote": "Speaker 03 coordina la impresión una vez que el diseño esté aprobado."
+            }
+          ]
+        }
+      ],
+      "pending_issue_candidates": [
+        {
+          "issue": "Estimación de asistentes a la feria",
+          "owner": "Speaker 03",
+          "deadline_expression": "hoy",
+          "evidence": [
+            {
+              "utterance_id": "u26",
+              "exact_quote": "Yo la pido hoy y la comparto cuando llegue."
+            }
+          ]
+        }
+      ]
+    },
+    "p2_response": {
+      "meeting": {
+        "date": "2026-09-23",
+        "topic": "Preparación de demostración para feria"
+      },
+      "decisions": [
+        {
+          "topic": "Opción de stand con pantalla",
+          "outcome": "rejected",
+          "state": "rejected",
+          "evidence": [
+            {
+              "utterance_id": "u18",
+              "exact_quote": "Correcto, descartamos el stand con pantalla y elegimos el stand básico de dos metros."
+            }
+          ]
+        },
+        {
+          "topic": "Opción de stand básico de dos metros",
+          "outcome": "final",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u18",
+              "exact_quote": "Correcto, descartamos el stand con pantalla y elegimos el stand básico de dos metros."
+            }
+          ]
+        },
+        {
+          "topic": "Incluir voz en la demostración",
+          "outcome": "final",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u45",
+              "exact_quote": "Cambiamos la demostración: mostraremos texto y voz con audífonos; la cámara sigue fuera."
+            }
+          ]
+        }
+      ],
+      "action_items": [
+        {
+          "task": "Responder al proveedor Martín con la opción de stand básico",
+          "assignee": "Speaker 02",
+          "deadline": "2026-09-29",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u20",
+              "exact_quote": "Speaker 02 responde al proveedor con la opción de stand básico antes del viernes."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u19",
+              "exact_quote": "Martín nos pidió respuesta antes del viernes."
+            }
+          ]
+        },
+        {
+          "task": "Cotizar cuatro audífonos",
+          "assignee": "Speaker 04",
+          "deadline": "2026-09-24 12:00",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u14",
+              "exact_quote": "Sí, envío tres cotizaciones mañana antes de mediodía."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u15",
+              "exact_quote": "Speaker 04 cotiza los cuatro audífonos para mañana antes de las 12."
+            }
+          ]
+        },
+        {
+          "task": "Coordinar la impresión de los folletos",
+          "assignee": "Speaker 03",
+          "deadline": null,
+          "conditions": "Diseño aprobado",
+          "status": "conditional",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u41",
+              "exact_quote": "Puedo enviar el diseño a imprenta cuando esté aprobado."
+            },
+            {
+              "field": "conditions",
+              "utterance_id": "u42",
+              "exact_quote": "Speaker 03 coordina la impresión una vez que el diseño esté aprobado."
+            }
+          ]
+        }
+      ],
+      "pending_issues": [
+        {
+          "issue": "Estimación de asistentes a la feria",
+          "owner": "Speaker 03",
+          "deadline": "2026-09-23",
+          "evidence": [
+            {
+              "utterance_id": "u26",
+              "exact_quote": "Yo la pido hoy y la comparto cuando llegue."
+            }
+          ]
+        }
+      ],
+      "review_alerts": [
+        {
+          "alert": "La decisión sobre el stand básico se menciona en dos intervenciones distintas (u18 y u19) con evidencia textual contradictoria en el contexto de reemplazo de decisiones previas.",
+          "reason": "La evidencia textual en u18 y u19 no coincide con el estado de reemplazo de 'd1' y 'd2' en el JSON de P1. En u18 se descarta explícitamente el stand con pantalla, pero en u19 se menciona que solo se envía la decisión sin asignar tareas adicionales.",
+          "utterance_ids": [
+            "u18",
+            "u19"
+          ]
+        }
+      ]
+    },
+    "p1_retried_repair": false,
+    "p2_retried_repair": false,
+    "p1_context_warning": null,
+    "p2_context_warning": null,
+    "p1_prompt_eval_count": 4428,
+    "p2_prompt_eval_count": 4891
+  },
+  "variant": "v2_esquema",
+  "evaluations": {
+    "baseline": {
+      "json_valid": true,
+      "expected_decisions": 6,
+      "found_decisions": 3,
+      "decision_recall": 0.5,
+      "correct_decision_states": 2,
+      "valid_decision_evidence": 3,
+      "expected_tasks": 12,
+      "found_tasks": 5,
+      "task_recall": 0.417,
+      "correct_assignees": 4,
+      "correct_deadlines": 3,
+      "correct_conditions": 5,
+      "valid_task_evidence": 5,
+      "invalid_assignees": [
+        "Speaker 01, Speaker 02, Speaker 03 (montaje), Speaker 04 (integración)"
+      ],
+      "missing_decisions": [
+        "Tipo de stand: Contratar un stand con pantalla",
+        "Contenido de demostración: Mostrar solo el módulo de texto sin cámara",
+        "Cantidad de folletos: Imprimir 200 folletos"
+      ],
+      "missing_tasks": [
+        "Revisar el contrato del recinto y confirmar si incluye pantalla",
+        "Presentar el proyecto durante la feria",
+        "Guiar la prueba de la aplicación durante la feria",
+        "Registrar los contactos de las personas interesadas",
+        "Realizar el montaje del stand a las 07:00",
+        "Realizar el montaje del stand a las 07:00",
+        "Integrarse a la feria a las 09:00"
+      ]
+    },
+    "pipeline": {
+      "json_valid": true,
+      "expected_decisions": 6,
+      "found_decisions": 3,
+      "decision_recall": 0.5,
+      "correct_decision_states": 2,
+      "valid_decision_evidence": 3,
+      "expected_tasks": 12,
+      "found_tasks": 3,
+      "task_recall": 0.25,
+      "correct_assignees": 3,
+      "correct_deadlines": 2,
+      "correct_conditions": 3,
+      "valid_task_evidence": 3,
+      "invalid_assignees": [],
+      "missing_decisions": [
+        "Contenido de demostración: Mostrar texto y voz con audífonos; no mostrar cámara",
+        "Cantidad de folletos: Imprimir 200 folletos",
+        "Cantidad de folletos: Imprimir 120 folletos y usar códigos QR"
+      ],
+      "missing_tasks": [
+        "Revisar el contrato del recinto y confirmar si incluye pantalla",
+        "Solicitar la estimación de asistentes al organizador",
+        "Presentar el proyecto durante la feria",
+        "Guiar la prueba de la aplicación durante la feria",
+        "Registrar los contactos de las personas interesadas",
+        "Realizar el montaje del stand a las 07:00",
+        "Realizar el montaje del stand a las 07:00",
+        "Realizar el montaje del stand a las 07:00",
+        "Integrarse a la feria a las 09:00"
+      ]
+    }
+  }
+}

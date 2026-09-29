@@ -1,0 +1,193 @@
+{
+  "meeting_id": "M06",
+  "meeting_date": "2026-10-05",
+  "title": "Traslado de oficina",
+  "participants": [
+    "Speaker 01",
+    "Speaker 02",
+    "Speaker 03",
+    "Speaker 04"
+  ],
+  "utterances": [
+    {
+      "id": "u01",
+      "timestamp": "00:00",
+      "speaker": "Speaker 01",
+      "text": "Tenemos que decidir cómo organizaremos el traslado a la nueva oficina."
+    },
+    {
+      "id": "u02",
+      "timestamp": "00:09",
+      "speaker": "Speaker 02",
+      "text": "El edificio entrega las llaves el lunes 12 de octubre."
+    },
+    {
+      "id": "u03",
+      "timestamp": "00:18",
+      "speaker": "Speaker 03",
+      "text": "La administradora Paula habló de los ascensores, pero ella no participa hoy."
+    },
+    {
+      "id": "u04",
+      "timestamp": "00:27",
+      "speaker": "Speaker 04",
+      "text": "No se le debe asignar ninguna acción a Paula."
+    },
+    {
+      "id": "u05",
+      "timestamp": "00:36",
+      "speaker": "Speaker 01",
+      "text": "Propongo hacer toda la mudanza el sábado 10."
+    },
+    {
+      "id": "u06",
+      "timestamp": "00:45",
+      "speaker": "Speaker 02",
+      "text": "El sábado el edificio no permite ingreso de proveedores."
+    },
+    {
+      "id": "u07",
+      "timestamp": "00:54",
+      "speaker": "Speaker 03",
+      "text": "Entonces esa fecha queda descartada."
+    },
+    {
+      "id": "u08",
+      "timestamp": "00:63",
+      "speaker": "Speaker 04",
+      "text": "Podemos hacer el traslado el lunes 12 después de recibir las llaves."
+    },
+    {
+      "id": "u09",
+      "timestamp": "00:72",
+      "speaker": "Speaker 01",
+      "text": "Eso implica detener trabajo durante la mañana."
+    },
+    {
+      "id": "u10",
+      "timestamp": "00:81",
+      "speaker": "Speaker 02",
+      "text": "Otra opción es trasladar solo equipos críticos el lunes y el resto el martes."
+    },
+    {
+      "id": "u11",
+      "timestamp": "00:90",
+      "speaker": "Speaker 03",
+      "text": "Yo prefiero separar los equipos críticos del mobiliario."
+    },
+    {
+      "id": "u12",
+      "timestamp": "00:99",
+      "speaker": "Speaker 04",
+      "text": "Queda como propuesta dividir el traslado en dos días."
+    },
+    {
+      "id": "u13",
+      "timestamp": "00:108",
+      "speaker": "Speaker 01",
+      "text": "Speaker 02 puede inventariar los equipos críticos."
+    },
+    {
+      "id": "u14",
+      "timestamp": "00:117",
+      "speaker": "Speaker 02",
+      "text": "Speaker 02 inventaría los equipos críticos antes del viernes 9."
+    },
+    {
+      "id": "u15",
+      "timestamp": "00:126",
+      "speaker": "Speaker 03",
+      "text": "Speaker 03 puede coordinar con la empresa de mudanza."
+    },
+    {
+      "id": "u16",
+      "timestamp": "00:135",
+      "speaker": "Speaker 04",
+      "text": "Speaker 03 solicita dos cotizaciones de mudanza antes del jueves 8."
+    },
+    {
+      "id": "u17",
+      "timestamp": "00:144",
+      "speaker": "Speaker 01",
+      "text": "¿Qué hacemos con los escritorios antiguos?"
+    },
+    {
+      "id": "u18",
+      "timestamp": "00:153",
+      "speaker": "Speaker 02",
+      "text": "Propongo llevarlos todos porque aún sirven."
+    },
+    {
+      "id": "u19",
+      "timestamp": "00:162",
+      "speaker": "Speaker 03",
+      "text": "No estoy de acuerdo; seis están dañados y ocupan espacio."
+    },
+    {
+      "id": "u20",
+      "timestamp": "00:171",
+      "speaker": "Speaker 04",
+      "text": "Vendamos los seis dañados y traslademos solo los que sirven."
+    },
+    {
+      "id": "u21",
+      "timestamp": "00:180",
+      "speaker": "Speaker 01",
+      "text": "Queda decidido vender seis escritorios dañados y trasladar los restantes."
+    },
+    {
+      "id": "u22",
+      "timestamp": "00:189",
+      "speaker": "Speaker 02",
+      "text": "Yo publico el aviso de venta mañana."
+    },
+    {
+      "id": "u23",
+      "timestamp": "00:198",
+      "speaker": "Speaker 03",
+      "text": "Speaker 04 publica el aviso de venta el miércoles 7."
+    },
+    {
+      "id": "u24",
+      "timestamp": "00:207",
+      "speaker": "Speaker 04",
+      "text": "Llegaron las cotizaciones: una empresa puede trabajar el lunes por la tarde y martes por la mañana."
+    },
+    {
+      "id": "u25",
+      "timestamp": "00:216",
+      "speaker": "Speaker 01",
+      "text": "Entonces adoptemos el traslado dividido: equipos críticos el lunes y mobiliario el martes."
+    },
+    {
+      "id": "u26",
+      "timestamp": "00:225",
+      "speaker": "Speaker 02",
+      "text": "La fecha del sábado queda reemplazada por ese plan."
+    },
+    {
+      "id": "u27",
+      "timestamp": "00:234",
+      "speaker": "Speaker 03",
+      "text": "¿Quién coordina la desconexión de internet?"
+    },
+    {
+      "id": "u28",
+      "timestamp": "00:243",
+      "speaker": "Speaker 04",
+      "text": "Eso depende del proveedor y todavía no tenemos fecha confirmada."
+    },
+    {
+      "id": "u29",
+      "timestamp": "00:252",
+      "speaker": "Speaker 01",
+      "text": "Dejemos la desconexión de internet pendiente."
+    },
+    {
+      "id": "u30",
+      "timestamp": "00:261",
+      "speaker": "Speaker 02",
+      "text": "Cerramos con traslado en dos días y venta de escritorios."
+    }
+  ]
+}

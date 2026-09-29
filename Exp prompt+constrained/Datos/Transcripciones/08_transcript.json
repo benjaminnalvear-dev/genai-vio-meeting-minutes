@@ -1,0 +1,199 @@
+{
+  "meeting_id": "M08",
+  "meeting_date": "2026-11-03",
+  "title": "Entrevistas con usuarios",
+  "participants": [
+    "Speaker 01",
+    "Speaker 02",
+    "Speaker 03",
+    "Speaker 04"
+  ],
+  "utterances": [
+    {
+      "id": "u01",
+      "timestamp": "00:00",
+      "speaker": "Speaker 01",
+      "text": "La reunión busca definir las entrevistas con usuarios."
+    },
+    {
+      "id": "u02",
+      "timestamp": "00:09",
+      "speaker": "Speaker 02",
+      "text": "Tenemos presupuesto para diez entrevistas remuneradas."
+    },
+    {
+      "id": "u03",
+      "timestamp": "00:18",
+      "speaker": "Speaker 03",
+      "text": "Una persona de la agencia recomendó entrevistas de una hora, pero no está presente."
+    },
+    {
+      "id": "u04",
+      "timestamp": "00:27",
+      "speaker": "Speaker 04",
+      "text": "Esa recomendación no asigna tarea a la agencia."
+    },
+    {
+      "id": "u05",
+      "timestamp": "00:36",
+      "speaker": "Speaker 01",
+      "text": "Propongo entrevistar solamente a usuarios frecuentes."
+    },
+    {
+      "id": "u06",
+      "timestamp": "00:45",
+      "speaker": "Speaker 02",
+      "text": "Si hacemos eso, no sabremos por qué abandonan los usuarios nuevos."
+    },
+    {
+      "id": "u07",
+      "timestamp": "00:54",
+      "speaker": "Speaker 03",
+      "text": "Podríamos hacer cinco entrevistas a frecuentes y cinco a personas nuevas."
+    },
+    {
+      "id": "u08",
+      "timestamp": "00:63",
+      "speaker": "Speaker 04",
+      "text": "Estoy de acuerdo con dividir la muestra en dos grupos."
+    },
+    {
+      "id": "u09",
+      "timestamp": "00:72",
+      "speaker": "Speaker 01",
+      "text": "Queda decidido entrevistar a cinco usuarios frecuentes y cinco nuevos."
+    },
+    {
+      "id": "u10",
+      "timestamp": "00:81",
+      "speaker": "Speaker 02",
+      "text": "Las entrevistas podrían durar una hora."
+    },
+    {
+      "id": "u11",
+      "timestamp": "00:90",
+      "speaker": "Speaker 03",
+      "text": "Una hora es demasiado; con cuarenta minutos alcanza si enviamos una encuesta previa."
+    },
+    {
+      "id": "u12",
+      "timestamp": "00:99",
+      "speaker": "Speaker 04",
+      "text": "Propongo cuarenta minutos más encuesta previa."
+    },
+    {
+      "id": "u13",
+      "timestamp": "00:108",
+      "speaker": "Speaker 01",
+      "text": "Queda definido ese formato de cuarenta minutos y encuesta previa."
+    },
+    {
+      "id": "u14",
+      "timestamp": "00:117",
+      "speaker": "Speaker 02",
+      "text": "Speaker 02 redacta el guion de entrevista para el viernes."
+    },
+    {
+      "id": "u15",
+      "timestamp": "00:126",
+      "speaker": "Speaker 03",
+      "text": "Yo preparo la encuesta previa para el viernes."
+    },
+    {
+      "id": "u16",
+      "timestamp": "00:135",
+      "speaker": "Speaker 04",
+      "text": "Speaker 03 prepara la encuesta previa para el viernes."
+    },
+    {
+      "id": "u17",
+      "timestamp": "00:144",
+      "speaker": "Speaker 01",
+      "text": "¿Qué incentivo damos?"
+    },
+    {
+      "id": "u18",
+      "timestamp": "00:153",
+      "speaker": "Speaker 02",
+      "text": "Propongo una tarjeta de regalo de veinte mil pesos."
+    },
+    {
+      "id": "u19",
+      "timestamp": "00:162",
+      "speaker": "Speaker 03",
+      "text": "No aprobemos monto todavía; Finanzas no confirmó el presupuesto unitario."
+    },
+    {
+      "id": "u20",
+      "timestamp": "00:171",
+      "speaker": "Speaker 04",
+      "text": "El monto del incentivo queda pendiente."
+    },
+    {
+      "id": "u21",
+      "timestamp": "00:180",
+      "speaker": "Speaker 01",
+      "text": "Yo contacto a los usuarios frecuentes."
+    },
+    {
+      "id": "u22",
+      "timestamp": "00:189",
+      "speaker": "Speaker 02",
+      "text": "Speaker 01 contacta a los usuarios frecuentes el lunes."
+    },
+    {
+      "id": "u23",
+      "timestamp": "00:198",
+      "speaker": "Speaker 03",
+      "text": "Yo contacto a quienes se registraron y no volvieron."
+    },
+    {
+      "id": "u24",
+      "timestamp": "00:207",
+      "speaker": "Speaker 04",
+      "text": "Speaker 04 contacta a los usuarios nuevos el lunes."
+    },
+    {
+      "id": "u25",
+      "timestamp": "00:216",
+      "speaker": "Speaker 01",
+      "text": "Las primeras entrevistas deberían ser la próxima semana."
+    },
+    {
+      "id": "u26",
+      "timestamp": "00:225",
+      "speaker": "Speaker 02",
+      "text": "No, el guion estará listo recién el viernes; iniciemos el martes siguiente."
+    },
+    {
+      "id": "u27",
+      "timestamp": "00:234",
+      "speaker": "Speaker 03",
+      "text": "Queda fijado el inicio de entrevistas para el martes 10 de noviembre."
+    },
+    {
+      "id": "u28",
+      "timestamp": "00:243",
+      "speaker": "Speaker 04",
+      "text": "Después de cada entrevista, Speaker 02 sube las notas a la carpeta."
+    },
+    {
+      "id": "u29",
+      "timestamp": "00:252",
+      "speaker": "Speaker 01",
+      "text": "Las sesiones serán grabadas solo si cada participante entrega consentimiento."
+    },
+    {
+      "id": "u30",
+      "timestamp": "00:261",
+      "speaker": "Speaker 02",
+      "text": "Si una persona no acepta grabación, tomaremos notas manuales."
+    },
+    {
+      "id": "u31",
+      "timestamp": "00:270",
+      "speaker": "Speaker 03",
+      "text": "Cerramos con muestra dividida, sesiones cortas y fecha de inicio."
+    }
+  ]
+}

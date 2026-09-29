@@ -1,0 +1,460 @@
+{
+  "meeting_id": "M09",
+  "transcript": "09_transcript.json",
+  "rubric": "09_rubric.json",
+  "baseline": {
+    "wall_seconds": 21.855,
+    "response_json_valid": true,
+    "response": {
+      "meeting": {
+        "date": "2026-11-11",
+        "topic": "Integración de proveedor de pagos"
+      },
+      "decisions": [
+        {
+          "topic": "Método de integración inicial",
+          "outcome": "Usar archivos diarios como método de integración temporal para todas las operaciones",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u23",
+              "exact_quote": "Usaremos archivos diarios para todas las operaciones en la primera etapa."
+            },
+            {
+              "utterance_id": "u24",
+              "exact_quote": "Queda decidido usar archivos diarios en la primera etapa."
+            }
+          ]
+        }
+      ],
+      "action_items": [
+        {
+          "task": "Revisar documentación técnica del proveedor de pagos",
+          "assignee": "Speaker 03",
+          "deadline": "2026-11-11 17:00",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u09",
+              "exact_quote": "Speaker 03 revisa la documentación técnica hoy."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u10",
+              "exact_quote": "Speaker 03 revisa la documentación técnica hoy antes de las 17:00."
+            }
+          ]
+        },
+        {
+          "task": "Preparar cuenta de prueba para el proveedor de pagos",
+          "assignee": "Speaker 02",
+          "deadline": "2026-11-12",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u12",
+              "exact_quote": "Speaker 02 prepara una cuenta de prueba para mañana."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u12",
+              "exact_quote": "mañana"
+            }
+          ]
+        },
+        {
+          "task": "Revisar conciliación de pagos después de la prueba del lunes 16",
+          "assignee": "Speaker 04",
+          "deadline": "2026-11-16",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u27",
+              "exact_quote": "Speaker 04 revisa la conciliación después de la prueba del lunes."
+            }
+          ]
+        }
+      ],
+      "pending_issues": [
+        {
+          "issue": "Activación de la conexión automática del proveedor de pagos",
+          "owner": null,
+          "deadline": null,
+          "evidence": [
+            {
+              "utterance_id": "u19",
+              "exact_quote": "No definamos activación todavía; falta revisar conciliación."
+            },
+            {
+              "utterance_id": "u20",
+              "exact_quote": "La activación automática queda pendiente."
+            },
+            {
+              "utterance_id": "u22",
+              "exact_quote": "Entonces descartamos activarla de inmediato."
+            }
+          ]
+        },
+        {
+          "issue": "Prueba de la conexión automática (después de validar archivos diarios)",
+          "owner": null,
+          "deadline": "2026-11-16",
+          "evidence": [
+            {
+              "utterance_id": "u18",
+              "exact_quote": "Si esa prueba pasa, podríamos activar la conexión automática el miércoles."
+            },
+            {
+              "utterance_id": "u21",
+              "exact_quote": "Llegó la documentación: la conexión automática no soporta reembolsos parciales."
+            }
+          ]
+        }
+      ],
+      "review_alerts": [
+        {
+          "alert": "No se asignó tarea a Lucía del proveedor de pagos",
+          "reason": "Explicitamente se indicó no asignar acciones a Lucía (u04).",
+          "utterance_ids": [
+            "u04"
+          ]
+        }
+      ]
+    },
+    "retried_repair": false,
+    "context_warning": null,
+    "prompt_eval_count": 2894
+  },
+  "pipeline": {
+    "p1_wall_seconds": 22.333,
+    "p2_wall_seconds": 22.653,
+    "total_wall_seconds": 44.986,
+    "p1_json_valid": true,
+    "p2_json_valid": true,
+    "p1_response": {
+      "meeting": {
+        "date": "2026-11-11",
+        "topic": "Integración de proveedor de pagos",
+        "participants": [
+          "Speaker 01",
+          "Speaker 02",
+          "Speaker 03",
+          "Speaker 04"
+        ]
+      },
+      "decision_candidates": [
+        {
+          "candidate_id": "d1",
+          "topic": "Método de integración inicial",
+          "statement": "Propuesta inicial de usar archivos diarios temporalmente",
+          "kind": "proposal",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u08",
+              "exact_quote": "Queda como propuesta inicial usar archivos diarios temporalmente."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d2",
+          "topic": "Método de integración definitivo",
+          "statement": "Decisión final de usar archivos diarios para todas las operaciones",
+          "kind": "agreement",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u24",
+              "exact_quote": "Queda decidido usar archivos diarios en la primera etapa."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d3",
+          "topic": "Rechazo de conexión automática",
+          "statement": "Descartada la conexión automática por no soportar reembolsos parciales",
+          "kind": "rejection",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u22",
+              "exact_quote": "Entonces descartamos activarla de inmediato."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d4",
+          "topic": "Activación automática pendiente",
+          "statement": "Asunto de activación automática queda sin fecha",
+          "kind": "pending",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u20",
+              "exact_quote": "La activación automática queda pendiente."
+            }
+          ]
+        }
+      ],
+      "task_candidates": [
+        {
+          "candidate_id": "t1",
+          "task": "Revisar documentación técnica",
+          "assignee": "Speaker 03",
+          "deadline_expression": "hoy antes de las 17:00",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u10",
+              "exact_quote": "Speaker 03 revisa la documentación técnica hoy antes de las 17:00."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t2",
+          "task": "Preparar cuenta de prueba",
+          "assignee": "Speaker 02",
+          "deadline_expression": "mañana",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u12",
+              "exact_quote": "Speaker 02 prepara una cuenta de prueba para mañana."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t3",
+          "task": "Revisar conciliación",
+          "assignee": "Speaker 04",
+          "deadline_expression": "después de la prueba del lunes",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u27",
+              "exact_quote": "Speaker 04 revisa la conciliación después de la prueba del lunes."
+            }
+          ]
+        }
+      ],
+      "pending_issue_candidates": [
+        {
+          "issue": "Primera prueba de integración",
+          "owner": null,
+          "deadline_expression": "lunes 16",
+          "evidence": [
+            {
+              "utterance_id": "u17",
+              "exact_quote": "Queda fijada la primera prueba para el lunes 16."
+            }
+          ]
+        },
+        {
+          "issue": "Activación automática",
+          "owner": null,
+          "deadline_expression": null,
+          "evidence": [
+            {
+              "utterance_id": "u20",
+              "exact_quote": "La activación automática queda pendiente."
+            }
+          ]
+        }
+      ]
+    },
+    "p2_response": {
+      "meeting": {
+        "date": "2026-11-11",
+        "topic": "Integración de proveedor de pagos"
+      },
+      "decisions": [
+        {
+          "topic": "Método de integración inicial",
+          "outcome": "Propuesta inicial",
+          "state": "superseded",
+          "evidence": [
+            {
+              "utterance_id": "u08",
+              "exact_quote": "Queda como propuesta inicial usar archivos diarios temporalmente."
+            }
+          ]
+        },
+        {
+          "topic": "Método de integración definitivo",
+          "outcome": "Uso de archivos diarios para todas las operaciones en la primera etapa",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u23",
+              "exact_quote": "Usaremos archivos diarios para todas las operaciones en la primera etapa."
+            },
+            {
+              "utterance_id": "u24",
+              "exact_quote": "Queda decidido usar archivos diarios en la primera etapa."
+            }
+          ]
+        },
+        {
+          "topic": "Rechazo de conexión automática",
+          "outcome": "Descartada por no soportar reembolsos parciales",
+          "state": "rejected",
+          "evidence": [
+            {
+              "utterance_id": "u21",
+              "exact_quote": "Llegó la documentación: la conexión automática no soporta reembolsos parciales."
+            },
+            {
+              "utterance_id": "u22",
+              "exact_quote": "Entonces descartamos activarla de inmediato."
+            }
+          ]
+        }
+      ],
+      "action_items": [
+        {
+          "task": "Revisar documentación técnica",
+          "assignee": "Speaker 03",
+          "deadline": "2026-11-11 17:00",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u10",
+              "exact_quote": "Speaker 03 revisa la documentación técnica hoy antes de las 17:00."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u09",
+              "exact_quote": "Speaker 03 revisa la documentación técnica hoy."
+            }
+          ]
+        },
+        {
+          "task": "Preparar cuenta de prueba",
+          "assignee": "Speaker 02",
+          "deadline": "2026-11-12",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u12",
+              "exact_quote": "Speaker 02 prepara una cuenta de prueba para mañana."
+            }
+          ]
+        },
+        {
+          "task": "Revisar conciliación",
+          "assignee": "Speaker 04",
+          "deadline": null,
+          "conditions": "después de la prueba del lunes",
+          "status": "pending",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u27",
+              "exact_quote": "Speaker 04 revisa la conciliación después de la prueba del lunes."
+            }
+          ]
+        }
+      ],
+      "pending_issues": [
+        {
+          "issue": "Primera prueba de integración",
+          "owner": null,
+          "deadline": "2026-11-16",
+          "evidence": [
+            {
+              "utterance_id": "u17",
+              "exact_quote": "Queda fijada la primera prueba para el lunes 16."
+            }
+          ]
+        },
+        {
+          "issue": "Activación automática",
+          "owner": null,
+          "deadline": null,
+          "evidence": [
+            {
+              "utterance_id": "u20",
+              "exact_quote": "La activación automática queda pendiente."
+            }
+          ]
+        }
+      ],
+      "review_alerts": [
+        {
+          "alert": "La fecha 'después de la prueba del lunes' no es un plazo concreto; se recomienda especificar un día exacto para la revisión de conciliación.",
+          "reason": "La condición 'después de la prueba del lunes' no define un plazo concreto en el formato de fecha absoluto.",
+          "utterance_ids": [
+            "u27"
+          ]
+        }
+      ]
+    },
+    "p1_retried_repair": false,
+    "p2_retried_repair": false,
+    "p1_context_warning": null,
+    "p2_context_warning": null,
+    "p1_prompt_eval_count": 3203,
+    "p2_prompt_eval_count": 3816
+  },
+  "variant": "v2_esquema",
+  "evaluations": {
+    "baseline": {
+      "json_valid": true,
+      "expected_decisions": 5,
+      "found_decisions": 3,
+      "decision_recall": 0.6,
+      "correct_decision_states": 2,
+      "valid_decision_evidence": 3,
+      "expected_tasks": 3,
+      "found_tasks": 3,
+      "task_recall": 1.0,
+      "correct_assignees": 3,
+      "correct_deadlines": 2,
+      "correct_conditions": 2,
+      "valid_task_evidence": 3,
+      "invalid_assignees": [],
+      "missing_decisions": [
+        "Fecha de primera prueba: Realizar la primera prueba el viernes",
+        "Fecha de primera prueba: Realizar la primera prueba el lunes 16 de noviembre"
+      ],
+      "missing_tasks": []
+    },
+    "pipeline": {
+      "json_valid": true,
+      "expected_decisions": 5,
+      "found_decisions": 4,
+      "decision_recall": 0.8,
+      "correct_decision_states": 2,
+      "valid_decision_evidence": 4,
+      "expected_tasks": 3,
+      "found_tasks": 3,
+      "task_recall": 1.0,
+      "correct_assignees": 3,
+      "correct_deadlines": 3,
+      "correct_conditions": 3,
+      "valid_task_evidence": 3,
+      "invalid_assignees": [],
+      "missing_decisions": [
+        "Fecha de primera prueba: Realizar la primera prueba el lunes 16 de noviembre"
+      ],
+      "missing_tasks": []
+    }
+  }
+}

@@ -1,0 +1,645 @@
+{
+  "meeting_id": "M02",
+  "transcript": "02_transcript.json",
+  "rubric": "02_rubric.json",
+  "baseline": {
+    "wall_seconds": 44.83,
+    "response_json_valid": true,
+    "response": {
+      "meeting": {
+        "date": "2026-09-16",
+        "topic": "Encuesta postventa para clientes"
+      },
+      "decisions": [
+        {
+          "topic": "Herramienta para la encuesta postventa",
+          "outcome": "Descartada Typeform; se usa Google Forms por su compatibilidad con la planilla existente y sin costo adicional",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u26",
+              "exact_quote": "Entonces descartamos Typeform y usamos Google Forms para este piloto."
+            }
+          ]
+        },
+        {
+          "topic": "Muestra piloto de la encuesta",
+          "outcome": "Piloto con 50 clientes equilibrados en tres segmentos",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u13",
+              "exact_quote": "Propongo un piloto con 50 clientes antes de enviar algo más amplio."
+            },
+            {
+              "utterance_id": "u14",
+              "exact_quote": "Puedo seleccionar los 50 clientes, equilibrando los tres segmentos."
+            },
+            {
+              "utterance_id": "u15",
+              "exact_quote": "Speaker 03 selecciona la muestra piloto de 50 clientes para mañana antes de las 12."
+            }
+          ]
+        },
+        {
+          "topic": "Fecha límite para selección de muestra",
+          "outcome": "Mañana antes de las 12:00",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u15",
+              "exact_quote": "Speaker 03 selecciona la muestra piloto de 50 clientes para mañana antes de las 12."
+            }
+          ]
+        }
+      ],
+      "action_items": [
+        {
+          "task": "Seleccionar y equilibrar 50 clientes para el piloto",
+          "assignee": "Speaker 03",
+          "deadline": "2026-09-17 12:00",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u14",
+              "exact_quote": "Puedo seleccionar los 50 clientes, equilibrando los tres segmentos."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u15",
+              "exact_quote": "Speaker 03 selecciona la muestra piloto de 50 clientes para mañana antes de las 12."
+            }
+          ]
+        },
+        {
+          "task": "Redactar borrador de preguntas para la encuesta",
+          "assignee": "Speaker 02",
+          "deadline": "2026-09-20",
+          "conditions": "Incluir escala de satisfacción y pregunta abierta sobre tiempo de respuesta del soporte",
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u16",
+              "exact_quote": "Sobre las preguntas, yo haría una escala de satisfacción y una pregunta abierta al final."
+            },
+            {
+              "field": "conditions",
+              "utterance_id": "u17",
+              "exact_quote": "Agregaría una pregunta sobre el tiempo de respuesta del soporte."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u18",
+              "exact_quote": "Speaker 02 redacta el borrador de preguntas, incluyendo esa pregunta de soporte, para el viernes."
+            }
+          ]
+        },
+        {
+          "task": "Configurar el formulario Google Forms con las preguntas aprobadas",
+          "assignee": "Speaker 02",
+          "deadline": "2026-09-20",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u27",
+              "exact_quote": "Yo armo el formulario apenas estén aprobadas las preguntas."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u28",
+              "exact_quote": "Speaker 02 configura el formulario después de que las preguntas estén aprobadas."
+            }
+          ]
+        },
+        {
+          "task": "Solicitar revisión legal del borrador de preguntas",
+          "assignee": "Speaker 04",
+          "deadline": "2026-09-20",
+          "conditions": "Recibir el borrador de Speaker 02 para enviar a Sofía",
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u30",
+              "exact_quote": "Yo envío el borrador a Sofía apenas Speaker 02 lo termine."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u31",
+              "exact_quote": "Perfecto, Speaker 04 solicita la revisión legal al recibir el borrador."
+            }
+          ]
+        },
+        {
+          "task": "Incorporar correcciones legales si las hay",
+          "assignee": "Speaker 02",
+          "deadline": "2026-09-21 15:00",
+          "conditions": "Si Legal aprueba el texto sin cambios",
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u38",
+              "exact_quote": "Yo incorporo las correcciones que indique Legal."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u36",
+              "exact_quote": "Correcto. La regla será: enviamos el lunes 21 solo si Legal aprueba el texto sin cambios antes de las 15:00."
+            }
+          ]
+        },
+        {
+          "task": "Monitorear la tasa de respuesta de la encuesta postventa",
+          "assignee": "Speaker 03",
+          "deadline": "2026-09-28 (una semana posterior al envío)",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u40",
+              "exact_quote": "Después del envío, yo puedo revisar la tasa de respuesta diaria."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u41",
+              "exact_quote": "Speaker 03 monitorea la tasa de respuesta durante la semana posterior al envío."
+            }
+          ]
+        }
+      ],
+      "pending_issues": [
+        {
+          "issue": "Plan ante baja respuesta (<10%) de la encuesta postventa",
+          "owner": null,
+          "deadline": null,
+          "evidence": [
+            {
+              "utterance_id": "u42",
+              "exact_quote": "No definimos todavía qué haremos si responde menos del diez por ciento."
+            },
+            {
+              "utterance_id": "u43",
+              "exact_quote": "Así es, el plan ante baja respuesta queda pendiente para la próxima reunión."
+            }
+          ]
+        },
+        {
+          "issue": "Fecha de envío de la encuesta postventa",
+          "owner": null,
+          "deadline": "2026-09-21 15:00 (si no hay cambios legales)",
+          "evidence": [
+            {
+              "utterance_id": "u34",
+              "exact_quote": "Si el borrador está el viernes y Legal responde el lunes, podríamos enviar el martes 22."
+            },
+            {
+              "utterance_id": "u35",
+              "exact_quote": "Prefiero no comprometer una fecha hasta saber si hay correcciones legales."
+            },
+            {
+              "utterance_id": "u36",
+              "exact_quote": "Correcto. La regla será: enviamos el lunes 21 solo si Legal aprueba el texto sin cambios antes de las 15:00."
+            }
+          ]
+        }
+      ],
+      "review_alerts": [
+        {
+          "alert": "Revisión legal pendiente para el borrador de preguntas",
+          "reason": "Sofía no está conectada hoy y su revisión debe ser coordinada con Speaker 04 para el envío del borrador.",
+          "utterance_ids": [
+            "u04",
+            "u05",
+            "u30"
+          ]
+        },
+        {
+          "alert": "Dependencia de la revisión legal para la fecha de envío",
+          "reason": "La fecha de envío del lunes 21 depende de la aprobación legal antes de las 15:00 del viernes.",
+          "utterance_ids": [
+            "u21",
+            "u34",
+            "u36"
+          ]
+        }
+      ]
+    },
+    "retried_repair": false,
+    "context_warning": null,
+    "prompt_eval_count": 4018
+  },
+  "pipeline": {
+    "p1_wall_seconds": 41.829,
+    "p2_wall_seconds": 22.226,
+    "total_wall_seconds": 64.055,
+    "p1_json_valid": true,
+    "p2_json_valid": true,
+    "p1_response": {
+      "meeting": {
+        "date": "2026-09-16",
+        "topic": "Encuesta postventa para clientes",
+        "participants": [
+          "Speaker 01",
+          "Speaker 02",
+          "Speaker 03",
+          "Speaker 04"
+        ]
+      },
+      "decision_candidates": [
+        {
+          "candidate_id": "d1",
+          "topic": "Herramienta de encuesta",
+          "statement": "Descartamos Typeform y usamos Google Forms para este piloto.",
+          "kind": "replacement",
+          "replaces_candidate_ids": [
+            "d1"
+          ],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u26",
+              "exact_quote": "Entonces descartamos Typeform y usamos Google Forms para este piloto."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d2",
+          "topic": "Herramienta de encuesta (alternativa)",
+          "statement": "Propongo usar Typeform porque se ve mejor para el cliente.",
+          "kind": "proposal",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u06",
+              "exact_quote": "Propongo usar Typeform porque se ve mejor para el cliente."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d3",
+          "topic": "Herramienta de encuesta (alternativa)",
+          "statement": "Google Forms también permite exportar directo a la planilla que ya usamos.",
+          "kind": "proposal",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u24",
+              "exact_quote": "Google Forms también permite exportar directo a la planilla que ya usamos."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d4",
+          "topic": "Método de envío",
+          "statement": "Propongo un piloto con 50 clientes antes de enviar algo más amplio.",
+          "kind": "proposal",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u13",
+              "exact_quote": "Propongo un piloto con 50 clientes antes de enviar algo más amplio."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d5",
+          "topic": "Método de envío (alternativa)",
+          "statement": "Enviémosla a los 640 para tener más respuestas.",
+          "kind": "proposal",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u11",
+              "exact_quote": "Entonces enviémosla a los 640 para tener más respuestas."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d6",
+          "topic": "Preguntas de encuesta",
+          "statement": "Yo armo el formulario apenas estén aprobadas las preguntas.",
+          "kind": "proposal",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u27",
+              "exact_quote": "Yo armo el formulario apenas estén aprobadas las preguntas."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d7",
+          "topic": "Preguntas de encuesta",
+          "statement": "Speaker 02 redacta el borrador de preguntas, incluyendo esa pregunta de soporte, para el viernes.",
+          "kind": "agreement",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u18",
+              "exact_quote": "Speaker 02 redacta el borrador de preguntas, incluyendo esa pregunta de soporte, para el viernes."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d8",
+          "topic": "Revisión legal",
+          "statement": "La regla será: enviamos el lunes 21 solo si Legal aprueba el texto sin cambios antes de las 15:00; si no, se reprograma.",
+          "kind": "agreement",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u36",
+              "exact_quote": "La regla será: enviamos el lunes 21 solo si Legal aprueba el texto sin cambios antes de las 15:00; si no, se reprograma."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d9",
+          "topic": "Revisión legal",
+          "statement": "Speaker 04 solicita la revisión legal al recibir el borrador.",
+          "kind": "agreement",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u31",
+              "exact_quote": "Perfecto, Speaker 04 solicita la revisión legal al recibir el borrador."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d10",
+          "topic": "Responsable de correcciones legales",
+          "statement": "Speaker 02 incorpora las correcciones que indique Legal.",
+          "kind": "agreement",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u38",
+              "exact_quote": "Yo incorporo las correcciones que indique Legal."
+            }
+          ]
+        }
+      ],
+      "task_candidates": [
+        {
+          "candidate_id": "t1",
+          "task": "Seleccionar muestra piloto de 50 clientes para mañana antes de las 12.",
+          "assignee": "Speaker 03",
+          "deadline_expression": "mañana antes de las 12",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u15",
+              "exact_quote": "Speaker 03 selecciona la muestra piloto de 50 clientes para mañana antes de las 12."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t2",
+          "task": "Redactar borrador de preguntas de encuesta para el viernes.",
+          "assignee": "Speaker 02",
+          "deadline_expression": "viernes",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u18",
+              "exact_quote": "Speaker 02 redacta el borrador de preguntas..."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t3",
+          "task": "Configurar el formulario después de que las preguntas estén aprobadas.",
+          "assignee": "Speaker 02",
+          "deadline_expression": null,
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u28",
+              "exact_quote": "Speaker 02 configura el formulario después de que las preguntas estén aprobadas."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t4",
+          "task": "Revisar la tasa de respuesta diaria durante la semana posterior al envío.",
+          "assignee": "Speaker 03",
+          "deadline_expression": "semana posterior al envío",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u40",
+              "exact_quote": "Speaker 03 puede revisar la tasa de respuesta diaria."
+            }
+          ]
+        }
+      ],
+      "pending_issue_candidates": [
+        {
+          "issue": "Plan ante baja respuesta (menos del 10%)",
+          "owner": null,
+          "deadline_expression": null,
+          "evidence": [
+            {
+              "utterance_id": "u42",
+              "exact_quote": "No definimos todavía qué haremos si responde menos del diez por ciento."
+            },
+            {
+              "utterance_id": "u43",
+              "exact_quote": "el plan ante baja respuesta queda pendiente para la próxima reunión."
+            }
+          ]
+        }
+      ]
+    },
+    "p2_response": {
+      "meeting": {
+        "date": "2026-09-16",
+        "topic": "Encuesta postventa para clientes"
+      },
+      "decisions": [
+        {
+          "topic": "Herramienta de encuesta",
+          "outcome": "Descartamos Typeform y usamos Google Forms para este piloto.",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u26",
+              "exact_quote": "Entonces descartamos Typeform y usamos Google Forms para este piloto."
+            }
+          ]
+        },
+        {
+          "topic": "Herramienta de encuesta (alternativa)",
+          "outcome": "Rechazada explícitamente en la reunión.",
+          "state": "rejected",
+          "evidence": [
+            {
+              "utterance_id": "u26",
+              "exact_quote": "Entonces descartamos Typeform..."
+            }
+          ]
+        }
+      ],
+      "action_items": [
+        {
+          "task": "Seleccionar muestra piloto de 50 clientes para mañana antes de las 12.",
+          "assignee": "Speaker 03",
+          "deadline": "2026-09-17 12:00",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u15",
+              "exact_quote": "Speaker 03 selecciona la muestra piloto de 50 clientes para mañana antes de las 12."
+            }
+          ]
+        },
+        {
+          "task": "Redactar borrador de preguntas de encuesta para el viernes",
+          "assignee": "Speaker 02",
+          "deadline": "2026-09-20",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u18",
+              "exact_quote": "Speaker 02 redacta el borrador de preguntas..."
+            }
+          ]
+        },
+        {
+          "task": "Configurar el formulario después de que las preguntas estén aprobadas",
+          "assignee": "Speaker 02",
+          "deadline": null,
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u28",
+              "exact_quote": "Speaker 02 configura el formulario después de que las preguntas estén aprobadas."
+            }
+          ]
+        },
+        {
+          "task": "Revisar la tasa de respuesta diaria durante la semana posterior al envío",
+          "assignee": "Speaker 03",
+          "deadline": null,
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u40",
+              "exact_quote": "Speaker 03 puede revisar la tasa de respuesta diaria."
+            }
+          ]
+        }
+      ],
+      "pending_issues": [
+        {
+          "issue": "Plan ante baja respuesta (menos del 10%)",
+          "owner": null,
+          "deadline": null,
+          "evidence": [
+            {
+              "utterance_id": "u42",
+              "exact_quote": "No definimos todavía qué haremos si responde menos del diez por ciento."
+            },
+            {
+              "utterance_id": "u43",
+              "exact_quote": "el plan ante baja respuesta queda pendiente para la próxima reunión."
+            }
+          ]
+        }
+      ],
+      "review_alerts": [
+        {
+          "alert": "La fecha de envío del lunes 21 depende de la revisión legal antes de las 15:00 del mismo día. Si no se aprueba, se reprograma.",
+          "reason": "La condición de fecha de envío es ambigua en cuanto a plazos exactos de respuesta de Legal (dentro de un día hábil según u32).",
+          "utterance_ids": [
+            "u32",
+            "u36"
+          ]
+        }
+      ]
+    },
+    "p1_retried_repair": false,
+    "p2_retried_repair": false,
+    "p1_context_warning": null,
+    "p2_context_warning": null,
+    "p1_prompt_eval_count": 4327,
+    "p2_prompt_eval_count": 5451
+  },
+  "variant": "v2_esquema",
+  "evaluations": {
+    "baseline": {
+      "json_valid": true,
+      "expected_decisions": 6,
+      "found_decisions": 5,
+      "decision_recall": 0.833,
+      "correct_decision_states": 3,
+      "valid_decision_evidence": 5,
+      "expected_tasks": 6,
+      "found_tasks": 6,
+      "task_recall": 1.0,
+      "correct_assignees": 6,
+      "correct_deadlines": 1,
+      "correct_conditions": 2,
+      "valid_task_evidence": 6,
+      "invalid_assignees": [],
+      "missing_decisions": [
+        "Alcance de la encuesta: Enviar la encuesta a los 640 clientes"
+      ],
+      "missing_tasks": []
+    },
+    "pipeline": {
+      "json_valid": true,
+      "expected_decisions": 6,
+      "found_decisions": 3,
+      "decision_recall": 0.5,
+      "correct_decision_states": 3,
+      "valid_decision_evidence": 3,
+      "expected_tasks": 6,
+      "found_tasks": 4,
+      "task_recall": 0.667,
+      "correct_assignees": 4,
+      "correct_deadlines": 3,
+      "correct_conditions": 2,
+      "valid_task_evidence": 3,
+      "invalid_assignees": [],
+      "missing_decisions": [
+        "Alcance de la encuesta: Enviar la encuesta a los 640 clientes",
+        "Alcance de la encuesta: Realizar un piloto con 50 clientes equilibrados entre los tres segmentos",
+        "Fecha de envío: Enviar la encuesta el lunes 21 de septiembre"
+      ],
+      "missing_tasks": [
+        "Solicitar revisión legal del borrador",
+        "Incorporar las correcciones indicadas por Legal"
+      ]
+    }
+  }
+}

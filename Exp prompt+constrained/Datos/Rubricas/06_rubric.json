@@ -1,0 +1,83 @@
+{
+  "meeting_id": "M06",
+  "evaluation_notes": [
+    "This rubric is gold data and must not be placed in the model context.",
+    "Paula is mentioned but absent."
+  ],
+  "decisions": [
+    {
+      "id": "d01",
+      "topic": "Fecha de mudanza",
+      "statement": "Realizar toda la mudanza el sábado 10",
+      "state": "rejected",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u07"
+    },
+    {
+      "id": "d02",
+      "topic": "Plan de traslado",
+      "statement": "Trasladar equipos críticos el lunes 12 y mobiliario el martes 13",
+      "state": "final",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u25"
+    },
+    {
+      "id": "d03",
+      "topic": "Escritorios antiguos",
+      "statement": "Trasladar todos los escritorios",
+      "state": "rejected",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u20"
+    },
+    {
+      "id": "d04",
+      "topic": "Escritorios antiguos",
+      "statement": "Vender seis escritorios dañados y trasladar los restantes",
+      "state": "final",
+      "condition": null,
+      "supersedes": null,
+      "evidence_id": "u21"
+    },
+    {
+      "id": "d05",
+      "topic": "Desconexión de internet",
+      "statement": "Definir fecha de desconexión",
+      "state": "pending",
+      "condition": "Confirmación del proveedor",
+      "supersedes": null,
+      "evidence_id": "u29"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t01",
+      "description": "Inventariar los equipos críticos",
+      "assignee": "Speaker 02",
+      "deadline": "2026-10-09",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u14"
+    },
+    {
+      "id": "t02",
+      "description": "Solicitar dos cotizaciones de mudanza",
+      "assignee": "Speaker 03",
+      "deadline": "2026-10-08",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u16"
+    },
+    {
+      "id": "t03",
+      "description": "Publicar el aviso de venta de escritorios",
+      "assignee": "Speaker 04",
+      "deadline": "2026-10-07",
+      "condition": null,
+      "state": "final",
+      "evidence_id": "u23"
+    }
+  ]
+}

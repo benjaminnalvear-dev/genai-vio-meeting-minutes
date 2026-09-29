@@ -1,0 +1,7 @@
+,Baseline,Pipeline v1 (json),Pipeline v2 (esquema)
+JSON válido (%),100.0,100.0,100.0
+Recall decisiones (%),57.0,60.4,49.3
+Recall tareas (%),84.9,86.5,84.0
+Responsables correctos (suma),35.0,31.0,31.0
+Plazos correctos (suma),19.0,18.0,24.0
+Tiempo promedio (s),27.2,62.7,60.7

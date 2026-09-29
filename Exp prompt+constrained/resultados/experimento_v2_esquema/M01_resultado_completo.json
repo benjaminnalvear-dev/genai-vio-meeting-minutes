@@ -1,0 +1,602 @@
+{
+  "meeting_id": "M01",
+  "transcript": "01_transcript.json",
+  "rubric": "01_rubric.json",
+  "baseline": {
+    "wall_seconds": 25.001,
+    "response_json_valid": true,
+    "response": {
+      "meeting": {
+        "date": "2026-09-14",
+        "topic": "Planificación del piloto con clientes"
+      },
+      "decisions": [
+        {
+          "topic": "Fecha del piloto",
+          "outcome": "Fijado para el martes 22 a las diez de la mañana",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u31",
+              "exact_quote": "Listo, el piloto queda fijado para el martes 22 a las diez de la mañana. Esto reemplaza las alternativas del lunes."
+            }
+          ]
+        },
+        {
+          "topic": "Duración de la demostración",
+          "outcome": "Reemplazada por 15 minutos con prueba guiada y encuesta",
+          "state": "superseded",
+          "evidence": [
+            {
+              "utterance_id": "u25",
+              "exact_quote": "Entonces reemplazamos la propuesta anterior: la demostración será de quince minutos y luego habrá una prueba guiada y encuesta."
+            },
+            {
+              "utterance_id": "u12",
+              "exact_quote": "Queda como propuesta inicial: demostración de veinte minutos seguida de encuesta."
+            }
+          ]
+        },
+        {
+          "topic": "Inclusión de cámara en el piloto",
+          "outcome": "Excluida de la versión del piloto",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u35",
+              "exact_quote": "No. La cámara todavía falla en algunos equipos; no la mostremos en el piloto."
+            },
+            {
+              "utterance_id": "u36",
+              "exact_quote": "De acuerdo, la funcionalidad de cámara queda fuera del piloto."
+            }
+          ]
+        }
+      ],
+      "action_items": [
+        {
+          "task": "Preparar el correo de invitación para el piloto",
+          "assignee": "Speaker 02",
+          "deadline": "2026-09-14 18:00",
+          "conditions": "Revisado por Speaker 01 antes de las cinco de la tarde y enviado hoy si está correcto.",
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u08",
+              "exact_quote": "Sí, preparo un borrador y lo envío para revisión hoy antes de las seis."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u38",
+              "exact_quote": "Apenas Speaker 01 revise mi borrador, lo envío hoy."
+            },
+            {
+              "field": "conditions",
+              "utterance_id": "u39",
+              "exact_quote": "Yo reviso el borrador antes de las cinco. Si está correcto, el correo se envía hoy."
+            }
+          ]
+        },
+        {
+          "task": "Armar la lista de empresas contactadas para el piloto",
+          "assignee": "Speaker 03",
+          "deadline": "2026-09-14",
+          "conditions": "Compartir en la carpeta compartida",
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u09",
+              "exact_quote": "Yo puedo armar la lista de empresas contactadas."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u10",
+              "exact_quote": "Speaker 03 arma esa lista hoy y la comparte en la carpeta."
+            },
+            {
+              "field": "conditions",
+              "utterance_id": "u10",
+              "exact_quote": "la comparte en la carpeta."
+            }
+          ]
+        },
+        {
+          "task": "Entregar la versión estable del piloto para el piloto",
+          "assignee": "Speaker 04",
+          "deadline": "2026-09-18 17:00",
+          "conditions": "Versión lista para el piloto del martes 22",
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u32",
+              "exact_quote": "Con esa fecha, necesito tener la versión estable lista el viernes anterior."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u33",
+              "exact_quote": "Speaker 04 entrega la versión estable el viernes 18 antes de las 17:00."
+            }
+          ]
+        },
+        {
+          "task": "Consolidar comentarios de la encuesta post-piloto",
+          "assignee": "Speaker 02",
+          "deadline": "2026-09-24",
+          "conditions": "Dentro de los dos días posteriores al piloto (martes 22)",
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u21",
+              "exact_quote": "Yo los puedo consolidar después del piloto."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u22",
+              "exact_quote": "Speaker 02 consolida las respuestas dentro de los dos días posteriores al piloto."
+            }
+          ]
+        }
+      ],
+      "pending_issues": [
+        {
+          "issue": "Definir el escenario de la prueba guiada (negociación vs. feedback)",
+          "owner": "null",
+          "deadline": null,
+          "evidence": [
+            {
+              "utterance_id": "u28",
+              "exact_quote": "No veo consenso entre feedback y negociación; dejemos pendiente el escenario hasta revisar la lista de empresas."
+            },
+            {
+              "utterance_id": "u40",
+              "exact_quote": "Queda pendiente definir el escenario de la prueba guiada."
+            },
+            {
+              "utterance_id": "u41",
+              "exact_quote": "Sí, esa decisión queda pendiente hasta que revisemos los sectores de las empresas."
+            }
+          ]
+        }
+      ],
+      "review_alerts": [
+        {
+          "alert": "El logo actualizado del piloto sigue pendiente de envío por parte de Marketing.",
+          "reason": "No se asignó tarea explícita a nadie para gestionar el envío del logo, solo se dejó pendiente.",
+          "utterance_ids": [
+            "u03",
+            "u04"
+          ]
+        }
+      ]
+    },
+    "retried_repair": false,
+    "context_warning": null,
+    "prompt_eval_count": 3849
+  },
+  "pipeline": {
+    "p1_wall_seconds": 33.217,
+    "p2_wall_seconds": 48.753,
+    "total_wall_seconds": 81.97,
+    "p1_json_valid": true,
+    "p2_json_valid": true,
+    "p1_response": {
+      "meeting": {
+        "date": "2026-09-14",
+        "topic": "Planificación del piloto con clientes",
+        "participants": [
+          "Speaker 01",
+          "Speaker 02",
+          "Speaker 03",
+          "Speaker 04"
+        ]
+      },
+      "decision_candidates": [
+        {
+          "candidate_id": "d1",
+          "topic": "Fecha del piloto",
+          "statement": "El piloto queda fijado para el martes 22 a las diez de la mañana.",
+          "kind": "replacement",
+          "replaces_candidate_ids": [
+            "d1",
+            "d2",
+            "d3"
+          ],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u31",
+              "exact_quote": "Listo, el piloto queda fijado para el martes 22 a las diez de la mañana. Esto reemplaza las alternativas del lunes."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d2",
+          "topic": "Alternativas de fecha del piloto",
+          "statement": "Alternativas propuestas: lunes 21 a las diez de la mañana o lunes en la tarde.",
+          "kind": "proposal",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u05",
+              "exact_quote": "propongo hacerlo el lunes 21 a las diez de la mañana."
+            },
+            {
+              "utterance_id": "u14",
+              "exact_quote": "Podríamos mantener el lunes pero hacerlo a las cuatro de la tarde."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d3",
+          "topic": "Duración de la demostración",
+          "statement": "Propuesta inicial: demostración de veinte minutos seguida de encuesta.",
+          "kind": "proposal",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u11",
+              "exact_quote": "Para el piloto deberíamos usar una demostración de veinte minutos y después una encuesta."
+            },
+            {
+              "utterance_id": "u12",
+              "exact_quote": "Queda como propuesta inicial: demostración de veinte minutos seguida de encuesta."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d4",
+          "topic": "Duración de la demostración (reemplazo)",
+          "statement": "Reemplazo: demostración de quince minutos con prueba guiada y encuesta.",
+          "kind": "replacement",
+          "replaces_candidate_ids": [
+            "d3"
+          ],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u25",
+              "exact_quote": "Entonces reemplazamos la propuesta anterior: la demostración será de quince minutos y luego habrá una prueba guiada y encuesta."
+            }
+          ]
+        },
+        {
+          "candidate_id": "d5",
+          "topic": "Escenario de la prueba guiada",
+          "statement": "Escenario pendiente: feedback o negociación de plazo.",
+          "kind": "pending",
+          "replaces_candidate_ids": [],
+          "conditions": null,
+          "evidence": [
+            {
+              "utterance_id": "u26",
+              "exact_quote": "La prueba guiada necesita un escenario listo. Podría ser una conversación de feedback."
+            },
+            {
+              "utterance_id": "u27",
+              "exact_quote": "Mejor usemos negociación de plazo, porque es más cercana a los clientes que invitaremos."
+            },
+            {
+              "utterance_id": "u28",
+              "exact_quote": "No veo consenso entre feedback y negociación; dejemos pendiente el escenario hasta revisar la lista de empresas."
+            },
+            {
+              "utterance_id": "u40",
+              "exact_quote": "Queda pendiente definir el escenario de la prueba guiada."
+            },
+            {
+              "utterance_id": "u41",
+              "exact_quote": "Sí, esa decisión queda pendiente hasta que revisemos los sectores de las empresas."
+            }
+          ]
+        }
+      ],
+      "task_candidates": [
+        {
+          "candidate_id": "t1",
+          "task": "Preparar el correo de invitación",
+          "assignee": "Speaker 02",
+          "deadline_expression": "hoy antes de las seis",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u07",
+              "exact_quote": "Speaker 02, ¿puedes preparar el correo de invitación?"
+            },
+            {
+              "field": "deadline_expression",
+              "utterance_id": "u08",
+              "exact_quote": "Sí, preparo un borrador y lo envío para revisión hoy antes de las seis."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t2",
+          "task": "Armar la lista de empresas contactadas",
+          "assignee": "Speaker 03",
+          "deadline_expression": "hoy",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u09",
+              "exact_quote": "Yo puedo armar la lista de empresas contactadas."
+            },
+            {
+              "field": "task",
+              "utterance_id": "u10",
+              "exact_quote": "Perfecto. Speaker 03 arma esa lista hoy y la comparte en la carpeta."
+            },
+            {
+              "field": "deadline_expression",
+              "utterance_id": "u10",
+              "exact_quote": "hoy"
+            }
+          ]
+        },
+        {
+          "candidate_id": "t3",
+          "task": "Consolidar comentarios de la encuesta",
+          "assignee": "Speaker 02",
+          "deadline_expression": "dentro de los dos días posteriores al piloto",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u21",
+              "exact_quote": "Yo los puedo consolidar después del piloto."
+            },
+            {
+              "field": "deadline_expression",
+              "utterance_id": "u22",
+              "exact_quote": "Speaker 02 consolida las respuestas dentro de los dos días posteriores al piloto."
+            }
+          ]
+        },
+        {
+          "candidate_id": "t4",
+          "task": "Entregar versión estable del sistema",
+          "assignee": "Speaker 04",
+          "deadline_expression": "viernes 18 antes de las 17:00",
+          "conditions": null,
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u32",
+              "exact_quote": "Con esa fecha, necesito tener la versión estable lista el viernes anterior."
+            },
+            {
+              "field": "assignee",
+              "utterance_id": "u33",
+              "exact_quote": "Speaker 04 entrega la versión estable el viernes 18 antes de las 17:00."
+            },
+            {
+              "field": "deadline_expression",
+              "utterance_id": "u33",
+              "exact_quote": "el viernes 18 antes de las 17:00"
+            }
+          ]
+        }
+      ],
+      "pending_issue_candidates": [
+        {
+          "issue": "Escenario de la prueba guiada",
+          "owner": null,
+          "deadline_expression": null,
+          "evidence": [
+            {
+              "utterance_id": "u28",
+              "exact_quote": "No veo consenso entre feedback y negociación; dejemos pendiente el escenario hasta revisar la lista de empresas."
+            },
+            {
+              "utterance_id": "u40",
+              "exact_quote": "Queda pendiente definir el escenario de la prueba guiada."
+            },
+            {
+              "utterance_id": "u41",
+              "exact_quote": "Sí, esa decisión queda pendiente hasta que revisemos los sectores de las empresas."
+            }
+          ]
+        }
+      ]
+    },
+    "p2_response": {
+      "meeting": {
+        "date": "2026-09-14",
+        "topic": "Planificación del piloto con clientes"
+      },
+      "decisions": [
+        {
+          "topic": "Fecha del piloto",
+          "outcome": "El piloto se fijó para el martes 22 de septiembre a las 10:00 AM, reemplazando alternativas del lunes.",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u31",
+              "exact_quote": "Listo, el piloto queda fijado para el martes 22 a las diez de la mañana. Esto reemplaza las alternativas del lunes."
+            }
+          ]
+        },
+        {
+          "topic": "Duración de la demostración",
+          "outcome": "La duración de la demostración se ajustó a quince minutos con prueba guiada y encuesta.",
+          "state": "final",
+          "evidence": [
+            {
+              "utterance_id": "u25",
+              "exact_quote": "Entonces reemplazamos la propuesta anterior: la demostración será de quince minutos y luego habrá una prueba guiada y encuesta."
+            }
+          ]
+        }
+      ],
+      "action_items": [
+        {
+          "task": "Preparar el correo de invitación",
+          "assignee": "Speaker 02",
+          "deadline": "2026-09-14 18:00",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u07",
+              "exact_quote": "Speaker 02, ¿puedes preparar el correo de invitación?"
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u08",
+              "exact_quote": "Sí, preparo un borrador y lo envío para revisión hoy antes de las seis."
+            }
+          ]
+        },
+        {
+          "task": "Armar la lista de empresas contactadas",
+          "assignee": "Speaker 03",
+          "deadline": "2026-09-14",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u09",
+              "exact_quote": "Yo puedo armar la lista de empresas contactadas."
+            },
+            {
+              "field": "task",
+              "utterance_id": "u10",
+              "exact_quote": "Perfecto. Speaker 03 arma esa lista hoy y la comparte en la carpeta."
+            }
+          ]
+        },
+        {
+          "task": "Consolidar comentarios de la encuesta",
+          "assignee": "Speaker 02",
+          "deadline": "2026-09-24 00:00",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u21",
+              "exact_quote": "Yo los puedo consolidar después del piloto."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u22",
+              "exact_quote": "Speaker 2 consolida las respuestas dentro de los dos días posteriores al piloto."
+            }
+          ]
+        },
+        {
+          "task": "Entregar versión estable del sistema",
+          "assignee": "Speaker 04",
+          "deadline": "2026-09-18 17:00",
+          "conditions": null,
+          "status": "agreed",
+          "evidence": [
+            {
+              "field": "assignee",
+              "utterance_id": "u32",
+              "exact_quote": "Con esa fecha, necesito tener la versión estable lista el viernes anterior."
+            },
+            {
+              "field": "deadline",
+              "utterance_id": "u33",
+              "exact_quote": "Speaker 04 entrega la versión estable el viernes 18 antes de las 17:00."
+            }
+          ]
+        }
+      ],
+      "pending_issues": [
+        {
+          "issue": "Escenario de la prueba guiada",
+          "owner": null,
+          "deadline": null,
+          "evidence": [
+            {
+              "utterance_id": "u28",
+              "exact_quote": "No veo consenso entre feedback y negociación; dejemos pendiente el escenario hasta revisar la lista de empresas."
+            },
+            {
+              "utterance_id": "u40",
+              "exact_quote": "Queda pendiente definir el escenario de la prueba guiada."
+            },
+            {
+              "utterance_id": "u41",
+              "exact_quote": "Sí, esa decisión queda pendiente hasta que revisemos los sectores de las empresas."
+            }
+          ]
+        }
+      ],
+      "review_alerts": []
+    },
+    "p1_retried_repair": false,
+    "p2_retried_repair": true,
+    "p1_context_warning": null,
+    "p2_context_warning": " | salida cortada por num_predict",
+    "p1_prompt_eval_count": 4158,
+    "p2_prompt_eval_count": 7021
+  },
+  "variant": "v2_esquema",
+  "evaluations": {
+    "baseline": {
+      "json_valid": true,
+      "expected_decisions": 7,
+      "found_decisions": 4,
+      "decision_recall": 0.571,
+      "correct_decision_states": 3,
+      "valid_decision_evidence": 4,
+      "expected_tasks": 7,
+      "found_tasks": 4,
+      "task_recall": 0.571,
+      "correct_assignees": 4,
+      "correct_deadlines": 3,
+      "correct_conditions": 0,
+      "valid_task_evidence": 4,
+      "invalid_assignees": [],
+      "missing_decisions": [
+        "Fecha y hora del piloto: Realizar el piloto el lunes 21 a las 10:00",
+        "Fecha y hora del piloto: Realizar el piloto el lunes 21 a las 16:00",
+        "Formato de la actividad: Demostración de veinte minutos seguida de encuesta"
+      ],
+      "missing_tasks": [
+        "Preparar un borrador del correo de invitación y enviarlo para revisión",
+        "Presentar la demostración técnica",
+        "Revisar el borrador del correo de invitación"
+      ]
+    },
+    "pipeline": {
+      "json_valid": true,
+      "expected_decisions": 7,
+      "found_decisions": 3,
+      "decision_recall": 0.429,
+      "correct_decision_states": 3,
+      "valid_decision_evidence": 3,
+      "expected_tasks": 7,
+      "found_tasks": 4,
+      "task_recall": 0.571,
+      "correct_assignees": 4,
+      "correct_deadlines": 2,
+      "correct_conditions": 3,
+      "valid_task_evidence": 4,
+      "invalid_assignees": [],
+      "missing_decisions": [
+        "Fecha y hora del piloto: Realizar el piloto el lunes 21 a las 10:00",
+        "Fecha y hora del piloto: Realizar el piloto el lunes 21 a las 16:00",
+        "Formato de la actividad: Demostración de veinte minutos seguida de encuesta",
+        "Uso de cámara en el piloto: No mostrar la funcionalidad de cámara durante el piloto"
+      ],
+      "missing_tasks": [
+        "Preparar un borrador del correo de invitación y enviarlo para revisión",
+        "Presentar la demostración técnica",
+        "Revisar el borrador del correo de invitación"
+      ]
+    }
+  }
+}

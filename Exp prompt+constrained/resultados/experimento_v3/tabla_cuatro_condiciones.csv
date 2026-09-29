@@ -1,0 +1,7 @@
+,Baseline,v1 (json),v2 (esquema),v3 (esquema + correcciones)
+JSON válido (%),100.0,100.0,100.0,100.0
+Recall decisiones (%),54.7,60.4,49.3,65.4
+Recall tareas (%),82.9,86.5,84.0,82.4
+Responsables correctos,35.0,31.0,31.0,27.0
+Plazos correctos,22.0,18.0,24.0,22.0
+Tiempo promedio (s),26.8,62.7,60.7,57.3

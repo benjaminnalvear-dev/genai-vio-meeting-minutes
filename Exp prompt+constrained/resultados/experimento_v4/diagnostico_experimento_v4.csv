@@ -1,0 +1,11 @@
+reunion,dec_gold,dec_en_P1,dec_base,estado_ok_base,resp_ok_base,resp_participante_equivocado_base,resp_null_indebido_base,resp_asigno_sin_responsable_base,dec_final,estado_ok_final,resp_ok_final,resp_participante_equivocado_final,resp_null_indebido_final,resp_asigno_sin_responsable_final,aviso_base,aviso_P1,aviso_P2,tokens_P2
+M01,7,5,4,3,4,0,0,0,3,1,4,0,0,0,,,,4985
+M02,6,6,5,3,6,0,0,0,3,2,6,0,0,0,,,,5476
+M03,6,4,3,2,4,1,0,0,4,0,4,0,0,0,,,,4813
+M04,5,5,2,0,2,1,0,0,3,2,2,1,0,0,,,,4130
+M05,5,2,2,1,2,2,0,0,2,1,2,1,1,0,,,,3844
+M06,5,4,3,3,2,1,0,0,4,4,2,1,0,0,,,,3980
+M07,6,6,3,3,3,0,0,0,2,2,2,1,0,0,,,,4127
+M08,6,4,4,3,5,0,0,0,4,3,5,0,0,0,,,,3898
+M09,5,4,3,2,3,0,0,0,4,1,2,0,0,0,,,,3774
+M10,5,4,2,2,3,2,0,0,2,2,2,2,0,0,,,,4120
