@@ -7,9 +7,20 @@
 *.pdf
 *.synctex.gz
 
+# The graded one-page PDF is a deliverable and must remain versioned.
+!Deliverable_2.pdf
+
 # Local render and temporary directories
 output/
 tmp/
+
+# Python, notebooks and local environments
+**/__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
 
 # Repeated experimental outputs
 pruebas/repeticion_*.json

@@ -1,0 +1,29 @@
+name: Pruebas
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unit-tests:
+    name: Python 3.11
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: experimentos/rag_tool_use
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Ejecutar pruebas unitarias
+        run: python -m unittest discover -s tests -v

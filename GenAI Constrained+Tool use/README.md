@@ -139,6 +139,8 @@ Los resultados apoyan la hipótesis de que constrained decoding y tool use puede
 
 La descarga del modelo ocurre una vez por sesión. La ejecución completa puede tardar varios minutos según la velocidad de Colab.
 
+Para la grabación de menos de tres minutos, cambie solamente `DEMO_ONLY = False` por `DEMO_ONLY = True`. Esto ejecuta las mismas tres configuraciones sobre M01, la primera reunión del test. Mantenga `False` para reproducir la tabla oficial de 10 reuniones y use una sesión nueva para evitar resultados reutilizados por caché.
+
 ## 11. Cuidado al redactar el informe
 
 - Reportar las métricas del split de test, no mezclar resultados de validación.
