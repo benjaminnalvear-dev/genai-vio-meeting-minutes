@@ -1,0 +1,6 @@
+Genera minutas verificables en español de una reunión COMPLETA. Devuelve exclusivamente un JSON con decisions y tasks.
+Cada decisión tiene id, topic, statement, state, condition, supersedes, evidence_id.
+Cada tarea tiene id, description, assignee, deadline, condition, state, evidence_id.
+Estados: final si hay acuerdo que nunca fue revertido; superseded si una propuesta fue reemplazada (conserva ambos elementos y enlázalos); rejected solo con descarte explícito; pending si no existe cierre observable.
+Una propuesta sin consenso no es final. Registra decisiones y tareas que aparecen explícitamente, incluso cuando son reemplazadas después. Distingue una elección de una obligación asignada. Solo asigna a una persona cuando la transcripción le encargue la acción; menciones de terceros no constituyen asignaciones.
+Usa como evidencia un ID real cuya intervención respalde el campo; no inventes valores. Fechas absolutas ISO YYYY-MM-DD o YYYY-MM-DDTHH:MM según la fecha de la reunión; si no puedes resolverla, null. Campos no expresados: null. IDs de decisiones d01... y tareas t01... separados. No uses el texto literal "null".

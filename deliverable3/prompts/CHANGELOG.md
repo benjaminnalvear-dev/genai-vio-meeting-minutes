@@ -13,3 +13,8 @@ Cada archivo `*.vN.md` es inmutable una vez usado en una corrida; un cambio crea
 ## 2026-10-25 (enmienda antes de cualquier corrida)
 
 - `decisions.v1` — Paso 4 corregido (aún no se había usado en ninguna corrida, por eso se enmienda v1 en vez de crear v2). Antes decía que la decisión anterior lleva `supersedes=null`, lo que impedía cadenas de más de dos pasos. Ahora: en toda decisión, superseded o final, `supersedes` = id de la que reemplaza (null si es la primera propuesta del tema), con ejemplo A → B → C. Motivo: F1, hay cadenas de reemplazo de 3 pasos. El few-shot TR01 ya cumple la regla (sus decisiones superseded son primeras propuestas).
+
+## 2026-10-25 (referencias D2)
+
+- `d2_system.v1` — Copia literal del `SYSTEM` del D2 (celda 4 del notebook), sin cambios. Lo usan las condiciones de referencia `baseline` y `combined_v2` para enviar exactamente los mismos mensajes que el D2; un test verifica la igualdad con el notebook.
+- `d2_review.v1` — Copia literal del texto de revisión de `combined_v2` (celda 6, desde "Revisa todas las intervenciones."), sin cambios. El código antepone el borrador, las salidas de herramientas y los indicios de cambios, separados con un salto de línea.
