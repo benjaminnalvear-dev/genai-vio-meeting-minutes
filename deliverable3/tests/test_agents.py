@@ -42,7 +42,7 @@ def test_specs_tools_and_prompts():
     assert a.tools == ['inspect_evidence', 'find_uncovered_commitments', 'find_revision_cues', 'resolve_deadline']
     assert d.prompt.name == 'decisions.v2' and d.fewshot.name == 'fewshot/decisions.TR01.v2'
     assert t.prompt.name == 'tasks.v2' and t.fewshot.name == 'fewshot/tasks.TR01'
-    assert a.prompt.name == 'auditor.v2' and a.fewshot is None
+    assert a.prompt.name == 'auditor.v3' and a.fewshot is None
 
 
 def test_auditor_no_react_precompute_resolves_task_deadlines(m01):

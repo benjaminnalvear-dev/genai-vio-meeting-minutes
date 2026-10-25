@@ -32,5 +32,5 @@ def precompute(tr: dict, ctx: dict) -> list[dict]:
 
 
 def build(cfg: RunConfig) -> AgentSpec:
-    return AgentSpec(name='auditor', prompt=load_prompt('auditor.v2'), fewshot=None,
+    return AgentSpec(name='auditor', prompt=load_prompt('auditor.v3'), fewshot=None,
                      tools=list(TOOLS), output=output, precompute=precompute)
