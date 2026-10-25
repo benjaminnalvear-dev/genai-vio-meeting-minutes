@@ -18,6 +18,8 @@ class Prompt:
 
 def load_prompt(name: str, prompts_dir: Path = PROMPTS_DIR) -> Prompt:
     path = Path(prompts_dir) / f'{name}.md'
-    data = path.read_bytes()
-    return Prompt(name=name, text=data.decode('utf-8'), path=path,
-                  sha256=hashlib.sha256(data).hexdigest())
+    text = path.read_bytes().decode('utf-8').replace('
+', '
+')
+    return Prompt(name=name, text=text, path=path,
+                  sha256=hashlib.sha256(text.encode('utf-8')).hexdigest())

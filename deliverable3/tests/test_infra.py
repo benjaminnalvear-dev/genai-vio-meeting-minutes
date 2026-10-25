@@ -59,3 +59,22 @@ def test_fake_llm_shape_and_exhaustion():
     assert len(f.calls) == 2
     with pytest.raises(AssertionError):
         f.chat([], None)
+
+
+def test_prompt_crlf_equals_lf(tmp_path):
+    (tmp_path / 'lf.md').write_bytes('a\nb\n'.encode())
+    (tmp_path / 'crlf.md').write_bytes('a\r\nb\r\n'.encode())
+    a, b = load_prompt('lf', tmp_path), load_prompt('crlf', tmp_path)
+    assert a.sha256 == b.sha256 and a.text == b.text == 'a\nb\n'
+
+
+def test_cached_llm_corrupted_entry_is_miss(tmp_path):
+    msgs = [{'role': 'user', 'content': 'x'}]
+    c = CachedLLM(FakeLLM([{'a': 1}]), tmp_path)
+    c.chat(msgs, None)
+    f = next(tmp_path.glob('*.json'))
+    f.write_text('{"raw": tru', encoding='utf-8')
+    c2 = CachedLLM(FakeLLM([{'a': 2}]), tmp_path)
+    assert c2.chat(msgs, None)['parsed'] == {'a': 2} and c2.calls_made == 1
+    assert CachedLLM(FakeLLM([]), tmp_path).chat(msgs, None)['parsed'] == {'a': 2}
+    assert not list(tmp_path.glob('*.tmp'))

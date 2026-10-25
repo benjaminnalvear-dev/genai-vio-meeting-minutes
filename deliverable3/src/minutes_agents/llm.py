@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import time
 from pathlib import Path
 from typing import Protocol
@@ -63,9 +64,14 @@ class CachedLLM:
     def chat(self, messages: list[dict], schema: dict | None = None) -> dict:
         path = self.cache_dir / f'{self._key(messages, schema)}.json'
         if path.exists():
-            return json.loads(path.read_text(encoding='utf-8'))
+            try:
+                return json.loads(path.read_text(encoding='utf-8'))
+            except (json.JSONDecodeError, UnicodeDecodeError):
+                pass  # corrupted/truncated cache entry: treat as miss
         result = self.inner.chat(messages, schema)
         self.calls_made += 1
         self.cache_dir.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
+        tmp = path.with_name(path.name + '.tmp')
+        tmp.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
+        os.replace(tmp, path)
         return result
