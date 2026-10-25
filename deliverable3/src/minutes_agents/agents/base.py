@@ -31,6 +31,7 @@ class RunConfig:
     fewshot: bool = True
     cot: bool = True
     max_steps: int = 3
+    audit_guards: bool = True  # barandas determinísticas sobre los veredictos del Auditor (guards.py)
 
 
 @dataclass

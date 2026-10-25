@@ -15,6 +15,7 @@ from minutes_agents.agents import decisions as decisions_mod
 from minutes_agents.agents import tasks as tasks_mod
 from minutes_agents.agents.base import RunConfig, run_react, user_message
 from minutes_agents.finalize import NEW_ID, _renumber, finalize, merge
+from minutes_agents.guards import dedupe_new, filter_verdicts, route_from
 from minutes_agents.llm import LLM
 from minutes_agents.schemas import make_schema
 from minutes_agents.tracing import Tracer
@@ -55,14 +56,20 @@ def _items(state: MeetingState) -> list[dict]:
 
 
 def _mine(state: MeetingState, kind: str) -> tuple[list[dict], list[dict], set[str]]:
-    """Veredictos marcados (ok == False) que le tocan al especialista, sus ítems y sus ids."""
+    """Veredictos marcados (ok == False) que le tocan al especialista, sus ítems y sus ids.
+
+    Un 'NEW' validado por las barandas trae `kind_hint` y va solo a ese especialista; sin
+    `kind_hint` (barandas apagadas) va a los especialistas que indica la ruta."""
     prefix = 'd' if kind == 'decisions' else 't'
     current = state[kind]
     ids = {i.get('id') for i in current if isinstance(i, dict)}
     gets_new = state.get('route') in (kind, 'both')
+
+    def new_for_me(v: dict) -> bool:
+        return v.get('kind_hint') == kind if 'kind_hint' in v else gets_new
     verdicts = [v for v in state['verdicts'] if v.get('ok') is False and (
         (str(v.get('item_id', '')).startswith(prefix) and v.get('item_id') in ids)
-        or (v.get('item_id') == NEW_ID and gets_new))]
+        or (v.get('item_id') == NEW_ID and new_for_me(v)))]
     flagged = {v['item_id'] for v in verdicts if v['item_id'] in ids}
     items = [i for i in current if isinstance(i, dict) and i.get('id') in flagged]
     return verdicts, items, flagged
@@ -109,10 +116,18 @@ def build_graph(llm: LLM, tracer: Tracer, cfg: RunConfig):
         verdicts, route = r['output']['verdicts'] or [], r['output']['route']
         if not verdicts and route is None:
             route = 'finish'  # salida inválida: se corta el lazo
+        extra = {}
+        if cfg.audit_guards:  # Python verifica cada veredicto antes de que llegue a un especialista
+            accepted, dropped = filter_verdicts(tr, state['decisions'], state['tasks'], verdicts)
+            for d in dropped:
+                tracer.log('guard', 0, item_id=d['verdict'].get('item_id'),
+                           problem=d['verdict'].get('problem'), guard=d['guard'], reason=d['reason'])
+            extra = {'auditor_route': route}
+            verdicts, route = accepted, route_from(accepted)
         flagged = [v['item_id'] for v in verdicts if v.get('ok') is False]
         revising = route in ('decisions', 'tasks', 'both')
         nxt = route_after_audit({'route': route}, cfg)
-        tracer.log('router', state['audit_round'], route=route, flagged=flagged, next=nxt)
+        tracer.log('router', state['audit_round'], route=route, flagged=flagged, next=nxt, **extra)
         return {'verdicts': verdicts, 'route': route, 'flagged': flagged,
                 'audit_round': state['audit_round'] + (1 if revising else 0),
                 'calls': state['calls'] + r['calls']}
@@ -124,9 +139,15 @@ def build_graph(llm: LLM, tracer: Tracer, cfg: RunConfig):
             tracer.log('router', state['audit_round'], route=state.get('route'), skipped=kind,
                        reason='sin veredictos para este especialista')
             return {'calls': state['calls']}
-        r = run_react(spec, tr, user_message(tr, feedback=verdicts, items=items), llm, tracer, cfg,
+        feedback = [{k: x for k, x in v.items() if k != 'kind_hint'} for v in verdicts]
+        r = run_react(spec, tr, user_message(tr, feedback=feedback, items=items), llm, tracer, cfg,
                       {'items': _items(state)})
         merged = merge(state[kind], r['output'][kind], flagged, prefix=kind[0])
+        if cfg.audit_guards:  # G7: un ítem nuevo que repite la evidencia de uno existente es duplicado
+            merged, dups = dedupe_new(state[kind], merged)
+            for it in dups:
+                tracer.log('guard', 0, item_id=it.get('id'), problem=None, guard='G7',
+                           reason=f"ítem nuevo con evidence_id {it.get('evidence_id')} ya citado por un ítem existente")
         merged, actions = normalize_ids(merged, kind)
         return {kind: merged, 'calls': state['calls'] + r['calls'],
                 'mechanical_actions': state['mechanical_actions'] + actions}

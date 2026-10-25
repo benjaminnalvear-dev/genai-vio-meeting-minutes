@@ -43,8 +43,9 @@ task_revised = {'thought': 'corrijo', 'action': 'finish', 'tool_calls': [],
                 'tasks': [_task('Enviar el informe final', 'final')]}
 
 
-def audit_route(route, flag=None):
+def audit_route(route, flag=None, problem='evidence_not_supporting', detail='revisar'):
+    """Por defecto usa un problema que las barandas (guards.py) no descartan."""
     flags = [flag] if isinstance(flag, str) else list(flag or [])
-    verdicts = [{'item_id': f, 'ok': False, 'problem': 'wrong_state', 'detail': 'revisar'} for f in flags]
+    verdicts = [{'item_id': f, 'ok': False, 'problem': problem, 'detail': detail} for f in flags]
     return {'thought': 'auditoría', 'action': 'finish', 'tool_calls': [],
             'verdicts': verdicts, 'route': route}

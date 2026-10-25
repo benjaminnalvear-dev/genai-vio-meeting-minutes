@@ -96,8 +96,9 @@ def test_duplicate_ids_from_specialist_survive_audit_round(m01):
 
 
 def test_revision_skipped_when_no_verdicts_for_specialist(m01, tmp_path):
+    # Sin barandas: con ellas la ruta se recalcula y este veredicto iría a Tareas.
     fake = FakeLLM([dec_finish, task_finish, audit_route('decisions', flag='t01'), audit_route('finish')])
-    out = run_meeting(m01, fake, RunConfig('full'), tmp_path / 'M01.jsonl')
+    out = run_meeting(m01, fake, RunConfig('full', audit_guards=False), tmp_path / 'M01.jsonl')
     assert len(fake.calls) == 4 and out['calls'] == 4  # no se llamó al agente Decisiones
     events = [json.loads(l) for l in (tmp_path / 'M01.jsonl').read_text('utf-8').splitlines()]
     assert [e['agent'] for e in events] == ['decisions', 'tasks', 'auditor', 'router', 'router',
@@ -113,3 +114,65 @@ def test_normalize_ids_remaps_supersedes():
     assert [i['id'] for i in out] == ['d01', 'd02', 'd03', 'd04']
     assert out[2]['supersedes'] == 'd01' and out[3]['supersedes'] is None
     assert actions == ['supersedes sin resolver a null'] and items[0]['id'] == 'd03'  # sin mutar la entrada
+
+
+# --- Barandas determinísticas del Auditor (guards.py) ---
+def _events(path):
+    return [json.loads(l) for l in path.read_text('utf-8').splitlines()]
+
+
+def test_guards_drop_false_verdicts_and_skip_revision(m01, tmp_path):
+    # t01 es tarea confirmada (G4) y el NEW no cita ningún turno (G1): ambos se descartan.
+    audit = audit_route('tasks', flag=['t01'], problem='wrong_state')
+    audit['verdicts'].append({'item_id': 'NEW', 'ok': False, 'problem': 'missing_item',
+                              'detail': 'falta una tarea'})
+    fake = FakeLLM([dec_finish, task_finish, audit])
+    out = run_meeting(m01, fake, RunConfig('full'), tmp_path / 'M01.jsonl')
+    assert len(fake.calls) == 3 and out['calls'] == 3  # sin revisión
+    events = _events(tmp_path / 'M01.jsonl')
+    guards = [e for e in events if e['agent'] == 'guard']
+    assert [(g['item_id'], g['problem'], g['guard']) for g in guards] == [
+        ('t01', 'wrong_state', 'G4'), ('NEW', 'missing_item', 'G1')]
+    assert all(g['step'] == 0 and g['reason'] for g in guards)
+    router = next(e for e in events if e['agent'] == 'router')
+    assert router['route'] == 'finish' and router['auditor_route'] == 'tasks'
+    assert router['flagged'] == [] and router['next'] == 'finalize'
+
+
+def test_guards_off_keeps_auditor_route(m01, tmp_path):
+    audit = audit_route('tasks', flag=['t01'], problem='wrong_state')
+    fake = FakeLLM([dec_finish, task_finish, audit, task_revised, audit_route('finish')])
+    out = run_meeting(m01, fake, RunConfig('no_guards', audit_guards=False), tmp_path / 'M01.jsonl')
+    assert len(fake.calls) == 5 and out['calls'] == 5  # la revisión ocurre
+    events = _events(tmp_path / 'M01.jsonl')
+    assert not any(e['agent'] == 'guard' for e in events)
+    assert 'auditor_route' not in next(e for e in events if e['agent'] == 'router')
+
+
+def test_guards_recompute_route_and_send_new_by_kind_hint(m01, tmp_path):
+    # El Auditor dice 'decisions', pero el NEW cita u19 (compromiso sin cubrir): va a Tareas.
+    audit = audit_route('decisions', flag=['NEW'], problem='missing_item',
+                        detail='u19: Speaker 04 queda a cargo de la demostración técnica')
+    new_task = {'id': 'NEW', 'description': 'Presentar la demostración técnica', 'assignee': 'Speaker 04',
+                'deadline': None, 'condition': None, 'state': 'final', 'evidence_id': 'u19'}
+    task_new = dict(task_finish, tasks=[new_task])
+    fake = FakeLLM([dec_finish, task_finish, audit, task_new, audit_route('finish')])
+    out = run_meeting(m01, fake, RunConfig('full'), tmp_path / 'M01.jsonl')
+    assert len(fake.calls) == 5
+    assert [t['evidence_id'] for t in out['parsed']['tasks']] == ['u08', 'u19']
+    feedback = fake.calls[3][0][1]['content'].split('FEEDBACK DEL AUDITOR:')[1]
+    assert 'u19' in feedback and 'kind_hint' not in feedback
+    router = [e for e in _events(tmp_path / 'M01.jsonl') if e['agent'] == 'router'][0]
+    assert router['route'] == 'tasks' and router['auditor_route'] == 'decisions'
+
+
+def test_g7_drops_new_item_duplicating_existing_evidence(m01, tmp_path):
+    audit = audit_route('tasks', flag=['t01'])
+    dup = {'id': 'NEW', 'description': 'Enviar el borrador', 'assignee': 'Speaker 02', 'deadline': None,
+           'condition': None, 'state': 'final', 'evidence_id': 'u08'}
+    revised = dict(task_revised, tasks=task_revised['tasks'] + [dup])
+    fake = FakeLLM([dec_finish, task_finish, audit, revised, audit_route('finish')])
+    out = run_meeting(m01, fake, RunConfig('full'), tmp_path / 'M01.jsonl')
+    assert [t['description'] for t in out['parsed']['tasks']] == ['Enviar el informe final']
+    g7 = [e for e in _events(tmp_path / 'M01.jsonl') if e['agent'] == 'guard']
+    assert len(g7) == 1 and g7[0]['guard'] == 'G7' and g7[0]['item_id'] == 't02'
