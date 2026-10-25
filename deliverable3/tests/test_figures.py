@@ -1,0 +1,48 @@
+import importlib.util
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def _load():
+    spec = importlib.util.spec_from_file_location('make_figures', ROOT / 'scripts' / 'make_figures.py')
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def _cond(f1d, f1t):
+    return {
+        'primary': {'decisions': {'f1': f1d}, 'tasks': {'f1': f1t}},
+        'extended': {
+            'strict_f1': {'decisions': f1d - 0.1, 'tasks': f1t - 0.1},
+            'per_trap': {
+                'D: explícita': {'gold': 10, 'found': 8, 'state_ok': 7, 'deadline_ok': 0, 'assignee_ok': 0},
+                'D: con condición': {'gold': 4, 'found': 1, 'state_ok': 1, 'deadline_ok': 0, 'assignee_ok': 0},
+                'T: relativa': {'gold': 6, 'found': 3, 'state_ok': 3, 'deadline_ok': 2, 'assignee_ok': 3},
+            },
+        },
+    }
+
+
+def _write(tmp_path, conds):
+    s = {c: _cond(0.6 + 0.1 * i, 0.5 + 0.1 * i) for i, c in enumerate(conds)}
+    s['paired_full_vs_d2'] = {}
+    s['meta'] = {'conditions': conds}
+    p = tmp_path / 'summary.json'
+    p.write_text(json.dumps(s), encoding='utf-8')
+    return p
+
+
+def test_make_figures_creates_files(tmp_path):
+    out = _load().make_figures(_write(tmp_path, ['d2', 'full']), tmp_path / 'figs')
+    names = {p.name for p in out}
+    assert names == {'f1_by_condition.pdf', 'f1_by_condition.png',
+                     'trap_heatmap.pdf', 'trap_heatmap.png'}
+    assert all(p.exists() and p.stat().st_size > 0 for p in out)
+
+
+def test_missing_conditions_skipped(tmp_path):
+    out = _load().make_figures(_write(tmp_path, ['full', 'no_cot']), tmp_path / 'figs')
+    assert len(out) == 4
