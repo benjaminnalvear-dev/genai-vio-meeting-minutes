@@ -23,3 +23,19 @@ def d2_results_dir(repo_root, tmp_path_factory) -> Path:
     with zipfile.ZipFile(repo_root / 'GenAI Constrained+Tool use' / 'minutas_resultados_test.zip') as z:
         z.extractall(dest)
     return dest
+
+
+@pytest.fixture(scope='session')
+def _test_split(dataset_dir):
+    from minutes_agents.data import load_split
+    return load_split(dataset_dir, 'test')
+
+
+@pytest.fixture(scope='session')
+def m01(_test_split):
+    return _test_split[0]['M01']
+
+
+@pytest.fixture(scope='session')
+def m01_gold(_test_split):
+    return _test_split[1]['M01']
