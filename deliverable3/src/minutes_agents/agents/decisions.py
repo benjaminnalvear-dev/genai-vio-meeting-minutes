@@ -15,9 +15,10 @@ TOPIC_PLAN = {'type': 'array', 'items': {
 
 
 def output(tr: dict, ctx: dict, cfg: RunConfig) -> dict[str, dict]:
-    out = {'decisions': {'type': 'array', 'items': decision_item_schema(tr)}}
-    if cfg.cot:
-        out['topic_plan'] = TOPIC_PLAN
+    # Orden de propiedades = orden de generación (la gramática de llama.cpp lo respeta):
+    # con CoT, el plan por tema se genera ANTES de las decisiones.
+    out = {'topic_plan': TOPIC_PLAN} if cfg.cot else {}
+    out['decisions'] = {'type': 'array', 'items': decision_item_schema(tr)}
     return out
 
 

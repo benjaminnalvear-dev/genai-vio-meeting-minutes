@@ -4,7 +4,7 @@ from __future__ import annotations
 from minutes_agents.agents.base import AgentSpec, RunConfig
 from minutes_agents.prompts import load_prompt
 from minutes_agents.schemas import verdict_schema
-from minutes_agents.tools import find_uncovered_commitments, inspect_evidence
+from minutes_agents.tools import find_revision_cues, find_uncovered_commitments, inspect_evidence
 
 TOOLS = ['inspect_evidence', 'find_uncovered_commitments', 'find_revision_cues']
 ROUTES = ['decisions', 'tasks', 'both', 'finish']
@@ -22,7 +22,8 @@ def output(tr: dict, ctx: dict, cfg: RunConfig) -> dict[str, dict]:
 
 def precompute(tr: dict, ctx: dict) -> list[dict]:
     items = _items(ctx)
-    return ([{'tool': 'find_uncovered_commitments', 'result': find_uncovered_commitments(tr, items)}]
+    return ([{'tool': 'find_uncovered_commitments', 'result': find_uncovered_commitments(tr, items)},
+             {'tool': 'find_revision_cues', 'result': find_revision_cues(tr)}]
             + [{'tool': 'inspect_evidence', 'item_id': i.get('id'),
                 'result': inspect_evidence(tr, i.get('evidence_id'))} for i in items])
 

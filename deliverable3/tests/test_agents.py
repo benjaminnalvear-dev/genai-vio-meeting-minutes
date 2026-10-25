@@ -96,8 +96,8 @@ def test_precompute_reports(m01):
     assert all(r['result']['suggested'] for r in t if r['tool'] == 'resolve_deadline')
     assert {r['result']['name'] for r in t if r['tool'] == 'check_participant'} == set(m01['participants'])
     a = auditor.build(RunConfig('x')).precompute(m01, {'items': [_decision('u05'), _task('u12')]})
-    assert a[0]['tool'] == 'find_uncovered_commitments'
-    assert [r['result']['evidence_id'] for r in a[1:]] == ['u05', 'u12']
+    assert [r['tool'] for r in a[:2]] == ['find_uncovered_commitments', 'find_revision_cues']
+    assert [r['result']['evidence_id'] for r in a[2:]] == ['u05', 'u12']
 
 
 def test_user_message_plain_and_revision(m01):
@@ -107,3 +107,22 @@ def test_user_message_plain_and_revision(m01):
                        items={'decisions': [_decision()]})
     assert rev.startswith(plain)
     assert 'ÍTEMS A REVISAR:' in rev and 'FEEDBACK DEL AUDITOR:' in rev and 'wrong_state' in rev and 'á' in rev
+
+
+@pytest.mark.parametrize('cot,expected', [
+    (True, ['thought', 'action', 'tool_calls', 'topic_plan', 'decisions']),
+    (False, ['action', 'tool_calls', 'decisions'])])
+def test_decisions_schema_property_order(m01, cot, expected):
+    # llama.cpp grammars keep property order: the plan must be generated before the decisions.
+    cfg = RunConfig('c', cot=cot)
+    spec = decisions.build(cfg)
+    for allow in (True, False):
+        schema = step_schema(m01, spec.tools, spec.output(m01, {}, cfg), allow_tools=allow, with_thought=cot)
+        assert list(schema['properties']) == expected and schema['required'] == expected
+
+
+def test_auditor_no_react_precompute_includes_revision_cues(m01):
+    from minutes_agents.tools import find_revision_cues
+    a = auditor.build(RunConfig('x')).precompute(m01, {'items': [_decision('u05')]})
+    cues = [r for r in a if r['tool'] == 'find_revision_cues']
+    assert len(cues) == 1 and cues[0]['result'] == find_revision_cues(m01)
