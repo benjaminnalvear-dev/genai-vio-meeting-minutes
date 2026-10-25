@@ -30,3 +30,17 @@ def test_notebook_persists_streams_and_reports():
     assert "flagged={ev.get('flagged')}" in trace and "next={ev.get('next')}" in trace
     assert "ev.get('mechanical_actions')" in trace
     assert "acta['parsed']" in acta
+
+
+def test_notebook_guards_uploads_and_conditions():
+    cells = [''.join(c['source']) for c in json.loads(NB.read_text(encoding='utf-8'))['cells']]
+    cfg, code, data, trace = cells[1], cells[3], cells[4], cells[6]
+    assert "ALL_CONDITIONS = 'baseline,d2,full,no_react,no_auditor,no_fewshot,no_cot,no_guards'" in cfg
+    assert "'deliverable3' not in zname" in code and 'en esta celda va deliverable3_colab.zip' in code
+    assert "'Fine' not in dname" in data and 'en esta celda va Fine Tuning.zip' in data
+    assert "agent == 'guard'" in trace and '[baranda ' in trace and 'auditor_route' in trace
+
+
+def test_requests_unpinned():
+    reqs = (NB.parents[1] / 'requirements.txt').read_text(encoding='utf-8').split()
+    assert 'requests' in reqs and not any(r.startswith('requests=') for r in reqs)
