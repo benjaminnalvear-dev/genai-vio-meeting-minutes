@@ -37,6 +37,24 @@ class AgentSpec:
     precompute: Callable[[dict, dict], list[dict]]
 
 
+def transcript_text(tr):
+    head = {k: tr.get(k) for k in ('meeting_id','meeting_date','title','participants')}
+    lines = [json.dumps(head, ensure_ascii=False), 'INTERVENCIONES EN ORDEN:']
+    lines += [f"{u['id']} | {u.get('timestamp','')} | {u['speaker']}: {u['text']}" for u in tr['utterances']]
+    return '\n'.join(lines)
+
+
+def user_message(tr: dict, *, feedback: list[dict] | None = None, items: dict | None = None) -> str:
+    """Transcripción en el formato del D2 (copia de `transcript_text`, celda 4);
+    en revisión agrega los ítems marcados y el feedback del Auditor."""
+    text = transcript_text(tr)
+    if items is not None:
+        text += '\n\nÍTEMS A REVISAR:\n' + json.dumps(items, ensure_ascii=False)
+    if feedback is not None:
+        text += '\n\nFEEDBACK DEL AUDITOR:\n' + json.dumps(feedback, ensure_ascii=False)
+    return text
+
+
 def _prompt_file(prompt: Prompt) -> str:
     path = Path(prompt.path)
     try:
