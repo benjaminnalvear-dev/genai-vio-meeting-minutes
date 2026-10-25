@@ -43,13 +43,22 @@ def _save(fig, out_dir: Path, stem: str) -> list[Path]:
 
 def _has_f1(cond) -> bool:
     try:
-        cond['primary']['decisions']['f1']
-        cond['primary']['tasks']['f1']
-        cond['extended']['strict_f1']['decisions']
-        cond['extended']['strict_f1']['tasks']
-        return True
+        vals = (cond['primary']['decisions']['f1'], cond['primary']['tasks']['f1'],
+                cond['extended']['strict_f1']['decisions'], cond['extended']['strict_f1']['tasks'])
     except (KeyError, TypeError):
         return False
+    return all(isinstance(v, (int, float)) for v in vals)
+
+
+def bar_conditions(summary) -> list[str]:
+    """Conditions with all four F1 values; others are skipped with a stderr warning."""
+    out = []
+    for c in present_conditions(summary):
+        if _has_f1(summary[c]):
+            out.append(c)
+        else:
+            print(f'warning: condition {c!r} lacks F1 keys; skipped in bar chart', file=sys.stderr)
+    return out
 
 
 def present_conditions(summary) -> list[str]:
@@ -115,20 +124,32 @@ def _f1_figure(summary, conds):
     return fig
 
 
-def _heatmap_figure(summary, conds):
+def _trap(summary, k, c):
+    return (((summary[k].get('extended') or {}).get('per_trap')) or {}).get(c)
+
+
+def heatmap_matrix(summary, conds=None):
+    """(conds, cats, values): found/gold per condition x category; NaN if missing or gold == 0."""
+    conds = present_conditions(summary) if conds is None else conds
     cats = ordered_categories(summary, conds)
-    if not cats or not conds:
-        return None
-    gold = {c: max(((summary[k].get('extended') or {}).get('per_trap') or {}).get(c, {}).get('gold', 0) for k in conds)
-            for c in cats}
-    fig, ax = plt.subplots(figsize=(COL_W - 0.6, 0.34 * len(conds) + 1.5))
-    mat = []
+    nan = float('nan')
+    values = []
     for k in conds:
         row = []
         for c in cats:
-            t = ((summary[k].get('extended') or {}).get('per_trap') or {}).get(c)
-            row.append(t['found'] / t['gold'] if t and t['gold'] else float('nan'))
-        mat.append(row)
+            t = _trap(summary, k, c) or {}
+            g, f = t.get('gold'), t.get('found')
+            row.append(f / g if g and f is not None else nan)
+        values.append(row)
+    return conds, cats, values
+
+
+def _heatmap_figure(summary, conds):
+    conds, cats, mat = heatmap_matrix(summary, conds)
+    if not cats or not conds:
+        return None
+    gold = {c: max((_trap(summary, k, c) or {}).get('gold') or 0 for k in conds) for c in cats}
+    fig, ax = plt.subplots(figsize=(COL_W - 0.6, 0.34 * len(conds) + 1.5))
     im = ax.imshow(mat, cmap='Blues', vmin=0, vmax=1, aspect='auto')
     for i, row in enumerate(mat):
         for j, v in enumerate(row):
@@ -162,12 +183,7 @@ def make_figures(summary_path: Path, out_dir: Path) -> list[Path]:
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     conds = present_conditions(summary)
-    bar_conds = []
-    for c in conds:
-        if _has_f1(summary[c]):
-            bar_conds.append(c)
-        else:
-            print(f'warning: condition {c!r} lacks F1 keys; skipped in bar chart', file=sys.stderr)
+    bar_conds = bar_conditions(summary)
     _style()
     paths = []
     if bar_conds:

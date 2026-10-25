@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import math
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -66,18 +67,34 @@ def test_heatmap_nan_paths(tmp_path):
     s = json.loads(p.read_text(encoding='utf-8'))
     del s['full']['extended']['per_trap']['T: relativa']          # missing in one condition
     s['d2']['extended']['per_trap']['T: vacía'] = {'gold': 0, 'found': 0}  # zero gold
+    s['full']['extended']['per_trap']['D: explícita'] = {'gold': 10}       # no 'found'
     p.write_text(json.dumps(s), encoding='utf-8')
-    out = _load().make_figures(p, tmp_path / 'figs')
-    assert len(out) == 4
+    mf = _load()
+    conds, cats, vals = mf.heatmap_matrix(s)
+    assert conds == ['d2', 'full']
+    assert cats == ['D: con condición', 'D: explícita', 'T: relativa', 'T: vacía']
+    d2, full = vals
+    assert d2[0] == 0.25 and d2[1] == 0.8 and d2[2] == 0.5
+    assert math.isnan(d2[3])                                   # gold == 0
+    assert full[0] == 0.25
+    assert math.isnan(full[1])                                 # missing 'found'
+    assert math.isnan(full[2]) and math.isnan(full[3])         # category absent
+    assert len(mf.make_figures(p, tmp_path / 'figs')) == 4
 
 
-def test_incomplete_condition_skipped_in_bars(tmp_path):
-    p = _write(tmp_path, ['d2', 'full'])
+def test_incomplete_condition_skipped_in_bars(tmp_path, capsys):
+    p = _write(tmp_path, ['d2', 'full', 'no_cot'])
     s = json.loads(p.read_text(encoding='utf-8'))
     del s['full']['primary']
+    s['no_cot']['primary']['tasks']['f1'] = None
+    mf = _load()
+    assert mf.bar_conditions(s) == ['d2']
+    err = capsys.readouterr().err
+    assert "'full'" in err and "'no_cot'" in err and 'warning' in err
     p.write_text(json.dumps(s), encoding='utf-8')
-    out = _load().make_figures(p, tmp_path / 'figs')
-    assert {x.name for x in out} >= {'f1_by_condition.pdf', 'trap_heatmap.pdf'}
+    out = mf.make_figures(p, tmp_path / 'figs')
+    assert {x.name for x in out} == {'f1_by_condition.pdf', 'f1_by_condition.png',
+                                     'trap_heatmap.pdf', 'trap_heatmap.png'}
 
 
 def test_no_conditions_no_error(tmp_path):
