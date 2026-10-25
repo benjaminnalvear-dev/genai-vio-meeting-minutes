@@ -11,7 +11,7 @@ import requests  # noqa: E402
 
 from minutes_agents.data import extract_dataset, load_split  # noqa: E402
 from minutes_agents.experiment import CONDITIONS, run_experiment  # noqa: E402
-from minutes_agents.llm import MODEL, CachedLLM, OllamaLLM  # noqa: E402
+from minutes_agents.llm import MODEL, CachedLLM, OllamaError, OllamaLLM, preflight  # noqa: E402
 
 
 def ollama_version(host: str):
@@ -53,6 +53,16 @@ def main(argv=None):
     if n is not None:
         ids = ids[:n]
     transcripts, gold = {m: transcripts[m] for m in ids}, {m: gold[m] for m in ids}
+    print('Verificando Ollama (servidor, modelo y una llamada de prueba)...', flush=True)
+    try:
+        preflight(a.host)
+    except OllamaError as exc:
+        print('!' * 70)
+        print(f'!!! OLLAMA NO ESTÁ LISTO: {exc}')
+        print('!!! No se ejecutó ninguna reunión. Revisa /content/ollama_serve.log, reinicia la celda 2 y repite.')
+        print('!' * 70, flush=True)
+        sys.exit(2)
+    print('Ollama OK.', flush=True)
     llm = CachedLLM(OllamaLLM(host=a.host), a.cache)
     summary = run_experiment(conds, transcripts, gold, llm, a.out, a.traces,
                              meta_extra={'ollama_version': ollama_version(a.host),

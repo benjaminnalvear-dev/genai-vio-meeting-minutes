@@ -187,6 +187,7 @@ def test_cli_survives_condition_with_no_results(monkeypatch, tmp_path, capsys, d
     monkeypatch.setattr(cli, 'run_experiment', lambda *a, **k: fake_summary)
     monkeypatch.setattr(cli, 'ollama_version', lambda h: None)
     monkeypatch.setattr(cli, 'model_digest', lambda h: None)
+    monkeypatch.setattr(cli, 'preflight', lambda h: None)
     cli.main(['--data', str(dataset_dir), '--split', 'test', '--conditions', 'full', '--out',
               str(tmp_path / 'o'), '--demo', '--cache', str(tmp_path / 'c')])
     out = capsys.readouterr().out

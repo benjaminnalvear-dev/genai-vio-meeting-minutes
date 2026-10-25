@@ -84,8 +84,7 @@ def test_ollama_llm_reports_done_reason_and_prompt_tokens(monkeypatch):
     import minutes_agents.llm as llm_mod
 
     class _Res:
-        def raise_for_status(self):
-            pass
+        ok, status_code = True, 200
 
         def json(self):
             return {'message': {'content': '{"a": 1}'}, 'eval_count': 5, 'prompt_eval_count': 77,
