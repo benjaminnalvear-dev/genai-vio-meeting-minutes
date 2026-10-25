@@ -31,9 +31,16 @@ def _g1(tr, decisions, tasks, v) -> tuple[str | None, str | None]:
     """missing_item → (motivo de descarte | None, kind_hint)."""
     if v.get('item_id') != NEW_ID:
         return 'missing_item sobre un ítem existente', None
-    uncovered = {u['id'] for u in find_uncovered_commitments(tr, list(decisions) + list(tasks))}
+    items = [i for i in list(decisions) + list(tasks) if isinstance(i, dict)]
+    uncovered = {u['id'] for u in find_uncovered_commitments(tr, items)}
+    # Una señal de cambio está cubierta si algún ítem (decisión o tarea) la cita, o si una decisión
+    # cita un turno vecino (±1), igual que en find_uncovered_commitments.
+    us = tr['utterances']
+    dec_ev = {d.get('evidence_id') for d in decisions if isinstance(d, dict)}
+    near_dec = {us[j]['id'] for k, u in enumerate(us) if u['id'] in dec_ev
+                for j in range(max(0, k - 1), min(len(us), k + 2))}
     uncited_cues = ({c['id'] for c in find_revision_cues(tr)}
-                    - {d.get('evidence_id') for d in decisions if isinstance(d, dict)})
+                    - {i.get('evidence_id') for i in items} - near_dec)
     cited = set(TURN_ID.findall(str(v.get('detail') or '')))
     if not cited & (uncovered | uncited_cues):
         return ('detail no cita un turno con compromiso sin cubrir ni una señal de cambio sin '
@@ -101,9 +108,11 @@ def filter_verdicts(tr: dict, decisions: list[dict], tasks: list[dict],
             sug = resolve_deadline(tr, t.get('evidence_id'))['suggested']
             if t.get('deadline') is not None and sug is not None and sug[:10] == str(t['deadline'])[:10]:
                 guard, reason = 'G2', f'el día coincide con resolve_deadline ({sug})'
+            elif t.get('deadline') is None and sug is None:
+                guard, reason = 'G2', 'plazo null y resolve_deadline tampoco calcula fecha'
         elif problem == 'wrong_state' and item_id in decs:
             guard, reason = 'G3', _g3(tr, decisions, decs[item_id])
-        elif problem == 'wrong_state' and item_id in tsks:
+        elif problem == 'wrong_state' and item_id in tsks and tsks[item_id].get('state') == 'final':
             guard, reason = 'G4', 'una tarea confirmada es final por regla del proyecto'
         elif problem == 'wrong_assignee' and item_id in tsks:
             guard, reason = 'G5', _g5(tr, tsks[item_id])

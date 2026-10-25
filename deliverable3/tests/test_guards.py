@@ -196,3 +196,38 @@ def test_dedupe_new_exempts_split_of_merged_item():
     kept, dropped = dedupe_new(current, merged, exempt_evidence={'u08'})
     assert [t['id'] for t in kept] == ['t01', 't02', 't03']
     assert [t['id'] for t in dropped] == ['t04']
+
+
+def test_g1_cue_already_cited_by_a_task_dropped(m01):
+    # u19 es señal de cambio ('queda a cargo') y compromiso; si una tarea ya la cita, no falta nada.
+    tasks = COVERED_TASKS + [task('t04', 'u19', 'Speaker 04')]
+    acc, drop = run(m01, [dec('d01', 'u05')], tasks, [bad('NEW', 'missing_item', 'u19 falta')])
+    assert acc == [] and drop[0]['guard'] == 'G1'
+
+
+def test_g1_cue_adjacent_to_a_decision_dropped(m01):
+    # u25 (reemplazo) es vecina de u24, que ya cita una decisión: la señal se considera cubierta.
+    acc, drop = run(m01, [dec('d01', 'u24')], COVERED_TASKS,
+                    [bad('NEW', 'missing_item', 'u25 reemplaza la propuesta')])
+    assert acc == [] and drop[0]['guard'] == 'G1'
+
+
+def test_g1_cue_uncited_and_not_adjacent_still_accepted(m01):
+    acc, drop = run(m01, [dec('d01', 'u05')], COVERED_TASKS + [task('t04', 'u19', 'Speaker 04')],
+                    [bad('NEW', 'missing_item', 'u25 reemplaza la propuesta de formato')])
+    assert drop == [] and acc[0]['kind_hint'] == 'decisions'
+
+
+def test_g2_null_deadline_agreeing_with_tool_dropped(m01):
+    acc, drop = run(m01, [], [task('t01', 'u19', 'Speaker 04', None)], [bad('t01', 'wrong_deadline')])
+    assert acc == [] and drop[0]['guard'] == 'G2'
+
+
+def test_g2_null_deadline_when_tool_suggests_a_day_accepted(m01):
+    acc, drop = run(m01, [], [task('t01', 'u33', 'Speaker 04', None)], [bad('t01', 'wrong_deadline')])
+    assert drop == [] and len(acc) == 1
+
+
+def test_g4_pending_task_wrong_state_accepted(m01):
+    acc, drop = run(m01, [], [task('t01', 'u08', 'Speaker 02', state='pending')], [bad('t01', 'wrong_state')])
+    assert drop == [] and len(acc) == 1

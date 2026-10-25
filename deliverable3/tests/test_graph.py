@@ -122,11 +122,12 @@ def _events(path):
 
 
 def test_guards_drop_false_verdicts_and_skip_revision(m01, tmp_path):
-    # t01 es tarea confirmada (G4) y el NEW no cita ningún turno (G1): ambos se descartan.
+    # t01 es tarea final (G4) y el NEW no cita ningún turno (G1): ambos se descartan.
+    from tests.fakes import _task
     audit = audit_route('tasks', flag=['t01'], problem='wrong_state')
     audit['verdicts'].append({'item_id': 'NEW', 'ok': False, 'problem': 'missing_item',
                               'detail': 'falta una tarea'})
-    fake = FakeLLM([dec_finish, task_finish, audit])
+    fake = FakeLLM([dec_finish, dict(task_finish, tasks=[_task(state='final')]), audit])
     out = run_meeting(m01, fake, RunConfig('full'), tmp_path / 'M01.jsonl')
     assert len(fake.calls) == 3 and out['calls'] == 3  # sin revisión
     events = _events(tmp_path / 'M01.jsonl')
