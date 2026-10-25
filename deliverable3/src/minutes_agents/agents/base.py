@@ -15,6 +15,12 @@ from minutes_agents.tools import TOOLS
 from minutes_agents.tracing import Tracer
 
 ROOT = Path(__file__).resolve().parents[3]
+CONTEXT_WARNING_TOKENS = 9500  # num_ctx es 12288; deja margen para la salida (num_predict 2400)
+
+
+def estimate_tokens(messages: list[dict]) -> int:
+    """Estimación gruesa de tokens del prompt (≈3 caracteres por token en español)."""
+    return int(sum(len(m.get('content') or '') for m in messages) / 3.0)
 
 
 @dataclass
@@ -77,7 +83,17 @@ def _execute(tr: dict, call: dict, ctx: dict) -> dict | list:
     fn = TOOLS.get(name)
     if fn is None:
         return {'tool': name, 'error': 'unknown tool'}
-    return fn(tr, call, ctx)
+    try:
+        return fn(tr, call, ctx)
+    except Exception as exc:  # una herramienta rota no debe abortar la reunión
+        return {'tool': name, 'error': repr(exc)}
+
+
+def _duplicate(obs: dict | list, name) -> dict:
+    """Observación reutilizada para una llamada idéntica ya ejecutada en esta invocación."""
+    if isinstance(obs, dict):
+        return {**obs, 'duplicate': True}
+    return {'tool': name, 'duplicate': True, 'result': obs}
 
 
 def run_react(spec: AgentSpec, tr: dict, user_content: str, llm: LLM, tracer: Tracer,
@@ -93,15 +109,25 @@ def run_react(spec: AgentSpec, tr: dict, user_content: str, llm: LLM, tracer: Tr
     n_steps = cfg.max_steps if cfg.react else 1
     pfile, psha = _prompt_file(spec.prompt), spec.prompt.sha256
     calls = 0
+    seen: dict[str, dict | list] = {}  # llamada (JSON canónico) -> observación
+
+    def observe(call: dict) -> dict | list:
+        key = json.dumps(call, sort_keys=True, ensure_ascii=False)
+        if key in seen:
+            return _duplicate(seen[key], call.get('tool'))
+        seen[key] = _execute(tr, call, ctx)
+        return seen[key]
 
     for step in range(1, n_steps + 1):
         allow_tools = cfg.react and step < n_steps
         schema = step_schema(tr, spec.tools, output_props, allow_tools=allow_tools, with_thought=cfg.cot)
+        context_warning = estimate_tokens(messages) > CONTEXT_WARNING_TOKENS
         result = llm.chat(messages, schema)
         calls += 1
         parsed = result.get('parsed')
         base = dict(prompt_file=pfile, prompt_sha256=psha, seconds=result.get('seconds'),
-                    tokens=result.get('eval_count'))
+                    tokens=result.get('eval_count'), prompt_tokens=result.get('prompt_eval_count'),
+                    done_reason=result.get('done_reason'), context_warning=context_warning)
         if parsed is None or not Draft202012Validator(schema).is_valid(parsed):
             tracer.log(spec.name, step, thought=None, action=None, tool_calls=None,
                        observations=None, output=None, error='invalid_json', **base)
@@ -110,7 +136,7 @@ def run_react(spec: AgentSpec, tr: dict, user_content: str, llm: LLM, tracer: Tr
         action = parsed.get('action')
         tool_calls = parsed.get('tool_calls') or []
         if action == 'call_tools' and allow_tools:
-            observations = [_execute(tr, c, ctx) for c in tool_calls]
+            observations = [observe(c) for c in tool_calls]
             tracer.log(spec.name, step, thought=parsed.get('thought'), action=action,
                        tool_calls=tool_calls, observations=observations, output=None, **base)
             messages.append({'role': 'assistant', 'content': result['raw']})

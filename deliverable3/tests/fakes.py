@@ -19,7 +19,7 @@ class FakeLLM:
             raise AssertionError('FakeLLM script exhausted: no further calls expected')
         item = self.script.pop(0)
         raw = item if isinstance(item, str) else json.dumps(item, ensure_ascii=False)
-        return parse_result(raw, schema)
+        return parse_result(raw, schema, done_reason='stop')
 
 
 # --- Scripted step outputs valid against the real step schemas for RunConfig('full') (M01) ---

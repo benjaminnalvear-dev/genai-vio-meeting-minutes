@@ -46,3 +46,13 @@ def test_verdict_schema():
     assert v.is_valid({'item_id': 'NEW', 'ok': False, 'problem': 'missing_item', 'detail': 'x'})
     assert v.is_valid({'item_id': 'd1', 'ok': True, 'problem': None, 'detail': ''})
     assert not v.is_valid({'item_id': 'zz', 'ok': True, 'problem': None, 'detail': ''})
+
+
+def test_tool_calls_max_items_when_tools_allowed(m01):
+    s = step_schema(m01, ['inspect_evidence'], OUT, allow_tools=True, with_thought=True)
+    assert s['properties']['tool_calls']['maxItems'] == 8
+    call = {'tool': 'inspect_evidence', 'evidence_id': 'u05', 'name': None}
+    v = Draft202012Validator(s)
+    base = {'thought': 't', 'action': 'call_tools', 'decisions': []}
+    assert v.is_valid({**base, 'tool_calls': [call] * 8})
+    assert not v.is_valid({**base, 'tool_calls': [call] * 9})

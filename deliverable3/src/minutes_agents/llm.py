@@ -19,7 +19,7 @@ class LLM(Protocol):
     def chat(self, messages: list[dict], schema: dict | None) -> dict: ...
 
 
-def parse_result(raw, schema, seconds=0.0, eval_count=0, prompt_eval_count=0) -> dict:
+def parse_result(raw, schema, seconds=0.0, eval_count=0, prompt_eval_count=0, done_reason=None) -> dict:
     """Build the D2 result dict from raw model text."""
     try:
         parsed = json.loads(raw)
@@ -28,7 +28,7 @@ def parse_result(raw, schema, seconds=0.0, eval_count=0, prompt_eval_count=0) ->
     except (json.JSONDecodeError, TypeError):
         parsed = None
     return {'raw': raw, 'parsed': parsed, 'seconds': seconds,
-            'eval_count': eval_count, 'prompt_eval_count': prompt_eval_count,
+            'eval_count': eval_count, 'prompt_eval_count': prompt_eval_count, 'done_reason': done_reason,
             'schema_valid': bool(parsed is not None and schema is not None
                                  and Draft202012Validator(schema).is_valid(parsed))}
 
@@ -47,7 +47,7 @@ class OllamaLLM:
         out = res.json()
         raw = out['message'].get('content', '')
         return parse_result(raw, schema, round(time.monotonic() - t0, 2),
-                            out.get('eval_count'), out.get('prompt_eval_count'))
+                            out.get('eval_count'), out.get('prompt_eval_count'), out.get('done_reason'))
 
 
 class CachedLLM:

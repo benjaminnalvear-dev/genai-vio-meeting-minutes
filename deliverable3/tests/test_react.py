@@ -59,3 +59,61 @@ def test_unknown_tool_yields_error_observation(m01, toy_spec):
     finally:
         base.TOOLS = orig
     assert tr.events[0]['observations'] == [{'tool': 'inspect_evidence', 'error': 'unknown tool'}]
+
+
+def _call(eid='u05'):
+    return {'tool': 'inspect_evidence', 'evidence_id': eid, 'name': None}
+
+
+def test_duplicate_tool_calls_reuse_observation(m01, toy_spec, monkeypatch):
+    import minutes_agents.agents.base as base
+    n = {'calls': 0}
+    real = base.TOOLS['inspect_evidence']
+
+    def counting(tr, call, ctx):
+        n['calls'] += 1
+        return real(tr, call, ctx)
+    monkeypatch.setitem(base.TOOLS, 'inspect_evidence', counting)
+    fake = FakeLLM([{'thought': '', 'action': 'call_tools', 'tool_calls': [_call(), _call()], 'decisions': []},
+                    {'thought': '', 'action': 'call_tools', 'tool_calls': [_call(), _call('u06')], 'decisions': []},
+                    {'thought': '', 'action': 'finish', 'tool_calls': [], 'decisions': []}])
+    tr = Tracer(None)
+    run_react(toy_spec, m01, 'x', fake, tr, RunConfig('full'), {'items': []})
+    assert n['calls'] == 2  # u05 once, u06 once
+    obs1, obs2 = tr.events[0]['observations'], tr.events[1]['observations']
+    assert 'duplicate' not in obs1[0] and obs1[1]['duplicate'] is True
+    assert obs1[1]['cited'] == obs1[0]['cited']
+    assert obs2[0]['duplicate'] is True and 'duplicate' not in obs2[1]
+
+
+def test_trace_logs_prompt_tokens_done_reason_and_context_warning(m01, toy_spec):
+    from minutes_agents.agents.base import CONTEXT_WARNING_TOKENS, estimate_tokens
+    assert estimate_tokens([{'role': 'user', 'content': 'a' * 30}]) == 10
+    tr = Tracer(None)
+
+    class _LLM(FakeLLM):
+        def chat(self, messages, schema=None):
+            r = super().chat(messages, schema)
+            r['prompt_eval_count'] = 1234
+            return r
+    run_react(toy_spec, m01, 'x', _LLM([{'thought': '', 'action': 'finish', 'tool_calls': [], 'decisions': []}]),
+              tr, RunConfig('full'), {'items': []})
+    ev = tr.events[0]
+    assert ev['prompt_tokens'] == 1234 and ev['done_reason'] == 'stop' and ev['context_warning'] is False
+    big = 'x' * int(3 * (CONTEXT_WARNING_TOKENS + 10))
+    tr2 = Tracer(None)
+    run_react(toy_spec, m01, big, FakeLLM(['no es json']), tr2, RunConfig('full'), {'items': []})
+    assert tr2.events[0]['context_warning'] is True and tr2.events[0]['prompt_tokens'] == 0
+
+
+def test_tool_exception_becomes_error_observation(m01, toy_spec, monkeypatch):
+    import minutes_agents.agents.base as base
+
+    def boom(tr, call, ctx):
+        raise KeyError('x')
+    monkeypatch.setitem(base.TOOLS, 'inspect_evidence', boom)
+    fake = FakeLLM([{'thought': '', 'action': 'call_tools', 'tool_calls': [_call()], 'decisions': []},
+                    {'thought': '', 'action': 'finish', 'tool_calls': [], 'decisions': []}])
+    tr = Tracer(None)
+    run_react(toy_spec, m01, 'x', fake, tr, RunConfig('full'), {'items': []})
+    assert tr.events[0]['observations'] == [{'tool': 'inspect_evidence', 'error': "KeyError('x')"}]

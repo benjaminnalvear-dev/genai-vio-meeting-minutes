@@ -53,6 +53,9 @@ def verdict_schema(item_ids):
                 'detail': {'type': 'string'}}}
 
 
+MAX_TOOL_CALLS = 8
+
+
 def step_schema(tr, tools, output, *, allow_tools, with_thought):
     ids = [u['id'] for u in tr['utterances']]
     call = {'type': 'object', 'additionalProperties': False,
@@ -61,9 +64,8 @@ def step_schema(tr, tools, output, *, allow_tools, with_thought):
                 'tool': {'type': 'string', 'enum': list(tools)},
                 'evidence_id': {'type': ['string', 'null'], 'enum': ids + [None]},
                 'name': nullable_string()}}
-    tool_calls = {'type': 'array', 'items': call}
-    if not allow_tools:
-        tool_calls['maxItems'] = 0
+    # Tope de llamadas por paso: acota el crecimiento del contexto (num_ctx 12288).
+    tool_calls = {'type': 'array', 'items': call, 'maxItems': MAX_TOOL_CALLS if allow_tools else 0}
     props = {}
     if with_thought:
         props['thought'] = {'type': 'string'}

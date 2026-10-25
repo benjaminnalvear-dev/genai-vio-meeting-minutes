@@ -78,3 +78,18 @@ def test_cached_llm_corrupted_entry_is_miss(tmp_path):
     assert c2.chat(msgs, None)['parsed'] == {'a': 2} and c2.calls_made == 1
     assert CachedLLM(FakeLLM([]), tmp_path).chat(msgs, None)['parsed'] == {'a': 2}
     assert not list(tmp_path.glob('*.tmp'))
+
+
+def test_ollama_llm_reports_done_reason_and_prompt_tokens(monkeypatch):
+    import minutes_agents.llm as llm_mod
+
+    class _Res:
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return {'message': {'content': '{"a": 1}'}, 'eval_count': 5, 'prompt_eval_count': 77,
+                    'done_reason': 'length'}
+    monkeypatch.setattr(llm_mod.requests, 'post', lambda *a, **k: _Res())
+    r = llm_mod.OllamaLLM().chat([{'role': 'user', 'content': 'x'}], None)
+    assert r['done_reason'] == 'length' and r['prompt_eval_count'] == 77 and r['parsed'] == {'a': 1}
