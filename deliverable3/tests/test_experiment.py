@@ -107,3 +107,87 @@ def test_summary_accumulates_across_invocations(m01, m01_gold, tmp_path):
     assert 'full' in s and 'no_auditor' in s and s['meta']['conditions'] == ['full', 'no_auditor']
     assert s['meta']['conditions_run'] == ['no_auditor']
     assert 'full' in json.loads((tmp_path / 'summary.json').read_text('utf-8'))
+
+
+def test_result_files_store_provenance(m01, m01_gold, tmp_path):
+    from dataclasses import asdict
+    from minutes_agents.experiment import prompt_hashes
+    run_experiment(['no_auditor'], {'M01': m01}, {'M01': m01_gold}, FakeLLM([dec_finish, task_finish]),
+                   tmp_path, tmp_path / 'tr', log=lambda m: None)
+    res = json.loads((tmp_path / 'no_auditor' / 'M01.json').read_text('utf-8'))
+    assert res['prompt_hashes'] == prompt_hashes() and res['run_config'] == asdict(load_config('no_auditor'))
+
+
+def test_prompt_hash_change_forces_recompute(m01, m01_gold, tmp_path, monkeypatch):
+    import minutes_agents.experiment as exp
+    trs, gold, logs = {'M01': m01}, {'M01': m01_gold}, []
+    run_experiment(['no_auditor'], trs, gold, FakeLLM([dec_finish, task_finish]), tmp_path, tmp_path / 'tr',
+                   log=lambda m: None)
+    real = exp.prompt_hashes()
+    monkeypatch.setattr(exp, 'prompt_hashes', lambda: {**real, 'tasks.v1.md': '0' * 64})
+    fake = FakeLLM([dec_finish, task_finish])
+    s = run_experiment(['no_auditor'], trs, gold, fake, tmp_path, tmp_path / 'tr', log=logs.append)
+    assert len(fake.calls) == 2 and any('stale' in m for m in logs)
+    assert s['meta']['stale_results'] == []
+    # una condición no recorrida queda marcada como desactualizada en el resumen
+    monkeypatch.setattr(exp, 'prompt_hashes', lambda: real)
+    s = run_experiment(['full'], trs, gold, FakeLLM([dec_finish, task_finish, audit_route('finish')]),
+                       tmp_path, tmp_path / 'tr', log=lambda m: None)
+    assert s['meta']['stale_results'] == [{'condition': 'no_auditor', 'meeting_id': 'M01'}]
+
+
+def test_config_change_forces_recompute(m01, m01_gold, tmp_path, monkeypatch):
+    import minutes_agents.experiment as exp
+    trs, gold = {'M01': m01}, {'M01': m01_gold}
+    run_experiment(['no_auditor'], trs, gold, FakeLLM([dec_finish, task_finish]), tmp_path, tmp_path / 'tr',
+                   log=lambda m: None)
+    real = exp.load_config
+    monkeypatch.setattr(exp, 'load_config', lambda n: __import__('dataclasses').replace(real(n), max_steps=2))
+    fake = FakeLLM([dec_finish, task_finish])
+    run_experiment(['no_auditor'], trs, gold, fake, tmp_path, tmp_path / 'tr', log=lambda m: None)
+    assert len(fake.calls) == 2
+
+
+def test_ollama_version_recorded_per_condition(m01, m01_gold, tmp_path):
+    trs, gold = {'M01': m01}, {'M01': m01_gold}
+    run_experiment(['full'], trs, gold, FakeLLM([dec_finish, task_finish, audit_route('finish')]),
+                   tmp_path, tmp_path / 'tr', meta_extra={'ollama_version': '0.1', 'model_digest': 'aa'},
+                   log=lambda m: None)
+    s = run_experiment(['no_auditor', 'full'], trs, gold, FakeLLM([dec_finish, task_finish]), tmp_path,
+                       tmp_path / 'tr', meta_extra={'ollama_version': '0.2', 'model_digest': 'bb'},
+                       log=lambda m: None)
+    assert s['meta']['ollama_version_by_condition'] == {'full': '0.1', 'no_auditor': '0.2'}
+    assert s['meta']['model_digest_by_condition'] == {'full': 'aa', 'no_auditor': 'bb'}
+    assert 'package_commit' in s['meta']
+
+
+def test_package_commit_prefers_commit_txt(tmp_path):
+    from minutes_agents.experiment import package_commit
+    (tmp_path / 'COMMIT.txt').write_text('abc1234\n', encoding='utf-8')
+    assert package_commit(tmp_path) == 'abc1234'
+
+
+def test_model_digest_helper(monkeypatch):
+    sys.path.insert(0, str(ROOT / 'scripts'))
+    import run_experiment as cli
+
+    class _R:
+        def json(self):
+            return {'models': [{'name': 'other', 'digest': 'x'}, {'name': cli.MODEL, 'digest': 'sha-1'}]}
+    monkeypatch.setattr(cli.requests, 'get', lambda *a, **k: _R())
+    assert cli.model_digest('http://h') == 'sha-1'
+    monkeypatch.setattr(cli.requests, 'get', lambda *a, **k: (_ for _ in ()).throw(OSError('down')))
+    assert cli.model_digest('http://h') is None
+
+
+def test_cli_survives_condition_with_no_results(monkeypatch, tmp_path, capsys, dataset_dir):
+    sys.path.insert(0, str(ROOT / 'scripts'))
+    import run_experiment as cli
+    fake_summary = {'meta': {'failed': [{'condition': 'full', 'meeting_id': 'M01', 'error': 'TimeoutError: x'}]}}
+    monkeypatch.setattr(cli, 'run_experiment', lambda *a, **k: fake_summary)
+    monkeypatch.setattr(cli, 'ollama_version', lambda h: None)
+    monkeypatch.setattr(cli, 'model_digest', lambda h: None)
+    cli.main(['--data', str(dataset_dir), '--split', 'test', '--conditions', 'full', '--out',
+              str(tmp_path / 'o'), '--demo', '--cache', str(tmp_path / 'c')])
+    out = capsys.readouterr().out
+    assert 'full: NO RESULTS' in out and '1 FAILED MEETING' in out and 'M01' in out

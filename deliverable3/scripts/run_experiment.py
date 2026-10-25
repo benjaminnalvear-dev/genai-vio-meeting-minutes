@@ -11,12 +11,20 @@ import requests  # noqa: E402
 
 from minutes_agents.data import extract_dataset, load_split  # noqa: E402
 from minutes_agents.experiment import CONDITIONS, run_experiment  # noqa: E402
-from minutes_agents.llm import CachedLLM, OllamaLLM  # noqa: E402
+from minutes_agents.llm import MODEL, CachedLLM, OllamaLLM  # noqa: E402
 
 
 def ollama_version(host: str):
     try:
         return requests.get(f'{host.rstrip("/")}/api/version', timeout=10).json().get('version')
+    except Exception:
+        return None
+
+
+def model_digest(host: str, model: str = MODEL):
+    try:
+        tags = requests.get(f'{host.rstrip("/")}/api/tags', timeout=10).json().get('models', [])
+        return next((m.get('digest') for m in tags if model in (m.get('name'), m.get('model'))), None)
     except Exception:
         return None
 
@@ -47,11 +55,22 @@ def main(argv=None):
     transcripts, gold = {m: transcripts[m] for m in ids}, {m: gold[m] for m in ids}
     llm = CachedLLM(OllamaLLM(host=a.host), a.cache)
     summary = run_experiment(conds, transcripts, gold, llm, a.out, a.traces,
-                             meta_extra={'ollama_version': ollama_version(a.host), 'split': a.split,
+                             meta_extra={'ollama_version': ollama_version(a.host),
+                                         'model_digest': model_digest(a.host), 'split': a.split,
                                          'demo': a.demo, 'limit': a.limit})
     for c in conds:
+        if c not in summary:
+            print(f'{c}: NO RESULTS (every meeting failed)')
+            continue
         p = summary[c]['primary']
         print(f"{c}: decisions F1 {p['decisions']['f1']}  tasks F1 {p['tasks']['f1']}")
+    failed = summary['meta'].get('failed') or []
+    if failed:
+        print()
+        print(f'!!! {len(failed)} FAILED MEETING(S) - rerun the same command to retry them:')
+        for f in failed:
+            print(f"!!!   [{f['condition']}] {f['meeting_id']}: {f['error']}")
+    return summary
 
 
 if __name__ == '__main__':
