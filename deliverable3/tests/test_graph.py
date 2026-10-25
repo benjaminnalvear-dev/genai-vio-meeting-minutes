@@ -176,3 +176,29 @@ def test_g7_drops_new_item_duplicating_existing_evidence(m01, tmp_path):
     assert [t['description'] for t in out['parsed']['tasks']] == ['Enviar el informe final']
     g7 = [e for e in _events(tmp_path / 'M01.jsonl') if e['agent'] == 'guard']
     assert len(g7) == 1 and g7[0]['guard'] == 'G7' and g7[0]['item_id'] == 't02'
+
+
+def test_g7_keeps_split_of_merged_item_but_drops_duplicate(m01, tmp_path):
+    from tests.fakes import _task
+    t2 = dict(_task('Entregar la versión estable'), id='t02', evidence_id='u33')
+    tasks0 = dict(task_finish, tasks=[_task(), t2])
+    audit = audit_route('tasks', flag=['t01'], problem='merged_items', detail='u08 junta dos acciones')
+    split = [dict(_task('Preparar el borrador')), dict(_task('Enviar el borrador para revisión'))]
+    dup = dict(_task('Entregar la versión'), id='NEW', evidence_id='u33')
+    revised = dict(task_revised, tasks=split + [dup])
+    fake = FakeLLM([dec_finish, tasks0, audit, revised, audit_route('finish')])
+    out = run_meeting(m01, fake, RunConfig('full'), tmp_path / 'M01.jsonl')
+    assert [t['description'] for t in out['parsed']['tasks']] == [
+        'Preparar el borrador', 'Enviar el borrador para revisión', 'Entregar la versión estable']
+    g7 = [e for e in _events(tmp_path / 'M01.jsonl') if e['agent'] == 'guard']
+    assert [(e['guard'], e['item_id']) for e in g7] == [('G7', 't03')]  # merge numera primero los NEW, luego las divisiones
+
+
+def test_router_event_records_auditor_and_recomputed_route(m01, tmp_path):
+    # El Auditor dice 'finish' pero deja un veredicto válido: la ruta recalculada manda a Tareas.
+    fake = FakeLLM([dec_finish, task_finish, audit_route('finish', flag='t01'), task_revised,
+                    audit_route('finish')])
+    run_meeting(m01, fake, RunConfig('full'), tmp_path / 'M01.jsonl')
+    router = [e for e in _events(tmp_path / 'M01.jsonl') if e['agent'] == 'router'][0]
+    assert router['auditor_route'] == 'finish' and router['route'] == 'tasks'
+    assert router['next'] == 'revise_tasks' and len(fake.calls) == 5

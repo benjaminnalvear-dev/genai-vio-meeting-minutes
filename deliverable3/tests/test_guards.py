@@ -170,3 +170,29 @@ def test_dedupe_new_drops_appended_item_with_existing_evidence():
     kept, dropped = dedupe_new(current, merged)
     assert [t['id'] for t in kept] == ['t01', 't02', 't04']
     assert [t['id'] for t in dropped] == ['t03']
+
+
+def test_g1_new_with_other_problem_dropped(m01):
+    v = bad('NEW', 'wrong_state', 'u19 debería ser final')
+    acc, drop = run(m01, [dec('d01', 'u05')], COVERED_TASKS, [v])
+    assert acc == [] and drop == [{'verdict': v, 'guard': 'G1',
+                                   'reason': 'NEW solo es válido con missing_item'}]
+
+
+def test_g5_matches_whole_token_only():
+    tr = {'meeting_id': 'X', 'meeting_date': '2026-09-14', 'title': 't', 'participants': [],
+          'utterances': [{'id': 'u01', 'speaker': 'Speaker 1', 'text': 'Hola.'},
+                         {'id': 'u02', 'speaker': 'Speaker 2', 'text': 'Speaker 10 queda a cargo del informe.'},
+                         {'id': 'u03', 'speaker': 'Speaker 10', 'text': 'De acuerdo.'}]}
+    acc, drop = filter_verdicts(tr, [], [task('t01', 'u02', 'Speaker 1')], [bad('t01', 'wrong_assignee')])
+    assert drop == [] and len(acc) == 1  # 'speaker 1' no coincide con 'speaker 10'
+    acc, drop = filter_verdicts(tr, [], [task('t01', 'u02', 'Speaker 10')], [bad('t01', 'wrong_assignee')])
+    assert acc == [] and drop[0]['guard'] == 'G5'
+
+
+def test_dedupe_new_exempts_split_of_merged_item():
+    current = [task('t01', 'u08'), task('t02', 'u33')]
+    merged = [task('t01', 'u08'), task('t02', 'u33'), task('t03', 'u08'), task('t04', 'u33')]
+    kept, dropped = dedupe_new(current, merged, exempt_evidence={'u08'})
+    assert [t['id'] for t in kept] == ['t01', 't02', 't03']
+    assert [t['id'] for t in dropped] == ['t04']

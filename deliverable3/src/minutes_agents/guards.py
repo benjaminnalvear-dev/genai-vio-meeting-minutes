@@ -60,7 +60,8 @@ def _g5(tr, t) -> str | None:
     if not isinstance(assignee, str) or not check_participant(tr, assignee)['is_participant']:
         return None
     ev = t.get('evidence_id')
-    if assignee == _speaker(tr, ev) or norm(assignee) in norm(_text(tr, ev) or ''):
+    name = norm(assignee)  # token completo: 'speaker 1' no coincide con 'speaker 10'
+    if assignee == _speaker(tr, ev) or (name and re.search(rf'\b{re.escape(name)}\b', norm(_text(tr, ev) or ''))):
         return 'el responsable es participante y habla o es nombrado en el turno citado'
     return None
 
@@ -86,6 +87,9 @@ def filter_verdicts(tr: dict, decisions: list[dict], tasks: list[dict],
             drop(v, 'G0', 'unknown item')
             continue
         reason, guard = None, None
+        if item_id == NEW_ID and problem != 'missing_item':
+            drop(v, 'G1', 'NEW solo es válido con missing_item')
+            continue
         if problem == 'missing_item':
             reason, hint = _g1(tr, decisions, tasks, v)
             guard = 'G1'
@@ -132,14 +136,19 @@ def route_from(accepted: list[dict]) -> str:
     return kinds.pop() if kinds else 'finish'
 
 
-def dedupe_new(current: list[dict], merged: list[dict]) -> tuple[list[dict], list[dict]]:
-    """G7: descarta los ítems agregados por merge cuyo evidence_id ya cita un ítem preexistente."""
+def dedupe_new(current: list[dict], merged: list[dict],
+               exempt_evidence: set | frozenset = frozenset()) -> tuple[list[dict], list[dict]]:
+    """G7: descarta los ítems agregados por merge cuyo evidence_id ya cita un ítem preexistente.
+
+    `exempt_evidence`: evidence_id de los ítems marcados con merged_items en esta ronda; sus
+    divisiones legítimas (varias versiones con la misma cita) no se descartan."""
     current_ids = {c.get('id') for c in current if isinstance(c, dict)}
     old_evidence = {m.get('evidence_id') for m in merged
                     if isinstance(m, dict) and m.get('id') in current_ids}
     kept, dropped = [], []
     for m in merged:
-        if isinstance(m, dict) and m.get('id') not in current_ids and m.get('evidence_id') in old_evidence:
+        if (isinstance(m, dict) and m.get('id') not in current_ids and m.get('evidence_id') in old_evidence
+                and m.get('evidence_id') not in exempt_evidence):
             dropped.append(m)
         else:
             kept.append(m)

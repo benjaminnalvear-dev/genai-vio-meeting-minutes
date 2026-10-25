@@ -144,7 +144,9 @@ def build_graph(llm: LLM, tracer: Tracer, cfg: RunConfig):
                       {'items': _items(state)})
         merged = merge(state[kind], r['output'][kind], flagged, prefix=kind[0])
         if cfg.audit_guards:  # G7: un ítem nuevo que repite la evidencia de uno existente es duplicado
-            merged, dups = dedupe_new(state[kind], merged)
+            split_ids = {v['item_id'] for v in verdicts if v.get('problem') == 'merged_items'}
+            exempt = {i.get('evidence_id') for i in items if i.get('id') in split_ids}
+            merged, dups = dedupe_new(state[kind], merged, exempt)
             for it in dups:
                 tracer.log('guard', 0, item_id=it.get('id'), problem=None, guard='G7',
                            reason=f"ítem nuevo con evidence_id {it.get('evidence_id')} ya citado por un ítem existente")
