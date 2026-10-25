@@ -109,6 +109,7 @@ Cada paso de agente es una llamada a Ministral con `format=<schema>` (constraine
 - Salida (en `finish`): `verdicts[]` = `{item_id, ok, problem, detail}` con `problem ∈ {evidence_not_supporting, wrong_state, wrong_deadline, wrong_assignee, merged_items, missing_item, null}`; y `route ∈ {decisions, tasks, both, finish}`.
 - Parada/traspaso: `route = finish` o ronda de auditoría 2 cumplida → Finalizador; si no, ítems marcados + feedback → especialista(s) indicados.
 - Técnicas: *self-criticism / Chain-of-Verification* (pregunta de verificación por ítem); checklist cerrado (enum `problem`); *ReAct / tool use*.
+- **Barandas determinísticas** (`src/minutes_agents/guards.py`, activas salvo en la condición `no_guards`). Motivo: en la corrida de validación (VA01, VA02) el Auditor de 3B propuso problemas falsos, los especialistas los obedecieron y agregaron ítems duplicados o falsos; el F1 antes de la auditoría superó al de después en 4/4 casos. El Auditor sigue proponiendo veredictos, pero Python verifica cada afirmación verificable con las mismas herramientas determinísticas antes de que llegue a un especialista: **G0** descarta veredictos sobre ítems inexistentes; **G1** acepta un `missing_item` solo con `item_id = NEW` y si `detail` cita un turno con compromiso sin cubrir (`find_uncovered_commitments`) o con señal de cambio que ninguna decisión cita (`find_revision_cues`); el NEW aceptado va solo al especialista correspondiente (tareas si el turno es un compromiso sin cubrir, decisiones si no); **G2** descarta `wrong_deadline` si el día del plazo coincide con `resolve_deadline`; **G3** descarta `wrong_state` sobre una decisión cuyo estado está respaldado (superseded con sucesora cuya evidencia es señal de cambio; rejected con "descart-/rechaz-" en la cita; pending con "pendiente"; final nunca se descarta); **G4** descarta todo `wrong_state` sobre tareas (una tarea confirmada es `final` por regla del proyecto); **G5** descarta `wrong_assignee` si el responsable es participante y habla o es nombrado en el turno citado; **G6** descarta `merged_items` sobre una decisión que es parte de una cadena de reemplazo. Tras filtrar, la ruta se **recalcula** desde los veredictos aceptados (la ruta original del Auditor queda en la traza como `auditor_route`). Después de cada fusión, **G7** descarta un ítem nuevo cuyo `evidence_id` ya cita un ítem existente. Cada veredicto o ítem descartado se registra en la traza como evento `guard` con su motivo. Riesgo declarado de G7: si dos tareas distintas se confirman en el mismo turno y la segunda solo aparece en una revisión, se pierde.
 
 **Finalizador** — nodo determinístico, **no es un agente** (se declara así).
 - Fusiona salidas: los ítems no marcados por el Auditor se conservan tal cual (una revisión no puede perder ítems).
@@ -142,6 +143,7 @@ Aristas: `START → decisions → tasks → auditor` (secuencial: una sola GPU T
 | 5 | − Auditor (0 rondas) | self-criticism / CoVe y loop |
 | 6 | − Few-shot (ambos especialistas) | ejemplos de transiciones, plazos, estado de tareas |
 | 7 | − Descomposición/CoT (sin `topic_plan` ni `thought`) | razonar antes de clasificar |
+| 8 | − Barandas (`no_guards`: los veredictos del Auditor llegan sin filtrar a los especialistas, con su ruta original; sin G7) | valor de verificar con código lo que propone el Auditor |
 
 No se ablacionan, y se declara: *role prompting* (bajo valor esperado, costo de una corrida) y constrained decoding (sin él se rompe el parseo ReAct; su efecto ya se midió en el D2).
 
@@ -156,7 +158,7 @@ No se ablacionan, y se declara: *role prompting* (bajo valor esperado, costo de 
 3. Grafo de agentes (TikZ): cada agente y herramienta como nodo, cada traspaso como arista etiquetada con lo que pasa, loops y paradas marcados.
 
 ### 4.5 Trazas
-`traces/<condición>/<meeting_id>.jsonl`, una línea por evento: `ts`, `agent`, `step`, `prompt_file`, `prompt_sha256`, `thought`, `action`, `tool_calls`, `observations`, `output`, `seconds`, `tokens`, `prompt_tokens`, `done_reason`, `context_warning` (estimación del prompt > 9500 tokens). Los eventos `router` registran `route`, `flagged`, `next` (o `skipped` cuando el especialista no tiene veredictos y no se le llama). El costo por reunión (`seconds`) es la suma de los `seconds` de los pasos (las respuestas en caché conservan su tiempo original); `wall_seconds` es el reloj de pared. Se versionan en el repo las de las reuniones del video y la del caso de falla. Caso de falla: la reunión con peor F1 estricto del sistema completo (criterio objetivo).
+`traces/<condición>/<meeting_id>.jsonl`, una línea por evento: `ts`, `agent`, `step`, `prompt_file`, `prompt_sha256`, `thought`, `action`, `tool_calls`, `observations`, `output`, `seconds`, `tokens`, `prompt_tokens`, `done_reason`, `context_warning` (estimación del prompt > 9500 tokens). Los eventos `router` registran `route`, `flagged`, `next` (o `skipped` cuando el especialista no tiene veredictos y no se le llama) y, con barandas, `auditor_route` (la ruta que propuso el Auditor antes del filtro). Los eventos `guard` (`step = 0`) registran cada veredicto o ítem descartado por las barandas: `item_id`, `problem`, `guard` (`G0`–`G7`) y `reason`. El costo por reunión (`seconds`) es la suma de los `seconds` de los pasos (las respuestas en caché conservan su tiempo original); `wall_seconds` es el reloj de pared. Se versionan en el repo las de las reuniones del video y la del caso de falla. Caso de falla: la reunión con peor F1 estricto del sistema completo (criterio objetivo).
 
 ## 5. Repositorio y reproducibilidad
 
@@ -178,7 +180,7 @@ deliverable3/
 - El código del D2 se reimplementa en módulos; `GenAI Constrained+Tool use/` queda intacto.
 - Cada prompt se carga desde archivo; su ruta y hash quedan en cada traza.
 - Tests sin GPU: herramientas; **paridad** (el evaluador reproduce el `summary.json` del D2 desde `minutas_resultados_test.zip`); grafo con LLM falso (rutas, loop, límites de pasos y rondas, conservación de ítems no marcados).
-- Notebook: modo `DEMO` (M01, trazas impresas por agente, para el video) y `FULL` (7 condiciones).
+- Notebook: modo `DEMO` (M01, trazas impresas por agente, para el video) y `FULL` (8 condiciones).
 - README en español con pasos para reproducir el video y las trazas.
 - Video ≤ 3 min: Colab corriendo M01 en vivo con mensajes entre agentes visibles, acta final y figuras de la corrida completa. M01 por orden de archivo, igual que en el D2.
 - PDF en inglés, LaTeX, una página: problemática → dificultad del benchmark → grafo → diseño y técnicas por agente → resultados visuales y ablaciones → caso de falla → limitaciones y reproducción.
@@ -188,7 +190,7 @@ deliverable3/
 
 | Riesgo | Mitigación |
 |---|---|
-| Costo de Colab (~6–10 llamadas/reunión × 7 condiciones ≈ 2 h T4) | Límites de pasos/rondas parametrizados; cache por llamada como en el D2 para reanudar |
+| Costo de Colab (~6–10 llamadas/reunión × 8 condiciones ≈ 2–2,5 h T4) | Límites de pasos/rondas parametrizados; cache por llamada como en el D2 para reanudar |
 | Ministral 3B no sigue el protocolo ReAct | Esquema fuerza estructura y enums; último paso fuerza `finish`; se valida en validation antes de test |
 | El loop empeora ítems correctos | Solo se revisan ítems marcados; el Finalizador conserva los demás |
 | Resultados dependen de versión de Ollama | Se registra versión de Ollama y digest del modelo; D2 se re-ejecuta en la misma sesión |
