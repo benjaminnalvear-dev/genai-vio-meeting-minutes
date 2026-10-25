@@ -38,7 +38,7 @@ def test_trace_written(m01, tmp_path):
 
 
 def test_route_both_visits_decisions_then_tasks(m01, tmp_path):
-    fake = FakeLLM([dec_finish, task_finish, audit_route('both', flag='d01'), dec_revised,
+    fake = FakeLLM([dec_finish, task_finish, audit_route('both', flag=['d01', 't01']), dec_revised,
                     task_revised, audit_route('finish')])
     out = run_meeting(m01, fake, RunConfig('full'), tmp_path / 'M01.jsonl')
     events = [json.loads(l) for l in (tmp_path / 'M01.jsonl').read_text('utf-8').splitlines()]
@@ -79,3 +79,37 @@ def test_invalid_steps_and_tool_calls_counted(m01):
     fake = FakeLLM([dec_tools, dec_finish, task_finish, 'no es json'])
     out = run_meeting(m01, fake, RunConfig('full'), None)
     assert out['invalid_steps'] == 1 and out['tool_calls'] == 2
+
+
+def test_duplicate_ids_from_specialist_survive_audit_round(m01):
+    from tests.fakes import _decision
+    second = dict(_decision('Se posterga la compra'), evidence_id='u06')  # mismo id 'd01'
+    dec_dup = dict(dec_finish, decisions=[_decision(), second])
+    fake = FakeLLM([dec_dup, task_finish, audit_route('decisions', flag='d01'), dec_revised,
+                    audit_route('finish')])
+    out = run_meeting(m01, fake, RunConfig('full'), None)
+    statements = [d['statement'] for d in out['parsed']['decisions']]
+    assert statements == ['Se adopta el plan acordado (revisado)', 'Se posterga la compra']
+    assert [d['id'] for d in out['parsed']['decisions']] == ['d01', 'd02']
+    audit_items = fake.calls[2][0][1]['content']
+    assert '"id": "d02"' in audit_items  # el Auditor ya ve ids únicos
+
+
+def test_revision_skipped_when_no_verdicts_for_specialist(m01, tmp_path):
+    fake = FakeLLM([dec_finish, task_finish, audit_route('decisions', flag='t01'), audit_route('finish')])
+    out = run_meeting(m01, fake, RunConfig('full'), tmp_path / 'M01.jsonl')
+    assert len(fake.calls) == 4 and out['calls'] == 4  # no se llamó al agente Decisiones
+    events = [json.loads(l) for l in (tmp_path / 'M01.jsonl').read_text('utf-8').splitlines()]
+    assert [e['agent'] for e in events] == ['decisions', 'tasks', 'auditor', 'router', 'router',
+                                            'auditor', 'router', 'finalize']
+    assert events[4]['skipped'] == 'decisions' and events[4]['route'] == 'decisions'
+
+
+def test_normalize_ids_remaps_supersedes():
+    from minutes_agents.graph import normalize_ids
+    items = [{'id': 'd03', 'supersedes': None}, {'id': 'd03', 'supersedes': None},
+             {'id': 'd07', 'supersedes': 'd03'}, {'id': 'x', 'supersedes': 'zz'}]
+    out, actions = normalize_ids(items, 'decisions')
+    assert [i['id'] for i in out] == ['d01', 'd02', 'd03', 'd04']
+    assert out[2]['supersedes'] == 'd01' and out[3]['supersedes'] is None
+    assert actions == ['supersedes sin resolver a null'] and items[0]['id'] == 'd03'  # sin mutar la entrada

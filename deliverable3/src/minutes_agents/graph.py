@@ -1,6 +1,7 @@
 """Grafo LangGraph: decisions -> tasks -> auditor <-> especialistas -> finalize."""
 from __future__ import annotations
 
+import copy
 import json
 import time
 from pathlib import Path
@@ -13,7 +14,7 @@ from minutes_agents.agents import auditor as auditor_mod
 from minutes_agents.agents import decisions as decisions_mod
 from minutes_agents.agents import tasks as tasks_mod
 from minutes_agents.agents.base import RunConfig, run_react, user_message
-from minutes_agents.finalize import NEW_ID, finalize, merge
+from minutes_agents.finalize import NEW_ID, _renumber, finalize, merge
 from minutes_agents.llm import LLM
 from minutes_agents.schemas import make_schema
 from minutes_agents.tracing import Tracer
@@ -67,18 +68,39 @@ def _mine(state: MeetingState, kind: str) -> tuple[list[dict], list[dict], set[s
     return verdicts, items, flagged
 
 
+def normalize_ids(items: list[dict], kind: str) -> tuple[list[dict], list[str]]:
+    """Renumera d01../t01.. (ids únicos antes de auditar o fusionar) y remapea `supersedes`.
+
+    Usa el mismo `_renumber` del Finalizador; un `supersedes` que no apunta a ningún ítem
+    se pone en null aquí (y se registra) para que no capture un id que se asigne más tarde."""
+    out, id_map = _renumber(copy.deepcopy(list(items)), kind[0])
+    actions = []
+    if kind == 'decisions':
+        for it in out:
+            if isinstance(it, dict) and it.get('supersedes') is not None:
+                new = id_map.get(it['supersedes'])
+                if new is None:
+                    actions.append('supersedes sin resolver a null')
+                it['supersedes'] = new
+    return out, actions
+
+
 def build_graph(llm: LLM, tracer: Tracer, cfg: RunConfig):
     dec, tsk, aud = decisions_mod.build(cfg), tasks_mod.build(cfg), auditor_mod.build(cfg)
 
     def decisions_node(state: MeetingState):
         tr = state['transcript']
         r = run_react(dec, tr, user_message(tr), llm, tracer, cfg, {'items': _items(state)})
-        return {'decisions': r['output']['decisions'], 'calls': state['calls'] + r['calls']}
+        items, actions = normalize_ids(r['output']['decisions'], 'decisions')
+        return {'decisions': items, 'calls': state['calls'] + r['calls'],
+                'mechanical_actions': state['mechanical_actions'] + actions}
 
     def tasks_node(state: MeetingState):
         tr = state['transcript']
         r = run_react(tsk, tr, user_message(tr), llm, tracer, cfg, {'items': _items(state)})
-        return {'tasks': r['output']['tasks'], 'calls': state['calls'] + r['calls']}
+        items, actions = normalize_ids(r['output']['tasks'], 'tasks')
+        return {'tasks': items, 'calls': state['calls'] + r['calls'],
+                'mechanical_actions': state['mechanical_actions'] + actions}
 
     def auditor_node(state: MeetingState):
         tr = state['transcript']
@@ -98,10 +120,16 @@ def build_graph(llm: LLM, tracer: Tracer, cfg: RunConfig):
     def _revise(kind: str, spec, state: MeetingState):
         tr = state['transcript']
         verdicts, items, flagged = _mine(state, kind)
+        if not verdicts:  # ningún veredicto le toca: no se gasta una llamada
+            tracer.log('router', state['audit_round'], route=state.get('route'), skipped=kind,
+                       reason='sin veredictos para este especialista')
+            return {'calls': state['calls']}
         r = run_react(spec, tr, user_message(tr, feedback=verdicts, items=items), llm, tracer, cfg,
                       {'items': _items(state)})
         merged = merge(state[kind], r['output'][kind], flagged, prefix=kind[0])
-        return {kind: merged, 'calls': state['calls'] + r['calls']}
+        merged, actions = normalize_ids(merged, kind)
+        return {kind: merged, 'calls': state['calls'] + r['calls'],
+                'mechanical_actions': state['mechanical_actions'] + actions}
 
     def revise_decisions(state: MeetingState):
         return _revise('decisions', dec, state)
@@ -111,6 +139,7 @@ def build_graph(llm: LLM, tracer: Tracer, cfg: RunConfig):
 
     def finalize_node(state: MeetingState):
         out = finalize(state['transcript'], state['decisions'], state['tasks'])
+        out['mechanical_actions'] = list(state['mechanical_actions']) + out['mechanical_actions']
         tracer.log('finalize', 0, mechanical_actions=out['mechanical_actions'],
                    decisions=len(out['decisions']), tasks=len(out['tasks']),
                    audit_rounds=state['audit_round'])
