@@ -55,3 +55,27 @@ def test_invalid_auditor_output_finalizes(m01):
     out = run_meeting(m01, fake, RunConfig('full'), None)
     assert out['calls'] == 3 and len(out['parsed']['decisions']) == 1
     assert Draft202012Validator(make_schema(m01)).is_valid(out['parsed'])
+
+
+def test_seconds_sum_trace_events_and_survive_cache(m01, tmp_path):
+    from minutes_agents.llm import CachedLLM
+
+    class _Timed(FakeLLM):
+        def chat(self, messages, schema=None):
+            r = super().chat(messages, schema)
+            r['seconds'] = 1.25
+            return r
+    script = [dec_finish, task_finish, audit_route('finish')]
+    inner = _Timed(list(script))
+    first = run_meeting(m01, CachedLLM(inner, tmp_path / 'c'), RunConfig('full'), None)
+    assert first['seconds'] == 3.75 and 'wall_seconds' in first
+    again = run_meeting(m01, CachedLLM(FakeLLM([]), tmp_path / 'c'), RunConfig('full'), None)
+    assert again['seconds'] == first['seconds']  # aciertos de caché conservan su tiempo original
+
+
+def test_invalid_steps_and_tool_calls_counted(m01):
+    call = {'tool': 'inspect_evidence', 'evidence_id': 'u05', 'name': None}
+    dec_tools = dict(dec_finish, action='call_tools', tool_calls=[call, call, dict(call, evidence_id='u06')])
+    fake = FakeLLM([dec_tools, dec_finish, task_finish, 'no es json'])
+    out = run_meeting(m01, fake, RunConfig('full'), None)
+    assert out['invalid_steps'] == 1 and out['tool_calls'] == 2

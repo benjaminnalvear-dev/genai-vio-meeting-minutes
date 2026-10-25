@@ -28,3 +28,13 @@ def test_paired_comparison():
     a = {'M01': {'f': .5}, 'M02': {'f': .7}, 'M03': {'f': .2}}
     b = {'M01': {'f': .4}, 'M02': {'f': .7}, 'M03': {'f': .3}}
     assert paired_comparison(a, b, 'f') == {'wins': 1, 'ties': 1, 'losses': 1}
+
+
+def test_extended_metrics_aggregates_invalid_steps_and_tool_calls(m01, m01_gold):
+    out = {'parsed': {'decisions': [], 'tasks': []}, 'raw': '{}', 'calls': 4, 'eval_count': 10,
+           'invalid_steps': 2, 'tool_calls': 5}
+    em = extended_metrics({'M01': out}, {'M01': m01}, {'M01': m01_gold}, is_baseline=False)
+    assert em['invalid_steps_total'] == 2 and em['tool_calls_total'] == 5
+    legacy = {k: v for k, v in out.items() if k not in ('invalid_steps', 'tool_calls')}
+    em2 = extended_metrics({'M01': legacy}, {'M01': m01}, {'M01': m01_gold}, is_baseline=False)
+    assert em2['invalid_steps_total'] == 0 and em2['tool_calls_total'] == 0

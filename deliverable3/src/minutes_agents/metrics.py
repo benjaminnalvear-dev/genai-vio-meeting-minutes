@@ -108,6 +108,8 @@ def extended_metrics(outputs, transcripts, gold, is_baseline):
         out, tr, g = outputs[mid], transcripts[mid], gold[mid]
         totals['calls'] += out.get('calls', 0) or 0
         totals['tokens'] += out.get('eval_count', 0) or 0
+        totals['invalid_steps'] += out.get('invalid_steps', 0) or 0
+        totals['tool_calls'] += out.get('tool_calls', 0) or 0
         p = recover_baseline(out['raw']) if is_baseline else out.get('parsed')
         p = p if isinstance(p, dict) else {}
         f1s = {}
@@ -162,6 +164,8 @@ def extended_metrics(outputs, transcripts, gold, is_baseline):
         'per_meeting': per_meeting,
         'calls_total': totals['calls'],
         'tokens_total': totals['tokens'],
+        'invalid_steps_total': totals['invalid_steps'],
+        'tool_calls_total': totals['tool_calls'],
     }
 
 

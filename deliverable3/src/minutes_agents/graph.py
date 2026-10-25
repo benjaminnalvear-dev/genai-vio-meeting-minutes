@@ -151,10 +151,17 @@ def run_meeting(tr: dict, llm: LLM, cfg: RunConfig, trace_path: Path | None) -> 
                            'mechanical_actions': []}
     t0 = time.perf_counter()
     final = graph.invoke(state)
-    seconds = time.perf_counter() - t0
+    wall = time.perf_counter() - t0
     parsed = {'decisions': final['decisions'], 'tasks': final['tasks']}
+    events = tracer.events
+    # `seconds` = suma de los tiempos de inferencia registrados por paso. Una respuesta en caché
+    # conserva sus segundos originales, así el costo no depende de qué condición corrió antes.
+    seconds = round(sum(e.get('seconds') or 0 for e in events), 2)
     return {'parsed': parsed, 'raw': json.dumps(parsed, ensure_ascii=False), 'seconds': seconds,
-            'calls': final['calls'],
-            'eval_count': sum(e.get('tokens') or 0 for e in tracer.events),
+            'wall_seconds': round(wall, 2), 'calls': final['calls'],
+            'eval_count': sum(e.get('tokens') or 0 for e in events),
+            'invalid_steps': sum(e.get('error') == 'invalid_json' for e in events),
+            'tool_calls': sum(1 for e in events for o in (e.get('observations') or [])
+                              if not (isinstance(o, dict) and o.get('duplicate'))),
             'schema_valid': Draft202012Validator(make_schema(tr)).is_valid(parsed),
             'trace_path': str(trace_path) if trace_path is not None else None}
