@@ -108,3 +108,9 @@ def test_cli_main_writes_files(tmp_path):
     _load().main(['--summary', str(p), '--out', str(tmp_path / 'cli')])
     assert (tmp_path / 'cli' / 'f1_by_condition.pdf').stat().st_size > 0
     assert (tmp_path / 'cli' / 'trap_heatmap.png').stat().st_size > 0
+
+
+def test_every_condition_has_a_label():
+    from minutes_agents.experiment import CONDITIONS
+    mf = _load()
+    assert set(CONDITIONS) <= set(mf.LABELS) and mf.LABELS['no_guards'] == '− Barandas'

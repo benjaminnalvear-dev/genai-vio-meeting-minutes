@@ -18,7 +18,8 @@ from minutes_agents.llm import LLM, MODEL, PARAMS
 from minutes_agents.metrics import extended_metrics, paired_comparison
 from minutes_agents.prompts import PROMPTS_DIR
 
-CONDITIONS = ['baseline', 'd2', 'full', 'no_react', 'no_auditor', 'no_fewshot', 'no_cot']
+CONDITIONS = ['baseline', 'd2', 'full', 'no_react', 'no_auditor', 'no_fewshot', 'no_cot',
+              'no_guards']
 PACKAGE_ROOT = Path(__file__).resolve().parents[2]  # deliverable3/
 CONFIGS_DIR = PACKAGE_ROOT / 'configs'
 PAIRED_KEYS = ('decisions_f1', 'tasks_f1', 'strict_f1')

@@ -17,7 +17,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 from minutes_agents.experiment import CONDITIONS  # noqa: E402
 
 LABELS = {'baseline': 'Prompt directo', 'd2': 'D2', 'full': 'Agentes', 'no_react': '− ReAct',
-          'no_auditor': '− Auditor', 'no_fewshot': '− Few-shot', 'no_cot': '− CoT'}
+          'no_auditor': '− Auditor', 'no_fewshot': '− Few-shot', 'no_cot': '− CoT',
+          'no_guards': '− Barandas'}
 REFERENCE = ('baseline', 'd2')
 C_DEC, C_TASK = '#2a6fb0', '#d9822b'   # colorblind-safe blue / orange
 INK = '#222222'

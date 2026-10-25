@@ -44,7 +44,7 @@ def test_load_config(name):
     cfg = load_config(name)
     assert cfg.name == name
     defaults = load_config('full')
-    changed = [k for k in ('react', 'auditor_rounds', 'fewshot', 'cot') if getattr(cfg, k) != getattr(defaults, k)]
+    changed = [k for k in ('react', 'auditor_rounds', 'fewshot', 'cot', 'audit_guards') if getattr(cfg, k) != getattr(defaults, k)]
     assert len(changed) == (0 if name == 'full' else 1)
 
 
@@ -191,3 +191,9 @@ def test_cli_survives_condition_with_no_results(monkeypatch, tmp_path, capsys, d
               str(tmp_path / 'o'), '--demo', '--cache', str(tmp_path / 'c')])
     out = capsys.readouterr().out
     assert 'full: NO RESULTS' in out and '1 FAILED MEETING' in out and 'M01' in out
+
+
+def test_conditions_include_no_guards():
+    assert CONDITIONS == ['baseline', 'd2', 'full', 'no_react', 'no_auditor', 'no_fewshot', 'no_cot',
+                          'no_guards']
+    assert load_config('no_guards').audit_guards is False and load_config('full').audit_guards is True
