@@ -46,3 +46,48 @@ def test_make_figures_creates_files(tmp_path):
 def test_missing_conditions_skipped(tmp_path):
     out = _load().make_figures(_write(tmp_path, ['full', 'no_cot']), tmp_path / 'figs')
     assert len(out) == 4
+
+
+def test_present_conditions_order_and_ignores_meta():
+    mf = _load()
+    s = {'meta': {}, 'paired_full_vs_d2': {}, 'no_cot': {}, 'd2': {}, 'full': {}}
+    assert mf.present_conditions(s) == ['d2', 'full', 'no_cot']
+
+
+def test_ordered_categories_decisions_first():
+    mf = _load()
+    s = {'d2': {'extended': {'per_trap': {'T: a': {}, 'D: z': {}, 'D: b': {}}}},
+         'full': {'extended': {'per_trap': {'T: 0': {}}}}}
+    assert mf.ordered_categories(s) == ['D: b', 'D: z', 'T: 0', 'T: a']
+
+
+def test_heatmap_nan_paths(tmp_path):
+    p = _write(tmp_path, ['d2', 'full'])
+    s = json.loads(p.read_text(encoding='utf-8'))
+    del s['full']['extended']['per_trap']['T: relativa']          # missing in one condition
+    s['d2']['extended']['per_trap']['T: vacía'] = {'gold': 0, 'found': 0}  # zero gold
+    p.write_text(json.dumps(s), encoding='utf-8')
+    out = _load().make_figures(p, tmp_path / 'figs')
+    assert len(out) == 4
+
+
+def test_incomplete_condition_skipped_in_bars(tmp_path):
+    p = _write(tmp_path, ['d2', 'full'])
+    s = json.loads(p.read_text(encoding='utf-8'))
+    del s['full']['primary']
+    p.write_text(json.dumps(s), encoding='utf-8')
+    out = _load().make_figures(p, tmp_path / 'figs')
+    assert {x.name for x in out} >= {'f1_by_condition.pdf', 'trap_heatmap.pdf'}
+
+
+def test_no_conditions_no_error(tmp_path):
+    p = tmp_path / 'summary.json'
+    p.write_text(json.dumps({'meta': {}}), encoding='utf-8')
+    assert _load().make_figures(p, tmp_path / 'figs') == []
+
+
+def test_cli_main_writes_files(tmp_path):
+    p = _write(tmp_path, ['d2', 'full'])
+    _load().main(['--summary', str(p), '--out', str(tmp_path / 'cli')])
+    assert (tmp_path / 'cli' / 'f1_by_condition.pdf').stat().st_size > 0
+    assert (tmp_path / 'cli' / 'trap_heatmap.png').stat().st_size > 0

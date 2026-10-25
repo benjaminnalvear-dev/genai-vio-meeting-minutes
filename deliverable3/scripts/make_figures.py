@@ -41,6 +41,31 @@ def _save(fig, out_dir: Path, stem: str) -> list[Path]:
     return paths
 
 
+def _has_f1(cond) -> bool:
+    try:
+        cond['primary']['decisions']['f1']
+        cond['primary']['tasks']['f1']
+        cond['extended']['strict_f1']['decisions']
+        cond['extended']['strict_f1']['tasks']
+        return True
+    except (KeyError, TypeError):
+        return False
+
+
+def present_conditions(summary) -> list[str]:
+    """Conditions found in the summary, in CONDITIONS order (ignores paired/meta keys)."""
+    return [c for c in CONDITIONS if isinstance(summary.get(c), dict)]
+
+
+def ordered_categories(summary, conds=None) -> list[str]:
+    """per_trap categories across conditions: decision ('D') first, then tasks, alphabetical."""
+    conds = present_conditions(summary) if conds is None else conds
+    cats = set()
+    for k in conds:
+        cats |= set(((summary[k].get('extended') or {}).get('per_trap')) or {})
+    return sorted(cats, key=lambda c: (not c.startswith('D'), c))
+
+
 def _f1_figure(summary, conds):
     series = [
         ('F1 decisiones', C_DEC, None, lambda s: s['primary']['decisions']['f1']),
@@ -67,7 +92,7 @@ def _f1_figure(summary, conds):
         for p, v in zip(pos, vals):
             ax.text(v + 0.012, p, f'{v:.2f}', va='center', ha='left', fontsize=FS - 0.5, color=INK)
     ax.set_yticks(ys)
-    ax.set_yticklabels([LABELS[c] for c in conds], color=INK)
+    ax.set_yticklabels([LABELS.get(c, c) for c in conds], color=INK)
     ax.set_xlim(0, 1.12)
     ax.set_xticks([0, 0.25, 0.5, 0.75, 1.0])
     ax.set_xlabel('F1')
@@ -91,18 +116,17 @@ def _f1_figure(summary, conds):
 
 
 def _heatmap_figure(summary, conds):
-    cats = sorted({c for k in conds for c in summary[k]['extended'].get('per_trap', {})},
-                  key=lambda c: (not c.startswith('D'), c))
-    if not cats:
+    cats = ordered_categories(summary, conds)
+    if not cats or not conds:
         return None
-    gold = {c: max(summary[k]['extended']['per_trap'].get(c, {}).get('gold', 0) for k in conds)
+    gold = {c: max(((summary[k].get('extended') or {}).get('per_trap') or {}).get(c, {}).get('gold', 0) for k in conds)
             for c in cats}
     fig, ax = plt.subplots(figsize=(COL_W - 0.6, 0.34 * len(conds) + 1.5))
     mat = []
     for k in conds:
         row = []
         for c in cats:
-            t = summary[k]['extended']['per_trap'].get(c)
+            t = ((summary[k].get('extended') or {}).get('per_trap') or {}).get(c)
             row.append(t['found'] / t['gold'] if t and t['gold'] else float('nan'))
         mat.append(row)
     im = ax.imshow(mat, cmap='Blues', vmin=0, vmax=1, aspect='auto')
@@ -116,7 +140,7 @@ def _heatmap_figure(summary, conds):
                        rotation_mode='anchor', color=INK)
     ax.xaxis.tick_top()
     ax.set_yticks(range(len(conds)))
-    ax.set_yticklabels([LABELS[c] for c in conds], color=INK)
+    ax.set_yticklabels([LABELS.get(c, c) for c in conds], color=INK)
     ax.tick_params(length=0)
     for s in ax.spines.values():
         s.set_visible(False)
@@ -137,9 +161,17 @@ def make_figures(summary_path: Path, out_dir: Path) -> list[Path]:
     summary = json.loads(Path(summary_path).read_text(encoding='utf-8'))
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    conds = [c for c in CONDITIONS if c in summary]
+    conds = present_conditions(summary)
+    bar_conds = []
+    for c in conds:
+        if _has_f1(summary[c]):
+            bar_conds.append(c)
+        else:
+            print(f'warning: condition {c!r} lacks F1 keys; skipped in bar chart', file=sys.stderr)
     _style()
-    paths = _save(_f1_figure(summary, conds), out_dir, 'f1_by_condition')
+    paths = []
+    if bar_conds:
+        paths += _save(_f1_figure(summary, bar_conds), out_dir, 'f1_by_condition')
     fig = _heatmap_figure(summary, conds)
     if fig is not None:
         paths += _save(fig, out_dir, 'trap_heatmap')
