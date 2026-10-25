@@ -29,6 +29,6 @@ def precompute(tr: dict, ctx: dict) -> list[dict]:
 
 
 def build(cfg: RunConfig) -> AgentSpec:
-    return AgentSpec(name='decisions', prompt=load_prompt('decisions.v1'),
-                     fewshot=load_prompt('fewshot/decisions.TR01'), tools=list(TOOLS),
+    return AgentSpec(name='decisions', prompt=load_prompt('decisions.v2'),
+                     fewshot=load_prompt('fewshot/decisions.TR01.v2'), tools=list(TOOLS),
                      output=output, precompute=precompute)

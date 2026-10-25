@@ -79,7 +79,7 @@ Cada paso de agente es una llamada a Ministral con `format=<schema>` (constraine
 |---|---|---|---|
 | `inspect_evidence(evidence_id)` | D2 | turno citado + vecinos ±1 + participantes | todos |
 | `find_revision_cues()` | D2 `revision_cues` | turnos con marcas de reemplazo/rechazo/aprobación/pendiente | Decisiones, Auditor |
-| `resolve_deadline(evidence_id)` | D2 | fecha ISO sugerida o "ambigua/no forzar" | Tareas |
+| `resolve_deadline(evidence_id)` | D2 | fecha ISO sugerida o "ambigua/no forzar" | Tareas, Auditor |
 | `check_participant(name)` | D2 (`assignee_named_in_meeting`), ampliada | si `name` es un speaker participante; si es tercero mencionado | Tareas |
 | `find_uncovered_commitments()` (Python le pasa los ítems actuales) | **nueva** | turnos con marcas de compromiso o acuerdo ("yo me encargo", "quedamos", "me comprometo", "yo preparo"…) que ningún ítem cita | Auditor |
 
@@ -105,7 +105,7 @@ Cada paso de agente es una llamada a Ministral con `format=<schema>` (constraine
 **Agente Auditor** — ataca F4.
 - Rol: verificar cada ítem contra su cita, detectar omisiones y decidir la ruta.
 - Entrada: `decisions[]`, `tasks[]`, transcripción.
-- Herramientas: `inspect_evidence`, `find_uncovered_commitments`, `find_revision_cues`.
+- Herramientas: `inspect_evidence`, `find_uncovered_commitments`, `find_revision_cues`, `resolve_deadline` (para no marcar como error un plazo bien calculado).
 - Salida (en `finish`): `verdicts[]` = `{item_id, ok, problem, detail}` con `problem ∈ {evidence_not_supporting, wrong_state, wrong_deadline, wrong_assignee, merged_items, missing_item, null}`; y `route ∈ {decisions, tasks, both, finish}`.
 - Parada/traspaso: `route = finish` o ronda de auditoría 2 cumplida → Finalizador; si no, ítems marcados + feedback → especialista(s) indicados.
 - Técnicas: *self-criticism / Chain-of-Verification* (pregunta de verificación por ítem); checklist cerrado (enum `problem`); *ReAct / tool use*.

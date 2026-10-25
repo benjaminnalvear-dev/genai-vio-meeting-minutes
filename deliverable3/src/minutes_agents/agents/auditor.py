@@ -4,9 +4,9 @@ from __future__ import annotations
 from minutes_agents.agents.base import AgentSpec, RunConfig
 from minutes_agents.prompts import load_prompt
 from minutes_agents.schemas import verdict_schema
-from minutes_agents.tools import find_revision_cues, find_uncovered_commitments, inspect_evidence
+from minutes_agents.tools import find_revision_cues, find_uncovered_commitments, inspect_evidence, resolve_deadline
 
-TOOLS = ['inspect_evidence', 'find_uncovered_commitments', 'find_revision_cues']
+TOOLS = ['inspect_evidence', 'find_uncovered_commitments', 'find_revision_cues', 'resolve_deadline']
 ROUTES = ['decisions', 'tasks', 'both', 'finish']
 
 
@@ -25,9 +25,12 @@ def precompute(tr: dict, ctx: dict) -> list[dict]:
     return ([{'tool': 'find_uncovered_commitments', 'result': find_uncovered_commitments(tr, items)},
              {'tool': 'find_revision_cues', 'result': find_revision_cues(tr)}]
             + [{'tool': 'inspect_evidence', 'item_id': i.get('id'),
-                'result': inspect_evidence(tr, i.get('evidence_id'))} for i in items])
+                'result': inspect_evidence(tr, i.get('evidence_id'))} for i in items]
+            + [{'tool': 'resolve_deadline', 'item_id': i.get('id'),
+                'result': resolve_deadline(tr, i.get('evidence_id'), i.get('deadline'))}
+               for i in items if i.get('deadline') is not None])
 
 
 def build(cfg: RunConfig) -> AgentSpec:
-    return AgentSpec(name='auditor', prompt=load_prompt('auditor.v1'), fewshot=None,
+    return AgentSpec(name='auditor', prompt=load_prompt('auditor.v2'), fewshot=None,
                      tools=list(TOOLS), output=output, precompute=precompute)

@@ -18,3 +18,10 @@ Cada archivo `*.vN.md` es inmutable una vez usado en una corrida; un cambio crea
 
 - `d2_system.v1` — Copia literal del `SYSTEM` del D2 (celda 4 del notebook), sin cambios. Lo usan las condiciones de referencia `baseline` y `combined_v2` para enviar exactamente los mismos mensajes que el D2; un test verifica la igualdad con el notebook.
 - `d2_review.v1` — Copia literal del texto de revisión de `combined_v2` (celda 6, desde "Revisa todas las intervenciones."), sin cambios. El código antepone el borrador, las salidas de herramientas y los indicios de cambios, separados con un salto de línea.
+
+## 2026-10-25 (v2, aprobada por Eduardo antes de la primera corrida)
+
+- `decisions.v2` + `fewshot/decisions.TR01.v2` — Una decisión `superseded` cita el turno donde se PROPUSO esa opción, no el del reemplazo. Motivo: en test las 11 decisiones reemplazadas citan su propio turno (en train las 100 citan el turno del reemplazo: convención distinta entre splits). Con la regla v1 el sistema perdería coincidencia de evidencia justo en F1. El few-shot v2 se aparta a propósito de la rúbrica de TR01 en esos dos `evidence_id` (d01 → u05, d03 → u09).
+- `decisions.v2`, `tasks.v2`, `auditor.v2` — "Mientras pidas herramientas (action=call_tools), deja las salidas vacías". Motivo: el esquema exige las claves de salida en todo paso, y el modelo escribía un borrador completo antes de cada llamada a herramientas, duplicando tiempo y contexto (riesgo de truncamiento en num_ctx=12288).
+- `auditor.v2` — La pregunta 3 del checklist compara el plazo con `resolve_deadline` (herramienta nueva para el Auditor) y solo marca `wrong_deadline` si el texto no dice plazo o el día no coincide. Motivo: el Auditor no podía calcular fechas y podía marcar como error plazos bien resueltos por el Agente de Tareas.
+- `fewshot/tasks.TR01` sin cambios: train no contiene tareas sin plazo ni horas "de la tarde", así que el ejemplo pedido en el spec §3.3 no puede venir de train (pendiente de decisión).

@@ -39,10 +39,27 @@ def test_specs_tools_and_prompts():
     d, t, a = decisions.build(cfg), tasks.build(cfg), auditor.build(cfg)
     assert d.tools == ['find_revision_cues', 'inspect_evidence']
     assert t.tools == ['resolve_deadline', 'check_participant', 'inspect_evidence']
-    assert a.tools == ['inspect_evidence', 'find_uncovered_commitments', 'find_revision_cues']
-    assert d.prompt.name == 'decisions.v1' and d.fewshot.name == 'fewshot/decisions.TR01'
-    assert t.prompt.name == 'tasks.v1' and t.fewshot.name == 'fewshot/tasks.TR01'
-    assert a.prompt.name == 'auditor.v1' and a.fewshot is None
+    assert a.tools == ['inspect_evidence', 'find_uncovered_commitments', 'find_revision_cues', 'resolve_deadline']
+    assert d.prompt.name == 'decisions.v2' and d.fewshot.name == 'fewshot/decisions.TR01.v2'
+    assert t.prompt.name == 'tasks.v2' and t.fewshot.name == 'fewshot/tasks.TR01'
+    assert a.prompt.name == 'auditor.v2' and a.fewshot is None
+
+
+def test_auditor_no_react_precompute_resolves_task_deadlines(m01):
+    from minutes_agents.tools import resolve_deadline
+    task = {**_task('u33'), 'deadline': '2026-09-18T17:00'}
+    reports = auditor.build(RunConfig('x')).precompute(m01, {'items': [_decision('u05'), task]})
+    dl = [r for r in reports if r['tool'] == 'resolve_deadline']
+    assert len(dl) == 1 and dl[0]['item_id'] == 't01'
+    assert dl[0]['result'] == resolve_deadline(m01, 'u33', '2026-09-18T17:00')
+
+
+def test_fewshot_superseded_cite_proposal_turn():
+    import json
+    text = (PROMPTS / 'fewshot' / 'decisions.TR01.v2.md').read_text('utf-8')
+    out = json.loads(text.split('SALIDA ESPERADA (decisions):')[1].split('POR QUÉ:')[0])
+    sup = {d['id']: d['evidence_id'] for d in out if d['state'] == 'superseded'}
+    assert sup == {'d01': 'u05', 'd03': 'u09'}
 
 
 def test_topic_plan_only_with_cot(m01):
