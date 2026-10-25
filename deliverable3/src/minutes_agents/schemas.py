@@ -29,3 +29,47 @@ def make_schema(tr):
     return {'type':'object','additionalProperties':False,'required':['decisions','tasks'],
             'properties': {'decisions':{'type':'array','items':decision},
                            'tasks':{'type':'array','items':task}}}
+
+
+def decision_item_schema(tr):
+    return make_schema(tr)['properties']['decisions']['items']
+
+
+def task_item_schema(tr):
+    return make_schema(tr)['properties']['tasks']['items']
+
+
+PROBLEMS = ['evidence_not_supporting', 'wrong_state', 'wrong_deadline',
+            'wrong_assignee', 'merged_items', 'missing_item']
+
+
+def verdict_schema(item_ids):
+    return {'type': 'object', 'additionalProperties': False,
+            'required': ['item_id', 'ok', 'problem', 'detail'],
+            'properties': {
+                'item_id': {'type': 'string', 'enum': list(item_ids) + ['NEW']},
+                'ok': {'type': 'boolean'},
+                'problem': {'type': ['string', 'null'], 'enum': PROBLEMS + [None]},
+                'detail': {'type': 'string'}}}
+
+
+def step_schema(tr, tools, output, *, allow_tools, with_thought):
+    ids = [u['id'] for u in tr['utterances']]
+    call = {'type': 'object', 'additionalProperties': False,
+            'required': ['tool', 'evidence_id', 'name'],
+            'properties': {
+                'tool': {'type': 'string', 'enum': list(tools)},
+                'evidence_id': {'type': ['string', 'null'], 'enum': ids + [None]},
+                'name': nullable_string()}}
+    tool_calls = {'type': 'array', 'items': call}
+    if not allow_tools:
+        tool_calls['maxItems'] = 0
+    props = {}
+    if with_thought:
+        props['thought'] = {'type': 'string'}
+    props['action'] = {'type': 'string',
+                       'enum': ['call_tools', 'finish'] if allow_tools else ['finish']}
+    props['tool_calls'] = tool_calls
+    props.update(output)
+    return {'type': 'object', 'additionalProperties': False,
+            'required': list(props), 'properties': props}
