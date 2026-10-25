@@ -9,24 +9,74 @@ import re
 NEW_ID = 'NEW'
 
 
-def merge(current: list[dict], revised: list[dict], flagged_ids: set[str]) -> list[dict]:
-    """Reemplaza los ítems marcados por su versión revisada (si existe), conserva el resto
-    y agrega al final los ítems revisados con id nuevo o 'NEW'. Una revisión no pierde ítems."""
-    by_id: dict[str, list[dict]] = {}
-    for r in revised:
-        if isinstance(r, dict):
-            by_id.setdefault(r.get('id'), []).append(r)
+_NUM_ID = re.compile(r'([a-z]+)(\d+)')
+
+
+def _infer_prefix(items: list) -> str:
+    for it in items:
+        m = _NUM_ID.fullmatch(str(it.get('id'))) if isinstance(it, dict) else None
+        if m:
+            return m[1]
+    return 'n'
+
+
+def merge(current: list[dict], revised: list[dict], flagged_ids: set[str],
+          prefix: str | None = None) -> list[dict]:
+    """Fusiona una revisión sin perder ni duplicar ítems.
+
+    - Un ítem actual cuyo id está en `flagged_ids` se reemplaza, en su posición, por las versiones
+      revisadas con ese id (si el especialista no devolvió ninguna, se conserva el original).
+      Si devolvió varias (ítem dividido), la primera conserva el id y las demás reciben id nuevo.
+    - Los ítems no marcados se conservan tal cual, aunque vuelvan en `revised`.
+    - 'NEW' nunca es un id reemplazable: es la marca del Auditor para "falta un ítem".
+    - Los ítems revisados con id 'NEW' o desconocido se agregan al final con un id provisional
+      único: el siguiente número libre con el prefijo de la lista (`prefix`, o inferido de los ids,
+      p. ej. 'd' → d07, 't' → t05). Así una ronda posterior puede marcarlos y reemplazarlos.
+      Un `supersedes` que apunte al id viejo de un ítem agregado se reescribe al id provisional.
+    El Finalizador renumera todo al final, así que estos ids son solo provisionales."""
+    flagged = set(flagged_ids) - {NEW_ID}
     current_ids = {c.get('id') for c in current if isinstance(c, dict)}
-    out = []
+    prefix = prefix or _infer_prefix(list(current) + list(revised))
+    used = [int(m[2]) for i in current if isinstance(i, dict)
+            for m in [_NUM_ID.fullmatch(str(i.get('id')))] if m and m[1] == prefix]
+    counter = [max(used, default=0)]
+
+    def fresh() -> str:
+        counter[0] += 1
+        return f'{prefix}{counter[0]:02d}'
+
+    by_id: dict[str, list[dict]] = {}
+    appended: list[dict] = []
+    renamed: dict[str, str] = {}
+    for r in revised:
+        if not isinstance(r, dict):
+            continue
+        rid = r.get('id')
+        if rid in flagged and rid in current_ids:
+            by_id.setdefault(rid, []).append(dict(r))
+        elif rid == NEW_ID or rid not in current_ids:
+            item = dict(r, id=fresh())
+            if isinstance(rid, str):
+                renamed.setdefault(rid, item['id'])
+            appended.append(item)
+    for rid, versions in by_id.items():
+        for extra in versions[1:]:
+            extra['id'] = fresh()
+
+    out, replaced = [], set()
     for c in current:
         cid = c.get('id') if isinstance(c, dict) else None
-        if cid in flagged_ids and cid in by_id:
-            out.extend(by_id[cid])
+        if cid in by_id:
+            if cid not in replaced:
+                out.extend(by_id[cid])
+                replaced.add(cid)
         else:
             out.append(c)
-    out += [r for r in revised if isinstance(r, dict)
-            and (r.get('id') == NEW_ID or r.get('id') not in current_ids)]
-    return out
+    created = appended + [v for vs in by_id.values() for v in vs]  # copias: no se muta la entrada
+    for it in created:
+        if it.get('supersedes') in renamed and it['supersedes'] not in current_ids:
+            it['supersedes'] = renamed[it['supersedes']]
+    return out + appended
 
 
 def _ordered(tr: dict, items: list) -> list:

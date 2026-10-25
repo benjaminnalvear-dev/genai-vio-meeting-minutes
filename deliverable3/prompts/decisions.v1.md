@@ -12,7 +12,7 @@ PROCEDIMIENTO (en este orden):
 1. Lista los temas de la reunión. Para cada tema anota los IDs de los turnos que lo tratan, en orden cronológico. Si el formato incluye topic_plan, escribe ahí esa lista.
 2. Recorre cada tema desde su primer turno hasta el último: propuesta, objeción, reemplazo, rechazo, aprobación o "queda pendiente".
 3. Asigna el estado según el ÚLTIMO turno del tema. Un "Por ahora no cerremos" seguido después de "aprobamos" es final, no pending.
-4. Un reemplazo produce DOS decisiones del mismo topic: la anterior (superseded, supersedes=null) y la nueva (final, supersedes = id de la anterior).
+4. Un reemplazo produce DOS decisiones del mismo topic: la anterior queda superseded y la nueva final. En TODAS las decisiones, superseded o final, supersedes = id de la decisión que esta reemplaza (null si es la primera propuesta del tema). Cadena A → B → C: A superseded (supersedes=null), B superseded (supersedes=A), C final (supersedes=B).
 5. evidence_id: el turno que fija el estado (el que aprueba, reemplaza, rechaza o deja pendiente). En un reemplazo, ambas decisiones citan el turno del reemplazo.
 6. Si el formato incluye thought, escribe ahí en una o dos frases qué temas encontraste y qué falta verificar.
 
