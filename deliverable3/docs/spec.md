@@ -69,7 +69,7 @@ Cada paso de agente es una llamada a Ministral con `format=<schema>` (constraine
 
 - Nombres de herramienta e IDs de evidencia son `enum` → no se pueden inventar.
 - Python ejecuta las herramientas pedidas y devuelve las observaciones como mensaje siguiente; el agente decide de nuevo.
-- Se pueden pedir varias herramientas por paso.
+- Se pueden pedir varias herramientas por paso (máximo 8, `maxItems`); una llamada idéntica a otra ya ejecutada en la misma invocación reutiliza su observación (marcada `duplicate: true`).
 - Límite: **3 pasos** por invocación de especialista y por invocación del Auditor; en el último paso el esquema solo admite `action = finish`.
 - Se descartó function calling nativo de Ollama (poco fiable con 3B e incompatible con `format=schema`) y herramientas fijas (equivale al D2).
 
@@ -156,7 +156,7 @@ No se ablacionan, y se declara: *role prompting* (bajo valor esperado, costo de 
 3. Grafo de agentes (TikZ): cada agente y herramienta como nodo, cada traspaso como arista etiquetada con lo que pasa, loops y paradas marcados.
 
 ### 4.5 Trazas
-`traces/<condición>/<meeting_id>.jsonl`, una línea por evento: `ts`, `agent`, `step`, `prompt_file`, `prompt_sha256`, `thought`, `action`, `tool_calls`, `observations`, `output`, `seconds`, `tokens`. Se versionan en el repo las de las reuniones del video y la del caso de falla. Caso de falla: la reunión con peor F1 estricto del sistema completo (criterio objetivo).
+`traces/<condición>/<meeting_id>.jsonl`, una línea por evento: `ts`, `agent`, `step`, `prompt_file`, `prompt_sha256`, `thought`, `action`, `tool_calls`, `observations`, `output`, `seconds`, `tokens`, `prompt_tokens`, `done_reason`, `context_warning` (estimación del prompt > 9500 tokens). Los eventos `router` registran `route`, `flagged`, `next` (o `skipped` cuando el especialista no tiene veredictos y no se le llama). El costo por reunión (`seconds`) es la suma de los `seconds` de los pasos (las respuestas en caché conservan su tiempo original); `wall_seconds` es el reloj de pared. Se versionan en el repo las de las reuniones del video y la del caso de falla. Caso de falla: la reunión con peor F1 estricto del sistema completo (criterio objetivo).
 
 ## 5. Repositorio y reproducibilidad
 
