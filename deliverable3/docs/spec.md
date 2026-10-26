@@ -113,6 +113,7 @@ Cada paso de agente es una llamada a Ministral con `format=<schema>` (constraine
 
 **Finalizador** — nodo determinístico, **no es un agente** (se declara así).
 - Fusiona salidas: los ítems no marcados por el Auditor se conservan tal cual (una revisión no puede perder ítems).
+- Regla anti-solapamiento (añadida tras la validación del 2026-10-25): una decisión y una tarea no pueden citar el mismo turno. Si chocan y la decisión es `pending`, se descarta la tarea (un tema pendiente no es una tarea); en otro caso se descarta la decisión (el Agente de Decisiones re-registraba tareas como decisiones). En las rúbricas de train y validation nunca comparten turno. Aplica a todas las condiciones con agentes y queda en `mechanical_actions`.
 - Renumera IDs (`d01…`, `t01…`) y reescribe `supersedes` coherentemente.
 - Aplica `apply_safe_checks` del D2 (IDs inexistentes, fechas no ISO).
 - Cierra la traza.

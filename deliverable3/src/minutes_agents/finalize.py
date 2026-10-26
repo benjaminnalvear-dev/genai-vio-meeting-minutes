@@ -129,12 +129,37 @@ def apply_safe_checks(tr, result):
     return result
 
 
-def finalize(tr: dict, decisions: list[dict], tasks: list[dict]) -> dict:
-    """Ordena por aparición de evidence_id, renumera d01../t01.., remapea supersedes y
-    aplica apply_safe_checks. Los ítems con evidencia inexistente quedan al final (y se descartan)."""
-    ds, d_map = _renumber(_ordered(tr, copy.deepcopy(list(decisions))), 'd')
-    ts, _ = _renumber(_ordered(tr, copy.deepcopy(list(tasks))), 't')
+def _drop_overlaps(decisions: list, tasks: list) -> tuple[list, list, list[str]]:
+    """Regla anti-solapamiento: una decisión y una tarea no citan el mismo turno (en las rúbricas de
+    train/validation nunca ocurre). Si chocan:
+    - decisión pending → se descarta la tarea (un tema que queda pendiente no es una tarea);
+    - en otro caso → se descarta la decisión (el Agente de Decisiones re-registraba tareas como
+      decisiones, p. ej. "X prepara la lista")."""
+    pending_turns = {d.get('evidence_id') for d in decisions if isinstance(d, dict) and d.get('state') == 'pending'}
     actions = []
+    kept_t = []
+    for t in tasks:
+        if isinstance(t, dict) and t.get('evidence_id') in pending_turns:
+            actions.append(f"tarea descartada: cita el turno de una decisión pending ({t.get('evidence_id')})")
+        else:
+            kept_t.append(t)
+    task_turns = {t.get('evidence_id') for t in kept_t if isinstance(t, dict)}
+    kept_d = []
+    for d in decisions:
+        if isinstance(d, dict) and d.get('evidence_id') in task_turns:
+            actions.append(f"decisión descartada: cita el mismo turno que una tarea ({d.get('evidence_id')})")
+        else:
+            kept_d.append(d)
+    return kept_d, kept_t, actions
+
+
+def finalize(tr: dict, decisions: list[dict], tasks: list[dict]) -> dict:
+    """Resuelve choques decisión/tarea en un mismo turno (_drop_overlaps), ordena por aparición de
+    evidence_id, renumera d01../t01.., remapea supersedes y aplica apply_safe_checks. Los ítems con
+    evidencia inexistente quedan al final (y se descartan)."""
+    kept_d, kept_t, actions = _drop_overlaps(copy.deepcopy(list(decisions)), copy.deepcopy(list(tasks)))
+    ds, d_map = _renumber(_ordered(tr, kept_d), 'd')
+    ts, _ = _renumber(_ordered(tr, kept_t), 't')
     for d in ds:
         if isinstance(d, dict) and d.get('supersedes') is not None:
             d['supersedes'] = d_map.get(d['supersedes'])

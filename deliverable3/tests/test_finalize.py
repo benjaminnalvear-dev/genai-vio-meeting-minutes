@@ -68,3 +68,41 @@ def test_finalize_nulls_supersedes_to_dropped_item(m01):
 def test_merge_flagged_id_absent_from_current_is_appended():
     out = merge([{'id': 'd01'}], [{'id': 'd07', 'x': 1}], {'d07'})
     assert out == [{'id': 'd01'}, {'id': 'd02', 'x': 1}]
+
+
+def _d(i, eid, state='final', sup=None):
+    return {'id': i, 'topic': 'T', 'statement': i, 'state': state, 'condition': None,
+            'supersedes': sup, 'evidence_id': eid}
+
+
+def _t(i, eid):
+    return {'id': i, 'description': i, 'assignee': None, 'deadline': None, 'condition': None,
+            'state': 'final', 'evidence_id': eid}
+
+
+def test_finalize_drops_decision_citing_same_turn_as_a_task(m01):
+    # Validation: the Decisions agent re-registered tasks ("Hablante 04 prepara la lista", u25) as decisions.
+    out = finalize(m01, [_d('a', 'u05', 'superseded'), _d('b', 'u19'), _d('c', 'u31', sup='a')],
+                   [_t('x', 'u19'), _t('y', 'u33')])
+    assert [d['evidence_id'] for d in out['decisions']] == ['u05', 'u31']
+    assert out['decisions'][1]['supersedes'] == 'd01'
+    assert [t['evidence_id'] for t in out['tasks']] == ['u19', 'u33']
+    assert any('mismo turno que una tarea' in a and 'u19' in a for a in out['mechanical_actions'])
+
+
+def test_finalize_overlap_rule_nulls_supersedes_to_dropped_decision(m01):
+    out = finalize(m01, [_d('a', 'u19', 'superseded'), _d('b', 'u31', sup='a')], [_t('x', 'u19')])
+    assert [d['evidence_id'] for d in out['decisions']] == ['u31'] and out['decisions'][0]['supersedes'] is None
+
+
+def test_finalize_keeps_decisions_when_no_task_shares_the_turn(m01):
+    out = finalize(m01, [_d('a', 'u05'), _d('b', 'u31')], [_t('x', 'u33')])
+    assert len(out['decisions']) == 2 and not any('tarea' in a for a in out['mechanical_actions'])
+
+
+def test_finalize_overlap_with_pending_decision_drops_the_task(m01):
+    # Validation VA09: "queda pendiente; no asignemos responsable" → pending decision is right, the task is not.
+    out = finalize(m01, [_d('a', 'u28', 'pending')], [_t('x', 'u28'), _t('y', 'u33')])
+    assert [d['evidence_id'] for d in out['decisions']] == ['u28']
+    assert [t['evidence_id'] for t in out['tasks']] == ['u33']
+    assert any('tarea descartada' in a and 'u28' in a for a in out['mechanical_actions'])
