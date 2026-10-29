@@ -1,0 +1,516 @@
+{
+ "d2": {
+  "primary": {
+   "arm": "d2",
+   "meetings": 10,
+   "seconds_total": 210.9,
+   "json_valid": "10/10",
+   "schema_valid": "10/10",
+   "content_recovered": "10/10",
+   "state_accuracy_matched": 0.933,
+   "assignee_accuracy_matched": 0.964,
+   "deadline_accuracy_matched": 0.393,
+   "evidence_exact_matched": 0.747,
+   "evidence_id_exists": "87/87",
+   "per_meeting": [
+    {
+     "meeting_id": "VA01",
+     "seconds": 17.14,
+     "decisions_pred": 5,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "VA02",
+     "seconds": 23.32,
+     "decisions_pred": 6,
+     "tasks_pred": 3
+    },
+    {
+     "meeting_id": "VA03",
+     "seconds": 23.63,
+     "decisions_pred": 5,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "VA04",
+     "seconds": 21.86,
+     "decisions_pred": 4,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "VA05",
+     "seconds": 23.06,
+     "decisions_pred": 5,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "VA06",
+     "seconds": 22.18,
+     "decisions_pred": 6,
+     "tasks_pred": 3
+    },
+    {
+     "meeting_id": "VA07",
+     "seconds": 21.45,
+     "decisions_pred": 6,
+     "tasks_pred": 3
+    },
+    {
+     "meeting_id": "VA08",
+     "seconds": 21.9,
+     "decisions_pred": 5,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "VA09",
+     "seconds": 20.28,
+     "decisions_pred": 5,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "VA10",
+     "seconds": 16.11,
+     "decisions_pred": 4,
+     "tasks_pred": 3
+    }
+   ],
+   "note": "Emparejamiento aproximado automático; revisar errores manualmente.",
+   "decisions": {
+    "matched": 47,
+    "predicted": 51,
+    "gold": 60,
+    "precision": 0.922,
+    "recall": 0.783,
+    "f1": 0.847
+   },
+   "tasks": {
+    "matched": 28,
+    "predicted": 36,
+    "gold": 40,
+    "precision": 0.778,
+    "recall": 0.7,
+    "f1": 0.737
+   }
+  },
+  "extended": {
+   "strict_f1": {
+    "decisions": 0.793,
+    "tasks": 0.684
+   },
+   "per_trap": {
+    "D: final tras reemplazo": {
+     "gold": 20,
+     "found": 20,
+     "state_ok": 20,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 10,
+     "found": 2,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 10,
+     "found": 7,
+     "state_ok": 7,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 20,
+     "found": 18,
+     "state_ok": 15,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 40,
+     "found": 28,
+     "state_ok": 26,
+     "deadline_ok": 11,
+     "assignee_ok": 27
+    }
+   },
+   "deadline_errors": {
+    "ok": 11,
+    "dia equivocado": 10,
+    "inventado": 0,
+    "hora mal/falta": 7,
+    "omitido": 0
+   },
+   "task_states_predicted": {
+    "final": 27,
+    "pending": 9
+   },
+   "non_participant_assignees": 1,
+   "per_meeting": {
+    "VA01": {
+     "decisions_f1": 0.9090909090909091,
+     "tasks_f1": 0.75,
+     "strict_f1": 0.8295454545454546
+    },
+    "VA02": {
+     "decisions_f1": 0.8333333333333334,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.7023809523809524
+    },
+    "VA03": {
+     "decisions_f1": 0.9090909090909091,
+     "tasks_f1": 0.75,
+     "strict_f1": 0.8295454545454546
+    },
+    "VA04": {
+     "decisions_f1": 0.8,
+     "tasks_f1": 0.75,
+     "strict_f1": 0.775
+    },
+    "VA05": {
+     "decisions_f1": 0.9090909090909091,
+     "tasks_f1": 0.75,
+     "strict_f1": 0.7045454545454546
+    },
+    "VA06": {
+     "decisions_f1": 1.0,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.8452380952380952
+    },
+    "VA07": {
+     "decisions_f1": 0.6666666666666666,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.7619047619047619
+    },
+    "VA08": {
+     "decisions_f1": 0.9090909090909091,
+     "tasks_f1": 0.75,
+     "strict_f1": 0.8295454545454546
+    },
+    "VA09": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.5,
+     "strict_f1": 0.6136363636363635
+    },
+    "VA10": {
+     "decisions_f1": 0.8,
+     "tasks_f1": 0.5714285714285715,
+     "strict_f1": 0.48571428571428577
+    }
+   },
+   "calls_total": 20,
+   "tokens_total": 9757,
+   "invalid_steps_total": 0,
+   "tool_calls_total": 0
+  }
+ },
+ "full": {
+  "primary": {
+   "arm": "full",
+   "meetings": 10,
+   "seconds_total": 1223.0,
+   "json_valid": "10/10",
+   "schema_valid": "10/10",
+   "content_recovered": "10/10",
+   "state_accuracy_matched": 1.0,
+   "assignee_accuracy_matched": 1.0,
+   "deadline_accuracy_matched": 0.821,
+   "evidence_exact_matched": 0.796,
+   "evidence_id_exists": "112/112",
+   "per_meeting": [
+    {
+     "meeting_id": "VA01",
+     "seconds": 238.51,
+     "decisions_pred": 7,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "VA02",
+     "seconds": 197.97,
+     "decisions_pred": 7,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "VA03",
+     "seconds": 83.25,
+     "decisions_pred": 8,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "VA04",
+     "seconds": 168.35,
+     "decisions_pred": 8,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "VA05",
+     "seconds": 199.05,
+     "decisions_pred": 7,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "VA06",
+     "seconds": 50.6,
+     "decisions_pred": 6,
+     "tasks_pred": 3
+    },
+    {
+     "meeting_id": "VA07",
+     "seconds": 47.52,
+     "decisions_pred": 6,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "VA08",
+     "seconds": 66.32,
+     "decisions_pred": 6,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "VA09",
+     "seconds": 53.64,
+     "decisions_pred": 6,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "VA10",
+     "seconds": 117.83,
+     "decisions_pred": 8,
+     "tasks_pred": 4
+    }
+   ],
+   "note": "Emparejamiento aproximado automático; revisar errores manualmente.",
+   "decisions": {
+    "matched": 59,
+    "predicted": 69,
+    "gold": 60,
+    "precision": 0.855,
+    "recall": 0.983,
+    "f1": 0.915
+   },
+   "tasks": {
+    "matched": 39,
+    "predicted": 43,
+    "gold": 40,
+    "precision": 0.907,
+    "recall": 0.975,
+    "f1": 0.94
+   }
+  },
+  "extended": {
+   "strict_f1": {
+    "decisions": 0.915,
+    "tasks": 0.94
+   },
+   "per_trap": {
+    "D: final tras reemplazo": {
+     "gold": 20,
+     "found": 20,
+     "state_ok": 20,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 10,
+     "found": 9,
+     "state_ok": 9,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 10,
+     "found": 10,
+     "state_ok": 10,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 20,
+     "found": 20,
+     "state_ok": 20,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 40,
+     "found": 39,
+     "state_ok": 39,
+     "deadline_ok": 32,
+     "assignee_ok": 39
+    }
+   },
+   "deadline_errors": {
+    "ok": 32,
+    "dia equivocado": 7,
+    "inventado": 0,
+    "hora mal/falta": 0,
+    "omitido": 0
+   },
+   "task_states_predicted": {
+    "final": 42,
+    "pending": 1
+   },
+   "non_participant_assignees": 0,
+   "per_meeting": {
+    "VA01": {
+     "decisions_f1": 0.923076923076923,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.9615384615384615
+    },
+    "VA02": {
+     "decisions_f1": 0.923076923076923,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.8615384615384616
+    },
+    "VA03": {
+     "decisions_f1": 0.8571428571428571,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.9285714285714286
+    },
+    "VA04": {
+     "decisions_f1": 0.8571428571428571,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.9285714285714286
+    },
+    "VA05": {
+     "decisions_f1": 0.923076923076923,
+     "tasks_f1": 0.888888888888889,
+     "strict_f1": 0.905982905982906
+    },
+    "VA06": {
+     "decisions_f1": 1.0,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.9285714285714286
+    },
+    "VA07": {
+     "decisions_f1": 0.8333333333333334,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.9166666666666667
+    },
+    "VA08": {
+     "decisions_f1": 1.0,
+     "tasks_f1": 1.0,
+     "strict_f1": 1.0
+    },
+    "VA09": {
+     "decisions_f1": 1.0,
+     "tasks_f1": 0.888888888888889,
+     "strict_f1": 0.9444444444444444
+    },
+    "VA10": {
+     "decisions_f1": 0.8571428571428571,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.9285714285714286
+    }
+   },
+   "calls_total": 109,
+   "tokens_total": 53725,
+   "invalid_steps_total": 0,
+   "tool_calls_total": 158
+  }
+ },
+ "paired_full_vs_d2": {
+  "decisions_f1": {
+   "wins": 8,
+   "ties": 1,
+   "losses": 1
+  },
+  "tasks_f1": {
+   "wins": 8,
+   "ties": 1,
+   "losses": 1
+  },
+  "strict_f1": {
+   "wins": 10,
+   "ties": 0,
+   "losses": 0
+  }
+ },
+ "meta": {
+  "model": "ministral-3:3b-instruct-2512-q4_K_M",
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "num_ctx": 12288,
+   "num_predict": 2400
+  },
+  "ollama_version": "0.40.11",
+  "model_digest": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+  "package_commit": "73e4bc8",
+  "prompts": {
+   "CHANGELOG.md": "eb1e87577bc9f5203ea331c410d57e1b61470dcf9fe3899c13494722f716bc24",
+   "auditor.v1.md": "805756e66f0b634f50ca1864e5dd68515d819f2964a3b7ed33b1a0b8625f0ab4",
+   "auditor.v2.md": "101f2048a8a2ec9a2e59c73300a88915eaa66abee98e0c8a46975de2ff5cc2bd",
+   "auditor.v3.md": "ee3099ee7cfaf9829b52255879fde0ab980cc56709b74d26ea790af3b68f7436",
+   "d2_review.v1.md": "2c53a04b7981894b17f75dc4ce362855046f50538945dc7649d5eafc8e0094fa",
+   "d2_system.v1.md": "50cc704dd1b944057796d663c1a9f772f288b8f2c91d5120952705aae469ff9f",
+   "decisions.v1.md": "5971cd326b663057641172c771fa0a00659ab625f3d924c5a56028f5b6be1f12",
+   "decisions.v2.md": "6ea72b68a2e4133974faff0d1d320c75eba703e1a9f0864dc347a8849bc79593",
+   "fewshot/decisions.TR01.md": "2a9e75e24a8dda412bd4fb655c0e0cfa96489cde7a2cf4ca6f74f716c207f5ee",
+   "fewshot/decisions.TR01.v2.md": "045ed02ec7e0810f88c18df3c757495bb7644c9ea03f21e8225ae95bb5a13f7c",
+   "fewshot/tasks.TR01.md": "7b3a461a7b94bdc86c3b312f06e3e85b08cd632cdcab8544cc4977271666e77b",
+   "tasks.v1.md": "7edac483c5c5f355fc73d1ca6e4f2cba34f88c6fdb73f01bee254a27b00f12c3",
+   "tasks.v2.md": "b0e6e6a4a879eb0bd69e96d7d737be00b57cfb41e8601e0c8e54805b78c5eed3"
+  },
+  "conditions": [
+   "d2",
+   "full"
+  ],
+  "conditions_run": [
+   "full",
+   "d2"
+  ],
+  "meeting_ids": [
+   "VA01",
+   "VA02",
+   "VA03",
+   "VA04",
+   "VA05",
+   "VA06",
+   "VA07",
+   "VA08",
+   "VA09",
+   "VA10"
+  ],
+  "evaluated_meetings": {
+   "d2": [
+    "VA01",
+    "VA02",
+    "VA03",
+    "VA04",
+    "VA05",
+    "VA06",
+    "VA07",
+    "VA08",
+    "VA09",
+    "VA10"
+   ],
+   "full": [
+    "VA01",
+    "VA02",
+    "VA03",
+    "VA04",
+    "VA05",
+    "VA06",
+    "VA07",
+    "VA08",
+    "VA09",
+    "VA10"
+   ]
+  },
+  "failed": [],
+  "stale_results": [],
+  "created": "2026-10-25T21:45:54.747367+00:00",
+  "split": "validation",
+  "demo": false,
+  "limit": null,
+  "ollama_version_by_condition": {
+   "d2": "0.40.11",
+   "full": "0.40.11"
+  },
+  "model_digest_by_condition": {
+   "d2": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+   "full": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d"
+  }
+ }
+}

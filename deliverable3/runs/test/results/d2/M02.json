@@ -1,0 +1,554 @@
+{
+ "raw": "{\"decisions\": [\n    {\n        \"id\": \"d01\",\n        \"topic\": \"Herramienta de encuesta postventa\",\n        \"statement\": \"Usar Google Forms para el piloto de encuesta postventa, descartando Typeform por su necesidad de lógica condicional innecesaria y por no requerir presupuesto adicional.\",\n        \"state\": \"final\",\n        \"condition\": \"Explicito en u26 y respaldado por u25 (evidencia de descarte y justificación económica).\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u26\"\n    },\n    {\n        \"id\": \"d02\",\n        \"topic\": \"Muestra piloto de encuesta\",\n        \"statement\": \"Realizar un piloto con 50 clientes seleccionados por Speaker 03, equilibrando los tres segmentos, para mañana (2026-09-16) antes de las 12:00.\",\n        \"state\": \"final\",\n        \"condition\": \"Asignación explícita en u15 y confirmación en u14.\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u15\"\n    },\n    {\n        \"id\": \"d03\",\n        \"topic\": \"Contenido preguntas piloto\",\n        \"statement\": \"Incluir en el borrador: escala de satisfacción, pregunta abierta al final y pregunta sobre tiempo de respuesta del soporte, asignado a Speaker 02 para redactar antes del viernes 19 (2026-09-19).\",\n        \"state\": \"final\",\n        \"condition\": \"Asignación en u18 y confirmación de preguntas en u16, u17.\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u18\"\n    },\n    {\n        \"id\": \"d04\",\n        \"topic\": \"Fecha de envío inicial\",\n        \"statement\": \"Enviar la encuesta el lunes 21 de septiembre (2026-09-21) **solo si Legal aprueba el texto sin cambios antes de las 15:00 del viernes 19 (2026-09-19)**. Si hay correcciones, reprogramar para el martes 22 (2026-09-22).\",\n        \"state\": \"final\",\n        \"condition\": \"Regla establecida en u36 y confirmación de asignación de correcciones en u39.\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u36\"\n    },\n    {\n        \"id\": \"d05\",\n        \"topic\": \"Propuesta de envío inmediato (reemplazada)\",\n        \"statement\": \"Propuesta inicial de enviar el encuesta el viernes 19 (2026-09-19) tras revisión legal, descartada por Speaker 02 en u35.\",\n        \"state\": \"superseded\",\n        \"condition\": \"Discusión en u35 y confirmación de cambio en u36.\",\n        \"supersedes\": \"d04\",\n        \"evidence_id\": \"u35\"\n    }\n],\n\"tasks\": [\n    {\n        \"id\": \"t01\",\n        \"description\": \"Seleccionar los 50 clientes para el piloto de encuesta postventa, equilibrando los tres segmentos.\",\n        \"assignee\": \"Speaker 03\",\n        \"deadline\": \"2026-09-16T12:00:00\",\n        \"condition\": \"Confirmado en u14 y u15.\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u15\"\n    },\n    {\n        \"id\": \"t02\",\n        \"description\": \"Redactar el borrador de preguntas para la encuesta postventa, incluyendo escala de satisfacción, pregunta abierta y tiempo de respuesta del soporte.\",\n        \"assignee\": \"Speaker 02\",\n        \"deadline\": \"2026-09-19T17:00:00\",\n        \"condition\": \"Asignado en u18 y confirmado en u19.\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u18\"\n    },\n    {\n        \"id\": \"t03\",\n        \"description\": \"Solicitar revisión legal al borrador de preguntas una vez finalizado por Speaker 02.\",\n        \"assignee\": \"Speaker 04\",\n        \"deadline\": null,\n        \"condition\": \"Asignado en u30 y confirmado en u31 (envío al recibir el borrador).\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u30\"\n    },\n    {\n        \"id\": \"t04\",\n        \"description\": \"Incorporar las correcciones legales que indique Sofía (Legal) en el borrador de preguntas.\",\n        \"assignee\": \"Speaker 02\",\n        \"deadline\": \"2026-09-20T23:59:59\",\n        \"condition\": \"Asignado en u38 y confirmado en u39.\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u39\"\n    },\n    {\n        \"id\": \"t05\",\n        \"description\": \"Configurar el formulario Google Forms con las preguntas aprobadas y enviar el piloto a los 50 clientes seleccionados.\",\n        \"assignee\": \"Speaker 02\",\n        \"deadline\": \"2026-09-21T00:00:00\",\n        \"condition\": \"Asignado en u27 y u28 (tras aprobación legal).\",\n        \"state\": \"pending\",\n        \"evidence_id\": \"u28\"\n    },\n    {\n        \"id\": \"t06\",\n        \"description\": \"Monitorear la tasa de respuesta de la encuesta durante la semana posterior al envío (2026-09-21).\",\n        \"assignee\": \"Speaker 03\",\n        \"deadline\": null,\n        \"condition\": \"Asignado en u41.\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u41\"\n    },\n    {\n        \"id\": \"t07\",\n        \"description\": \"Definir qué acciones tomar si la tasa de respuesta es menor al 10% durante la semana del piloto.\",\n        \"assignee\": null,\n        \"deadline\": null,\n        \"condition\": \"Asunto pendiente en u42, asignado para próxima reunión.\",\n        \"state\": \"pending\",\n        \"evidence_id\": \"u42\"\n    }\n]}",
+ "parsed": {
+  "decisions": [
+   {
+    "id": "d01",
+    "topic": "Herramienta de encuesta postventa",
+    "statement": "Usar Google Forms para el piloto de encuesta postventa, descartando Typeform por su necesidad de lógica condicional innecesaria y por no requerir presupuesto adicional.",
+    "state": "final",
+    "condition": "Explicito en u26 y respaldado por u25 (evidencia de descarte y justificación económica).",
+    "supersedes": null,
+    "evidence_id": "u26"
+   },
+   {
+    "id": "d02",
+    "topic": "Muestra piloto de encuesta",
+    "statement": "Realizar un piloto con 50 clientes seleccionados por Speaker 03, equilibrando los tres segmentos, para mañana (2026-09-16) antes de las 12:00.",
+    "state": "final",
+    "condition": "Asignación explícita en u15 y confirmación en u14.",
+    "supersedes": null,
+    "evidence_id": "u15"
+   },
+   {
+    "id": "d03",
+    "topic": "Contenido preguntas piloto",
+    "statement": "Incluir en el borrador: escala de satisfacción, pregunta abierta al final y pregunta sobre tiempo de respuesta del soporte, asignado a Speaker 02 para redactar antes del viernes 19 (2026-09-19).",
+    "state": "final",
+    "condition": "Asignación en u18 y confirmación de preguntas en u16, u17.",
+    "supersedes": null,
+    "evidence_id": "u18"
+   },
+   {
+    "id": "d04",
+    "topic": "Fecha de envío inicial",
+    "statement": "Enviar la encuesta el lunes 21 de septiembre (2026-09-21) **solo si Legal aprueba el texto sin cambios antes de las 15:00 del viernes 19 (2026-09-19)**. Si hay correcciones, reprogramar para el martes 22 (2026-09-22).",
+    "state": "final",
+    "condition": "Regla establecida en u36 y confirmación de asignación de correcciones en u39.",
+    "supersedes": null,
+    "evidence_id": "u36"
+   },
+   {
+    "id": "d05",
+    "topic": "Propuesta de envío inmediato (reemplazada)",
+    "statement": "Propuesta inicial de enviar el encuesta el viernes 19 (2026-09-19) tras revisión legal, descartada por Speaker 02 en u35.",
+    "state": "superseded",
+    "condition": "Discusión en u35 y confirmación de cambio en u36.",
+    "supersedes": "d04",
+    "evidence_id": "u35"
+   }
+  ],
+  "tasks": [
+   {
+    "id": "t01",
+    "description": "Seleccionar los 50 clientes para el piloto de encuesta postventa, equilibrando los tres segmentos.",
+    "assignee": "Speaker 03",
+    "deadline": "2026-09-16T12:00",
+    "condition": "Confirmado en u14 y u15.",
+    "state": "final",
+    "evidence_id": "u15"
+   },
+   {
+    "id": "t02",
+    "description": "Redactar el borrador de preguntas para la encuesta postventa, incluyendo escala de satisfacción, pregunta abierta y tiempo de respuesta del soporte.",
+    "assignee": "Speaker 02",
+    "deadline": "2026-09-19T17:00",
+    "condition": "Asignado en u18 y confirmado en u19.",
+    "state": "final",
+    "evidence_id": "u18"
+   },
+   {
+    "id": "t03",
+    "description": "Solicitar revisión legal al borrador de preguntas una vez finalizado por Speaker 02.",
+    "assignee": "Speaker 04",
+    "deadline": null,
+    "condition": "Asignado en u30 y confirmado en u31 (envío al recibir el borrador).",
+    "state": "final",
+    "evidence_id": "u30"
+   },
+   {
+    "id": "t04",
+    "description": "Incorporar las correcciones legales que indique Sofía (Legal) en el borrador de preguntas.",
+    "assignee": "Speaker 02",
+    "deadline": "2026-09-20T23:59",
+    "condition": "Asignado en u38 y confirmado en u39.",
+    "state": "final",
+    "evidence_id": "u39"
+   },
+   {
+    "id": "t05",
+    "description": "Configurar el formulario Google Forms con las preguntas aprobadas y enviar el piloto a los 50 clientes seleccionados.",
+    "assignee": "Speaker 02",
+    "deadline": "2026-09-21T00:00",
+    "condition": "Asignado en u27 y u28 (tras aprobación legal).",
+    "state": "pending",
+    "evidence_id": "u28"
+   },
+   {
+    "id": "t06",
+    "description": "Monitorear la tasa de respuesta de la encuesta durante la semana posterior al envío (2026-09-21).",
+    "assignee": "Speaker 03",
+    "deadline": null,
+    "condition": "Asignado en u41.",
+    "state": "final",
+    "evidence_id": "u41"
+   },
+   {
+    "id": "t07",
+    "description": "Definir qué acciones tomar si la tasa de respuesta es menor al 10% durante la semana del piloto.",
+    "assignee": null,
+    "deadline": null,
+    "condition": "Asunto pendiente en u42, asignado para próxima reunión.",
+    "state": "pending",
+    "evidence_id": "u42"
+   }
+  ]
+ },
+ "seconds": 33.33,
+ "eval_count": 1485,
+ "prompt_eval_count": 7584,
+ "done_reason": "stop",
+ "schema_valid": true,
+ "tool_reports": [
+  {
+   "kind": "decisions",
+   "id": "d01",
+   "evidence": {
+    "evidence_id": "u26",
+    "exists": true,
+    "cited": {
+     "id": "u26",
+     "timestamp": "00:03:59",
+     "speaker": "Speaker 01",
+     "text": "Entonces descartamos Typeform y usamos Google Forms para este piloto."
+    },
+    "nearby": [
+     {
+      "id": "u25",
+      "speaker": "Speaker 04",
+      "text": "Y así no tenemos que pedir presupuesto nuevo."
+     },
+     {
+      "id": "u26",
+      "speaker": "Speaker 01",
+      "text": "Entonces descartamos Typeform y usamos Google Forms para este piloto."
+     },
+     {
+      "id": "u27",
+      "speaker": "Speaker 02",
+      "text": "Yo armo el formulario apenas estén aprobadas las preguntas."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d02",
+   "evidence": {
+    "evidence_id": "u15",
+    "exists": true,
+    "cited": {
+     "id": "u15",
+     "timestamp": "00:02:15",
+     "speaker": "Speaker 01",
+     "text": "Speaker 03 selecciona la muestra piloto de 50 clientes para mañana antes de las 12."
+    },
+    "nearby": [
+     {
+      "id": "u14",
+      "speaker": "Speaker 03",
+      "text": "Puedo seleccionar los 50 clientes, equilibrando los tres segmentos."
+     },
+     {
+      "id": "u15",
+      "speaker": "Speaker 01",
+      "text": "Speaker 03 selecciona la muestra piloto de 50 clientes para mañana antes de las 12."
+     },
+     {
+      "id": "u16",
+      "speaker": "Speaker 02",
+      "text": "Sobre las preguntas, yo haría una escala de satisfacción y una pregunta abierta al final."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d03",
+   "evidence": {
+    "evidence_id": "u18",
+    "exists": true,
+    "cited": {
+     "id": "u18",
+     "timestamp": "00:02:44",
+     "speaker": "Speaker 01",
+     "text": "Speaker 02 redacta el borrador de preguntas, incluyendo esa pregunta de soporte, para el viernes."
+    },
+    "nearby": [
+     {
+      "id": "u17",
+      "speaker": "Speaker 04",
+      "text": "Agregaría una pregunta sobre el tiempo de respuesta del soporte."
+     },
+     {
+      "id": "u18",
+      "speaker": "Speaker 01",
+      "text": "Speaker 02 redacta el borrador de preguntas, incluyendo esa pregunta de soporte, para el viernes."
+     },
+     {
+      "id": "u19",
+      "speaker": "Speaker 02",
+      "text": "¿La enviamos este viernes?"
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d04",
+   "evidence": {
+    "evidence_id": "u36",
+    "exists": true,
+    "cited": {
+     "id": "u36",
+     "timestamp": "00:05:33",
+     "speaker": "Speaker 01",
+     "text": "Correcto. La regla será: enviamos el lunes 21 solo si Legal aprueba el texto sin cambios antes de las 15:00; si no, se reprograma."
+    },
+    "nearby": [
+     {
+      "id": "u35",
+      "speaker": "Speaker 02",
+      "text": "Prefiero no comprometer una fecha hasta saber si hay correcciones legales."
+     },
+     {
+      "id": "u36",
+      "speaker": "Speaker 01",
+      "text": "Correcto. La regla será: enviamos el lunes 21 solo si Legal aprueba el texto sin cambios antes de las 15:00; si no, se reprograma."
+     },
+     {
+      "id": "u37",
+      "speaker": "Speaker 04",
+      "text": "Y si hay cambios, ¿quién los incorpora?"
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t01",
+   "evidence": {
+    "evidence_id": "u15",
+    "exists": true,
+    "cited": {
+     "id": "u15",
+     "timestamp": "00:02:15",
+     "speaker": "Speaker 01",
+     "text": "Speaker 03 selecciona la muestra piloto de 50 clientes para mañana antes de las 12."
+    },
+    "nearby": [
+     {
+      "id": "u14",
+      "speaker": "Speaker 03",
+      "text": "Puedo seleccionar los 50 clientes, equilibrando los tres segmentos."
+     },
+     {
+      "id": "u15",
+      "speaker": "Speaker 01",
+      "text": "Speaker 03 selecciona la muestra piloto de 50 clientes para mañana antes de las 12."
+     },
+     {
+      "id": "u16",
+      "speaker": "Speaker 02",
+      "text": "Sobre las preguntas, yo haría una escala de satisfacción y una pregunta abierta al final."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u15",
+    "source_text": "Speaker 03 selecciona la muestra piloto de 50 clientes para mañana antes de las 12.",
+    "draft": "2026-09-16T12:00:00",
+    "suggested": "2026-09-17",
+    "reason": "hora ambigua: solo día calculado"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t02",
+   "evidence": {
+    "evidence_id": "u18",
+    "exists": true,
+    "cited": {
+     "id": "u18",
+     "timestamp": "00:02:44",
+     "speaker": "Speaker 01",
+     "text": "Speaker 02 redacta el borrador de preguntas, incluyendo esa pregunta de soporte, para el viernes."
+    },
+    "nearby": [
+     {
+      "id": "u17",
+      "speaker": "Speaker 04",
+      "text": "Agregaría una pregunta sobre el tiempo de respuesta del soporte."
+     },
+     {
+      "id": "u18",
+      "speaker": "Speaker 01",
+      "text": "Speaker 02 redacta el borrador de preguntas, incluyendo esa pregunta de soporte, para el viernes."
+     },
+     {
+      "id": "u19",
+      "speaker": "Speaker 02",
+      "text": "¿La enviamos este viernes?"
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u18",
+    "source_text": "Speaker 02 redacta el borrador de preguntas, incluyendo esa pregunta de soporte, para el viernes.",
+    "draft": "2026-09-19T17:00:00",
+    "suggested": "2026-09-18",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t03",
+   "evidence": {
+    "evidence_id": "u28",
+    "exists": true,
+    "cited": {
+     "id": "u28",
+     "timestamp": "00:04:18",
+     "speaker": "Speaker 01",
+     "text": "Speaker 02 configura el formulario después de que las preguntas estén aprobadas."
+    },
+    "nearby": [
+     {
+      "id": "u27",
+      "speaker": "Speaker 02",
+      "text": "Yo armo el formulario apenas estén aprobadas las preguntas."
+     },
+     {
+      "id": "u28",
+      "speaker": "Speaker 01",
+      "text": "Speaker 02 configura el formulario después de que las preguntas estén aprobadas."
+     },
+     {
+      "id": "u29",
+      "speaker": "Speaker 03",
+      "text": "¿Quién le pide la revisión a Legal?"
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u28",
+    "source_text": "Speaker 02 configura el formulario después de que las preguntas estén aprobadas.",
+    "draft": "2026-09-21T00:00:00",
+    "suggested": null,
+    "reason": "expresión relativa/ambigua: revisar contexto completo, no forzar fecha"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t04",
+   "evidence": {
+    "evidence_id": "u30",
+    "exists": true,
+    "cited": {
+     "id": "u30",
+     "timestamp": "00:04:35",
+     "speaker": "Speaker 04",
+     "text": "Yo envío el borrador a Sofía apenas Speaker 02 lo termine."
+    },
+    "nearby": [
+     {
+      "id": "u29",
+      "speaker": "Speaker 03",
+      "text": "¿Quién le pide la revisión a Legal?"
+     },
+     {
+      "id": "u30",
+      "speaker": "Speaker 04",
+      "text": "Yo envío el borrador a Sofía apenas Speaker 02 lo termine."
+     },
+     {
+      "id": "u31",
+      "speaker": "Speaker 01",
+      "text": "Perfecto, Speaker 04 solicita la revisión legal al recibir el borrador."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u30",
+    "source_text": "Yo envío el borrador a Sofía apenas Speaker 02 lo termine.",
+    "draft": "2026-09-19T17:00:00",
+    "suggested": null,
+    "reason": "expresión relativa/ambigua: revisar contexto completo, no forzar fecha"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t05",
+   "evidence": {
+    "evidence_id": "u39",
+    "exists": true,
+    "cited": {
+     "id": "u39",
+     "timestamp": "00:06:01",
+     "speaker": "Speaker 01",
+     "text": "Speaker 02 incorpora las correcciones legales si las hubiera."
+    },
+    "nearby": [
+     {
+      "id": "u38",
+      "speaker": "Speaker 02",
+      "text": "Yo incorporo las correcciones que indique Legal."
+     },
+     {
+      "id": "u39",
+      "speaker": "Speaker 01",
+      "text": "Speaker 02 incorpora las correcciones legales si las hubiera."
+     },
+     {
+      "id": "u40",
+      "speaker": "Speaker 03",
+      "text": "Después del envío, yo puedo revisar la tasa de respuesta diaria."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u39",
+    "source_text": "Speaker 02 incorpora las correcciones legales si las hubiera.",
+    "draft": "2026-09-20T23:59:59",
+    "suggested": null,
+    "reason": "expresión relativa/ambigua: revisar contexto completo, no forzar fecha"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t06",
+   "evidence": {
+    "evidence_id": "u41",
+    "exists": true,
+    "cited": {
+     "id": "u41",
+     "timestamp": "00:06:19",
+     "speaker": "Speaker 01",
+     "text": "Speaker 03 monitorea la tasa de respuesta durante la semana posterior al envío."
+    },
+    "nearby": [
+     {
+      "id": "u40",
+      "speaker": "Speaker 03",
+      "text": "Después del envío, yo puedo revisar la tasa de respuesta diaria."
+     },
+     {
+      "id": "u41",
+      "speaker": "Speaker 01",
+      "text": "Speaker 03 monitorea la tasa de respuesta durante la semana posterior al envío."
+     },
+     {
+      "id": "u42",
+      "speaker": "Speaker 04",
+      "text": "No definimos todavía qué haremos si responde menos del diez por ciento."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true
+  }
+ ],
+ "mechanical_actions": [],
+ "calls": 2,
+ "seconds_total": 57.38,
+ "prompt_hashes": {
+  "CHANGELOG.md": "eb1e87577bc9f5203ea331c410d57e1b61470dcf9fe3899c13494722f716bc24",
+  "auditor.v1.md": "805756e66f0b634f50ca1864e5dd68515d819f2964a3b7ed33b1a0b8625f0ab4",
+  "auditor.v2.md": "101f2048a8a2ec9a2e59c73300a88915eaa66abee98e0c8a46975de2ff5cc2bd",
+  "auditor.v3.md": "ee3099ee7cfaf9829b52255879fde0ab980cc56709b74d26ea790af3b68f7436",
+  "d2_review.v1.md": "2c53a04b7981894b17f75dc4ce362855046f50538945dc7649d5eafc8e0094fa",
+  "d2_system.v1.md": "50cc704dd1b944057796d663c1a9f772f288b8f2c91d5120952705aae469ff9f",
+  "decisions.v1.md": "5971cd326b663057641172c771fa0a00659ab625f3d924c5a56028f5b6be1f12",
+  "decisions.v2.md": "6ea72b68a2e4133974faff0d1d320c75eba703e1a9f0864dc347a8849bc79593",
+  "fewshot/decisions.TR01.md": "2a9e75e24a8dda412bd4fb655c0e0cfa96489cde7a2cf4ca6f74f716c207f5ee",
+  "fewshot/decisions.TR01.v2.md": "045ed02ec7e0810f88c18df3c757495bb7644c9ea03f21e8225ae95bb5a13f7c",
+  "fewshot/tasks.TR01.md": "7b3a461a7b94bdc86c3b312f06e3e85b08cd632cdcab8544cc4977271666e77b",
+  "tasks.v1.md": "7edac483c5c5f355fc73d1ca6e4f2cba34f88c6fdb73f01bee254a27b00f12c3",
+  "tasks.v2.md": "b0e6e6a4a879eb0bd69e96d7d737be00b57cfb41e8601e0c8e54805b78c5eed3"
+ },
+ "run_config": null
+}

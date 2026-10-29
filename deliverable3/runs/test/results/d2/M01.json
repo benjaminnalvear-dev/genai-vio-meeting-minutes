@@ -1,0 +1,498 @@
+{
+ "raw": "{\"decisions\": [\n    {\n        \"id\": \"d01\",\n        \"topic\": \"Fecha del piloto\",\n        \"statement\": \"El piloto se realizará el martes 22 de septiembre a las 10:00 AM.\",\n        \"state\": \"final\",\n        \"condition\": \"Confirmada disponibilidad de empresas y sin conflictos internos (empresas confirmadas: 3 el martes 22 a las 10:00 y 1 el lunes 21 a las 16:00).\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u31\"\n    },\n    {\n        \"id\": \"d02\",\n        \"topic\": \"Duración de la demostración técnica\",\n        \"statement\": \"La demostración técnica del piloto será de 15 minutos, seguida de una prueba guiada y encuesta.\",\n        \"state\": \"final\",\n        \"condition\": \"Acuerdo explícito tras revisión de la propuesta inicial (u25).\",\n        \"supersedes\": \"d03\",\n        \"evidence_id\": \"u25\"\n    },\n    {\n        \"id\": \"d03\",\n        \"topic\": \"Estructura inicial del piloto (propuesta rechazada)\",\n        \"statement\": \"Propuesta inicial: demostración de 20 minutos seguida de encuesta (sin prueba guiada).\",\n        \"state\": \"rejected\",\n        \"condition\": \"Reemplazada por la versión de 15 minutos con prueba guiada (u25).\",\n        \"supersedes\": \"d02\",\n        \"evidence_id\": \"u12\"\n    },\n    {\n        \"id\": \"d04\",\n        \"topic\": \"Inclusión de cámara en el piloto\",\n        \"statement\": \"La funcionalidad de cámara no será incluida en el piloto.\",\n        \"state\": \"final\",\n        \"condition\": \"Acuerdo explícito tras confirmación de problemas técnicos (u35).\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u35\"\n    },\n    {\n        \"id\": \"d05\",\n        \"topic\": \"Escenario de la prueba guiada\",\n        \"statement\": \"El escenario de la prueba guiada queda pendiente hasta revisar los sectores de las empresas participantes.\",\n        \"state\": \"pending\",\n        \"condition\": \"No hay consenso explícito sobre feedback vs negociación (u28).\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u28\"\n    }\n],\n\"tasks\": [\n    {\n        \"id\": \"t01\",\n        \"description\": \"Preparar el borrador del correo de invitación al piloto y enviarlo para revisión del Speaker 01 antes de las 17:00 del 14/09/2026.\",\n        \"assignee\": \"Speaker 02\",\n        \"deadline\": \"2026-09-14T17:00\",\n        \"condition\": \"Revisión y aprobación del Speaker 01 antes de las 17:00 del mismo día.\",\n        \"state\": \"pending\",\n        \"evidence_id\": \"u08\"\n    },\n    {\n        \"id\": \"t02\",\n        \"description\": \"Armar la lista de empresas contactadas para el piloto y compartirla en la carpeta compartida antes del 14/09/2026.\",\n        \"assignee\": \"Speaker 03\",\n        \"deadline\": \"2026-09-14\",\n        \"condition\": \"Sin restricciones adicionales.\",\n        \"state\": \"pending\",\n        \"evidence_id\": \"u10\"\n    },\n    {\n        \"id\": \"t03\",\n        \"description\": \"Entregar la versión estable del sistema para el piloto antes de las 17:00 del viernes 18/09/2026.\",\n        \"assignee\": \"Speaker 04\",\n        \"deadline\": \"2026-09-18T17:00\",\n        \"condition\": \"Versión lista y sin errores críticos.\",\n        \"state\": \"pending\",\n        \"evidence_id\": \"u33\"\n    },\n    {\n        \"id\": \"t04\",\n        \"description\": \"Consolidar los comentarios de la encuesta dentro de los dos días posteriores al piloto (martes 22/09/2026).\",\n        \"assignee\": \"Speaker 02\",\n        \"deadline\": \"2026-09-24T23:59\",\n        \"condition\": \"Sin errores en la consolidación de datos.\",\n        \"state\": \"pending\",\n        \"evidence_id\": \"u22\"\n    },\n    {\n        \"id\": \"t06\",\n        \"description\": \"Definir el tipo de prueba guiada (feedback o negociación) tras revisar los sectores de las empresas participantes.\",\n        \"assignee\": \"Speaker 03\",\n        \"deadline\": \"2026-09-22\",\n        \"condition\": \"Sin restricciones adicionales.\",\n        \"state\": \"pending\",\n        \"evidence_id\": \"u41\"\n    }\n]\n}",
+ "parsed": {
+  "decisions": [
+   {
+    "id": "d01",
+    "topic": "Fecha del piloto",
+    "statement": "El piloto se realizará el martes 22 de septiembre a las 10:00 AM.",
+    "state": "final",
+    "condition": "Confirmada disponibilidad de empresas y sin conflictos internos (empresas confirmadas: 3 el martes 22 a las 10:00 y 1 el lunes 21 a las 16:00).",
+    "supersedes": null,
+    "evidence_id": "u31"
+   },
+   {
+    "id": "d02",
+    "topic": "Duración de la demostración técnica",
+    "statement": "La demostración técnica del piloto será de 15 minutos, seguida de una prueba guiada y encuesta.",
+    "state": "final",
+    "condition": "Acuerdo explícito tras revisión de la propuesta inicial (u25).",
+    "supersedes": "d03",
+    "evidence_id": "u25"
+   },
+   {
+    "id": "d03",
+    "topic": "Estructura inicial del piloto (propuesta rechazada)",
+    "statement": "Propuesta inicial: demostración de 20 minutos seguida de encuesta (sin prueba guiada).",
+    "state": "rejected",
+    "condition": "Reemplazada por la versión de 15 minutos con prueba guiada (u25).",
+    "supersedes": "d02",
+    "evidence_id": "u12"
+   },
+   {
+    "id": "d04",
+    "topic": "Inclusión de cámara en el piloto",
+    "statement": "La funcionalidad de cámara no será incluida en el piloto.",
+    "state": "final",
+    "condition": "Acuerdo explícito tras confirmación de problemas técnicos (u35).",
+    "supersedes": null,
+    "evidence_id": "u35"
+   },
+   {
+    "id": "d05",
+    "topic": "Escenario de la prueba guiada",
+    "statement": "El escenario de la prueba guiada queda pendiente hasta revisar los sectores de las empresas participantes.",
+    "state": "pending",
+    "condition": "No hay consenso explícito sobre feedback vs negociación (u28).",
+    "supersedes": null,
+    "evidence_id": "u28"
+   }
+  ],
+  "tasks": [
+   {
+    "id": "t01",
+    "description": "Preparar el borrador del correo de invitación al piloto y enviarlo para revisión del Speaker 01 antes de las 17:00 del 14/09/2026.",
+    "assignee": "Speaker 02",
+    "deadline": "2026-09-14T17:00",
+    "condition": "Revisión y aprobación del Speaker 01 antes de las 17:00 del mismo día.",
+    "state": "pending",
+    "evidence_id": "u08"
+   },
+   {
+    "id": "t02",
+    "description": "Armar la lista de empresas contactadas para el piloto y compartirla en la carpeta compartida antes del 14/09/2026.",
+    "assignee": "Speaker 03",
+    "deadline": "2026-09-14",
+    "condition": "Sin restricciones adicionales.",
+    "state": "pending",
+    "evidence_id": "u10"
+   },
+   {
+    "id": "t03",
+    "description": "Entregar la versión estable del sistema para el piloto antes de las 17:00 del viernes 18/09/2026.",
+    "assignee": "Speaker 04",
+    "deadline": "2026-09-18T17:00",
+    "condition": "Versión lista y sin errores críticos.",
+    "state": "pending",
+    "evidence_id": "u33"
+   },
+   {
+    "id": "t04",
+    "description": "Consolidar los comentarios de la encuesta dentro de los dos días posteriores al piloto (martes 22/09/2026).",
+    "assignee": "Speaker 02",
+    "deadline": "2026-09-24T23:59",
+    "condition": "Sin errores en la consolidación de datos.",
+    "state": "pending",
+    "evidence_id": "u22"
+   },
+   {
+    "id": "t06",
+    "description": "Definir el tipo de prueba guiada (feedback o negociación) tras revisar los sectores de las empresas participantes.",
+    "assignee": "Speaker 03",
+    "deadline": "2026-09-22",
+    "condition": "Sin restricciones adicionales.",
+    "state": "pending",
+    "evidence_id": "u41"
+   }
+  ]
+ },
+ "seconds": 26.15,
+ "eval_count": 1150,
+ "prompt_eval_count": 6891,
+ "done_reason": "stop",
+ "schema_valid": true,
+ "tool_reports": [
+  {
+   "kind": "decisions",
+   "id": "d01",
+   "evidence": {
+    "evidence_id": "u31",
+    "exists": true,
+    "cited": {
+     "id": "u31",
+     "timestamp": "00:04:30",
+     "speaker": "Speaker 01",
+     "text": "Listo, el piloto queda fijado para el martes 22 a las diez de la mañana. Esto reemplaza las alternativas del lunes."
+    },
+    "nearby": [
+     {
+      "id": "u30",
+      "speaker": "Speaker 02",
+      "text": "Entonces el martes es claramente mejor."
+     },
+     {
+      "id": "u31",
+      "speaker": "Speaker 01",
+      "text": "Listo, el piloto queda fijado para el martes 22 a las diez de la mañana. Esto reemplaza las alternativas del lunes."
+     },
+     {
+      "id": "u32",
+      "speaker": "Speaker 04",
+      "text": "Con esa fecha, necesito tener la versión estable lista el viernes anterior."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d02",
+   "evidence": {
+    "evidence_id": "u25",
+    "exists": true,
+    "cited": {
+     "id": "u25",
+     "timestamp": "00:03:30",
+     "speaker": "Speaker 01",
+     "text": "Entonces reemplazamos la propuesta anterior: la demostración será de quince minutos y luego habrá una prueba guiada y encuesta."
+    },
+    "nearby": [
+     {
+      "id": "u24",
+      "speaker": "Speaker 03",
+      "text": "Estoy de acuerdo. Con quince minutos queda tiempo para que los participantes prueben una conversación."
+     },
+     {
+      "id": "u25",
+      "speaker": "Speaker 01",
+      "text": "Entonces reemplazamos la propuesta anterior: la demostración será de quince minutos y luego habrá una prueba guiada y encuesta."
+     },
+     {
+      "id": "u26",
+      "speaker": "Speaker 02",
+      "text": "La prueba guiada necesita un escenario listo. Podría ser una conversación de feedback."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d03",
+   "evidence": {
+    "evidence_id": "u12",
+    "exists": true,
+    "cited": {
+     "id": "u12",
+     "timestamp": "00:01:39",
+     "speaker": "Speaker 01",
+     "text": "Queda como propuesta inicial: demostración de veinte minutos seguida de encuesta."
+    },
+    "nearby": [
+     {
+      "id": "u11",
+      "speaker": "Speaker 04",
+      "text": "Para el piloto deberíamos usar una demostración de veinte minutos y después una encuesta."
+     },
+     {
+      "id": "u12",
+      "speaker": "Speaker 01",
+      "text": "Queda como propuesta inicial: demostración de veinte minutos seguida de encuesta."
+     },
+     {
+      "id": "u13",
+      "speaker": "Speaker 02",
+      "text": "Tengo una duda: el lunes 21 coincide con la capacitación interna de dos personas."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d04",
+   "evidence": {
+    "evidence_id": "u35",
+    "exists": true,
+    "cited": {
+     "id": "u35",
+     "timestamp": "00:05:05",
+     "speaker": "Speaker 04",
+     "text": "No. La cámara todavía falla en algunos equipos; no la mostremos en el piloto."
+    },
+    "nearby": [
+     {
+      "id": "u34",
+      "speaker": "Speaker 02",
+      "text": "¿Incluimos la cámara en esta versión?"
+     },
+     {
+      "id": "u35",
+      "speaker": "Speaker 04",
+      "text": "No. La cámara todavía falla en algunos equipos; no la mostremos en el piloto."
+     },
+     {
+      "id": "u36",
+      "speaker": "Speaker 01",
+      "text": "De acuerdo, la funcionalidad de cámara queda fuera del piloto."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t01",
+   "evidence": {
+    "evidence_id": "u08",
+    "exists": true,
+    "cited": {
+     "id": "u08",
+     "timestamp": "00:01:03",
+     "speaker": "Speaker 02",
+     "text": "Sí, preparo un borrador y lo envío para revisión hoy antes de las seis."
+    },
+    "nearby": [
+     {
+      "id": "u07",
+      "speaker": "Speaker 01",
+      "text": "Speaker 02, ¿puedes preparar el correo de invitación?"
+     },
+     {
+      "id": "u08",
+      "speaker": "Speaker 02",
+      "text": "Sí, preparo un borrador y lo envío para revisión hoy antes de las seis."
+     },
+     {
+      "id": "u09",
+      "speaker": "Speaker 03",
+      "text": "Yo puedo armar la lista de empresas contactadas."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u08",
+    "source_text": "Sí, preparo un borrador y lo envío para revisión hoy antes de las seis.",
+    "draft": "2026-09-14T18:00",
+    "suggested": "2026-09-14",
+    "reason": "hora ambigua: solo día calculado"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t02",
+   "evidence": {
+    "evidence_id": "u10",
+    "exists": true,
+    "cited": {
+     "id": "u10",
+     "timestamp": "00:01:20",
+     "speaker": "Speaker 01",
+     "text": "Perfecto. Speaker 03 arma esa lista hoy y la comparte en la carpeta."
+    },
+    "nearby": [
+     {
+      "id": "u09",
+      "speaker": "Speaker 03",
+      "text": "Yo puedo armar la lista de empresas contactadas."
+     },
+     {
+      "id": "u10",
+      "speaker": "Speaker 01",
+      "text": "Perfecto. Speaker 03 arma esa lista hoy y la comparte en la carpeta."
+     },
+     {
+      "id": "u11",
+      "speaker": "Speaker 04",
+      "text": "Para el piloto deberíamos usar una demostración de veinte minutos y después una encuesta."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u10",
+    "source_text": "Perfecto. Speaker 03 arma esa lista hoy y la comparte en la carpeta.",
+    "draft": "2026-09-14",
+    "suggested": "2026-09-14",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t03",
+   "evidence": {
+    "evidence_id": "u33",
+    "exists": true,
+    "cited": {
+     "id": "u33",
+     "timestamp": "00:04:49",
+     "speaker": "Speaker 01",
+     "text": "Speaker 04 entrega la versión estable el viernes 18 antes de las 17:00."
+    },
+    "nearby": [
+     {
+      "id": "u32",
+      "speaker": "Speaker 04",
+      "text": "Con esa fecha, necesito tener la versión estable lista el viernes anterior."
+     },
+     {
+      "id": "u33",
+      "speaker": "Speaker 01",
+      "text": "Speaker 04 entrega la versión estable el viernes 18 antes de las 17:00."
+     },
+     {
+      "id": "u34",
+      "speaker": "Speaker 02",
+      "text": "¿Incluimos la cámara en esta versión?"
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u33",
+    "source_text": "Speaker 04 entrega la versión estable el viernes 18 antes de las 17:00.",
+    "draft": "2026-09-18T17:00",
+    "suggested": "2026-09-18T17:00",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t04",
+   "evidence": {
+    "evidence_id": "u22",
+    "exists": true,
+    "cited": {
+     "id": "u22",
+     "timestamp": "00:03:02",
+     "speaker": "Speaker 01",
+     "text": "Bien, Speaker 02 consolida las respuestas dentro de los dos días posteriores al piloto."
+    },
+    "nearby": [
+     {
+      "id": "u21",
+      "speaker": "Speaker 02",
+      "text": "Yo los puedo consolidar después del piloto."
+     },
+     {
+      "id": "u22",
+      "speaker": "Speaker 01",
+      "text": "Bien, Speaker 02 consolida las respuestas dentro de los dos días posteriores al piloto."
+     },
+     {
+      "id": "u23",
+      "speaker": "Speaker 04",
+      "text": "Para evitar errores, sugiero que la demostración sea de quince minutos, no de veinte."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u22",
+    "source_text": "Bien, Speaker 02 consolida las respuestas dentro de los dos días posteriores al piloto.",
+    "draft": "2026-09-24T23:59",
+    "suggested": null,
+    "reason": "expresión relativa/ambigua: revisar contexto completo, no forzar fecha"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t05",
+   "evidence": {
+    "evidence_id": "u41",
+    "exists": true,
+    "cited": {
+     "id": "u41",
+     "timestamp": "00:05:58",
+     "speaker": "Speaker 01",
+     "text": "Sí, esa decisión queda pendiente hasta que revisemos los sectores de las empresas."
+    },
+    "nearby": [
+     {
+      "id": "u40",
+      "speaker": "Speaker 04",
+      "text": "Queda pendiente definir el escenario de la prueba guiada."
+     },
+     {
+      "id": "u41",
+      "speaker": "Speaker 01",
+      "text": "Sí, esa decisión queda pendiente hasta que revisemos los sectores de las empresas."
+     },
+     {
+      "id": "u42",
+      "speaker": "Speaker 01",
+      "text": "Cerramos entonces: martes 22, demostración breve, sin cámara y con las tareas que acordamos."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u41",
+    "source_text": "Sí, esa decisión queda pendiente hasta que revisemos los sectores de las empresas.",
+    "draft": "2026-09-22",
+    "suggested": null,
+    "reason": "expresión relativa/ambigua: revisar contexto completo, no forzar fecha"
+   }
+  }
+ ],
+ "mechanical_actions": [],
+ "calls": 2,
+ "seconds_total": 44.97,
+ "prompt_hashes": {
+  "CHANGELOG.md": "eb1e87577bc9f5203ea331c410d57e1b61470dcf9fe3899c13494722f716bc24",
+  "auditor.v1.md": "805756e66f0b634f50ca1864e5dd68515d819f2964a3b7ed33b1a0b8625f0ab4",
+  "auditor.v2.md": "101f2048a8a2ec9a2e59c73300a88915eaa66abee98e0c8a46975de2ff5cc2bd",
+  "auditor.v3.md": "ee3099ee7cfaf9829b52255879fde0ab980cc56709b74d26ea790af3b68f7436",
+  "d2_review.v1.md": "2c53a04b7981894b17f75dc4ce362855046f50538945dc7649d5eafc8e0094fa",
+  "d2_system.v1.md": "50cc704dd1b944057796d663c1a9f772f288b8f2c91d5120952705aae469ff9f",
+  "decisions.v1.md": "5971cd326b663057641172c771fa0a00659ab625f3d924c5a56028f5b6be1f12",
+  "decisions.v2.md": "6ea72b68a2e4133974faff0d1d320c75eba703e1a9f0864dc347a8849bc79593",
+  "fewshot/decisions.TR01.md": "2a9e75e24a8dda412bd4fb655c0e0cfa96489cde7a2cf4ca6f74f716c207f5ee",
+  "fewshot/decisions.TR01.v2.md": "045ed02ec7e0810f88c18df3c757495bb7644c9ea03f21e8225ae95bb5a13f7c",
+  "fewshot/tasks.TR01.md": "7b3a461a7b94bdc86c3b312f06e3e85b08cd632cdcab8544cc4977271666e77b",
+  "tasks.v1.md": "7edac483c5c5f355fc73d1ca6e4f2cba34f88c6fdb73f01bee254a27b00f12c3",
+  "tasks.v2.md": "b0e6e6a4a879eb0bd69e96d7d737be00b57cfb41e8601e0c8e54805b78c5eed3"
+ },
+ "run_config": null
+}

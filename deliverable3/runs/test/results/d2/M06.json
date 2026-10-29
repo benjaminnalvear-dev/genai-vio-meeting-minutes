@@ -1,0 +1,565 @@
+{
+ "raw": "{\"decisions\": [\n    {\n        \"id\": \"d01\",\n        \"topic\": \"División del traslado de oficina\",\n        \"statement\": \"Se adoptará el traslado dividido: equipos críticos el lunes 12 de octubre (mañana) y mobiliario el martes 13 de octubre.\",\n        \"state\": \"final\",\n        \"condition\": \"Evidencia en u25 (adopción explícita) y u26 (reemplazo de la fecha del sábado)\",\n        \"supersedes\": \"d01_saturday\",\n        \"evidence_id\": \"u25\"\n    },\n    {\n        \"id\": \"d01_saturday\",\n        \"topic\": \"Fecha descartada del traslado\",\n        \"statement\": \"El traslado del sábado 10 de octubre queda descartado debido a restricciones del edificio (u06) y confirmación explícita de reemplazo (u26).\",\n        \"state\": \"rejected\",\n        \"condition\": \"Evidencia en u06 y u26\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u06\"\n    },\n    {\n        \"id\": \"d02\",\n        \"topic\": \"Equipos críticos\",\n        \"statement\": \"Speaker 02 inventariará los equipos críticos antes del viernes 9 de octubre.\",\n        \"state\": \"final\",\n        \"condition\": \"Evidencia en u13 (asignación) y u14 (confirmación de fecha)\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u14\"\n    },\n    {\n        \"id\": \"d03\",\n        \"topic\": \"Coordinación de mudanza\",\n        \"statement\": \"Speaker 03 coordinará con la empresa de mudanza para solicitar dos cotizaciones antes del jueves 8 de octubre.\",\n        \"state\": \"final\",\n        \"condition\": \"Evidencia en u15 (asignación) y u16 (confirmación de fecha)\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u16\"\n    },\n    {\n        \"id\": \"d04\",\n        \"topic\": \"Venta de escritorios dañados\",\n        \"statement\": \"Se venderán los seis escritorios dañados y se trasladarán los que aún sirven.\",\n        \"state\": \"final\",\n        \"condition\": \"Evidencia en u20 (discusión) y u21 (confirmación explícita)\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u21\"\n    },\n    {\n        \"id\": \"d05\",\n        \"topic\": \"Acción de venta de escritorios (primera propuesta)\",\n        \"statement\": \"Speaker 02 publicaría el aviso de venta de escritorios el día siguiente (mañana).\",\n        \"state\": \"pending\",\n        \"condition\": \"Evidencia en u22 (asignación inicial no confirmada)\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u22\"\n    },\n    {\n        \"id\": \"d06\",\n        \"topic\": \"Acción de venta de escritorios (corrección final)\",\n        \"statement\": \"Speaker 04 publicará el aviso de venta de escritorios el miércoles 7 de octubre.\",\n        \"state\": \"final\",\n        \"condition\": \"Evidencia en u23 (asignación final) y u22 (rechazo previo de asignación)\",\n        \"supersedes\": \"d05\",\n        \"evidence_id\": \"u23\"\n    },\n    {\n        \"id\": \"d07\",\n        \"topic\": \"Desconexión de internet\",\n        \"statement\": \"El tema de desconexión de internet queda pendiente sin asignación de acción.\",\n        \"state\": \"pending\",\n        \"condition\": \"Evidencia en u29 (declaración explícita de pendiente)\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u29\"\n    }\n],\n\n\"tasks\": [\n    {\n        \"id\": \"t01\",\n        \"description\": \"Inventariar los equipos críticos antes del viernes 9 de octubre.\",\n        \"assignee\": \"Speaker 02\",\n        \"deadline\": \"2026-10-09\",\n        \"condition\": \"Evidencia en u14 (confirmación de fecha y asignación)\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u14\"\n    },\n    {\n        \"id\": \"t02\",\n        \"description\": \"Coordinar con la empresa de mudanza para solicitar dos cotizaciones antes del jueves 8 de octubre.\",\n        \"assignee\": \"Speaker 03\",\n        \"deadline\": \"2026-10-08\",\n        \"condition\": \"Evidencia en u15 (asignación) y u16 (confirmación de fecha)\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u16\"\n    },\n    {\n        \"id\": \"t03\",\n        \"description\": \"Publicar el aviso de venta de escritorios dañados en plataformas oficiales.\",\n        \"assignee\": \"Speaker 04\",\n        \"deadline\": \"2026-10-07\",\n        \"condition\": \"Evidencia en u23 (asignación final) y u22 (rechazo previo)\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u23\"\n    }\n]\n}",
+ "parsed": {
+  "decisions": [
+   {
+    "id": "d01",
+    "topic": "División del traslado de oficina",
+    "statement": "Se adoptará el traslado dividido: equipos críticos el lunes 12 de octubre (mañana) y mobiliario el martes 13 de octubre.",
+    "state": "final",
+    "condition": "Evidencia en u25 (adopción explícita) y u26 (reemplazo de la fecha del sábado)",
+    "supersedes": "d01_saturday",
+    "evidence_id": "u25"
+   },
+   {
+    "id": "d01_saturday",
+    "topic": "Fecha descartada del traslado",
+    "statement": "El traslado del sábado 10 de octubre queda descartado debido a restricciones del edificio (u06) y confirmación explícita de reemplazo (u26).",
+    "state": "rejected",
+    "condition": "Evidencia en u06 y u26",
+    "supersedes": null,
+    "evidence_id": "u06"
+   },
+   {
+    "id": "d02",
+    "topic": "Equipos críticos",
+    "statement": "Speaker 02 inventariará los equipos críticos antes del viernes 9 de octubre.",
+    "state": "final",
+    "condition": "Evidencia en u13 (asignación) y u14 (confirmación de fecha)",
+    "supersedes": null,
+    "evidence_id": "u14"
+   },
+   {
+    "id": "d03",
+    "topic": "Coordinación de mudanza",
+    "statement": "Speaker 03 coordinará con la empresa de mudanza para solicitar dos cotizaciones antes del jueves 8 de octubre.",
+    "state": "final",
+    "condition": "Evidencia en u15 (asignación) y u16 (confirmación de fecha)",
+    "supersedes": null,
+    "evidence_id": "u16"
+   },
+   {
+    "id": "d04",
+    "topic": "Venta de escritorios dañados",
+    "statement": "Se venderán los seis escritorios dañados y se trasladarán los que aún sirven.",
+    "state": "final",
+    "condition": "Evidencia en u20 (discusión) y u21 (confirmación explícita)",
+    "supersedes": null,
+    "evidence_id": "u21"
+   },
+   {
+    "id": "d05",
+    "topic": "Acción de venta de escritorios (primera propuesta)",
+    "statement": "Speaker 02 publicaría el aviso de venta de escritorios el día siguiente (mañana).",
+    "state": "pending",
+    "condition": "Evidencia en u22 (asignación inicial no confirmada)",
+    "supersedes": null,
+    "evidence_id": "u22"
+   },
+   {
+    "id": "d06",
+    "topic": "Acción de venta de escritorios (corrección final)",
+    "statement": "Speaker 04 publicará el aviso de venta de escritorios el miércoles 7 de octubre.",
+    "state": "final",
+    "condition": "Evidencia en u23 (asignación final) y u22 (rechazo previo de asignación)",
+    "supersedes": "d05",
+    "evidence_id": "u23"
+   },
+   {
+    "id": "d07",
+    "topic": "Desconexión de internet",
+    "statement": "El tema de desconexión de internet queda pendiente sin asignación de acción.",
+    "state": "pending",
+    "condition": "Evidencia en u29 (declaración explícita de pendiente)",
+    "supersedes": null,
+    "evidence_id": "u29"
+   }
+  ],
+  "tasks": [
+   {
+    "id": "t01",
+    "description": "Inventariar los equipos críticos antes del viernes 9 de octubre.",
+    "assignee": "Speaker 02",
+    "deadline": "2026-10-09",
+    "condition": "Evidencia en u14 (confirmación de fecha y asignación)",
+    "state": "final",
+    "evidence_id": "u14"
+   },
+   {
+    "id": "t02",
+    "description": "Coordinar con la empresa de mudanza para solicitar dos cotizaciones antes del jueves 8 de octubre.",
+    "assignee": "Speaker 03",
+    "deadline": "2026-10-08",
+    "condition": "Evidencia en u15 (asignación) y u16 (confirmación de fecha)",
+    "state": "final",
+    "evidence_id": "u16"
+   },
+   {
+    "id": "t03",
+    "description": "Publicar el aviso de venta de escritorios dañados en plataformas oficiales.",
+    "assignee": "Speaker 04",
+    "deadline": "2026-10-07",
+    "condition": "Evidencia en u23 (asignación final) y u22 (rechazo previo)",
+    "state": "final",
+    "evidence_id": "u23"
+   }
+  ]
+ },
+ "seconds": 27.7,
+ "eval_count": 1226,
+ "prompt_eval_count": 6479,
+ "done_reason": "stop",
+ "schema_valid": true,
+ "tool_reports": [
+  {
+   "kind": "decisions",
+   "id": "d01",
+   "evidence": {
+    "evidence_id": "u25",
+    "exists": true,
+    "cited": {
+     "id": "u25",
+     "timestamp": "00:216",
+     "speaker": "Speaker 01",
+     "text": "Entonces adoptemos el traslado dividido: equipos críticos el lunes y mobiliario el martes."
+    },
+    "nearby": [
+     {
+      "id": "u24",
+      "speaker": "Speaker 04",
+      "text": "Llegaron las cotizaciones: una empresa puede trabajar el lunes por la tarde y martes por la mañana."
+     },
+     {
+      "id": "u25",
+      "speaker": "Speaker 01",
+      "text": "Entonces adoptemos el traslado dividido: equipos críticos el lunes y mobiliario el martes."
+     },
+     {
+      "id": "u26",
+      "speaker": "Speaker 02",
+      "text": "La fecha del sábado queda reemplazada por ese plan."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d01_saturday",
+   "evidence": {
+    "evidence_id": "u07",
+    "exists": true,
+    "cited": {
+     "id": "u07",
+     "timestamp": "00:54",
+     "speaker": "Speaker 03",
+     "text": "Entonces esa fecha queda descartada."
+    },
+    "nearby": [
+     {
+      "id": "u06",
+      "speaker": "Speaker 02",
+      "text": "El sábado el edificio no permite ingreso de proveedores."
+     },
+     {
+      "id": "u07",
+      "speaker": "Speaker 03",
+      "text": "Entonces esa fecha queda descartada."
+     },
+     {
+      "id": "u08",
+      "speaker": "Speaker 04",
+      "text": "Podemos hacer el traslado el lunes 12 después de recibir las llaves."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d02",
+   "evidence": {
+    "evidence_id": "u25",
+    "exists": true,
+    "cited": {
+     "id": "u25",
+     "timestamp": "00:216",
+     "speaker": "Speaker 01",
+     "text": "Entonces adoptemos el traslado dividido: equipos críticos el lunes y mobiliario el martes."
+    },
+    "nearby": [
+     {
+      "id": "u24",
+      "speaker": "Speaker 04",
+      "text": "Llegaron las cotizaciones: una empresa puede trabajar el lunes por la tarde y martes por la mañana."
+     },
+     {
+      "id": "u25",
+      "speaker": "Speaker 01",
+      "text": "Entonces adoptemos el traslado dividido: equipos críticos el lunes y mobiliario el martes."
+     },
+     {
+      "id": "u26",
+      "speaker": "Speaker 02",
+      "text": "La fecha del sábado queda reemplazada por ese plan."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d03",
+   "evidence": {
+    "evidence_id": "u14",
+    "exists": true,
+    "cited": {
+     "id": "u14",
+     "timestamp": "00:117",
+     "speaker": "Speaker 02",
+     "text": "Speaker 02 inventaría los equipos críticos antes del viernes 9."
+    },
+    "nearby": [
+     {
+      "id": "u13",
+      "speaker": "Speaker 01",
+      "text": "Speaker 02 puede inventariar los equipos críticos."
+     },
+     {
+      "id": "u14",
+      "speaker": "Speaker 02",
+      "text": "Speaker 02 inventaría los equipos críticos antes del viernes 9."
+     },
+     {
+      "id": "u15",
+      "speaker": "Speaker 03",
+      "text": "Speaker 03 puede coordinar con la empresa de mudanza."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d04",
+   "evidence": {
+    "evidence_id": "u16",
+    "exists": true,
+    "cited": {
+     "id": "u16",
+     "timestamp": "00:135",
+     "speaker": "Speaker 04",
+     "text": "Speaker 03 solicita dos cotizaciones de mudanza antes del jueves 8."
+    },
+    "nearby": [
+     {
+      "id": "u15",
+      "speaker": "Speaker 03",
+      "text": "Speaker 03 puede coordinar con la empresa de mudanza."
+     },
+     {
+      "id": "u16",
+      "speaker": "Speaker 04",
+      "text": "Speaker 03 solicita dos cotizaciones de mudanza antes del jueves 8."
+     },
+     {
+      "id": "u17",
+      "speaker": "Speaker 01",
+      "text": "¿Qué hacemos con los escritorios antiguos?"
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d05",
+   "evidence": {
+    "evidence_id": "u21",
+    "exists": true,
+    "cited": {
+     "id": "u21",
+     "timestamp": "00:180",
+     "speaker": "Speaker 01",
+     "text": "Queda decidido vender seis escritorios dañados y trasladar los restantes."
+    },
+    "nearby": [
+     {
+      "id": "u20",
+      "speaker": "Speaker 04",
+      "text": "Vendamos los seis dañados y traslademos solo los que sirven."
+     },
+     {
+      "id": "u21",
+      "speaker": "Speaker 01",
+      "text": "Queda decidido vender seis escritorios dañados y trasladar los restantes."
+     },
+     {
+      "id": "u22",
+      "speaker": "Speaker 02",
+      "text": "Yo publico el aviso de venta mañana."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d06",
+   "evidence": {
+    "evidence_id": "u22",
+    "exists": true,
+    "cited": {
+     "id": "u22",
+     "timestamp": "00:189",
+     "speaker": "Speaker 02",
+     "text": "Yo publico el aviso de venta mañana."
+    },
+    "nearby": [
+     {
+      "id": "u21",
+      "speaker": "Speaker 01",
+      "text": "Queda decidido vender seis escritorios dañados y trasladar los restantes."
+     },
+     {
+      "id": "u22",
+      "speaker": "Speaker 02",
+      "text": "Yo publico el aviso de venta mañana."
+     },
+     {
+      "id": "u23",
+      "speaker": "Speaker 03",
+      "text": "Speaker 04 publica el aviso de venta el miércoles 7."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d07",
+   "evidence": {
+    "evidence_id": "u23",
+    "exists": true,
+    "cited": {
+     "id": "u23",
+     "timestamp": "00:198",
+     "speaker": "Speaker 03",
+     "text": "Speaker 04 publica el aviso de venta el miércoles 7."
+    },
+    "nearby": [
+     {
+      "id": "u22",
+      "speaker": "Speaker 02",
+      "text": "Yo publico el aviso de venta mañana."
+     },
+     {
+      "id": "u23",
+      "speaker": "Speaker 03",
+      "text": "Speaker 04 publica el aviso de venta el miércoles 7."
+     },
+     {
+      "id": "u24",
+      "speaker": "Speaker 04",
+      "text": "Llegaron las cotizaciones: una empresa puede trabajar el lunes por la tarde y martes por la mañana."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t01",
+   "evidence": {
+    "evidence_id": "u14",
+    "exists": true,
+    "cited": {
+     "id": "u14",
+     "timestamp": "00:117",
+     "speaker": "Speaker 02",
+     "text": "Speaker 02 inventaría los equipos críticos antes del viernes 9."
+    },
+    "nearby": [
+     {
+      "id": "u13",
+      "speaker": "Speaker 01",
+      "text": "Speaker 02 puede inventariar los equipos críticos."
+     },
+     {
+      "id": "u14",
+      "speaker": "Speaker 02",
+      "text": "Speaker 02 inventaría los equipos críticos antes del viernes 9."
+     },
+     {
+      "id": "u15",
+      "speaker": "Speaker 03",
+      "text": "Speaker 03 puede coordinar con la empresa de mudanza."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u14",
+    "source_text": "Speaker 02 inventaría los equipos críticos antes del viernes 9.",
+    "draft": "2026-10-09",
+    "suggested": "2026-10-09",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t02",
+   "evidence": {
+    "evidence_id": "u16",
+    "exists": true,
+    "cited": {
+     "id": "u16",
+     "timestamp": "00:135",
+     "speaker": "Speaker 04",
+     "text": "Speaker 03 solicita dos cotizaciones de mudanza antes del jueves 8."
+    },
+    "nearby": [
+     {
+      "id": "u15",
+      "speaker": "Speaker 03",
+      "text": "Speaker 03 puede coordinar con la empresa de mudanza."
+     },
+     {
+      "id": "u16",
+      "speaker": "Speaker 04",
+      "text": "Speaker 03 solicita dos cotizaciones de mudanza antes del jueves 8."
+     },
+     {
+      "id": "u17",
+      "speaker": "Speaker 01",
+      "text": "¿Qué hacemos con los escritorios antiguos?"
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u16",
+    "source_text": "Speaker 03 solicita dos cotizaciones de mudanza antes del jueves 8.",
+    "draft": "2026-10-08",
+    "suggested": "2026-10-08",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t03",
+   "evidence": {
+    "evidence_id": "u23",
+    "exists": true,
+    "cited": {
+     "id": "u23",
+     "timestamp": "00:198",
+     "speaker": "Speaker 03",
+     "text": "Speaker 04 publica el aviso de venta el miércoles 7."
+    },
+    "nearby": [
+     {
+      "id": "u22",
+      "speaker": "Speaker 02",
+      "text": "Yo publico el aviso de venta mañana."
+     },
+     {
+      "id": "u23",
+      "speaker": "Speaker 03",
+      "text": "Speaker 04 publica el aviso de venta el miércoles 7."
+     },
+     {
+      "id": "u24",
+      "speaker": "Speaker 04",
+      "text": "Llegaron las cotizaciones: una empresa puede trabajar el lunes por la tarde y martes por la mañana."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u23",
+    "source_text": "Speaker 04 publica el aviso de venta el miércoles 7.",
+    "draft": "2026-10-07",
+    "suggested": "2026-10-07",
+    "reason": "fecha explícita calculada"
+   }
+  }
+ ],
+ "mechanical_actions": [],
+ "calls": 2,
+ "seconds_total": 48.45,
+ "prompt_hashes": {
+  "CHANGELOG.md": "eb1e87577bc9f5203ea331c410d57e1b61470dcf9fe3899c13494722f716bc24",
+  "auditor.v1.md": "805756e66f0b634f50ca1864e5dd68515d819f2964a3b7ed33b1a0b8625f0ab4",
+  "auditor.v2.md": "101f2048a8a2ec9a2e59c73300a88915eaa66abee98e0c8a46975de2ff5cc2bd",
+  "auditor.v3.md": "ee3099ee7cfaf9829b52255879fde0ab980cc56709b74d26ea790af3b68f7436",
+  "d2_review.v1.md": "2c53a04b7981894b17f75dc4ce362855046f50538945dc7649d5eafc8e0094fa",
+  "d2_system.v1.md": "50cc704dd1b944057796d663c1a9f772f288b8f2c91d5120952705aae469ff9f",
+  "decisions.v1.md": "5971cd326b663057641172c771fa0a00659ab625f3d924c5a56028f5b6be1f12",
+  "decisions.v2.md": "6ea72b68a2e4133974faff0d1d320c75eba703e1a9f0864dc347a8849bc79593",
+  "fewshot/decisions.TR01.md": "2a9e75e24a8dda412bd4fb655c0e0cfa96489cde7a2cf4ca6f74f716c207f5ee",
+  "fewshot/decisions.TR01.v2.md": "045ed02ec7e0810f88c18df3c757495bb7644c9ea03f21e8225ae95bb5a13f7c",
+  "fewshot/tasks.TR01.md": "7b3a461a7b94bdc86c3b312f06e3e85b08cd632cdcab8544cc4977271666e77b",
+  "tasks.v1.md": "7edac483c5c5f355fc73d1ca6e4f2cba34f88c6fdb73f01bee254a27b00f12c3",
+  "tasks.v2.md": "b0e6e6a4a879eb0bd69e96d7d737be00b57cfb41e8601e0c8e54805b78c5eed3"
+ },
+ "run_config": null
+}

@@ -1,0 +1,362 @@
+{
+ "raw": "{\"decisions\": [\n    {\n        \"id\": \"d01\",\n        \"topic\": \"Modalidad de la jornada de bienvenida (propuesta inicial)\",\n        \"statement\": \"Propuesta inicial de **jornada completa** para la jornada de bienvenida.\",\n        \"state\": \"superseded\",\n        \"condition\": \"No se adoptó por falta de disponibilidad de catering y preferencia por bloque de media jornada.\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u05\"\n    },\n    {\n        \"id\": \"d02\",\n        \"topic\": \"Modalidad de la jornada de bienvenida (versión final)\",\n        \"statement\": \"Aprobada la modalidad de **bloque de media jornada** para la jornada de bienvenida.\",\n        \"state\": \"final\",\n        \"condition\": \"Confirmación de disponibilidad de catering (u17) y acuerdo en disponibilidad de espacio (auditorio).\",\n        \"supersedes\": \"d01\",\n        \"evidence_id\": \"u19\"\n    },\n    {\n        \"id\": \"d03\",\n        \"topic\": \"Materiales para la jornada de bienvenida (propuesta inicial)\",\n        \"statement\": \"Propuesta inicial de **colación simple** como opción de materiales.\",\n        \"state\": \"superseded\",\n        \"condition\": \"No se adoptó por incumplimiento presupuestario y preferencia por auditorio.\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u09\"\n    },\n    {\n        \"id\": \"d04\",\n        \"topic\": \"Materiales para la jornada de bienvenida (versión final)\",\n        \"statement\": \"Aprobado el uso de **auditorio** como espacio para la jornada de bienvenida.\",\n        \"state\": \"final\",\n        \"condition\": \"Cotización confirmada por Hablante 03 (u12) y aprobación por el equipo tras revisión presupuestaria (u29).\",\n        \"supersedes\": \"d03\",\n        \"evidence_id\": \"u30\"\n    },\n    {\n        \"id\": \"d05\",\n        \"topic\": \"Catering para la jornada de bienvenida\",\n        \"statement\": \"Rechazada la propuesta de **catering completo** para esta etapa.\",\n        \"state\": \"rejected\",\n        \"condition\": \"No se consideró necesario y no se incluyó en el presupuesto.\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u16\"\n    }\n],\n\"tasks\": [\n    {\n        \"id\": \"t01\",\n        \"description\": \"Hablante 03 solicita y envía la cotización para auditorio antes de las 12:00 del día siguiente (2026-10-16).\",\n        \"assignee\": \"Hablante 03\",\n        \"deadline\": \"2026-10-16T12:00:00\",\n        \"condition\": \"Cotización debe ser enviada para confirmar presupuesto y aprobar auditorio.\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u13\"\n    },\n    {\n        \"id\": \"t02\",\n        \"description\": \"Hablante 04 prepara y comparte la lista de convocados para la jornada de bienvenida antes del cierre de la reunión (2026-10-15).\",\n        \"assignee\": \"Hablante 04\",\n        \"deadline\": \"2026-10-15T17:00:00\",\n        \"condition\": \"Lista debe estar lista y compartida antes del cierre de la reunión.\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u25\"\n    },\n    {\n        \"id\": \"t03\",\n        \"description\": \"Hablante 02 comunica a la coordinación de **jornada de bienvenida** la opción aprobada (bloque de media jornada) antes del viernes (2026-10-16).\",\n        \"assignee\": \"Hablante 02\",\n        \"deadline\": \"2026-10-16T23:59:59\",\n        \"condition\": \"Informe debe ser entregado antes del cierre del viernes.\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u21\"\n    },\n    {\n        \"id\": \"t04\",\n        \"description\": \"Medición de resultados pendiente: Definir encuesta breve y asignar responsable (sin fecha asignada).\",\n        \"assignee\": null,\n        \"deadline\": null,\n        \"condition\": \"No se asignó responsable ni fecha para la medición posterior de resultados.\",\n        \"state\": \"pending\",\n        \"evidence_id\": \"u28\"\n    }\n]}",
+ "parsed": {
+  "decisions": [
+   {
+    "id": "d01",
+    "topic": "Modalidad de la jornada de bienvenida (propuesta inicial)",
+    "statement": "Propuesta inicial de **jornada completa** para la jornada de bienvenida.",
+    "state": "superseded",
+    "condition": "No se adoptó por falta de disponibilidad de catering y preferencia por bloque de media jornada.",
+    "supersedes": null,
+    "evidence_id": "u05"
+   },
+   {
+    "id": "d02",
+    "topic": "Modalidad de la jornada de bienvenida (versión final)",
+    "statement": "Aprobada la modalidad de **bloque de media jornada** para la jornada de bienvenida.",
+    "state": "final",
+    "condition": "Confirmación de disponibilidad de catering (u17) y acuerdo en disponibilidad de espacio (auditorio).",
+    "supersedes": "d01",
+    "evidence_id": "u19"
+   },
+   {
+    "id": "d03",
+    "topic": "Materiales para la jornada de bienvenida (propuesta inicial)",
+    "statement": "Propuesta inicial de **colación simple** como opción de materiales.",
+    "state": "superseded",
+    "condition": "No se adoptó por incumplimiento presupuestario y preferencia por auditorio.",
+    "supersedes": null,
+    "evidence_id": "u09"
+   },
+   {
+    "id": "d04",
+    "topic": "Materiales para la jornada de bienvenida (versión final)",
+    "statement": "Aprobado el uso de **auditorio** como espacio para la jornada de bienvenida.",
+    "state": "final",
+    "condition": "Cotización confirmada por Hablante 03 (u12) y aprobación por el equipo tras revisión presupuestaria (u29).",
+    "supersedes": "d03",
+    "evidence_id": "u30"
+   },
+   {
+    "id": "d05",
+    "topic": "Catering para la jornada de bienvenida",
+    "statement": "Rechazada la propuesta de **catering completo** para esta etapa.",
+    "state": "rejected",
+    "condition": "No se consideró necesario y no se incluyó en el presupuesto.",
+    "supersedes": null,
+    "evidence_id": "u16"
+   }
+  ],
+  "tasks": [
+   {
+    "id": "t01",
+    "description": "Hablante 03 solicita y envía la cotización para auditorio antes de las 12:00 del día siguiente (2026-10-16).",
+    "assignee": "Hablante 03",
+    "deadline": "2026-10-16T12:00",
+    "condition": "Cotización debe ser enviada para confirmar presupuesto y aprobar auditorio.",
+    "state": "final",
+    "evidence_id": "u13"
+   },
+   {
+    "id": "t02",
+    "description": "Hablante 04 prepara y comparte la lista de convocados para la jornada de bienvenida antes del cierre de la reunión (2026-10-15).",
+    "assignee": "Hablante 04",
+    "deadline": "2026-10-15T17:00",
+    "condition": "Lista debe estar lista y compartida antes del cierre de la reunión.",
+    "state": "final",
+    "evidence_id": "u25"
+   },
+   {
+    "id": "t03",
+    "description": "Hablante 02 comunica a la coordinación de **jornada de bienvenida** la opción aprobada (bloque de media jornada) antes del viernes (2026-10-16).",
+    "assignee": "Hablante 02",
+    "deadline": "2026-10-16T23:59",
+    "condition": "Informe debe ser entregado antes del cierre del viernes.",
+    "state": "final",
+    "evidence_id": "u21"
+   },
+   {
+    "id": "t04",
+    "description": "Medición de resultados pendiente: Definir encuesta breve y asignar responsable (sin fecha asignada).",
+    "assignee": null,
+    "deadline": null,
+    "condition": "No se asignó responsable ni fecha para la medición posterior de resultados.",
+    "state": "pending",
+    "evidence_id": "u28"
+   }
+  ]
+ },
+ "seconds": 23.63,
+ "eval_count": 1071,
+ "prompt_eval_count": 5135,
+ "done_reason": "stop",
+ "schema_valid": true,
+ "tool_reports": [
+  {
+   "kind": "decisions",
+   "id": "d01",
+   "evidence": {
+    "evidence_id": "u19",
+    "exists": true,
+    "cited": {
+     "id": "u19",
+     "timestamp": "00:03:22",
+     "speaker": "Hablante 01",
+     "text": "De acuerdo: aprobamos bloque de media jornada. Esto reemplaza la propuesta inicial de jornada completa."
+    },
+    "nearby": [
+     {
+      "id": "u18",
+      "speaker": "Hablante 02",
+      "text": "Con esa confirmación, prefiero bloque de media jornada; es más acotado y permite partir."
+     },
+     {
+      "id": "u19",
+      "speaker": "Hablante 01",
+      "text": "De acuerdo: aprobamos bloque de media jornada. Esto reemplaza la propuesta inicial de jornada completa."
+     },
+     {
+      "id": "u20",
+      "speaker": "Hablante 04",
+      "text": "Para coordinarlo necesitamos avisar a jornada de bienvenida."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d02",
+   "evidence": {
+    "evidence_id": "u30",
+    "exists": true,
+    "cited": {
+     "id": "u30",
+     "timestamp": "00:05:23",
+     "speaker": "Hablante 01",
+     "text": "Listo, aprobamos auditorio. Esto reemplaza la propuesta de colación simple."
+    },
+    "nearby": [
+     {
+      "id": "u29",
+      "speaker": "Hablante 04",
+      "text": "Llegó la cotización: auditorio cabe en el presupuesto."
+     },
+     {
+      "id": "u30",
+      "speaker": "Hablante 01",
+      "text": "Listo, aprobamos auditorio. Esto reemplaza la propuesta de colación simple."
+     },
+     {
+      "id": "u31",
+      "speaker": "Hablante 02",
+      "text": "Para cerrar, queda bloque de media jornada, auditorio, y las tres tareas ya asignadas."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d03",
+   "evidence": {
+    "evidence_id": "u16",
+    "exists": true,
+    "cited": {
+     "id": "u16",
+     "timestamp": "00:02:49",
+     "speaker": "Hablante 01",
+     "text": "Entonces queda rechazada la propuesta de catering completo."
+    },
+    "nearby": [
+     {
+      "id": "u15",
+      "speaker": "Hablante 04",
+      "text": "Estoy de acuerdo: lo descartamos para esta etapa."
+     },
+     {
+      "id": "u16",
+      "speaker": "Hablante 01",
+      "text": "Entonces queda rechazada la propuesta de catering completo."
+     },
+     {
+      "id": "u17",
+      "speaker": "Hablante 03",
+      "text": "Administración acaba de responder: empresa de catering está disponible."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t01",
+   "evidence": {
+    "evidence_id": "u13",
+    "exists": true,
+    "cited": {
+     "id": "u13",
+     "timestamp": "00:02:16",
+     "speaker": "Hablante 01",
+     "text": "Hablante 03 solicita la cotización para auditorio y la envía mañana antes de las 12."
+    },
+    "nearby": [
+     {
+      "id": "u12",
+      "speaker": "Hablante 03",
+      "text": "Puedo pedir la cotización y traer el monto mañana antes de las 12."
+     },
+     {
+      "id": "u13",
+      "speaker": "Hablante 01",
+      "text": "Hablante 03 solicita la cotización para auditorio y la envía mañana antes de las 12."
+     },
+     {
+      "id": "u14",
+      "speaker": "Hablante 02",
+      "text": "También se mencionó catering completo, pero no lo considero necesario."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u13",
+    "source_text": "Hablante 03 solicita la cotización para auditorio y la envía mañana antes de las 12.",
+    "draft": "2026-10-16T12:00:00",
+    "suggested": "2026-10-16",
+    "reason": "hora ambigua: solo día calculado"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t02",
+   "evidence": {
+    "evidence_id": "u25",
+    "exists": true,
+    "cited": {
+     "id": "u25",
+     "timestamp": "00:04:28",
+     "speaker": "Hablante 01",
+     "text": "Hablante 04 prepara y comparte hoy la lista de convocados."
+    },
+    "nearby": [
+     {
+      "id": "u24",
+      "speaker": "Hablante 04",
+      "text": "Sí, preparo la lista y la comparto hoy."
+     },
+     {
+      "id": "u25",
+      "speaker": "Hablante 01",
+      "text": "Hablante 04 prepara y comparte hoy la lista de convocados."
+     },
+     {
+      "id": "u26",
+      "speaker": "Hablante 02",
+      "text": "Falta definir si tendremos una medición posterior de resultados."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u25",
+    "source_text": "Hablante 04 prepara y comparte hoy la lista de convocados.",
+    "draft": "2026-10-15T17:00:00",
+    "suggested": "2026-10-15",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t03",
+   "evidence": {
+    "evidence_id": "u21",
+    "exists": true,
+    "cited": {
+     "id": "u21",
+     "timestamp": "00:03:44",
+     "speaker": "Hablante 01",
+     "text": "Hablante 02 comunica a jornada de bienvenida la opción aprobada antes del viernes."
+    },
+    "nearby": [
+     {
+      "id": "u20",
+      "speaker": "Hablante 04",
+      "text": "Para coordinarlo necesitamos avisar a jornada de bienvenida."
+     },
+     {
+      "id": "u21",
+      "speaker": "Hablante 01",
+      "text": "Hablante 02 comunica a jornada de bienvenida la opción aprobada antes del viernes."
+     },
+     {
+      "id": "u22",
+      "speaker": "Hablante 02",
+      "text": "No le asignemos nada a jornada de bienvenida; solo le informaremos nuestra decisión."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u21",
+    "source_text": "Hablante 02 comunica a jornada de bienvenida la opción aprobada antes del viernes.",
+    "draft": "2026-10-19T23:59:59",
+    "suggested": "2026-10-16",
+    "reason": "fecha explícita calculada"
+   }
+  }
+ ],
+ "mechanical_actions": [],
+ "calls": 2,
+ "seconds_total": 38.68,
+ "prompt_hashes": {
+  "CHANGELOG.md": "eb1e87577bc9f5203ea331c410d57e1b61470dcf9fe3899c13494722f716bc24",
+  "auditor.v1.md": "805756e66f0b634f50ca1864e5dd68515d819f2964a3b7ed33b1a0b8625f0ab4",
+  "auditor.v2.md": "101f2048a8a2ec9a2e59c73300a88915eaa66abee98e0c8a46975de2ff5cc2bd",
+  "auditor.v3.md": "ee3099ee7cfaf9829b52255879fde0ab980cc56709b74d26ea790af3b68f7436",
+  "d2_review.v1.md": "2c53a04b7981894b17f75dc4ce362855046f50538945dc7649d5eafc8e0094fa",
+  "d2_system.v1.md": "50cc704dd1b944057796d663c1a9f772f288b8f2c91d5120952705aae469ff9f",
+  "decisions.v1.md": "5971cd326b663057641172c771fa0a00659ab625f3d924c5a56028f5b6be1f12",
+  "decisions.v2.md": "6ea72b68a2e4133974faff0d1d320c75eba703e1a9f0864dc347a8849bc79593",
+  "fewshot/decisions.TR01.md": "2a9e75e24a8dda412bd4fb655c0e0cfa96489cde7a2cf4ca6f74f716c207f5ee",
+  "fewshot/decisions.TR01.v2.md": "045ed02ec7e0810f88c18df3c757495bb7644c9ea03f21e8225ae95bb5a13f7c",
+  "fewshot/tasks.TR01.md": "7b3a461a7b94bdc86c3b312f06e3e85b08cd632cdcab8544cc4977271666e77b",
+  "tasks.v1.md": "7edac483c5c5f355fc73d1ca6e4f2cba34f88c6fdb73f01bee254a27b00f12c3",
+  "tasks.v2.md": "b0e6e6a4a879eb0bd69e96d7d737be00b57cfb41e8601e0c8e54805b78c5eed3"
+ },
+ "run_config": null
+}

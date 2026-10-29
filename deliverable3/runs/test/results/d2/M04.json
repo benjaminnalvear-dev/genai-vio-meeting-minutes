@@ -1,0 +1,398 @@
+{
+ "raw": "{\"decisions\": [\n    {\n        \"id\": \"d01\",\n        \"topic\": \"Fecha de publicación de la versión\",\n        \"statement\": \"Publicar la versión nueva el lunes 28 de septiembre a las 10:00, condicionada a que las pruebas manuales de corrección del error de carga se completen satisfactoriamente y se aprueben los resultados del piloto interno de reportes\",\n        \"state\": \"final\",\n        \"condition\": \"que las pruebas manuales de corrección del error de carga se completen satisfactoriamente antes del viernes 25 de septiembre y los comentarios del piloto interno de reportes sean consolidados antes del viernes 2 de octubre\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u20\"\n    },\n    {\n        \"id\": \"d02\",\n        \"topic\": \"Corrección del límite de carga de archivos\",\n        \"statement\": \"Corregir el límite de carga para archivos que superen 20 megas antes del viernes 25 de septiembre\",\n        \"state\": \"final\",\n        \"condition\": null,\n        \"supersedes\": null,\n        \"evidence_id\": \"u22\"\n    },\n    {\n        \"id\": \"d03\",\n        \"topic\": \"Piloto interno de pantalla de reportes\",\n        \"statement\": \"Habilitar una pantalla de reportes solo para usuarios internos en un piloto durante una semana, con consolidación de comentarios por parte de los participantes internos\",\n        \"state\": \"final\",\n        \"condition\": null,\n        \"supersedes\": null,\n        \"evidence_id\": \"u25\"\n    },\n    {\n        \"id\": \"d04\",\n        \"topic\": \"Plan para clientes (pendiente)\",\n        \"statement\": \"El plan para activar la pantalla de reportes para clientes queda pendiente hasta la evaluación final del piloto interno\",\n        \"state\": \"pending\",\n        \"condition\": null,\n        \"supersedes\": null,\n        \"evidence_id\": \"u29\"\n    }\n],\n\"tasks\": [\n    {\n        \"id\": \"t01\",\n        \"description\": \"Preparar una lista de pruebas manuales para la versión nueva\",\n        \"assignee\": \"Speaker 02\",\n        \"deadline\": \"2026-09-27T11:00:00\",\n        \"condition\": null,\n        \"state\": \"pending\",\n        \"evidence_id\": \"u14\"\n    },\n    {\n        \"id\": \"t02\",\n        \"description\": \"Corregir el límite de carga para archivos que superen 20 megas\",\n        \"assignee\": \"Speaker 04\",\n        \"deadline\": \"2026-09-25\",\n        \"condition\": null,\n        \"state\": \"pending\",\n        \"evidence_id\": \"u22\"\n    },\n    {\n        \"id\": \"t03\",\n        \"description\": \"Consolidar comentarios internos del piloto de la pantalla de reportes el próximo viernes 2 de octubre\",\n        \"assignee\": \"Speaker 03\",\n        \"deadline\": \"2026-09-25\", \"condition\": null,\n        \"state\": \"pending\",\n        \"evidence_id\": \"u27\"\n    },\n    {\n        \"id\": \"t04\",\n        \"description\": \"Consolidar comentarios del piloto de la pantalla de reportes el viernes 2 de octubre\",\n        \"assignee\": \"Speaker 01\",\n        \"deadline\": \"2026-10-02\",\n        \"condition\": null,\n        \"state\": \"pending\",\n        \"evidence_id\": \"u28\"\n    }\n]\n}",
+ "parsed": {
+  "decisions": [
+   {
+    "id": "d01",
+    "topic": "Fecha de publicación de la versión",
+    "statement": "Publicar la versión nueva el lunes 28 de septiembre a las 10:00, condicionada a que las pruebas manuales de corrección del error de carga se completen satisfactoriamente y se aprueben los resultados del piloto interno de reportes",
+    "state": "final",
+    "condition": "que las pruebas manuales de corrección del error de carga se completen satisfactoriamente antes del viernes 25 de septiembre y los comentarios del piloto interno de reportes sean consolidados antes del viernes 2 de octubre",
+    "supersedes": null,
+    "evidence_id": "u20"
+   },
+   {
+    "id": "d02",
+    "topic": "Corrección del límite de carga de archivos",
+    "statement": "Corregir el límite de carga para archivos que superen 20 megas antes del viernes 25 de septiembre",
+    "state": "final",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u22"
+   },
+   {
+    "id": "d03",
+    "topic": "Piloto interno de pantalla de reportes",
+    "statement": "Habilitar una pantalla de reportes solo para usuarios internos en un piloto durante una semana, con consolidación de comentarios por parte de los participantes internos",
+    "state": "final",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u25"
+   },
+   {
+    "id": "d04",
+    "topic": "Plan para clientes (pendiente)",
+    "statement": "El plan para activar la pantalla de reportes para clientes queda pendiente hasta la evaluación final del piloto interno",
+    "state": "pending",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u29"
+   }
+  ],
+  "tasks": [
+   {
+    "id": "t01",
+    "description": "Preparar una lista de pruebas manuales para la versión nueva",
+    "assignee": "Speaker 02",
+    "deadline": "2026-09-27T11:00",
+    "condition": null,
+    "state": "pending",
+    "evidence_id": "u14"
+   },
+   {
+    "id": "t02",
+    "description": "Corregir el límite de carga para archivos que superen 20 megas",
+    "assignee": "Speaker 04",
+    "deadline": "2026-09-25",
+    "condition": null,
+    "state": "pending",
+    "evidence_id": "u22"
+   },
+   {
+    "id": "t03",
+    "description": "Consolidar comentarios internos del piloto de la pantalla de reportes el próximo viernes 2 de octubre",
+    "assignee": "Speaker 03",
+    "deadline": "2026-09-25",
+    "condition": null,
+    "state": "pending",
+    "evidence_id": "u27"
+   },
+   {
+    "id": "t04",
+    "description": "Consolidar comentarios del piloto de la pantalla de reportes el viernes 2 de octubre",
+    "assignee": "Speaker 01",
+    "deadline": "2026-10-02",
+    "condition": null,
+    "state": "pending",
+    "evidence_id": "u28"
+   }
+  ]
+ },
+ "seconds": 18.62,
+ "eval_count": 830,
+ "prompt_eval_count": 4856,
+ "done_reason": "stop",
+ "schema_valid": true,
+ "tool_reports": [
+  {
+   "kind": "decisions",
+   "id": "d01",
+   "evidence": {
+    "evidence_id": "u20",
+    "exists": true,
+    "cited": {
+     "id": "u20",
+     "timestamp": "00:171",
+     "speaker": "Speaker 04",
+     "text": "Queda fijada la publicación para el lunes 28 a las 10:00, condicionada a que pasen las pruebas."
+    },
+    "nearby": [
+     {
+      "id": "u19",
+      "speaker": "Speaker 03",
+      "text": "Estoy de acuerdo si la corrección pasa las pruebas manuales."
+     },
+     {
+      "id": "u20",
+      "speaker": "Speaker 04",
+      "text": "Queda fijada la publicación para el lunes 28 a las 10:00, condicionada a que pasen las pruebas."
+     },
+     {
+      "id": "u21",
+      "speaker": "Speaker 01",
+      "text": "Yo corrijo el límite de carga mañana."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d02",
+   "evidence": {
+    "evidence_id": "u21",
+    "exists": true,
+    "cited": {
+     "id": "u21",
+     "timestamp": "00:180",
+     "speaker": "Speaker 01",
+     "text": "Yo corrijo el límite de carga mañana."
+    },
+    "nearby": [
+     {
+      "id": "u20",
+      "speaker": "Speaker 04",
+      "text": "Queda fijada la publicación para el lunes 28 a las 10:00, condicionada a que pasen las pruebas."
+     },
+     {
+      "id": "u21",
+      "speaker": "Speaker 01",
+      "text": "Yo corrijo el límite de carga mañana."
+     },
+     {
+      "id": "u22",
+      "speaker": "Speaker 02",
+      "text": "Speaker 04 corrige el límite de carga antes del viernes 25."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d03",
+   "evidence": {
+    "evidence_id": "u25",
+    "exists": true,
+    "cited": {
+     "id": "u25",
+     "timestamp": "00:216",
+     "speaker": "Speaker 01",
+     "text": "Queda aprobado el piloto interno de reportes por una semana."
+    },
+    "nearby": [
+     {
+      "id": "u24",
+      "speaker": "Speaker 04",
+      "text": "Entonces usemos un piloto interno durante una semana y no la activemos para clientes aún."
+     },
+     {
+      "id": "u25",
+      "speaker": "Speaker 01",
+      "text": "Queda aprobado el piloto interno de reportes por una semana."
+     },
+     {
+      "id": "u26",
+      "speaker": "Speaker 02",
+      "text": "¿Quién revisa los resultados del piloto?"
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t01",
+   "evidence": {
+    "evidence_id": "u14",
+    "exists": true,
+    "cited": {
+     "id": "u14",
+     "timestamp": "00:117",
+     "speaker": "Speaker 02",
+     "text": "Yo preparo una lista de pruebas manuales para la versión."
+    },
+    "nearby": [
+     {
+      "id": "u13",
+      "speaker": "Speaker 01",
+      "text": "No hay consenso todavía sobre la pantalla de reportes."
+     },
+     {
+      "id": "u14",
+      "speaker": "Speaker 02",
+      "text": "Yo preparo una lista de pruebas manuales para la versión."
+     },
+     {
+      "id": "u15",
+      "speaker": "Speaker 03",
+      "text": "Speaker 02 prepara esa lista antes de mañana a las 11:00."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u14",
+    "source_text": "Yo preparo una lista de pruebas manuales para la versión.",
+    "draft": "2026-09-27T11:00:00",
+    "suggested": null,
+    "reason": "expresión relativa/ambigua: revisar contexto completo, no forzar fecha"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t02",
+   "evidence": {
+    "evidence_id": "u22",
+    "exists": true,
+    "cited": {
+     "id": "u22",
+     "timestamp": "00:189",
+     "speaker": "Speaker 02",
+     "text": "Speaker 04 corrige el límite de carga antes del viernes 25."
+    },
+    "nearby": [
+     {
+      "id": "u21",
+      "speaker": "Speaker 01",
+      "text": "Yo corrijo el límite de carga mañana."
+     },
+     {
+      "id": "u22",
+      "speaker": "Speaker 02",
+      "text": "Speaker 04 corrige el límite de carga antes del viernes 25."
+     },
+     {
+      "id": "u23",
+      "speaker": "Speaker 03",
+      "text": "Para la pantalla de reportes, los usuarios internos ya pueden probarla."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u22",
+    "source_text": "Speaker 04 corrige el límite de carga antes del viernes 25.",
+    "draft": "2026-09-25",
+    "suggested": "2026-09-25",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t03",
+   "evidence": {
+    "evidence_id": "u27",
+    "exists": true,
+    "cited": {
+     "id": "u27",
+     "timestamp": "00:234",
+     "speaker": "Speaker 03",
+     "text": "Yo puedo consolidar los comentarios internos el próximo viernes."
+    },
+    "nearby": [
+     {
+      "id": "u26",
+      "speaker": "Speaker 02",
+      "text": "¿Quién revisa los resultados del piloto?"
+     },
+     {
+      "id": "u27",
+      "speaker": "Speaker 03",
+      "text": "Yo puedo consolidar los comentarios internos el próximo viernes."
+     },
+     {
+      "id": "u28",
+      "speaker": "Speaker 04",
+      "text": "Speaker 01 consolida los comentarios del piloto el viernes 2 de octubre."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u27",
+    "source_text": "Yo puedo consolidar los comentarios internos el próximo viernes.",
+    "draft": "2026-10-02",
+    "suggested": "2026-09-25",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t04",
+   "evidence": {
+    "evidence_id": "u28",
+    "exists": true,
+    "cited": {
+     "id": "u28",
+     "timestamp": "00:243",
+     "speaker": "Speaker 04",
+     "text": "Speaker 01 consolida los comentarios del piloto el viernes 2 de octubre."
+    },
+    "nearby": [
+     {
+      "id": "u27",
+      "speaker": "Speaker 03",
+      "text": "Yo puedo consolidar los comentarios internos el próximo viernes."
+     },
+     {
+      "id": "u28",
+      "speaker": "Speaker 04",
+      "text": "Speaker 01 consolida los comentarios del piloto el viernes 2 de octubre."
+     },
+     {
+      "id": "u29",
+      "speaker": "Speaker 01",
+      "text": "El plan para clientes queda pendiente hasta evaluar ese piloto."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u28",
+    "source_text": "Speaker 01 consolida los comentarios del piloto el viernes 2 de octubre.",
+    "draft": "2026-10-02",
+    "suggested": "2026-10-02",
+    "reason": "fecha explícita calculada"
+   }
+  }
+ ],
+ "mechanical_actions": [],
+ "calls": 2,
+ "seconds_total": 31.82,
+ "prompt_hashes": {
+  "CHANGELOG.md": "eb1e87577bc9f5203ea331c410d57e1b61470dcf9fe3899c13494722f716bc24",
+  "auditor.v1.md": "805756e66f0b634f50ca1864e5dd68515d819f2964a3b7ed33b1a0b8625f0ab4",
+  "auditor.v2.md": "101f2048a8a2ec9a2e59c73300a88915eaa66abee98e0c8a46975de2ff5cc2bd",
+  "auditor.v3.md": "ee3099ee7cfaf9829b52255879fde0ab980cc56709b74d26ea790af3b68f7436",
+  "d2_review.v1.md": "2c53a04b7981894b17f75dc4ce362855046f50538945dc7649d5eafc8e0094fa",
+  "d2_system.v1.md": "50cc704dd1b944057796d663c1a9f772f288b8f2c91d5120952705aae469ff9f",
+  "decisions.v1.md": "5971cd326b663057641172c771fa0a00659ab625f3d924c5a56028f5b6be1f12",
+  "decisions.v2.md": "6ea72b68a2e4133974faff0d1d320c75eba703e1a9f0864dc347a8849bc79593",
+  "fewshot/decisions.TR01.md": "2a9e75e24a8dda412bd4fb655c0e0cfa96489cde7a2cf4ca6f74f716c207f5ee",
+  "fewshot/decisions.TR01.v2.md": "045ed02ec7e0810f88c18df3c757495bb7644c9ea03f21e8225ae95bb5a13f7c",
+  "fewshot/tasks.TR01.md": "7b3a461a7b94bdc86c3b312f06e3e85b08cd632cdcab8544cc4977271666e77b",
+  "tasks.v1.md": "7edac483c5c5f355fc73d1ca6e4f2cba34f88c6fdb73f01bee254a27b00f12c3",
+  "tasks.v2.md": "b0e6e6a4a879eb0bd69e96d7d737be00b57cfb41e8601e0c8e54805b78c5eed3"
+ },
+ "run_config": null
+}

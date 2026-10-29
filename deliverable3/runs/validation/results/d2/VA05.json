@@ -1,0 +1,362 @@
+{
+ "raw": "{\"decisions\": [\n    {\n        \"id\": \"d01\",\n        \"topic\": \"Modalidad de puntos de reciclaje (propuesta inicial)\",\n        \"statement\": \"Propuesta inicial de puntos de reciclaje en todos los pisos\",\n        \"state\": \"superseded\",\n        \"condition\": \"Confirmación de disponibilidad del proveedor de contenedores por Hablante 03 (u17)\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u05\"\n    },\n    {\n        \"id\": \"d02\",\n        \"topic\": \"Modalidad de puntos de reciclaje (versión final)\",\n        \"statement\": \"Aprobación de puntos de reciclaje en los pisos principales (reemplaza la propuesta inicial)\",\n        \"state\": \"final\",\n        \"condition\": \"Confirmación de Hablante 02 en u19 (aprobación explícita) y evidencia de disponibilidad en u17\",\n        \"supersedes\": \"d01\",\n        \"evidence_id\": \"u19\"\n    },\n    {\n        \"id\": \"d03\",\n        \"topic\": \"Materiales para señalización (propuesta inicial)\",\n        \"statement\": \"Propuesta inicial de señalética reutilizable\",\n        \"state\": \"superseded\",\n        \"condition\": \"Confirmación de Hablante 04 en u29 (cotización favorable)\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u09\"\n    },\n    {\n        \"id\": \"d04\",\n        \"topic\": \"Materiales para señalización (versión final)\",\n        \"statement\": \"Aprobación de bodega como material para señalización (reemplaza la propuesta inicial)\",\n        \"state\": \"final\",\n        \"condition\": \"Confirmación de Hablante 04 en u30 (aprobación explícita) y cotización en u29\",\n        \"supersedes\": \"d03\",\n        \"evidence_id\": \"u30\"\n    },\n    {\n        \"id\": \"d05\",\n        \"topic\": \"Rechazo de afiches a color\",\n        \"statement\": \"Rechazo explícito de la propuesta de afiches a color para esta etapa\",\n        \"state\": \"rejected\",\n        \"condition\": \"Acuerdo en u16 (Hablante 01) y apoyo en u15 (Hablante 04)\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u16\"\n    }\n],\n\"tasks\": [\n    {\n        \"id\": \"t01\",\n        \"description\": \"Preparar y compartir la lista de convocados a la reunión\",\n        \"assignee\": \"Hablante 04\",\n        \"deadline\": \"2026-10-17\",\n        \"condition\": \"Confirmación de Hablante 04 en u24 (promesa de acción) y Hablante 01 en u25 (asignación explícita)\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u25\"\n    },\n    {\n        \"id\": \"t02\",\n        \"description\": \"Comunicar a campaña de reciclaje la opción aprobada (pisos principales) antes del viernes\",\n        \"assignee\": \"Hablante 02\",\n        \"deadline\": \"2026-10-21\",\n        \"condition\": \"Confirmación de Hablante 01 en u21 (asignación explícita) y Hablante 02 en u22 (reiteración de responsabilidad)\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u21\"\n    },\n    {\n        \"id\": \"t03\",\n        \"description\": \"Solicitar cotización para bodega y enviar antes de las 12:00 del día siguiente\",\n        \"assignee\": \"Hablante 03\",\n        \"deadline\": \"2026-10-18\",\n        \"condition\": \"Confirmación de Hablante 03 en u12 (promesa de acción) y Hablante 01 en u13 (confirmación de envío)\",\n        \"state\": \"pending\",\n        \"evidence_id\": \"u13\"\n    },\n    {\n        \"id\": \"t04\",\n        \"description\": \"Definir medición posterior de resultados (encuesta breve)\",\n        \"assignee\": null,\n        \"deadline\": null,\n        \"condition\": \"Asunto pendiente en u28 (Hablante 01) sin asignación explícita\",\n        \"state\": \"pending\",\n        \"evidence_id\": \"u28\"\n    }\n]}",
+ "parsed": {
+  "decisions": [
+   {
+    "id": "d01",
+    "topic": "Modalidad de puntos de reciclaje (propuesta inicial)",
+    "statement": "Propuesta inicial de puntos de reciclaje en todos los pisos",
+    "state": "superseded",
+    "condition": "Confirmación de disponibilidad del proveedor de contenedores por Hablante 03 (u17)",
+    "supersedes": null,
+    "evidence_id": "u05"
+   },
+   {
+    "id": "d02",
+    "topic": "Modalidad de puntos de reciclaje (versión final)",
+    "statement": "Aprobación de puntos de reciclaje en los pisos principales (reemplaza la propuesta inicial)",
+    "state": "final",
+    "condition": "Confirmación de Hablante 02 en u19 (aprobación explícita) y evidencia de disponibilidad en u17",
+    "supersedes": "d01",
+    "evidence_id": "u19"
+   },
+   {
+    "id": "d03",
+    "topic": "Materiales para señalización (propuesta inicial)",
+    "statement": "Propuesta inicial de señalética reutilizable",
+    "state": "superseded",
+    "condition": "Confirmación de Hablante 04 en u29 (cotización favorable)",
+    "supersedes": null,
+    "evidence_id": "u09"
+   },
+   {
+    "id": "d04",
+    "topic": "Materiales para señalización (versión final)",
+    "statement": "Aprobación de bodega como material para señalización (reemplaza la propuesta inicial)",
+    "state": "final",
+    "condition": "Confirmación de Hablante 04 en u30 (aprobación explícita) y cotización en u29",
+    "supersedes": "d03",
+    "evidence_id": "u30"
+   },
+   {
+    "id": "d05",
+    "topic": "Rechazo de afiches a color",
+    "statement": "Rechazo explícito de la propuesta de afiches a color para esta etapa",
+    "state": "rejected",
+    "condition": "Acuerdo en u16 (Hablante 01) y apoyo en u15 (Hablante 04)",
+    "supersedes": null,
+    "evidence_id": "u16"
+   }
+  ],
+  "tasks": [
+   {
+    "id": "t01",
+    "description": "Preparar y compartir la lista de convocados a la reunión",
+    "assignee": "Hablante 04",
+    "deadline": "2026-10-17",
+    "condition": "Confirmación de Hablante 04 en u24 (promesa de acción) y Hablante 01 en u25 (asignación explícita)",
+    "state": "final",
+    "evidence_id": "u25"
+   },
+   {
+    "id": "t02",
+    "description": "Comunicar a campaña de reciclaje la opción aprobada (pisos principales) antes del viernes",
+    "assignee": "Hablante 02",
+    "deadline": "2026-10-21",
+    "condition": "Confirmación de Hablante 01 en u21 (asignación explícita) y Hablante 02 en u22 (reiteración de responsabilidad)",
+    "state": "final",
+    "evidence_id": "u21"
+   },
+   {
+    "id": "t03",
+    "description": "Solicitar cotización para bodega y enviar antes de las 12:00 del día siguiente",
+    "assignee": "Hablante 03",
+    "deadline": "2026-10-18",
+    "condition": "Confirmación de Hablante 03 en u12 (promesa de acción) y Hablante 01 en u13 (confirmación de envío)",
+    "state": "pending",
+    "evidence_id": "u13"
+   },
+   {
+    "id": "t04",
+    "description": "Definir medición posterior de resultados (encuesta breve)",
+    "assignee": null,
+    "deadline": null,
+    "condition": "Asunto pendiente en u28 (Hablante 01) sin asignación explícita",
+    "state": "pending",
+    "evidence_id": "u28"
+   }
+  ]
+ },
+ "seconds": 23.06,
+ "eval_count": 1040,
+ "prompt_eval_count": 5173,
+ "done_reason": "stop",
+ "schema_valid": true,
+ "tool_reports": [
+  {
+   "kind": "decisions",
+   "id": "d01",
+   "evidence": {
+    "evidence_id": "u18",
+    "exists": true,
+    "cited": {
+     "id": "u18",
+     "timestamp": "00:03:11",
+     "speaker": "Hablante 02",
+     "text": "Con esa confirmación, prefiero puntos en los pisos principales; es más acotado y permite partir."
+    },
+    "nearby": [
+     {
+      "id": "u17",
+      "speaker": "Hablante 03",
+      "text": "Administración acaba de responder: proveedor de contenedores está disponible."
+     },
+     {
+      "id": "u18",
+      "speaker": "Hablante 02",
+      "text": "Con esa confirmación, prefiero puntos en los pisos principales; es más acotado y permite partir."
+     },
+     {
+      "id": "u19",
+      "speaker": "Hablante 01",
+      "text": "De acuerdo: aprobamos puntos en los pisos principales. Esto reemplaza la propuesta inicial de puntos de reciclaje en todos los pisos."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d02",
+   "evidence": {
+    "evidence_id": "u30",
+    "exists": true,
+    "cited": {
+     "id": "u30",
+     "timestamp": "00:05:23",
+     "speaker": "Hablante 01",
+     "text": "Listo, aprobamos bodega. Esto reemplaza la propuesta de señalética reutilizable."
+    },
+    "nearby": [
+     {
+      "id": "u29",
+      "speaker": "Hablante 04",
+      "text": "Llegó la cotización: bodega cabe en el presupuesto."
+     },
+     {
+      "id": "u30",
+      "speaker": "Hablante 01",
+      "text": "Listo, aprobamos bodega. Esto reemplaza la propuesta de señalética reutilizable."
+     },
+     {
+      "id": "u31",
+      "speaker": "Hablante 02",
+      "text": "Para cerrar, queda puntos en los pisos principales, bodega, y las tres tareas ya asignadas."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d03",
+   "evidence": {
+    "evidence_id": "u16",
+    "exists": true,
+    "cited": {
+     "id": "u16",
+     "timestamp": "00:02:49",
+     "speaker": "Hablante 01",
+     "text": "Entonces queda rechazada la propuesta de afiches a color."
+    },
+    "nearby": [
+     {
+      "id": "u15",
+      "speaker": "Hablante 04",
+      "text": "Estoy de acuerdo: lo descartamos para esta etapa."
+     },
+     {
+      "id": "u16",
+      "speaker": "Hablante 01",
+      "text": "Entonces queda rechazada la propuesta de afiches a color."
+     },
+     {
+      "id": "u17",
+      "speaker": "Hablante 03",
+      "text": "Administración acaba de responder: proveedor de contenedores está disponible."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t01",
+   "evidence": {
+    "evidence_id": "u25",
+    "exists": true,
+    "cited": {
+     "id": "u25",
+     "timestamp": "00:04:28",
+     "speaker": "Hablante 01",
+     "text": "Hablante 04 prepara y comparte hoy la lista de convocados."
+    },
+    "nearby": [
+     {
+      "id": "u24",
+      "speaker": "Hablante 04",
+      "text": "Sí, preparo la lista y la comparto hoy."
+     },
+     {
+      "id": "u25",
+      "speaker": "Hablante 01",
+      "text": "Hablante 04 prepara y comparte hoy la lista de convocados."
+     },
+     {
+      "id": "u26",
+      "speaker": "Hablante 02",
+      "text": "Falta definir si tendremos una medición posterior de resultados."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u25",
+    "source_text": "Hablante 04 prepara y comparte hoy la lista de convocados.",
+    "draft": "2026-10-17T04:20:00",
+    "suggested": "2026-10-17",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t02",
+   "evidence": {
+    "evidence_id": "u21",
+    "exists": true,
+    "cited": {
+     "id": "u21",
+     "timestamp": "00:03:44",
+     "speaker": "Hablante 01",
+     "text": "Hablante 02 comunica a campaña de reciclaje la opción aprobada antes del viernes."
+    },
+    "nearby": [
+     {
+      "id": "u20",
+      "speaker": "Hablante 04",
+      "text": "Para coordinarlo necesitamos avisar a campaña de reciclaje."
+     },
+     {
+      "id": "u21",
+      "speaker": "Hablante 01",
+      "text": "Hablante 02 comunica a campaña de reciclaje la opción aprobada antes del viernes."
+     },
+     {
+      "id": "u22",
+      "speaker": "Hablante 02",
+      "text": "No le asignemos nada a campaña de reciclaje; solo le informaremos nuestra decisión."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u21",
+    "source_text": "Hablante 02 comunica a campaña de reciclaje la opción aprobada antes del viernes.",
+    "draft": "2026-10-21",
+    "suggested": "2026-10-23",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t03",
+   "evidence": {
+    "evidence_id": "u12",
+    "exists": true,
+    "cited": {
+     "id": "u12",
+     "timestamp": "00:02:05",
+     "speaker": "Hablante 03",
+     "text": "Puedo pedir la cotización y traer el monto mañana antes de las 12."
+    },
+    "nearby": [
+     {
+      "id": "u11",
+      "speaker": "Hablante 01",
+      "text": "Por ahora no cerremos los materiales; primero veamos el presupuesto."
+     },
+     {
+      "id": "u12",
+      "speaker": "Hablante 03",
+      "text": "Puedo pedir la cotización y traer el monto mañana antes de las 12."
+     },
+     {
+      "id": "u13",
+      "speaker": "Hablante 01",
+      "text": "Hablante 03 solicita la cotización para bodega y la envía mañana antes de las 12."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u12",
+    "source_text": "Puedo pedir la cotización y traer el monto mañana antes de las 12.",
+    "draft": "2026-10-18T12:00:00",
+    "suggested": "2026-10-18",
+    "reason": "hora ambigua: solo día calculado"
+   }
+  }
+ ],
+ "mechanical_actions": [],
+ "calls": 2,
+ "seconds_total": 37.79,
+ "prompt_hashes": {
+  "CHANGELOG.md": "eb1e87577bc9f5203ea331c410d57e1b61470dcf9fe3899c13494722f716bc24",
+  "auditor.v1.md": "805756e66f0b634f50ca1864e5dd68515d819f2964a3b7ed33b1a0b8625f0ab4",
+  "auditor.v2.md": "101f2048a8a2ec9a2e59c73300a88915eaa66abee98e0c8a46975de2ff5cc2bd",
+  "auditor.v3.md": "ee3099ee7cfaf9829b52255879fde0ab980cc56709b74d26ea790af3b68f7436",
+  "d2_review.v1.md": "2c53a04b7981894b17f75dc4ce362855046f50538945dc7649d5eafc8e0094fa",
+  "d2_system.v1.md": "50cc704dd1b944057796d663c1a9f772f288b8f2c91d5120952705aae469ff9f",
+  "decisions.v1.md": "5971cd326b663057641172c771fa0a00659ab625f3d924c5a56028f5b6be1f12",
+  "decisions.v2.md": "6ea72b68a2e4133974faff0d1d320c75eba703e1a9f0864dc347a8849bc79593",
+  "fewshot/decisions.TR01.md": "2a9e75e24a8dda412bd4fb655c0e0cfa96489cde7a2cf4ca6f74f716c207f5ee",
+  "fewshot/decisions.TR01.v2.md": "045ed02ec7e0810f88c18df3c757495bb7644c9ea03f21e8225ae95bb5a13f7c",
+  "fewshot/tasks.TR01.md": "7b3a461a7b94bdc86c3b312f06e3e85b08cd632cdcab8544cc4977271666e77b",
+  "tasks.v1.md": "7edac483c5c5f355fc73d1ca6e4f2cba34f88c6fdb73f01bee254a27b00f12c3",
+  "tasks.v2.md": "b0e6e6a4a879eb0bd69e96d7d737be00b57cfb41e8601e0c8e54805b78c5eed3"
+ },
+ "run_config": null
+}

@@ -1,0 +1,300 @@
+{
+ "raw": "{\"decisions\": [\n    {\n        \"id\": \"d01\",\n        \"topic\": \"Modalidad de feria universitaria (propuesta inicial)\",\n        \"statement\": \"Stand grande con dos módulos\",\n        \"state\": \"rejected\",\n        \"condition\": \"No cumplía con disponibilidad del proveedor (u06, u18)\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u05\"\n    },\n    {\n        \"id\": \"d02\",\n        \"topic\": \"Modalidad de feria universitaria (versión final)\",\n        \"statement\": \"Stand estándar con una demostración\",\n        \"state\": \"final\",\n        \"condition\": \"Confirmación de disponibilidad del proveedor (u17) y acuerdo colectivo (u19)\",\n        \"supersedes\": \"d01\",\n        \"evidence_id\": \"u19\"\n    },\n    {\n        \"id\": \"d03\",\n        \"topic\": \"Materiales para feria universitaria (propuesta inicial)\",\n        \"statement\": \"120 folletos y código QR\",\n        \"state\": \"rejected\",\n        \"condition\": \"Costo elevado (u10, u14)\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u09\"\n    },\n    {\n        \"id\": \"d04\",\n        \"topic\": \"Materiales para feria universitaria (versión final)\",\n        \"statement\": \"Recinto de la feria como espacio principal\",\n        \"state\": \"final\",\n        \"condition\": \"Cotización confirmada por Hablante 04 (u29) y aprobación presupuestaria\",\n        \"supersedes\": \"d03\",\n        \"evidence_id\": \"u30\"\n    }\n],\n\"tasks\": [\n    {\n        \"id\": \"t01\",\n        \"description\": \"Hablante 04 prepara y comparte la lista de convocados para la feria universitaria\",\n        \"assignee\": \"Hablante 04\",\n        \"deadline\": \"2026-10-22\",\n        \"condition\": \"Confirmación de Hablante 04 (u24) y Hablante 01 (u25)\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u25\"\n    },\n    {\n        \"id\": \"t02\",\n        \"description\": \"Hablante 02 comunica a feria universitaria la opción aprobada (stand estándar con demostración) antes del viernes\",\n        \"assignee\": \"Hablante 02\",\n        \"deadline\": \"2026-10-26\",\n        \"condition\": \"Confirmación de Hablante 01 (u21)\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u21\"\n    },\n    {\n        \"id\": \"t03\",\n        \"description\": \"Evaluación de medición posterior de resultados (encuesta breve)\",\n        \"assignee\": null,\n        \"deadline\": null,\n        \"condition\": \"Asunto pendiente sin asignación explícita (u27, u28)\",\n        \"state\": \"pending\",\n        \"evidence_id\": \"u28\"\n    }\n]}",
+ "parsed": {
+  "decisions": [
+   {
+    "id": "d01",
+    "topic": "Modalidad de feria universitaria (propuesta inicial)",
+    "statement": "Stand grande con dos módulos",
+    "state": "rejected",
+    "condition": "No cumplía con disponibilidad del proveedor (u06, u18)",
+    "supersedes": null,
+    "evidence_id": "u05"
+   },
+   {
+    "id": "d02",
+    "topic": "Modalidad de feria universitaria (versión final)",
+    "statement": "Stand estándar con una demostración",
+    "state": "final",
+    "condition": "Confirmación de disponibilidad del proveedor (u17) y acuerdo colectivo (u19)",
+    "supersedes": "d01",
+    "evidence_id": "u19"
+   },
+   {
+    "id": "d03",
+    "topic": "Materiales para feria universitaria (propuesta inicial)",
+    "statement": "120 folletos y código QR",
+    "state": "rejected",
+    "condition": "Costo elevado (u10, u14)",
+    "supersedes": null,
+    "evidence_id": "u09"
+   },
+   {
+    "id": "d04",
+    "topic": "Materiales para feria universitaria (versión final)",
+    "statement": "Recinto de la feria como espacio principal",
+    "state": "final",
+    "condition": "Cotización confirmada por Hablante 04 (u29) y aprobación presupuestaria",
+    "supersedes": "d03",
+    "evidence_id": "u30"
+   }
+  ],
+  "tasks": [
+   {
+    "id": "t01",
+    "description": "Hablante 04 prepara y comparte la lista de convocados para la feria universitaria",
+    "assignee": "Hablante 04",
+    "deadline": "2026-10-22",
+    "condition": "Confirmación de Hablante 04 (u24) y Hablante 01 (u25)",
+    "state": "final",
+    "evidence_id": "u25"
+   },
+   {
+    "id": "t02",
+    "description": "Hablante 02 comunica a feria universitaria la opción aprobada (stand estándar con demostración) antes del viernes",
+    "assignee": "Hablante 02",
+    "deadline": "2026-10-26",
+    "condition": "Confirmación de Hablante 01 (u21)",
+    "state": "final",
+    "evidence_id": "u21"
+   },
+   {
+    "id": "t03",
+    "description": "Evaluación de medición posterior de resultados (encuesta breve)",
+    "assignee": null,
+    "deadline": null,
+    "condition": "Asunto pendiente sin asignación explícita (u27, u28)",
+    "state": "pending",
+    "evidence_id": "u28"
+   }
+  ]
+ },
+ "seconds": 16.11,
+ "eval_count": 716,
+ "prompt_eval_count": 4583,
+ "done_reason": "stop",
+ "schema_valid": true,
+ "tool_reports": [
+  {
+   "kind": "decisions",
+   "id": "d01",
+   "evidence": {
+    "evidence_id": "u19",
+    "exists": true,
+    "cited": {
+     "id": "u19",
+     "timestamp": "00:03:22",
+     "speaker": "Hablante 01",
+     "text": "De acuerdo: aprobamos stand estándar con una demostración. Esto reemplaza la propuesta inicial de stand grande con dos módulos."
+    },
+    "nearby": [
+     {
+      "id": "u18",
+      "speaker": "Hablante 02",
+      "text": "Con esa confirmación, prefiero stand estándar con una demostración; es más acotado y permite partir."
+     },
+     {
+      "id": "u19",
+      "speaker": "Hablante 01",
+      "text": "De acuerdo: aprobamos stand estándar con una demostración. Esto reemplaza la propuesta inicial de stand grande con dos módulos."
+     },
+     {
+      "id": "u20",
+      "speaker": "Hablante 04",
+      "text": "Para coordinarlo necesitamos avisar a feria universitaria."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d02",
+   "evidence": {
+    "evidence_id": "u30",
+    "exists": true,
+    "cited": {
+     "id": "u30",
+     "timestamp": "00:05:23",
+     "speaker": "Hablante 01",
+     "text": "Listo, aprobamos recinto de la feria. Esto reemplaza la propuesta de 120 folletos y código QR."
+    },
+    "nearby": [
+     {
+      "id": "u29",
+      "speaker": "Hablante 04",
+      "text": "Llegó la cotización: recinto de la feria cabe en el presupuesto."
+     },
+     {
+      "id": "u30",
+      "speaker": "Hablante 01",
+      "text": "Listo, aprobamos recinto de la feria. Esto reemplaza la propuesta de 120 folletos y código QR."
+     },
+     {
+      "id": "u31",
+      "speaker": "Hablante 02",
+      "text": "Para cerrar, queda stand estándar con una demostración, recinto de la feria, y las tres tareas ya asignadas."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t01",
+   "evidence": {
+    "evidence_id": "u25",
+    "exists": true,
+    "cited": {
+     "id": "u25",
+     "timestamp": "00:04:28",
+     "speaker": "Hablante 01",
+     "text": "Hablante 04 prepara y comparte hoy la lista de convocados."
+    },
+    "nearby": [
+     {
+      "id": "u24",
+      "speaker": "Hablante 04",
+      "text": "Sí, preparo la lista y la comparto hoy."
+     },
+     {
+      "id": "u25",
+      "speaker": "Hablante 01",
+      "text": "Hablante 04 prepara y comparte hoy la lista de convocados."
+     },
+     {
+      "id": "u26",
+      "speaker": "Hablante 02",
+      "text": "Falta definir si tendremos una medición posterior de resultados."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u25",
+    "source_text": "Hablante 04 prepara y comparte hoy la lista de convocados.",
+    "draft": "2026-10-22T04:24:00",
+    "suggested": "2026-10-22",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t02",
+   "evidence": {
+    "evidence_id": "u21",
+    "exists": true,
+    "cited": {
+     "id": "u21",
+     "timestamp": "00:03:44",
+     "speaker": "Hablante 01",
+     "text": "Hablante 02 comunica a feria universitaria la opción aprobada antes del viernes."
+    },
+    "nearby": [
+     {
+      "id": "u20",
+      "speaker": "Hablante 04",
+      "text": "Para coordinarlo necesitamos avisar a feria universitaria."
+     },
+     {
+      "id": "u21",
+      "speaker": "Hablante 01",
+      "text": "Hablante 02 comunica a feria universitaria la opción aprobada antes del viernes."
+     },
+     {
+      "id": "u22",
+      "speaker": "Hablante 02",
+      "text": "No le asignemos nada a feria universitaria; solo le informaremos nuestra decisión."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u21",
+    "source_text": "Hablante 02 comunica a feria universitaria la opción aprobada antes del viernes.",
+    "draft": "2026-10-26",
+    "suggested": "2026-10-23",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t03",
+   "evidence": {
+    "evidence_id": "u28",
+    "exists": true,
+    "cited": {
+     "id": "u28",
+     "timestamp": "00:05:01",
+     "speaker": "Hablante 01",
+     "text": "Ese tema queda pendiente; no asignemos responsable ni fecha todavía."
+    },
+    "nearby": [
+     {
+      "id": "u27",
+      "speaker": "Hablante 03",
+      "text": "Podría ser una encuesta breve, pero no tenemos definido quién la haría."
+     },
+     {
+      "id": "u28",
+      "speaker": "Hablante 01",
+      "text": "Ese tema queda pendiente; no asignemos responsable ni fecha todavía."
+     },
+     {
+      "id": "u29",
+      "speaker": "Hablante 04",
+      "text": "Llegó la cotización: recinto de la feria cabe en el presupuesto."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   },
+   "assignee_named_in_meeting": false
+  }
+ ],
+ "mechanical_actions": [],
+ "calls": 2,
+ "seconds_total": 27.92,
+ "prompt_hashes": {
+  "CHANGELOG.md": "eb1e87577bc9f5203ea331c410d57e1b61470dcf9fe3899c13494722f716bc24",
+  "auditor.v1.md": "805756e66f0b634f50ca1864e5dd68515d819f2964a3b7ed33b1a0b8625f0ab4",
+  "auditor.v2.md": "101f2048a8a2ec9a2e59c73300a88915eaa66abee98e0c8a46975de2ff5cc2bd",
+  "auditor.v3.md": "ee3099ee7cfaf9829b52255879fde0ab980cc56709b74d26ea790af3b68f7436",
+  "d2_review.v1.md": "2c53a04b7981894b17f75dc4ce362855046f50538945dc7649d5eafc8e0094fa",
+  "d2_system.v1.md": "50cc704dd1b944057796d663c1a9f772f288b8f2c91d5120952705aae469ff9f",
+  "decisions.v1.md": "5971cd326b663057641172c771fa0a00659ab625f3d924c5a56028f5b6be1f12",
+  "decisions.v2.md": "6ea72b68a2e4133974faff0d1d320c75eba703e1a9f0864dc347a8849bc79593",
+  "fewshot/decisions.TR01.md": "2a9e75e24a8dda412bd4fb655c0e0cfa96489cde7a2cf4ca6f74f716c207f5ee",
+  "fewshot/decisions.TR01.v2.md": "045ed02ec7e0810f88c18df3c757495bb7644c9ea03f21e8225ae95bb5a13f7c",
+  "fewshot/tasks.TR01.md": "7b3a461a7b94bdc86c3b312f06e3e85b08cd632cdcab8544cc4977271666e77b",
+  "tasks.v1.md": "7edac483c5c5f355fc73d1ca6e4f2cba34f88c6fdb73f01bee254a27b00f12c3",
+  "tasks.v2.md": "b0e6e6a4a879eb0bd69e96d7d737be00b57cfb41e8601e0c8e54805b78c5eed3"
+ },
+ "run_config": null
+}

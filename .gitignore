@@ -9,6 +9,8 @@
 
 # The graded one-page PDF is a deliverable and must remain versioned.
 !Deliverable_2.pdf
+# D3 result figures (vector versions used by the paper).
+!deliverable3/runs/*/figures/*.pdf
 
 # Local render and temporary directories
 output/

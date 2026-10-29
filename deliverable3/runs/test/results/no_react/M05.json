@@ -1,0 +1,158 @@
+{
+ "parsed": {
+  "decisions": [
+   {
+    "id": "d01",
+    "topic": "Modalidad de inducción",
+    "statement": "sesión presencial de jornada completa",
+    "state": "superseded",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u05"
+   },
+   {
+    "id": "d02",
+    "topic": "Contenidos y asignación de tareas",
+    "statement": "Speaker 03 prepara módulo de herramientas",
+    "state": "final",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u11"
+   },
+   {
+    "id": "d03",
+    "topic": "Contenidos y asignación de tareas",
+    "statement": "Speaker 01 prepara seguridad y protocolos",
+    "state": "final",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u13"
+   },
+   {
+    "id": "d04",
+    "topic": "Modalidad de inducción",
+    "statement": "descartada inducción completamente presencial",
+    "state": "rejected",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u18"
+   },
+   {
+    "id": "d05",
+    "topic": "Modalidad de inducción",
+    "statement": "indución completamente presencial descartada",
+    "state": "rejected",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u18"
+   },
+   {
+    "id": "d06",
+    "topic": "Modalidad de inducción",
+    "statement": "dos sesiones remotas de dos horas y visita presencial opcional",
+    "state": "final",
+    "condition": null,
+    "supersedes": "d01",
+    "evidence_id": "u19"
+   },
+   {
+    "id": "d07",
+    "topic": "Fechas y logística",
+    "statement": "sesiones remotas el lunes 5 y miércoles 7 de octubre a las 10:00",
+    "state": "final",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u26"
+   }
+  ],
+  "tasks": [
+   {
+    "id": "t01",
+    "description": "Preparar el módulo de herramientas",
+    "assignee": "Speaker 02",
+    "deadline": "2026-09-30",
+    "condition": null,
+    "state": "final",
+    "evidence_id": "u12"
+   },
+   {
+    "id": "t02",
+    "description": "Preparar el módulo de seguridad",
+    "assignee": "Speaker 03",
+    "deadline": "2026-09-30",
+    "condition": null,
+    "state": "final",
+    "evidence_id": "u14"
+   },
+   {
+    "id": "t03",
+    "description": "Reservar la sala para la visita presencial",
+    "assignee": "Speaker 04",
+    "deadline": null,
+    "condition": "solo si hacemos visita presencial",
+    "state": "final",
+    "evidence_id": "u16"
+   },
+   {
+    "id": "t04",
+    "description": "Confirmar la lista de nombres de las personas nuevas",
+    "assignee": "Speaker 03",
+    "deadline": null,
+    "condition": null,
+    "state": "final",
+    "evidence_id": "u27"
+   },
+   {
+    "id": "t05",
+    "description": "Enviar las invitaciones a las personas nuevas",
+    "assignee": "Speaker 01",
+    "deadline": null,
+    "condition": "cuando Personas confirme los nombres de las seis personas",
+    "state": "final",
+    "evidence_id": "u28"
+   },
+   {
+    "id": "t06",
+    "description": "Confirmar la visita presencial y coordinar con al menos tres interesados",
+    "assignee": "Speaker 01",
+    "deadline": "2026-10-09",
+    "condition": "solo si hay al menos tres personas interesadas en asistir",
+    "state": "final",
+    "evidence_id": "u29"
+   }
+  ]
+ },
+ "raw": "{\"decisions\": [{\"id\": \"d01\", \"topic\": \"Modalidad de inducción\", \"statement\": \"sesión presencial de jornada completa\", \"state\": \"superseded\", \"condition\": null, \"supersedes\": null, \"evidence_id\": \"u05\"}, {\"id\": \"d02\", \"topic\": \"Contenidos y asignación de tareas\", \"statement\": \"Speaker 03 prepara módulo de herramientas\", \"state\": \"final\", \"condition\": null, \"supersedes\": null, \"evidence_id\": \"u11\"}, {\"id\": \"d03\", \"topic\": \"Contenidos y asignación de tareas\", \"statement\": \"Speaker 01 prepara seguridad y protocolos\", \"state\": \"final\", \"condition\": null, \"supersedes\": null, \"evidence_id\": \"u13\"}, {\"id\": \"d04\", \"topic\": \"Modalidad de inducción\", \"statement\": \"descartada inducción completamente presencial\", \"state\": \"rejected\", \"condition\": null, \"supersedes\": null, \"evidence_id\": \"u18\"}, {\"id\": \"d05\", \"topic\": \"Modalidad de inducción\", \"statement\": \"indución completamente presencial descartada\", \"state\": \"rejected\", \"condition\": null, \"supersedes\": null, \"evidence_id\": \"u18\"}, {\"id\": \"d06\", \"topic\": \"Modalidad de inducción\", \"statement\": \"dos sesiones remotas de dos horas y visita presencial opcional\", \"state\": \"final\", \"condition\": null, \"supersedes\": \"d01\", \"evidence_id\": \"u19\"}, {\"id\": \"d07\", \"topic\": \"Fechas y logística\", \"statement\": \"sesiones remotas el lunes 5 y miércoles 7 de octubre a las 10:00\", \"state\": \"final\", \"condition\": null, \"supersedes\": null, \"evidence_id\": \"u26\"}], \"tasks\": [{\"id\": \"t01\", \"description\": \"Preparar el módulo de herramientas\", \"assignee\": \"Speaker 02\", \"deadline\": \"2026-09-30\", \"condition\": null, \"state\": \"final\", \"evidence_id\": \"u12\"}, {\"id\": \"t02\", \"description\": \"Preparar el módulo de seguridad\", \"assignee\": \"Speaker 03\", \"deadline\": \"2026-09-30\", \"condition\": null, \"state\": \"final\", \"evidence_id\": \"u14\"}, {\"id\": \"t03\", \"description\": \"Reservar la sala para la visita presencial\", \"assignee\": \"Speaker 04\", \"deadline\": null, \"condition\": \"solo si hacemos visita presencial\", \"state\": \"final\", \"evidence_id\": \"u16\"}, {\"id\": \"t04\", \"description\": \"Confirmar la lista de nombres de las personas nuevas\", \"assignee\": \"Speaker 03\", \"deadline\": null, \"condition\": null, \"state\": \"final\", \"evidence_id\": \"u27\"}, {\"id\": \"t05\", \"description\": \"Enviar las invitaciones a las personas nuevas\", \"assignee\": \"Speaker 01\", \"deadline\": null, \"condition\": \"cuando Personas confirme los nombres de las seis personas\", \"state\": \"final\", \"evidence_id\": \"u28\"}, {\"id\": \"t06\", \"description\": \"Confirmar la visita presencial y coordinar con al menos tres interesados\", \"assignee\": \"Speaker 01\", \"deadline\": \"2026-10-09\", \"condition\": \"solo si hay al menos tres personas interesadas en asistir\", \"state\": \"final\", \"evidence_id\": \"u29\"}]}",
+ "seconds": 136.17,
+ "wall_seconds": 136.34,
+ "calls": 6,
+ "eval_count": 6125,
+ "invalid_steps": 0,
+ "tool_calls": 0,
+ "schema_valid": true,
+ "trace_path": "/content/drive/MyDrive/d3_runs/traces/test/no_react/M05.jsonl",
+ "prompt_hashes": {
+  "CHANGELOG.md": "eb1e87577bc9f5203ea331c410d57e1b61470dcf9fe3899c13494722f716bc24",
+  "auditor.v1.md": "805756e66f0b634f50ca1864e5dd68515d819f2964a3b7ed33b1a0b8625f0ab4",
+  "auditor.v2.md": "101f2048a8a2ec9a2e59c73300a88915eaa66abee98e0c8a46975de2ff5cc2bd",
+  "auditor.v3.md": "ee3099ee7cfaf9829b52255879fde0ab980cc56709b74d26ea790af3b68f7436",
+  "d2_review.v1.md": "2c53a04b7981894b17f75dc4ce362855046f50538945dc7649d5eafc8e0094fa",
+  "d2_system.v1.md": "50cc704dd1b944057796d663c1a9f772f288b8f2c91d5120952705aae469ff9f",
+  "decisions.v1.md": "5971cd326b663057641172c771fa0a00659ab625f3d924c5a56028f5b6be1f12",
+  "decisions.v2.md": "6ea72b68a2e4133974faff0d1d320c75eba703e1a9f0864dc347a8849bc79593",
+  "fewshot/decisions.TR01.md": "2a9e75e24a8dda412bd4fb655c0e0cfa96489cde7a2cf4ca6f74f716c207f5ee",
+  "fewshot/decisions.TR01.v2.md": "045ed02ec7e0810f88c18df3c757495bb7644c9ea03f21e8225ae95bb5a13f7c",
+  "fewshot/tasks.TR01.md": "7b3a461a7b94bdc86c3b312f06e3e85b08cd632cdcab8544cc4977271666e77b",
+  "tasks.v1.md": "7edac483c5c5f355fc73d1ca6e4f2cba34f88c6fdb73f01bee254a27b00f12c3",
+  "tasks.v2.md": "b0e6e6a4a879eb0bd69e96d7d737be00b57cfb41e8601e0c8e54805b78c5eed3"
+ },
+ "run_config": {
+  "name": "no_react",
+  "react": false,
+  "auditor_rounds": 2,
+  "fewshot": true,
+  "cot": true,
+  "max_steps": 3,
+  "audit_guards": true
+ }
+}

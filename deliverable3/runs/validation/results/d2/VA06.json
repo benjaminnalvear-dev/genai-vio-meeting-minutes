@@ -1,0 +1,399 @@
+{
+ "raw": "{\"decisions\": [\n    {\n        \"id\": \"d01\",\n        \"topic\": \"Modalidad de rediseño (propuesta inicial)\",\n        \"statement\": \"Propuesta de rediseño completo del sitio web.\",\n        \"state\": \"superseded\",\n        \"condition\": \"No cumplía con la disponibilidad de agencia de diseño (evidencia: u06, u08).\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u05\"\n    },\n    {\n        \"id\": \"d02\",\n        \"topic\": \"Modalidad de rediseño (nueva propuesta)\",\n        \"statement\": \"Aprobar mejora de las páginas principales del sitio web como alternativa al rediseño completo.\",\n        \"state\": \"final\",\n        \"condition\": \"Confirmación de disponibilidad de agencia de diseño (evidencia: u17) y acuerdo explícito (evidencia: u19).\",\n        \"supersedes\": \"d01\",\n        \"evidence_id\": \"u19\"\n    },\n    {\n        \"id\": \"d03\",\n        \"topic\": \"Materiales para el sitio web (propuesta inicial)\",\n        \"statement\": \"Propuesta de banco de imágenes autorizado.\",\n        \"state\": \"rejected\",\n        \"condition\": \"No se consideró viable por el alto costo (evidencia: u10).\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u09\"\n    },\n    {\n        \"id\": \"d04\",\n        \"topic\": \"Materiales para el sitio web (nueva propuesta)\",\n        \"statement\": \"Aprobar servidor web como alternativa al banco de imágenes autorizado.\",\n        \"state\": \"final\",\n        \"condition\": \"Cotización confirmada dentro del presupuesto (evidencia: u29) y reemplazo explícito (evidencia: u30).\",\n        \"supersedes\": \"d03\",\n        \"evidence_id\": \"u30\"\n    },\n    {\n        \"id\": \"d05\",\n        \"topic\": \"Fotografías nuevas\",\n        \"statement\": \"Rechazar la inclusión de fotografías nuevas para esta etapa.\",\n        \"state\": \"rejected\",\n        \"condition\": \"No se consideró necesario (evidencia: u14, u15, u16).\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u16\"\n    },\n    {\n        \"id\": \"d06\",\n        \"topic\": \"Medición de resultados posterior\",\n        \"statement\": \"Asunto pendiente sobre definición de medición de resultados.\",\n        \"state\": \"pending\",\n        \"condition\": \"No se asignó responsable ni fecha (evidencia: u26, u27, u28).\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u28\"\n    }\n],\n\"tasks\": [\n    {\n        \"id\": \"t01\",\n        \"description\": \"Preparar y compartir la lista de convocados para la reunión.\",\n        \"assignee\": \"Hablante 04\",\n        \"deadline\": \"2026-10-18T12:00:00\", \"condition\": \"Lista compartida antes de la reunión finalizada.\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u25\"\n    },\n    {\n        \"id\": \"t02\",\n        \"description\": \"Comunicar a 'actualización del sitio' la decisión de mejorar las páginas principales antes del viernes.\",\n        \"assignee\": \"Hablante 02\",\n        \"deadline\": \"2026-10-22T00:00:00\",\n        \"condition\": \"Informe enviado antes del viernes (evidencia: u21).\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u21\"\n    },\n    {\n        \"id\": \"t03\",\n        \"description\": \"Solicitar cotización para servidor web y enviar antes de las 12:00 del día siguiente.\",\n        \"assignee\": \"Hablante 03\",\n        \"deadline\": \"2026-10-19T12:00:00\",\n        \"condition\": \"Cotización recibida antes de las 12:00 (evidencia: u13).\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u13\"\n    }\n]\n}",
+ "parsed": {
+  "decisions": [
+   {
+    "id": "d01",
+    "topic": "Modalidad de rediseño (propuesta inicial)",
+    "statement": "Propuesta de rediseño completo del sitio web.",
+    "state": "superseded",
+    "condition": "No cumplía con la disponibilidad de agencia de diseño (evidencia: u06, u08).",
+    "supersedes": null,
+    "evidence_id": "u05"
+   },
+   {
+    "id": "d02",
+    "topic": "Modalidad de rediseño (nueva propuesta)",
+    "statement": "Aprobar mejora de las páginas principales del sitio web como alternativa al rediseño completo.",
+    "state": "final",
+    "condition": "Confirmación de disponibilidad de agencia de diseño (evidencia: u17) y acuerdo explícito (evidencia: u19).",
+    "supersedes": "d01",
+    "evidence_id": "u19"
+   },
+   {
+    "id": "d03",
+    "topic": "Materiales para el sitio web (propuesta inicial)",
+    "statement": "Propuesta de banco de imágenes autorizado.",
+    "state": "rejected",
+    "condition": "No se consideró viable por el alto costo (evidencia: u10).",
+    "supersedes": null,
+    "evidence_id": "u09"
+   },
+   {
+    "id": "d04",
+    "topic": "Materiales para el sitio web (nueva propuesta)",
+    "statement": "Aprobar servidor web como alternativa al banco de imágenes autorizado.",
+    "state": "final",
+    "condition": "Cotización confirmada dentro del presupuesto (evidencia: u29) y reemplazo explícito (evidencia: u30).",
+    "supersedes": "d03",
+    "evidence_id": "u30"
+   },
+   {
+    "id": "d05",
+    "topic": "Fotografías nuevas",
+    "statement": "Rechazar la inclusión de fotografías nuevas para esta etapa.",
+    "state": "rejected",
+    "condition": "No se consideró necesario (evidencia: u14, u15, u16).",
+    "supersedes": null,
+    "evidence_id": "u16"
+   },
+   {
+    "id": "d06",
+    "topic": "Medición de resultados posterior",
+    "statement": "Asunto pendiente sobre definición de medición de resultados.",
+    "state": "pending",
+    "condition": "No se asignó responsable ni fecha (evidencia: u26, u27, u28).",
+    "supersedes": null,
+    "evidence_id": "u28"
+   }
+  ],
+  "tasks": [
+   {
+    "id": "t01",
+    "description": "Preparar y compartir la lista de convocados para la reunión.",
+    "assignee": "Hablante 04",
+    "deadline": "2026-10-18T12:00",
+    "condition": "Lista compartida antes de la reunión finalizada.",
+    "state": "final",
+    "evidence_id": "u25"
+   },
+   {
+    "id": "t02",
+    "description": "Comunicar a 'actualización del sitio' la decisión de mejorar las páginas principales antes del viernes.",
+    "assignee": "Hablante 02",
+    "deadline": "2026-10-22T00:00",
+    "condition": "Informe enviado antes del viernes (evidencia: u21).",
+    "state": "final",
+    "evidence_id": "u21"
+   },
+   {
+    "id": "t03",
+    "description": "Solicitar cotización para servidor web y enviar antes de las 12:00 del día siguiente.",
+    "assignee": "Hablante 03",
+    "deadline": "2026-10-19T12:00",
+    "condition": "Cotización recibida antes de las 12:00 (evidencia: u13).",
+    "state": "final",
+    "evidence_id": "u13"
+   }
+  ]
+ },
+ "seconds": 22.18,
+ "eval_count": 982,
+ "prompt_eval_count": 5539,
+ "done_reason": "stop",
+ "schema_valid": true,
+ "tool_reports": [
+  {
+   "kind": "decisions",
+   "id": "d01",
+   "evidence": {
+    "evidence_id": "u19",
+    "exists": true,
+    "cited": {
+     "id": "u19",
+     "timestamp": "00:03:22",
+     "speaker": "Hablante 01",
+     "text": "De acuerdo: aprobamos mejora de las páginas principales. Esto reemplaza la propuesta inicial de rediseño completo."
+    },
+    "nearby": [
+     {
+      "id": "u18",
+      "speaker": "Hablante 02",
+      "text": "Con esa confirmación, prefiero mejora de las páginas principales; es más acotado y permite partir."
+     },
+     {
+      "id": "u19",
+      "speaker": "Hablante 01",
+      "text": "De acuerdo: aprobamos mejora de las páginas principales. Esto reemplaza la propuesta inicial de rediseño completo."
+     },
+     {
+      "id": "u20",
+      "speaker": "Hablante 04",
+      "text": "Para coordinarlo necesitamos avisar a actualización del sitio."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d00",
+   "evidence": {
+    "evidence_id": "u05",
+    "exists": true,
+    "cited": {
+     "id": "u05",
+     "timestamp": "00:00:48",
+     "speaker": "Hablante 01",
+     "text": "Propongo aprobar rediseño completo y avanzar hoy mismo."
+    },
+    "nearby": [
+     {
+      "id": "u04",
+      "speaker": "Hablante 04",
+      "text": "Podría funcionar, aunque necesitamos revisar la disponibilidad de agencia de diseño."
+     },
+     {
+      "id": "u05",
+      "speaker": "Hablante 01",
+      "text": "Propongo aprobar rediseño completo y avanzar hoy mismo."
+     },
+     {
+      "id": "u06",
+      "speaker": "Hablante 02",
+      "text": "Todavía no. Si agencia de diseño no está disponible, esa opción no sirve."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d02",
+   "evidence": {
+    "evidence_id": "u30",
+    "exists": true,
+    "cited": {
+     "id": "u30",
+     "timestamp": "00:05:23",
+     "speaker": "Hablante 01",
+     "text": "Listo, aprobamos servidor web. Esto reemplaza la propuesta de banco de imágenes autorizado."
+    },
+    "nearby": [
+     {
+      "id": "u29",
+      "speaker": "Hablante 04",
+      "text": "Llegó la cotización: servidor web cabe en el presupuesto."
+     },
+     {
+      "id": "u30",
+      "speaker": "Hablante 01",
+      "text": "Listo, aprobamos servidor web. Esto reemplaza la propuesta de banco de imágenes autorizado."
+     },
+     {
+      "id": "u31",
+      "speaker": "Hablante 02",
+      "text": "Para cerrar, queda mejora de las páginas principales, servidor web, y las tres tareas ya asignadas."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d03",
+   "evidence": {
+    "evidence_id": "u09",
+    "exists": true,
+    "cited": {
+     "id": "u09",
+     "timestamp": "00:01:32",
+     "speaker": "Hablante 04",
+     "text": "En materiales, inicialmente pensé en banco de imágenes autorizado."
+    },
+    "nearby": [
+     {
+      "id": "u08",
+      "speaker": "Hablante 01",
+      "text": "Hablante 03 confirma la disponibilidad de agencia de diseño hoy."
+     },
+     {
+      "id": "u09",
+      "speaker": "Hablante 04",
+      "text": "En materiales, inicialmente pensé en banco de imágenes autorizado."
+     },
+     {
+      "id": "u10",
+      "speaker": "Hablante 02",
+      "text": "Eso elevaría bastante el costo. Prefiero servidor web."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t01",
+   "evidence": {
+    "evidence_id": "u25",
+    "exists": true,
+    "cited": {
+     "id": "u25",
+     "timestamp": "00:04:28",
+     "speaker": "Hablante 01",
+     "text": "Hablante 04 prepara y comparte hoy la lista de convocados."
+    },
+    "nearby": [
+     {
+      "id": "u24",
+      "speaker": "Hablante 04",
+      "text": "Sí, preparo la lista y la comparto hoy."
+     },
+     {
+      "id": "u25",
+      "speaker": "Hablante 01",
+      "text": "Hablante 04 prepara y comparte hoy la lista de convocados."
+     },
+     {
+      "id": "u26",
+      "speaker": "Hablante 02",
+      "text": "Falta definir si tendremos una medición posterior de resultados."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u25",
+    "source_text": "Hablante 04 prepara y comparte hoy la lista de convocados.",
+    "draft": "2026-10-18T04:20:00",
+    "suggested": "2026-10-18",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t02",
+   "evidence": {
+    "evidence_id": "u21",
+    "exists": true,
+    "cited": {
+     "id": "u21",
+     "timestamp": "00:03:44",
+     "speaker": "Hablante 01",
+     "text": "Hablante 02 comunica a actualización del sitio la opción aprobada antes del viernes."
+    },
+    "nearby": [
+     {
+      "id": "u20",
+      "speaker": "Hablante 04",
+      "text": "Para coordinarlo necesitamos avisar a actualización del sitio."
+     },
+     {
+      "id": "u21",
+      "speaker": "Hablante 01",
+      "text": "Hablante 02 comunica a actualización del sitio la opción aprobada antes del viernes."
+     },
+     {
+      "id": "u22",
+      "speaker": "Hablante 02",
+      "text": "No le asignemos nada a actualización del sitio; solo le informaremos nuestra decisión."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u21",
+    "source_text": "Hablante 02 comunica a actualización del sitio la opción aprobada antes del viernes.",
+    "draft": "2026-10-22T00:00:00",
+    "suggested": "2026-10-23",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t03",
+   "evidence": {
+    "evidence_id": "u13",
+    "exists": true,
+    "cited": {
+     "id": "u13",
+     "timestamp": "00:02:16",
+     "speaker": "Hablante 01",
+     "text": "Hablante 03 solicita la cotización para servidor web y la envía mañana antes de las 12."
+    },
+    "nearby": [
+     {
+      "id": "u12",
+      "speaker": "Hablante 03",
+      "text": "Puedo pedir la cotización y traer el monto mañana antes de las 12."
+     },
+     {
+      "id": "u13",
+      "speaker": "Hablante 01",
+      "text": "Hablante 03 solicita la cotización para servidor web y la envía mañana antes de las 12."
+     },
+     {
+      "id": "u14",
+      "speaker": "Hablante 02",
+      "text": "También se mencionó fotografías nuevas, pero no lo considero necesario."
+     }
+    ],
+    "participants": [
+     "Hablante 01",
+     "Hablante 02",
+     "Hablante 03",
+     "Hablante 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u13",
+    "source_text": "Hablante 03 solicita la cotización para servidor web y la envía mañana antes de las 12.",
+    "draft": "2026-10-19T12:00:00",
+    "suggested": "2026-10-19",
+    "reason": "hora ambigua: solo día calculado"
+   }
+  }
+ ],
+ "mechanical_actions": [],
+ "calls": 2,
+ "seconds_total": 38.69,
+ "prompt_hashes": {
+  "CHANGELOG.md": "eb1e87577bc9f5203ea331c410d57e1b61470dcf9fe3899c13494722f716bc24",
+  "auditor.v1.md": "805756e66f0b634f50ca1864e5dd68515d819f2964a3b7ed33b1a0b8625f0ab4",
+  "auditor.v2.md": "101f2048a8a2ec9a2e59c73300a88915eaa66abee98e0c8a46975de2ff5cc2bd",
+  "auditor.v3.md": "ee3099ee7cfaf9829b52255879fde0ab980cc56709b74d26ea790af3b68f7436",
+  "d2_review.v1.md": "2c53a04b7981894b17f75dc4ce362855046f50538945dc7649d5eafc8e0094fa",
+  "d2_system.v1.md": "50cc704dd1b944057796d663c1a9f772f288b8f2c91d5120952705aae469ff9f",
+  "decisions.v1.md": "5971cd326b663057641172c771fa0a00659ab625f3d924c5a56028f5b6be1f12",
+  "decisions.v2.md": "6ea72b68a2e4133974faff0d1d320c75eba703e1a9f0864dc347a8849bc79593",
+  "fewshot/decisions.TR01.md": "2a9e75e24a8dda412bd4fb655c0e0cfa96489cde7a2cf4ca6f74f716c207f5ee",
+  "fewshot/decisions.TR01.v2.md": "045ed02ec7e0810f88c18df3c757495bb7644c9ea03f21e8225ae95bb5a13f7c",
+  "fewshot/tasks.TR01.md": "7b3a461a7b94bdc86c3b312f06e3e85b08cd632cdcab8544cc4977271666e77b",
+  "tasks.v1.md": "7edac483c5c5f355fc73d1ca6e4f2cba34f88c6fdb73f01bee254a27b00f12c3",
+  "tasks.v2.md": "b0e6e6a4a879eb0bd69e96d7d737be00b57cfb41e8601e0c8e54805b78c5eed3"
+ },
+ "run_config": null
+}

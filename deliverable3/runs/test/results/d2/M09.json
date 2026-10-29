@@ -1,0 +1,344 @@
+{
+ "raw": "{\"decisions\": [\n    {\n        \"id\": \"d01\",\n        \"topic\": \"Método de integración inicial\",\n        \"statement\": \"Usar archivos diarios como método temporal para todas las operaciones durante la primera etapa, hasta que se valide la conexión automática.\",\n        \"state\": \"final\",\n        \"condition\": \"Evidencia: u23, u24\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u24\"\n    },\n    {\n        \"id\": \"d02\",\n        \"topic\": \"Primeras pruebas de integración\",\n        \"statement\": \"Realizar la primera prueba de integración el lunes 16 de noviembre de 2026.\",\n        \"state\": \"final\",\n        \"condition\": \"Evidencia: u16, u17\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u17\"\n    },\n    {\n        \"id\": \"d03\",\n        \"topic\": \"Activación automática\",\n        \"statement\": \"Descartar activación automática inmediata por falta de soporte para reembolsos parciales según documentación recibida (u21).\",\n        \"state\": \"rejected\",\n        \"condition\": \"Evidencia: u21, u22\",\n        \"supersedes\": null,\n        \"evidence_id\": \"u22\"\n    },\n    {\n        \"id\": \"d04\",\n        \"topic\": \"Activación automática pendiente\",\n        \"statement\": \"No activar la conexión automática hasta que pase la prueba del lunes 16 y se revise la conciliación.\",\n        \"state\": \"final\",\n        \"condition\": \"Evidencia: u19, u20\",\n        \"supersedes\": \"d03\",\n        \"evidence_id\": \"u20\"\n    }\n],\n\"tasks\": [\n    {\n        \"id\": \"t01\",\n        \"description\": \"Preparar una cuenta de prueba para pruebas de integración con el proveedor de pagos.\",\n        \"assignee\": \"Speaker 02\",\n        \"deadline\": \"2026-11-12\",\n        \"condition\": \"Evidencia: u12\",\n        \"state\": \"pending\",\n        \"evidence_id\": \"u12\"\n    },\n    {\n        \"id\": \"t02\",\n        \"description\": \"Revisar la documentación técnica del proveedor de pagos para confirmar compatibilidad con los tipos de transacción.\",\n        \"assignee\": \"Speaker 03\",\n        \"deadline\": \"2026-11-11\",\n        \"condition\": \"Evidencia: u09, u10\",\n        \"state\": \"pending\",\n        \"evidence_id\": \"u10\"\n    },\n    {\n        \"id\": \"t03\",\n        \"description\": \"Revisar la conciliación de transacciones después de la prueba del lunes 16 de noviembre de 2026.\",\n        \"assignee\": \"Speaker 04\",\n        \"deadline\": \"2026-11-16\",\n        \"condition\": \"Evidencia: u27\",\n        \"state\": \"pending\",\n        \"evidence_id\": \"u27\"\n    }\n]}",
+ "parsed": {
+  "decisions": [
+   {
+    "id": "d01",
+    "topic": "Método de integración inicial",
+    "statement": "Usar archivos diarios como método temporal para todas las operaciones durante la primera etapa, hasta que se valide la conexión automática.",
+    "state": "final",
+    "condition": "Evidencia: u23, u24",
+    "supersedes": null,
+    "evidence_id": "u24"
+   },
+   {
+    "id": "d02",
+    "topic": "Primeras pruebas de integración",
+    "statement": "Realizar la primera prueba de integración el lunes 16 de noviembre de 2026.",
+    "state": "final",
+    "condition": "Evidencia: u16, u17",
+    "supersedes": null,
+    "evidence_id": "u17"
+   },
+   {
+    "id": "d03",
+    "topic": "Activación automática",
+    "statement": "Descartar activación automática inmediata por falta de soporte para reembolsos parciales según documentación recibida (u21).",
+    "state": "rejected",
+    "condition": "Evidencia: u21, u22",
+    "supersedes": null,
+    "evidence_id": "u22"
+   },
+   {
+    "id": "d04",
+    "topic": "Activación automática pendiente",
+    "statement": "No activar la conexión automática hasta que pase la prueba del lunes 16 y se revise la conciliación.",
+    "state": "final",
+    "condition": "Evidencia: u19, u20",
+    "supersedes": "d03",
+    "evidence_id": "u20"
+   }
+  ],
+  "tasks": [
+   {
+    "id": "t01",
+    "description": "Preparar una cuenta de prueba para pruebas de integración con el proveedor de pagos.",
+    "assignee": "Speaker 02",
+    "deadline": "2026-11-12",
+    "condition": "Evidencia: u12",
+    "state": "pending",
+    "evidence_id": "u12"
+   },
+   {
+    "id": "t02",
+    "description": "Revisar la documentación técnica del proveedor de pagos para confirmar compatibilidad con los tipos de transacción.",
+    "assignee": "Speaker 03",
+    "deadline": "2026-11-11",
+    "condition": "Evidencia: u09, u10",
+    "state": "pending",
+    "evidence_id": "u10"
+   },
+   {
+    "id": "t03",
+    "description": "Revisar la conciliación de transacciones después de la prueba del lunes 16 de noviembre de 2026.",
+    "assignee": "Speaker 04",
+    "deadline": "2026-11-16",
+    "condition": "Evidencia: u27",
+    "state": "pending",
+    "evidence_id": "u27"
+   }
+  ]
+ },
+ "seconds": 16.39,
+ "eval_count": 730,
+ "prompt_eval_count": 4359,
+ "done_reason": "stop",
+ "schema_valid": true,
+ "tool_reports": [
+  {
+   "kind": "decisions",
+   "id": "d01",
+   "evidence": {
+    "evidence_id": "u24",
+    "exists": true,
+    "cited": {
+     "id": "u24",
+     "timestamp": "00:207",
+     "speaker": "Speaker 04",
+     "text": "Queda decidido usar archivos diarios en la primera etapa."
+    },
+    "nearby": [
+     {
+      "id": "u23",
+      "speaker": "Speaker 03",
+      "text": "Usaremos archivos diarios para todas las operaciones en la primera etapa."
+     },
+     {
+      "id": "u24",
+      "speaker": "Speaker 04",
+      "text": "Queda decidido usar archivos diarios en la primera etapa."
+     },
+     {
+      "id": "u25",
+      "speaker": "Speaker 01",
+      "text": "¿Quién revisa la conciliación?"
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d02",
+   "evidence": {
+    "evidence_id": "u17",
+    "exists": true,
+    "cited": {
+     "id": "u17",
+     "timestamp": "00:144",
+     "speaker": "Speaker 01",
+     "text": "Queda fijada la primera prueba para el lunes 16."
+    },
+    "nearby": [
+     {
+      "id": "u16",
+      "speaker": "Speaker 04",
+      "text": "Entonces movamos la primera prueba al lunes 16."
+     },
+     {
+      "id": "u17",
+      "speaker": "Speaker 01",
+      "text": "Queda fijada la primera prueba para el lunes 16."
+     },
+     {
+      "id": "u18",
+      "speaker": "Speaker 02",
+      "text": "Si esa prueba pasa, podríamos activar la conexión automática el miércoles."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d03",
+   "evidence": {
+    "evidence_id": "u20",
+    "exists": true,
+    "cited": {
+     "id": "u20",
+     "timestamp": "00:171",
+     "speaker": "Speaker 04",
+     "text": "La activación automática queda pendiente."
+    },
+    "nearby": [
+     {
+      "id": "u19",
+      "speaker": "Speaker 03",
+      "text": "No definamos activación todavía; falta revisar conciliación."
+     },
+     {
+      "id": "u20",
+      "speaker": "Speaker 04",
+      "text": "La activación automática queda pendiente."
+     },
+     {
+      "id": "u21",
+      "speaker": "Speaker 01",
+      "text": "Llegó la documentación: la conexión automática no soporta reembolsos parciales."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t01",
+   "evidence": {
+    "evidence_id": "u12",
+    "exists": true,
+    "cited": {
+     "id": "u12",
+     "timestamp": "00:99",
+     "speaker": "Speaker 04",
+     "text": "Speaker 02 prepara una cuenta de prueba para mañana."
+    },
+    "nearby": [
+     {
+      "id": "u11",
+      "speaker": "Speaker 03",
+      "text": "Yo puedo preparar una cuenta de prueba."
+     },
+     {
+      "id": "u12",
+      "speaker": "Speaker 04",
+      "text": "Speaker 02 prepara una cuenta de prueba para mañana."
+     },
+     {
+      "id": "u13",
+      "speaker": "Speaker 01",
+      "text": "¿Cuándo hacemos la primera prueba?"
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u12",
+    "source_text": "Speaker 02 prepara una cuenta de prueba para mañana.",
+    "draft": "2026-11-12T17:00:00",
+    "suggested": "2026-11-12",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t02",
+   "evidence": {
+    "evidence_id": "u10",
+    "exists": true,
+    "cited": {
+     "id": "u10",
+     "timestamp": "00:81",
+     "speaker": "Speaker 02",
+     "text": "Speaker 03 revisa la documentación técnica hoy antes de las 17:00."
+    },
+    "nearby": [
+     {
+      "id": "u09",
+      "speaker": "Speaker 01",
+      "text": "Speaker 03 revisa la documentación técnica hoy."
+     },
+     {
+      "id": "u10",
+      "speaker": "Speaker 02",
+      "text": "Speaker 03 revisa la documentación técnica hoy antes de las 17:00."
+     },
+     {
+      "id": "u11",
+      "speaker": "Speaker 03",
+      "text": "Yo puedo preparar una cuenta de prueba."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u10",
+    "source_text": "Speaker 03 revisa la documentación técnica hoy antes de las 17:00.",
+    "draft": "2026-11-11T17:00:00",
+    "suggested": "2026-11-11T17:00",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t03",
+   "evidence": {
+    "evidence_id": "u27",
+    "exists": true,
+    "cited": {
+     "id": "u27",
+     "timestamp": "00:234",
+     "speaker": "Speaker 03",
+     "text": "Speaker 04 revisa la conciliación después de la prueba del lunes."
+    },
+    "nearby": [
+     {
+      "id": "u26",
+      "speaker": "Speaker 02",
+      "text": "Yo puedo revisarla después de la prueba."
+     },
+     {
+      "id": "u27",
+      "speaker": "Speaker 03",
+      "text": "Speaker 04 revisa la conciliación después de la prueba del lunes."
+     },
+     {
+      "id": "u28",
+      "speaker": "Speaker 04",
+      "text": "Si la conciliación resulta correcta, vemos lo otro en la siguiente reunión."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u27",
+    "source_text": "Speaker 04 revisa la conciliación después de la prueba del lunes.",
+    "draft": "2026-11-16T23:59:59",
+    "suggested": "2026-11-16",
+    "reason": "fecha explícita calculada"
+   }
+  }
+ ],
+ "mechanical_actions": [],
+ "calls": 2,
+ "seconds_total": 28.85,
+ "prompt_hashes": {
+  "CHANGELOG.md": "eb1e87577bc9f5203ea331c410d57e1b61470dcf9fe3899c13494722f716bc24",
+  "auditor.v1.md": "805756e66f0b634f50ca1864e5dd68515d819f2964a3b7ed33b1a0b8625f0ab4",
+  "auditor.v2.md": "101f2048a8a2ec9a2e59c73300a88915eaa66abee98e0c8a46975de2ff5cc2bd",
+  "auditor.v3.md": "ee3099ee7cfaf9829b52255879fde0ab980cc56709b74d26ea790af3b68f7436",
+  "d2_review.v1.md": "2c53a04b7981894b17f75dc4ce362855046f50538945dc7649d5eafc8e0094fa",
+  "d2_system.v1.md": "50cc704dd1b944057796d663c1a9f772f288b8f2c91d5120952705aae469ff9f",
+  "decisions.v1.md": "5971cd326b663057641172c771fa0a00659ab625f3d924c5a56028f5b6be1f12",
+  "decisions.v2.md": "6ea72b68a2e4133974faff0d1d320c75eba703e1a9f0864dc347a8849bc79593",
+  "fewshot/decisions.TR01.md": "2a9e75e24a8dda412bd4fb655c0e0cfa96489cde7a2cf4ca6f74f716c207f5ee",
+  "fewshot/decisions.TR01.v2.md": "045ed02ec7e0810f88c18df3c757495bb7644c9ea03f21e8225ae95bb5a13f7c",
+  "fewshot/tasks.TR01.md": "7b3a461a7b94bdc86c3b312f06e3e85b08cd632cdcab8544cc4977271666e77b",
+  "tasks.v1.md": "7edac483c5c5f355fc73d1ca6e4f2cba34f88c6fdb73f01bee254a27b00f12c3",
+  "tasks.v2.md": "b0e6e6a4a879eb0bd69e96d7d737be00b57cfb41e8601e0c8e54805b78c5eed3"
+ },
+ "run_config": null
+}

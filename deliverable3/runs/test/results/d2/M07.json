@@ -1,0 +1,491 @@
+{
+ "raw": "{\"decisions\": [\n    {\n        \"id\": \"d01\",\n        \"topic\": \"Formato del informe mensual\",\n        \"statement\": \"Usar una página de indicadores principales y un anexo descargable\",\n        \"state\": \"final\",\n        \"condition\": null,\n        \"supersedes\": null,\n        \"evidence_id\": \"u09\"\n    },\n    {\n        \"id\": \"d02\",\n        \"topic\": \"Fecha de envío del informe (alternativa final)\",\n        \"statement\": \"Enviar el informe el **miércoles 4 de noviembre** (según evidencia de u25)\",\n        \"state\": \"final\",\n        \"condition\": null,\n        \"supersedes\": \"d03\",\n        \"evidence_id\": \"u25\"\n    },\n    {\n        \"id\": \"d03\",\n        \"topic\": \"Fecha de envío del informe (propuesta inicial)\",\n        \"statement\": \"Proponer enviar el informe el último día hábil de cada mes\",\n        \"state\": \"superseded\",\n        \"condition\": null,\n        \"supersedes\": \"d02\",\n        \"evidence_id\": \"u13\"\n    },\n    {\n        \"id\": \"d04\",\n        \"topic\": \"Fuente de datos del informe\",\n        \"statement\": \"Usar la planilla validada por cada área como fuente de datos\",\n        \"state\": \"final\",\n        \"condition\": null,\n        \"supersedes\": null,\n        \"evidence_id\": \"u27\"\n    },\n    {\n        \"id\": \"d05\",\n        \"topic\": \"Sección de riesgos\",\n        \"statement\": \"No incluir una sección de riesgos por falta de criterio común para su clasificación\",\n        \"state\": \"rejected\",\n        \"condition\": null,\n        \"supersedes\": null,\n        \"evidence_id\": \"u23\"\n    }\n],\n\"tasks\": [\n    {\n        \"id\": \"t01\",\n        \"description\": \"Definir los cinco indicadores principales del informe\",\n        \"assignee\": \"Speaker 01\",\n        \"deadline\": \"2026-10-29\",\n        \"condition\": null,\n        \"state\": \"final\",\n        \"evidence_id\": \"u11\"\n    },\n    {\n        \"id\": \"t02\",\n        \"description\": \"Armar el anexo descargable con datos cerrados\",\n        \"assignee\": \"Speaker 03\",\n        \"deadline\": \"2026-11-05\",\n        \"condition\": \"Recibir datos cerrados de Operaciones\",\n        \"state\": \"final\",\n        \"evidence_id\": \"u19\"\n    },\n    {\n        \"id\": \"t03\",\n        \"description\": \"Revisar la redacción final del informe antes del envío\",\n        \"assignee\": \"Speaker 02\",\n        \"deadline\": \"2026-11-03\",\n        \"condition\": null,\n        \"state\": \"final\",\n        \"evidence_id\": \"u21\"\n    },\n    {\n        \"id\": \"t04\",\n        \"description\": \"Compartir el formato final del informe con el equipo\",\n        \"assignee\": \"Speaker 01\",\n        \"deadline\": \"2026-10-29\",\n        \"condition\": null,\n        \"state\": \"final\",\n        \"evidence_id\": \"u29\"\n    },\n    {\n        \"id\": \"t05\",\n        \"description\": \"Seguir pendiente la sección de riesgos (sin criterio común)\",\n        \"assignee\": null,\n        \"deadline\": null,\n        \"condition\": null,\n        \"state\": \"pending\",\n        \"evidence_id\": \"u24\"\n    }\n]}",
+ "parsed": {
+  "decisions": [
+   {
+    "id": "d01",
+    "topic": "Formato del informe mensual",
+    "statement": "Usar una página de indicadores principales y un anexo descargable",
+    "state": "final",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u09"
+   },
+   {
+    "id": "d02",
+    "topic": "Fecha de envío del informe (alternativa final)",
+    "statement": "Enviar el informe el **miércoles 4 de noviembre** (según evidencia de u25)",
+    "state": "final",
+    "condition": null,
+    "supersedes": "d03",
+    "evidence_id": "u25"
+   },
+   {
+    "id": "d03",
+    "topic": "Fecha de envío del informe (propuesta inicial)",
+    "statement": "Proponer enviar el informe el último día hábil de cada mes",
+    "state": "superseded",
+    "condition": null,
+    "supersedes": "d02",
+    "evidence_id": "u13"
+   },
+   {
+    "id": "d04",
+    "topic": "Fuente de datos del informe",
+    "statement": "Usar la planilla validada por cada área como fuente de datos",
+    "state": "final",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u27"
+   },
+   {
+    "id": "d05",
+    "topic": "Sección de riesgos",
+    "statement": "No incluir una sección de riesgos por falta de criterio común para su clasificación",
+    "state": "rejected",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u23"
+   }
+  ],
+  "tasks": [
+   {
+    "id": "t01",
+    "description": "Definir los cinco indicadores principales del informe",
+    "assignee": "Speaker 01",
+    "deadline": "2026-10-29",
+    "condition": null,
+    "state": "final",
+    "evidence_id": "u11"
+   },
+   {
+    "id": "t02",
+    "description": "Armar el anexo descargable con datos cerrados",
+    "assignee": "Speaker 03",
+    "deadline": "2026-11-05",
+    "condition": "Recibir datos cerrados de Operaciones",
+    "state": "final",
+    "evidence_id": "u19"
+   },
+   {
+    "id": "t03",
+    "description": "Revisar la redacción final del informe antes del envío",
+    "assignee": "Speaker 02",
+    "deadline": "2026-11-03",
+    "condition": null,
+    "state": "final",
+    "evidence_id": "u21"
+   },
+   {
+    "id": "t04",
+    "description": "Compartir el formato final del informe con el equipo",
+    "assignee": "Speaker 01",
+    "deadline": "2026-10-29",
+    "condition": null,
+    "state": "final",
+    "evidence_id": "u29"
+   },
+   {
+    "id": "t05",
+    "description": "Seguir pendiente la sección de riesgos (sin criterio común)",
+    "assignee": null,
+    "deadline": null,
+    "condition": null,
+    "state": "pending",
+    "evidence_id": "u24"
+   }
+  ]
+ },
+ "seconds": 19.23,
+ "eval_count": 843,
+ "prompt_eval_count": 5312,
+ "done_reason": "stop",
+ "schema_valid": true,
+ "tool_reports": [
+  {
+   "kind": "decisions",
+   "id": "d01",
+   "evidence": {
+    "evidence_id": "u09",
+    "exists": true,
+    "cited": {
+     "id": "u09",
+     "timestamp": "00:72",
+     "speaker": "Speaker 01",
+     "text": "Queda decidido usar una página de indicadores y un anexo."
+    },
+    "nearby": [
+     {
+      "id": "u08",
+      "speaker": "Speaker 04",
+      "text": "Prefiero la página de indicadores con un anexo descargable."
+     },
+     {
+      "id": "u09",
+      "speaker": "Speaker 01",
+      "text": "Queda decidido usar una página de indicadores y un anexo."
+     },
+     {
+      "id": "u10",
+      "speaker": "Speaker 02",
+      "text": "Yo puedo definir los cinco indicadores principales."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d02",
+   "evidence": {
+    "evidence_id": "u16",
+    "exists": true,
+    "cited": {
+     "id": "u16",
+     "timestamp": "00:135",
+     "speaker": "Speaker 04",
+     "text": "Queda fijado el envío el segundo día hábil del mes siguiente."
+    },
+    "nearby": [
+     {
+      "id": "u15",
+      "speaker": "Speaker 03",
+      "text": "Entonces enviémoslo el segundo día hábil del mes siguiente."
+     },
+     {
+      "id": "u16",
+      "speaker": "Speaker 04",
+      "text": "Queda fijado el envío el segundo día hábil del mes siguiente."
+     },
+     {
+      "id": "u17",
+      "speaker": "Speaker 01",
+      "text": "¿Quién arma el anexo?"
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d03",
+   "evidence": {
+    "evidence_id": "u13",
+    "exists": true,
+    "cited": {
+     "id": "u13",
+     "timestamp": "00:108",
+     "speaker": "Speaker 01",
+     "text": "Propongo enviarlo el último día hábil de cada mes."
+    },
+    "nearby": [
+     {
+      "id": "u12",
+      "speaker": "Speaker 04",
+      "text": "Necesitamos fecha de envío."
+     },
+     {
+      "id": "u13",
+      "speaker": "Speaker 01",
+      "text": "Propongo enviarlo el último día hábil de cada mes."
+     },
+     {
+      "id": "u14",
+      "speaker": "Speaker 02",
+      "text": "Ese día los datos de operaciones aún no cierran."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "decisions",
+   "id": "d04",
+   "evidence": {
+    "evidence_id": "u27",
+    "exists": true,
+    "cited": {
+     "id": "u27",
+     "timestamp": "00:234",
+     "speaker": "Speaker 03",
+     "text": "La fuente de datos seguirá siendo la planilla validada por cada área."
+    },
+    "nearby": [
+     {
+      "id": "u26",
+      "speaker": "Speaker 02",
+      "text": "Eso reemplaza cualquier interpretación de enviarlo al cierre de octubre."
+     },
+     {
+      "id": "u27",
+      "speaker": "Speaker 03",
+      "text": "La fuente de datos seguirá siendo la planilla validada por cada área."
+     },
+     {
+      "id": "u28",
+      "speaker": "Speaker 04",
+      "text": "No agreguemos indicadores nuevos este mes porque cambiaría la comparación."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t01",
+   "evidence": {
+    "evidence_id": "u10",
+    "exists": true,
+    "cited": {
+     "id": "u10",
+     "timestamp": "00:81",
+     "speaker": "Speaker 02",
+     "text": "Yo puedo definir los cinco indicadores principales."
+    },
+    "nearby": [
+     {
+      "id": "u09",
+      "speaker": "Speaker 01",
+      "text": "Queda decidido usar una página de indicadores y un anexo."
+     },
+     {
+      "id": "u10",
+      "speaker": "Speaker 02",
+      "text": "Yo puedo definir los cinco indicadores principales."
+     },
+     {
+      "id": "u11",
+      "speaker": "Speaker 03",
+      "text": "Speaker 01 define los cinco indicadores antes del jueves."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true
+  },
+  {
+   "kind": "tasks",
+   "id": "t02",
+   "evidence": {
+    "evidence_id": "u11",
+    "exists": true,
+    "cited": {
+     "id": "u11",
+     "timestamp": "00:90",
+     "speaker": "Speaker 03",
+     "text": "Speaker 01 define los cinco indicadores antes del jueves."
+    },
+    "nearby": [
+     {
+      "id": "u10",
+      "speaker": "Speaker 02",
+      "text": "Yo puedo definir los cinco indicadores principales."
+     },
+     {
+      "id": "u11",
+      "speaker": "Speaker 03",
+      "text": "Speaker 01 define los cinco indicadores antes del jueves."
+     },
+     {
+      "id": "u12",
+      "speaker": "Speaker 04",
+      "text": "Necesitamos fecha de envío."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u11",
+    "source_text": "Speaker 01 define los cinco indicadores antes del jueves.",
+    "draft": "2026-11-04",
+    "suggested": "2026-10-29",
+    "reason": "fecha explícita calculada"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t03",
+   "evidence": {
+    "evidence_id": "u18",
+    "exists": true,
+    "cited": {
+     "id": "u18",
+     "timestamp": "00:153",
+     "speaker": "Speaker 02",
+     "text": "Speaker 03 puede hacerlo si recibe los datos cerrados."
+    },
+    "nearby": [
+     {
+      "id": "u17",
+      "speaker": "Speaker 01",
+      "text": "¿Quién arma el anexo?"
+     },
+     {
+      "id": "u18",
+      "speaker": "Speaker 02",
+      "text": "Speaker 03 puede hacerlo si recibe los datos cerrados."
+     },
+     {
+      "id": "u19",
+      "speaker": "Speaker 03",
+      "text": "Speaker 03 arma el anexo cuando reciba los datos cerrados."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u18",
+    "source_text": "Speaker 03 puede hacerlo si recibe los datos cerrados.",
+    "draft": "2026-11-05",
+    "suggested": null,
+    "reason": "expresión relativa/ambigua: revisar contexto completo, no forzar fecha"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t04",
+   "evidence": {
+    "evidence_id": "u21",
+    "exists": true,
+    "cited": {
+     "id": "u21",
+     "timestamp": "00:180",
+     "speaker": "Speaker 01",
+     "text": "Speaker 02 revisa la redacción antes del envío."
+    },
+    "nearby": [
+     {
+      "id": "u20",
+      "speaker": "Speaker 04",
+      "text": "Yo reviso la redacción final."
+     },
+     {
+      "id": "u21",
+      "speaker": "Speaker 01",
+      "text": "Speaker 02 revisa la redacción antes del envío."
+     },
+     {
+      "id": "u22",
+      "speaker": "Speaker 02",
+      "text": "Podríamos agregar una sección de riesgos."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u21",
+    "source_text": "Speaker 02 revisa la redacción antes del envío.",
+    "draft": "2026-11-03",
+    "suggested": null,
+    "reason": "expresión relativa/ambigua: revisar contexto completo, no forzar fecha"
+   }
+  },
+  {
+   "kind": "tasks",
+   "id": "t05",
+   "evidence": {
+    "evidence_id": "u29",
+    "exists": true,
+    "cited": {
+     "id": "u29",
+     "timestamp": "00:252",
+     "speaker": "Speaker 01",
+     "text": "Speaker 01 comparte el formato final con el equipo después de esta reunión."
+    },
+    "nearby": [
+     {
+      "id": "u28",
+      "speaker": "Speaker 04",
+      "text": "No agreguemos indicadores nuevos este mes porque cambiaría la comparación."
+     },
+     {
+      "id": "u29",
+      "speaker": "Speaker 01",
+      "text": "Speaker 01 comparte el formato final con el equipo después de esta reunión."
+     },
+     {
+      "id": "u30",
+      "speaker": "Speaker 02",
+      "text": "Cerramos con formato breve, envío posterior al cierre y tareas."
+     }
+    ],
+    "participants": [
+     "Speaker 01",
+     "Speaker 02",
+     "Speaker 03",
+     "Speaker 04"
+    ]
+   },
+   "assignee_named_in_meeting": true,
+   "deadline_check": {
+    "evidence_id": "u29",
+    "source_text": "Speaker 01 comparte el formato final con el equipo después de esta reunión.",
+    "draft": "2026-10-29",
+    "suggested": null,
+    "reason": "expresión relativa/ambigua: revisar contexto completo, no forzar fecha"
+   }
+  }
+ ],
+ "mechanical_actions": [],
+ "calls": 2,
+ "seconds_total": 34.18,
+ "prompt_hashes": {
+  "CHANGELOG.md": "eb1e87577bc9f5203ea331c410d57e1b61470dcf9fe3899c13494722f716bc24",
+  "auditor.v1.md": "805756e66f0b634f50ca1864e5dd68515d819f2964a3b7ed33b1a0b8625f0ab4",
+  "auditor.v2.md": "101f2048a8a2ec9a2e59c73300a88915eaa66abee98e0c8a46975de2ff5cc2bd",
+  "auditor.v3.md": "ee3099ee7cfaf9829b52255879fde0ab980cc56709b74d26ea790af3b68f7436",
+  "d2_review.v1.md": "2c53a04b7981894b17f75dc4ce362855046f50538945dc7649d5eafc8e0094fa",
+  "d2_system.v1.md": "50cc704dd1b944057796d663c1a9f772f288b8f2c91d5120952705aae469ff9f",
+  "decisions.v1.md": "5971cd326b663057641172c771fa0a00659ab625f3d924c5a56028f5b6be1f12",
+  "decisions.v2.md": "6ea72b68a2e4133974faff0d1d320c75eba703e1a9f0864dc347a8849bc79593",
+  "fewshot/decisions.TR01.md": "2a9e75e24a8dda412bd4fb655c0e0cfa96489cde7a2cf4ca6f74f716c207f5ee",
+  "fewshot/decisions.TR01.v2.md": "045ed02ec7e0810f88c18df3c757495bb7644c9ea03f21e8225ae95bb5a13f7c",
+  "fewshot/tasks.TR01.md": "7b3a461a7b94bdc86c3b312f06e3e85b08cd632cdcab8544cc4977271666e77b",
+  "tasks.v1.md": "7edac483c5c5f355fc73d1ca6e4f2cba34f88c6fdb73f01bee254a27b00f12c3",
+  "tasks.v2.md": "b0e6e6a4a879eb0bd69e96d7d737be00b57cfb41e8601e0c8e54805b78c5eed3"
+ },
+ "run_config": null
+}

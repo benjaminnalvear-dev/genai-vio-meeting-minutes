@@ -1,0 +1,149 @@
+{
+ "parsed": {
+  "decisions": [
+   {
+    "id": "d01",
+    "topic": "Modalidad",
+    "statement": "jornada completa",
+    "state": "superseded",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u03"
+   },
+   {
+    "id": "d02",
+    "topic": "Materiales",
+    "statement": "colación simple",
+    "state": "superseded",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u09"
+   },
+   {
+    "id": "d03",
+    "topic": "Propuesta descartada",
+    "statement": "catering completo",
+    "state": "rejected",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u16"
+   },
+   {
+    "id": "d04",
+    "topic": "Modalidad",
+    "statement": "bloque de media jornada",
+    "state": "final",
+    "condition": null,
+    "supersedes": "d01",
+    "evidence_id": "u19"
+   },
+   {
+    "id": "d05",
+    "topic": "Responsables",
+    "statement": "avisar a jornada de bienvenida la opción aprobada (bloque de media jornada) antes del viernes",
+    "state": "final",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u21"
+   },
+   {
+    "id": "d06",
+    "topic": "Responsables",
+    "statement": "Hablante 04 prepara y comparte la lista de convocados hoy",
+    "state": "final",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u25"
+   },
+   {
+    "id": "d07",
+    "topic": "Medición posterior",
+    "statement": "Definir una encuesta breve de resultados",
+    "state": "pending",
+    "condition": null,
+    "supersedes": null,
+    "evidence_id": "u28"
+   },
+   {
+    "id": "d08",
+    "topic": "Materiales",
+    "statement": "auditorio",
+    "state": "final",
+    "condition": null,
+    "supersedes": "d02",
+    "evidence_id": "u30"
+   }
+  ],
+  "tasks": [
+   {
+    "id": "t01",
+    "description": "Confirmar disponibilidad de empresa de catering",
+    "assignee": "Hablante 03",
+    "deadline": "2026-10-15",
+    "condition": null,
+    "state": "final",
+    "evidence_id": "u08"
+   },
+   {
+    "id": "t02",
+    "description": "Solicitar cotización para auditorio",
+    "assignee": "Hablante 03",
+    "deadline": "2026-10-16T12:00",
+    "condition": null,
+    "state": "final",
+    "evidence_id": "u13"
+   },
+   {
+    "id": "t03",
+    "description": "Comunicar a jornada de bienvenida la opción aprobada",
+    "assignee": "Hablante 02",
+    "deadline": "2026-10-16",
+    "condition": null,
+    "state": "final",
+    "evidence_id": "u21"
+   },
+   {
+    "id": "t04",
+    "description": "Preparar y compartir la lista de convocados",
+    "assignee": "Hablante 04",
+    "deadline": "2026-10-15",
+    "condition": null,
+    "state": "final",
+    "evidence_id": "u25"
+   }
+  ]
+ },
+ "raw": "{\"decisions\": [{\"id\": \"d01\", \"topic\": \"Modalidad\", \"statement\": \"jornada completa\", \"state\": \"superseded\", \"condition\": null, \"supersedes\": null, \"evidence_id\": \"u03\"}, {\"id\": \"d02\", \"topic\": \"Materiales\", \"statement\": \"colación simple\", \"state\": \"superseded\", \"condition\": null, \"supersedes\": null, \"evidence_id\": \"u09\"}, {\"id\": \"d03\", \"topic\": \"Propuesta descartada\", \"statement\": \"catering completo\", \"state\": \"rejected\", \"condition\": null, \"supersedes\": null, \"evidence_id\": \"u16\"}, {\"id\": \"d04\", \"topic\": \"Modalidad\", \"statement\": \"bloque de media jornada\", \"state\": \"final\", \"condition\": null, \"supersedes\": \"d01\", \"evidence_id\": \"u19\"}, {\"id\": \"d05\", \"topic\": \"Responsables\", \"statement\": \"avisar a jornada de bienvenida la opción aprobada (bloque de media jornada) antes del viernes\", \"state\": \"final\", \"condition\": null, \"supersedes\": null, \"evidence_id\": \"u21\"}, {\"id\": \"d06\", \"topic\": \"Responsables\", \"statement\": \"Hablante 04 prepara y comparte la lista de convocados hoy\", \"state\": \"final\", \"condition\": null, \"supersedes\": null, \"evidence_id\": \"u25\"}, {\"id\": \"d07\", \"topic\": \"Medición posterior\", \"statement\": \"Definir una encuesta breve de resultados\", \"state\": \"pending\", \"condition\": null, \"supersedes\": null, \"evidence_id\": \"u28\"}, {\"id\": \"d08\", \"topic\": \"Materiales\", \"statement\": \"auditorio\", \"state\": \"final\", \"condition\": null, \"supersedes\": \"d02\", \"evidence_id\": \"u30\"}], \"tasks\": [{\"id\": \"t01\", \"description\": \"Confirmar disponibilidad de empresa de catering\", \"assignee\": \"Hablante 03\", \"deadline\": \"2026-10-15\", \"condition\": null, \"state\": \"final\", \"evidence_id\": \"u08\"}, {\"id\": \"t02\", \"description\": \"Solicitar cotización para auditorio\", \"assignee\": \"Hablante 03\", \"deadline\": \"2026-10-16T12:00\", \"condition\": null, \"state\": \"final\", \"evidence_id\": \"u13\"}, {\"id\": \"t03\", \"description\": \"Comunicar a jornada de bienvenida la opción aprobada\", \"assignee\": \"Hablante 02\", \"deadline\": \"2026-10-16\", \"condition\": null, \"state\": \"final\", \"evidence_id\": \"u21\"}, {\"id\": \"t04\", \"description\": \"Preparar y compartir la lista de convocados\", \"assignee\": \"Hablante 04\", \"deadline\": \"2026-10-15\", \"condition\": null, \"state\": \"final\", \"evidence_id\": \"u25\"}]}",
+ "seconds": 83.25,
+ "wall_seconds": 83.38,
+ "calls": 6,
+ "eval_count": 3833,
+ "invalid_steps": 0,
+ "tool_calls": 6,
+ "schema_valid": true,
+ "trace_path": "/content/drive/MyDrive/d3_runs/traces/validation/full/VA03.jsonl",
+ "prompt_hashes": {
+  "CHANGELOG.md": "eb1e87577bc9f5203ea331c410d57e1b61470dcf9fe3899c13494722f716bc24",
+  "auditor.v1.md": "805756e66f0b634f50ca1864e5dd68515d819f2964a3b7ed33b1a0b8625f0ab4",
+  "auditor.v2.md": "101f2048a8a2ec9a2e59c73300a88915eaa66abee98e0c8a46975de2ff5cc2bd",
+  "auditor.v3.md": "ee3099ee7cfaf9829b52255879fde0ab980cc56709b74d26ea790af3b68f7436",
+  "d2_review.v1.md": "2c53a04b7981894b17f75dc4ce362855046f50538945dc7649d5eafc8e0094fa",
+  "d2_system.v1.md": "50cc704dd1b944057796d663c1a9f772f288b8f2c91d5120952705aae469ff9f",
+  "decisions.v1.md": "5971cd326b663057641172c771fa0a00659ab625f3d924c5a56028f5b6be1f12",
+  "decisions.v2.md": "6ea72b68a2e4133974faff0d1d320c75eba703e1a9f0864dc347a8849bc79593",
+  "fewshot/decisions.TR01.md": "2a9e75e24a8dda412bd4fb655c0e0cfa96489cde7a2cf4ca6f74f716c207f5ee",
+  "fewshot/decisions.TR01.v2.md": "045ed02ec7e0810f88c18df3c757495bb7644c9ea03f21e8225ae95bb5a13f7c",
+  "fewshot/tasks.TR01.md": "7b3a461a7b94bdc86c3b312f06e3e85b08cd632cdcab8544cc4977271666e77b",
+  "tasks.v1.md": "7edac483c5c5f355fc73d1ca6e4f2cba34f88c6fdb73f01bee254a27b00f12c3",
+  "tasks.v2.md": "b0e6e6a4a879eb0bd69e96d7d737be00b57cfb41e8601e0c8e54805b78c5eed3"
+ },
+ "run_config": {
+  "name": "full",
+  "react": true,
+  "auditor_rounds": 2,
+  "fewshot": true,
+  "cot": true,
+  "max_steps": 3,
+  "audit_guards": true
+ }
+}

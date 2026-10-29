@@ -1,0 +1,2174 @@
+{
+ "baseline": {
+  "primary": {
+   "arm": "baseline",
+   "meetings": 10,
+   "seconds_total": 179.5,
+   "json_valid": "0/10",
+   "schema_valid": "0/10",
+   "content_recovered": "7/10",
+   "state_accuracy_matched": 0.533,
+   "assignee_accuracy_matched": 0.962,
+   "deadline_accuracy_matched": 0.346,
+   "evidence_exact_matched": 0.844,
+   "evidence_id_exists": "56/61",
+   "per_meeting": [
+    {
+     "meeting_id": "M01",
+     "seconds": 17.96,
+     "decisions_pred": 7,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "M02",
+     "seconds": 19.91,
+     "decisions_pred": 0,
+     "tasks_pred": 0
+    },
+    {
+     "meeting_id": "M03",
+     "seconds": 23.99,
+     "decisions_pred": 0,
+     "tasks_pred": 0
+    },
+    {
+     "meeting_id": "M04",
+     "seconds": 18.6,
+     "decisions_pred": 4,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M05",
+     "seconds": 18.19,
+     "decisions_pred": 3,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M06",
+     "seconds": 17.52,
+     "decisions_pred": 5,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "M07",
+     "seconds": 14.61,
+     "decisions_pred": 0,
+     "tasks_pred": 0
+    },
+    {
+     "meeting_id": "M08",
+     "seconds": 17.85,
+     "decisions_pred": 3,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M09",
+     "seconds": 12.58,
+     "decisions_pred": 3,
+     "tasks_pred": 3
+    },
+    {
+     "meeting_id": "M10",
+     "seconds": 18.3,
+     "decisions_pred": 2,
+     "tasks_pred": 7
+    }
+   ],
+   "note": "Emparejamiento aproximado automático; revisar errores manualmente.",
+   "decisions": {
+    "matched": 19,
+    "predicted": 27,
+    "gold": 56,
+    "precision": 0.704,
+    "recall": 0.339,
+    "f1": 0.458
+   },
+   "tasks": {
+    "matched": 26,
+    "predicted": 34,
+    "gold": 53,
+    "precision": 0.765,
+    "recall": 0.491,
+    "f1": 0.598
+   }
+  },
+  "extended": {
+   "strict_f1": {
+    "decisions": 0.41,
+    "tasks": 0.161
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 2,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 9,
+     "state_ok": 9,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 7,
+     "state_ok": 7,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 0,
+     "state_ok": 0,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 2,
+     "state_ok": 0,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 6,
+     "state_ok": 0,
+     "deadline_ok": 0,
+     "assignee_ok": 6
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 0,
+     "state_ok": 0,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 19,
+     "state_ok": 6,
+     "deadline_ok": 9,
+     "assignee_ok": 18
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 6,
+     "state_ok": 0,
+     "deadline_ok": 0,
+     "assignee_ok": 6
+    }
+   },
+   "deadline_errors": {
+    "ok": 9,
+    "dia equivocado": 8,
+    "inventado": 6,
+    "hora mal/falta": 3,
+    "omitido": 0
+   },
+   "task_states_predicted": {
+    "pending": 26,
+    "final": 8
+   },
+   "non_participant_assignees": 0,
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.7142857142857143,
+     "tasks_f1": 0.5454545454545454,
+     "strict_f1": 0.21428571428571427
+    },
+    "M02": {
+     "decisions_f1": 0.0,
+     "tasks_f1": 0.0,
+     "strict_f1": 0.0
+    },
+    "M03": {
+     "decisions_f1": 0.0,
+     "tasks_f1": 0.0,
+     "strict_f1": 0.0
+    },
+    "M04": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.888888888888889,
+     "strict_f1": 0.7777777777777777
+    },
+    "M05": {
+     "decisions_f1": 0.7499999999999999,
+     "tasks_f1": 0.888888888888889,
+     "strict_f1": 0.37499999999999994
+    },
+    "M06": {
+     "decisions_f1": 0.4000000000000001,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.6285714285714286
+    },
+    "M07": {
+     "decisions_f1": 0.0,
+     "tasks_f1": 0.0,
+     "strict_f1": 0.0
+    },
+    "M08": {
+     "decisions_f1": 0.4444444444444444,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.2222222222222222
+    },
+    "M09": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.25
+    },
+    "M10": {
+     "decisions_f1": 0.5714285714285715,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.28571428571428575
+    }
+   },
+   "calls_total": 10,
+   "tokens_total": 9712,
+   "invalid_steps_total": 0,
+   "tool_calls_total": 0
+  }
+ },
+ "d2": {
+  "primary": {
+   "arm": "d2",
+   "meetings": 10,
+   "seconds_total": 250.0,
+   "json_valid": "10/10",
+   "schema_valid": "10/10",
+   "content_recovered": "10/10",
+   "state_accuracy_matched": 0.551,
+   "assignee_accuracy_matched": 0.953,
+   "deadline_accuracy_matched": 0.419,
+   "evidence_exact_matched": 0.846,
+   "evidence_id_exists": "104/104",
+   "per_meeting": [
+    {
+     "meeting_id": "M01",
+     "seconds": 26.15,
+     "decisions_pred": 5,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M02",
+     "seconds": 33.33,
+     "decisions_pred": 5,
+     "tasks_pred": 7
+    },
+    {
+     "meeting_id": "M03",
+     "seconds": 36.6,
+     "decisions_pred": 5,
+     "tasks_pred": 9
+    },
+    {
+     "meeting_id": "M04",
+     "seconds": 18.62,
+     "decisions_pred": 4,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "M05",
+     "seconds": 19.67,
+     "decisions_pred": 4,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M06",
+     "seconds": 27.7,
+     "decisions_pred": 8,
+     "tasks_pred": 3
+    },
+    {
+     "meeting_id": "M07",
+     "seconds": 19.23,
+     "decisions_pred": 5,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M08",
+     "seconds": 27.95,
+     "decisions_pred": 4,
+     "tasks_pred": 8
+    },
+    {
+     "meeting_id": "M09",
+     "seconds": 16.39,
+     "decisions_pred": 4,
+     "tasks_pred": 3
+    },
+    {
+     "meeting_id": "M10",
+     "seconds": 24.37,
+     "decisions_pred": 4,
+     "tasks_pred": 7
+    }
+   ],
+   "note": "Emparejamiento aproximado automático; revisar errores manualmente.",
+   "decisions": {
+    "matched": 35,
+    "predicted": 48,
+    "gold": 56,
+    "precision": 0.729,
+    "recall": 0.625,
+    "f1": 0.673
+   },
+   "tasks": {
+    "matched": 43,
+    "predicted": 56,
+    "gold": 53,
+    "precision": 0.768,
+    "recall": 0.811,
+    "f1": 0.789
+   }
+  },
+  "extended": {
+   "strict_f1": {
+    "decisions": 0.596,
+    "tasks": 0.22
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 8,
+     "state_ok": 6,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 15,
+     "state_ok": 15,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 9,
+     "state_ok": 9,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 5,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 2,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 4,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 14,
+     "state_ok": 6,
+     "deadline_ok": 3,
+     "assignee_ok": 14
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 0,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 0,
+     "deadline_ok": 0,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 23,
+     "state_ok": 6,
+     "deadline_ok": 10,
+     "assignee_ok": 23
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 18,
+     "state_ok": 6,
+     "deadline_ok": 7,
+     "assignee_ok": 16
+    }
+   },
+   "deadline_errors": {
+    "ok": 18,
+    "dia equivocado": 10,
+    "inventado": 11,
+    "hora mal/falta": 4,
+    "omitido": 0
+   },
+   "task_states_predicted": {
+    "pending": 44,
+    "final": 12
+   },
+   "non_participant_assignees": 1,
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.6666666666666666,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.25
+    },
+    "M02": {
+     "decisions_f1": 0.5454545454545454,
+     "tasks_f1": 0.923076923076923,
+     "strict_f1": 0.6573426573426573
+    },
+    "M03": {
+     "decisions_f1": 0.9090909090909091,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.3636363636363636
+    },
+    "M04": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.75,
+     "strict_f1": 0.33333333333333326
+    },
+    "M05": {
+     "decisions_f1": 0.888888888888889,
+     "tasks_f1": 0.888888888888889,
+     "strict_f1": 0.4444444444444445
+    },
+    "M06": {
+     "decisions_f1": 0.4615384615384615,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.7307692307692307
+    },
+    "M07": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.888888888888889,
+     "strict_f1": 0.7171717171717171
+    },
+    "M08": {
+     "decisions_f1": 0.6,
+     "tasks_f1": 0.7692307692307693,
+     "strict_f1": 0.2
+    },
+    "M09": {
+     "decisions_f1": 0.4444444444444445,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.22222222222222224
+    },
+    "M10": {
+     "decisions_f1": 0.888888888888889,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.4444444444444445
+    }
+   },
+   "calls_total": 20,
+   "tokens_total": 11018,
+   "invalid_steps_total": 0,
+   "tool_calls_total": 0
+  }
+ },
+ "full": {
+  "primary": {
+   "arm": "full",
+   "meetings": 10,
+   "seconds_total": 1358.4,
+   "json_valid": "10/10",
+   "schema_valid": "10/10",
+   "content_recovered": "10/10",
+   "state_accuracy_matched": 0.945,
+   "assignee_accuracy_matched": 0.977,
+   "deadline_accuracy_matched": 0.884,
+   "evidence_exact_matched": 0.877,
+   "evidence_id_exists": "110/110",
+   "per_meeting": [
+    {
+     "meeting_id": "M01",
+     "seconds": 81.16,
+     "decisions_pred": 8,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M02",
+     "seconds": 66.29,
+     "decisions_pred": 4,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M03",
+     "seconds": 132.73,
+     "decisions_pred": 5,
+     "tasks_pred": 8
+    },
+    {
+     "meeting_id": "M04",
+     "seconds": 144.37,
+     "decisions_pred": 3,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M05",
+     "seconds": 189.12,
+     "decisions_pred": 4,
+     "tasks_pred": 7
+    },
+    {
+     "meeting_id": "M06",
+     "seconds": 150.35,
+     "decisions_pred": 6,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "M07",
+     "seconds": 173.19,
+     "decisions_pred": 4,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M08",
+     "seconds": 83.17,
+     "decisions_pred": 5,
+     "tasks_pred": 7
+    },
+    {
+     "meeting_id": "M09",
+     "seconds": 170.14,
+     "decisions_pred": 7,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M10",
+     "seconds": 167.92,
+     "decisions_pred": 6,
+     "tasks_pred": 4
+    }
+   ],
+   "note": "Emparejamiento aproximado automático; revisar errores manualmente.",
+   "decisions": {
+    "matched": 30,
+    "predicted": 52,
+    "gold": 56,
+    "precision": 0.577,
+    "recall": 0.536,
+    "f1": 0.556
+   },
+   "tasks": {
+    "matched": 43,
+    "predicted": 58,
+    "gold": 53,
+    "precision": 0.741,
+    "recall": 0.811,
+    "f1": 0.775
+   }
+  },
+  "extended": {
+   "strict_f1": {
+    "decisions": 0.481,
+    "tasks": 0.775
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 2,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 11,
+     "state_ok": 11,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 9,
+     "state_ok": 8,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 6,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 12,
+     "state_ok": 12,
+     "deadline_ok": 9,
+     "assignee_ok": 12
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 25,
+     "state_ok": 25,
+     "deadline_ok": 23,
+     "assignee_ok": 25
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 16,
+     "state_ok": 16,
+     "deadline_ok": 13,
+     "assignee_ok": 15
+    }
+   },
+   "deadline_errors": {
+    "ok": 38,
+    "dia equivocado": 1,
+    "inventado": 3,
+    "hora mal/falta": 1,
+    "omitido": 0
+   },
+   "task_states_predicted": {
+    "final": 58
+   },
+   "non_participant_assignees": 1,
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.6666666666666666,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.6666666666666666
+    },
+    "M02": {
+     "decisions_f1": 0.4,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.5545454545454546
+    },
+    "M03": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.7636363636363637
+    },
+    "M04": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.525
+    },
+    "M05": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.7272727272727273,
+     "strict_f1": 0.5858585858585859
+    },
+    "M06": {
+     "decisions_f1": 0.5454545454545454,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.7012987012987013
+    },
+    "M07": {
+     "decisions_f1": 0.6,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.6000000000000001
+    },
+    "M08": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.8333333333333333,
+     "strict_f1": 0.7803030303030303
+    },
+    "M09": {
+     "decisions_f1": 0.3333333333333333,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.5
+    },
+    "M10": {
+     "decisions_f1": 0.3636363636363636,
+     "tasks_f1": 0.6666666666666665,
+     "strict_f1": 0.515151515151515
+    }
+   },
+   "calls_total": 131,
+   "tokens_total": 62877,
+   "invalid_steps_total": 0,
+   "tool_calls_total": 203
+  }
+ },
+ "no_react": {
+  "primary": {
+   "arm": "no_react",
+   "meetings": 10,
+   "seconds_total": 1316.2,
+   "json_valid": "10/10",
+   "schema_valid": "10/10",
+   "content_recovered": "10/10",
+   "state_accuracy_matched": 0.918,
+   "assignee_accuracy_matched": 0.952,
+   "deadline_accuracy_matched": 0.833,
+   "evidence_exact_matched": 0.808,
+   "evidence_id_exists": "125/125",
+   "per_meeting": [
+    {
+     "meeting_id": "M01",
+     "seconds": 179.27,
+     "decisions_pred": 11,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M02",
+     "seconds": 127.01,
+     "decisions_pred": 7,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M03",
+     "seconds": 141.46,
+     "decisions_pred": 9,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M04",
+     "seconds": 136.72,
+     "decisions_pred": 5,
+     "tasks_pred": 7
+    },
+    {
+     "meeting_id": "M05",
+     "seconds": 136.17,
+     "decisions_pred": 7,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M06",
+     "seconds": 121.53,
+     "decisions_pred": 2,
+     "tasks_pred": 8
+    },
+    {
+     "meeting_id": "M07",
+     "seconds": 156.97,
+     "decisions_pred": 5,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M08",
+     "seconds": 93.55,
+     "decisions_pred": 4,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M09",
+     "seconds": 100.85,
+     "decisions_pred": 7,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M10",
+     "seconds": 122.62,
+     "decisions_pred": 5,
+     "tasks_pred": 8
+    }
+   ],
+   "note": "Emparejamiento aproximado automático; revisar errores manualmente.",
+   "decisions": {
+    "matched": 31,
+    "predicted": 62,
+    "gold": 56,
+    "precision": 0.5,
+    "recall": 0.554,
+    "f1": 0.525
+   },
+   "tasks": {
+    "matched": 42,
+    "predicted": 63,
+    "gold": 53,
+    "precision": 0.667,
+    "recall": 0.792,
+    "f1": 0.724
+   }
+  },
+  "extended": {
+   "strict_f1": {
+    "decisions": 0.424,
+    "tasks": 0.724
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 4,
+     "state_ok": 4,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 9,
+     "state_ok": 8,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 9,
+     "state_ok": 9,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 5,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 5,
+     "state_ok": 4,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 14,
+     "state_ok": 14,
+     "deadline_ok": 10,
+     "assignee_ok": 13
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 26,
+     "state_ok": 26,
+     "deadline_ok": 24,
+     "assignee_ok": 26
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 14,
+     "state_ok": 14,
+     "deadline_ok": 10,
+     "assignee_ok": 13
+    }
+   },
+   "deadline_errors": {
+    "ok": 35,
+    "dia equivocado": 1,
+    "inventado": 4,
+    "hora mal/falta": 2,
+    "omitido": 0
+   },
+   "task_states_predicted": {
+    "final": 63
+   },
+   "non_participant_assignees": 0,
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.6666666666666665
+    },
+    "M02": {
+     "decisions_f1": 0.4615384615384615,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.6538461538461539
+    },
+    "M03": {
+     "decisions_f1": 0.5333333333333333,
+     "tasks_f1": 0.5555555555555556,
+     "strict_f1": 0.5444444444444445
+    },
+    "M04": {
+     "decisions_f1": 0.8000000000000002,
+     "tasks_f1": 0.7272727272727273,
+     "strict_f1": 0.5636363636363637
+    },
+    "M05": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.5666666666666667
+    },
+    "M06": {
+     "decisions_f1": 0.0,
+     "tasks_f1": 0.5454545454545454,
+     "strict_f1": 0.2727272727272727
+    },
+    "M07": {
+     "decisions_f1": 0.3636363636363636,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.5818181818181818
+    },
+    "M08": {
+     "decisions_f1": 0.4,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.6545454545454545
+    },
+    "M09": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.7499999999999999,
+     "strict_f1": 0.625
+    },
+    "M10": {
+     "decisions_f1": 0.8000000000000002,
+     "tasks_f1": 0.6153846153846154,
+     "strict_f1": 0.5076923076923078
+    }
+   },
+   "calls_total": 66,
+   "tokens_total": 57471,
+   "invalid_steps_total": 0,
+   "tool_calls_total": 0
+  }
+ },
+ "no_auditor": {
+  "primary": {
+   "arm": "no_auditor",
+   "meetings": 10,
+   "seconds_total": 483.7,
+   "json_valid": "10/10",
+   "schema_valid": "10/10",
+   "content_recovered": "10/10",
+   "state_accuracy_matched": 0.945,
+   "assignee_accuracy_matched": 0.977,
+   "deadline_accuracy_matched": 0.909,
+   "evidence_exact_matched": 0.89,
+   "evidence_id_exists": "106/106",
+   "per_meeting": [
+    {
+     "meeting_id": "M01",
+     "seconds": 72.68,
+     "decisions_pred": 8,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M02",
+     "seconds": 43.06,
+     "decisions_pred": 4,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M03",
+     "seconds": 51.38,
+     "decisions_pred": 5,
+     "tasks_pred": 8
+    },
+    {
+     "meeting_id": "M04",
+     "seconds": 38.79,
+     "decisions_pred": 3,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M05",
+     "seconds": 42.53,
+     "decisions_pred": 4,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M06",
+     "seconds": 49.81,
+     "decisions_pred": 5,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "M07",
+     "seconds": 42.53,
+     "decisions_pred": 4,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M08",
+     "seconds": 52.01,
+     "decisions_pred": 5,
+     "tasks_pred": 7
+    },
+    {
+     "meeting_id": "M09",
+     "seconds": 45.62,
+     "decisions_pred": 5,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M10",
+     "seconds": 45.28,
+     "decisions_pred": 6,
+     "tasks_pred": 5
+    }
+   ],
+   "note": "Emparejamiento aproximado automático; revisar errores manualmente.",
+   "decisions": {
+    "matched": 29,
+    "predicted": 49,
+    "gold": 56,
+    "precision": 0.592,
+    "recall": 0.518,
+    "f1": 0.552
+   },
+   "tasks": {
+    "matched": 44,
+    "predicted": 57,
+    "gold": 53,
+    "precision": 0.772,
+    "recall": 0.83,
+    "f1": 0.8
+   }
+  },
+  "extended": {
+   "strict_f1": {
+    "decisions": 0.476,
+    "tasks": 0.8
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 2,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 11,
+     "state_ok": 11,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 8,
+     "state_ok": 7,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 6,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 13,
+     "state_ok": 13,
+     "deadline_ok": 10,
+     "assignee_ok": 13
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 25,
+     "state_ok": 25,
+     "deadline_ok": 24,
+     "assignee_ok": 25
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 17,
+     "state_ok": 17,
+     "deadline_ok": 14,
+     "assignee_ok": 16
+    }
+   },
+   "deadline_errors": {
+    "ok": 40,
+    "dia equivocado": 0,
+    "inventado": 3,
+    "hora mal/falta": 1,
+    "omitido": 0
+   },
+   "task_states_predicted": {
+    "final": 57
+   },
+   "non_participant_assignees": 1,
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.6666666666666666,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.6666666666666666
+    },
+    "M02": {
+     "decisions_f1": 0.4,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.5545454545454546
+    },
+    "M03": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.7636363636363637
+    },
+    "M04": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.525
+    },
+    "M05": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.7333333333333333
+    },
+    "M06": {
+     "decisions_f1": 0.6,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.7285714285714285
+    },
+    "M07": {
+     "decisions_f1": 0.6,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.6000000000000001
+    },
+    "M08": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.8333333333333333,
+     "strict_f1": 0.7803030303030303
+    },
+    "M09": {
+     "decisions_f1": 0.20000000000000004,
+     "tasks_f1": 0.7499999999999999,
+     "strict_f1": 0.475
+    },
+    "M10": {
+     "decisions_f1": 0.3636363636363636,
+     "tasks_f1": 0.8000000000000002,
+     "strict_f1": 0.49090909090909096
+    }
+   },
+   "calls_total": 45,
+   "tokens_total": 22212,
+   "invalid_steps_total": 0,
+   "tool_calls_total": 89
+  }
+ },
+ "no_fewshot": {
+  "primary": {
+   "arm": "no_fewshot",
+   "meetings": 10,
+   "seconds_total": 1645.9,
+   "json_valid": "10/10",
+   "schema_valid": "10/10",
+   "content_recovered": "10/10",
+   "state_accuracy_matched": 0.89,
+   "assignee_accuracy_matched": 1.0,
+   "deadline_accuracy_matched": 0.868,
+   "evidence_exact_matched": 0.863,
+   "evidence_id_exists": "118/118",
+   "per_meeting": [
+    {
+     "meeting_id": "M01",
+     "seconds": 86.16,
+     "decisions_pred": 8,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M02",
+     "seconds": 159.08,
+     "decisions_pred": 10,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M03",
+     "seconds": 164.42,
+     "decisions_pred": 6,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M04",
+     "seconds": 190.91,
+     "decisions_pred": 3,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M05",
+     "seconds": 165.64,
+     "decisions_pred": 8,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "M06",
+     "seconds": 135.06,
+     "decisions_pred": 6,
+     "tasks_pred": 3
+    },
+    {
+     "meeting_id": "M07",
+     "seconds": 152.52,
+     "decisions_pred": 4,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M08",
+     "seconds": 234.2,
+     "decisions_pred": 6,
+     "tasks_pred": 10
+    },
+    {
+     "meeting_id": "M09",
+     "seconds": 182.67,
+     "decisions_pred": 5,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M10",
+     "seconds": 175.26,
+     "decisions_pred": 8,
+     "tasks_pred": 5
+    }
+   ],
+   "note": "Emparejamiento aproximado automático; revisar errores manualmente.",
+   "decisions": {
+    "matched": 35,
+    "predicted": 64,
+    "gold": 56,
+    "precision": 0.547,
+    "recall": 0.625,
+    "f1": 0.583
+   },
+   "tasks": {
+    "matched": 38,
+    "predicted": 54,
+    "gold": 53,
+    "precision": 0.704,
+    "recall": 0.717,
+    "f1": 0.71
+   }
+  },
+  "extended": {
+   "strict_f1": {
+    "decisions": 0.45,
+    "tasks": 0.71
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 8,
+     "state_ok": 7,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 13,
+     "state_ok": 12,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 8,
+     "state_ok": 6,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 5,
+     "state_ok": 5,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 6,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 12,
+     "state_ok": 12,
+     "deadline_ok": 11,
+     "assignee_ok": 12
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 23,
+     "state_ok": 23,
+     "deadline_ok": 19,
+     "assignee_ok": 23
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 13,
+     "state_ok": 13,
+     "deadline_ok": 12,
+     "assignee_ok": 13
+    }
+   },
+   "deadline_errors": {
+    "ok": 33,
+    "dia equivocado": 0,
+    "inventado": 1,
+    "hora mal/falta": 3,
+    "omitido": 1
+   },
+   "task_states_predicted": {
+    "final": 51,
+    "pending": 3
+   },
+   "non_participant_assignees": 0,
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.7999999999999999,
+     "tasks_f1": 0.923076923076923,
+     "strict_f1": 0.8615384615384615
+    },
+    "M02": {
+     "decisions_f1": 0.625,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.6420454545454545
+    },
+    "M03": {
+     "decisions_f1": 0.6666666666666666,
+     "tasks_f1": 0.5882352941176471,
+     "strict_f1": 0.6274509803921569
+    },
+    "M04": {
+     "decisions_f1": 0.7499999999999999,
+     "tasks_f1": 0.6666666666666665,
+     "strict_f1": 0.7083333333333333
+    },
+    "M05": {
+     "decisions_f1": 0.4615384615384615,
+     "tasks_f1": 0.75,
+     "strict_f1": 0.4519230769230769
+    },
+    "M06": {
+     "decisions_f1": 0.5454545454545454,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.606060606060606
+    },
+    "M07": {
+     "decisions_f1": 0.8,
+     "tasks_f1": 0.6,
+     "strict_f1": 0.5
+    },
+    "M08": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.5
+    },
+    "M09": {
+     "decisions_f1": 0.20000000000000004,
+     "tasks_f1": 0.5,
+     "strict_f1": 0.35000000000000003
+    },
+    "M10": {
+     "decisions_f1": 0.4615384615384615,
+     "tasks_f1": 0.8000000000000002,
+     "strict_f1": 0.5538461538461539
+    }
+   },
+   "calls_total": 154,
+   "tokens_total": 77411,
+   "invalid_steps_total": 0,
+   "tool_calls_total": 251
+  }
+ },
+ "no_cot": {
+  "primary": {
+   "arm": "no_cot",
+   "meetings": 10,
+   "seconds_total": 676.1,
+   "json_valid": "10/10",
+   "schema_valid": "10/10",
+   "content_recovered": "10/10",
+   "state_accuracy_matched": 0.932,
+   "assignee_accuracy_matched": 0.976,
+   "deadline_accuracy_matched": 0.929,
+   "evidence_exact_matched": 0.851,
+   "evidence_id_exists": "117/117",
+   "per_meeting": [
+    {
+     "meeting_id": "M01",
+     "seconds": 60.46,
+     "decisions_pred": 10,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M02",
+     "seconds": 113.06,
+     "decisions_pred": 7,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M03",
+     "seconds": 64.66,
+     "decisions_pred": 7,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M04",
+     "seconds": 54.19,
+     "decisions_pred": 6,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M05",
+     "seconds": 134.65,
+     "decisions_pred": 7,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M06",
+     "seconds": 64.8,
+     "decisions_pred": 5,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "M07",
+     "seconds": 57.79,
+     "decisions_pred": 7,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M08",
+     "seconds": 51.07,
+     "decisions_pred": 6,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M09",
+     "seconds": 35.75,
+     "decisions_pred": 5,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "M10",
+     "seconds": 39.67,
+     "decisions_pred": 4,
+     "tasks_pred": 5
+    }
+   ],
+   "note": "Emparejamiento aproximado automático; revisar errores manualmente.",
+   "decisions": {
+    "matched": 32,
+    "predicted": 64,
+    "gold": 56,
+    "precision": 0.5,
+    "recall": 0.571,
+    "f1": 0.533
+   },
+   "tasks": {
+    "matched": 42,
+    "predicted": 53,
+    "gold": 53,
+    "precision": 0.792,
+    "recall": 0.792,
+    "f1": 0.792
+   }
+  },
+  "extended": {
+   "strict_f1": {
+    "decisions": 0.45,
+    "tasks": 0.792
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 11,
+     "state_ok": 11,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 6,
+     "state_ok": 6,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 2,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 7,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 6,
+     "state_ok": 6,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 13,
+     "state_ok": 13,
+     "deadline_ok": 12,
+     "assignee_ok": 12
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 27,
+     "state_ok": 27,
+     "deadline_ok": 26,
+     "assignee_ok": 27
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 13,
+     "state_ok": 13,
+     "deadline_ok": 12,
+     "assignee_ok": 12
+    }
+   },
+   "deadline_errors": {
+    "ok": 39,
+    "dia equivocado": 0,
+    "inventado": 1,
+    "hora mal/falta": 1,
+    "omitido": 1
+   },
+   "task_states_predicted": {
+    "final": 53
+   },
+   "non_participant_assignees": 1,
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.7058823529411764,
+     "tasks_f1": 0.7692307692307692,
+     "strict_f1": 0.7375565610859728
+    },
+    "M02": {
+     "decisions_f1": 0.30769230769230765,
+     "tasks_f1": 0.8333333333333334,
+     "strict_f1": 0.4935897435897436
+    },
+    "M03": {
+     "decisions_f1": 0.7692307692307692,
+     "tasks_f1": 0.5555555555555556,
+     "strict_f1": 0.5854700854700854
+    },
+    "M04": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.888888888888889,
+     "strict_f1": 0.7171717171717171
+    },
+    "M05": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.888888888888889,
+     "strict_f1": 0.6111111111111112
+    },
+    "M06": {
+     "decisions_f1": 0.6,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.7285714285714285
+    },
+    "M07": {
+     "decisions_f1": 0.6153846153846153,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.6307692307692307
+    },
+    "M08": {
+     "decisions_f1": 0.3333333333333333,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.6212121212121212
+    },
+    "M09": {
+     "decisions_f1": 0.0,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.42857142857142855
+    },
+    "M10": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.8000000000000002,
+     "strict_f1": 0.7333333333333334
+    }
+   },
+   "calls_total": 82,
+   "tokens_total": 30502,
+   "invalid_steps_total": 0,
+   "tool_calls_total": 152
+  }
+ },
+ "no_guards": {
+  "primary": {
+   "arm": "no_guards",
+   "meetings": 10,
+   "seconds_total": 1713.5,
+   "json_valid": "10/10",
+   "schema_valid": "10/10",
+   "content_recovered": "10/10",
+   "state_accuracy_matched": 0.961,
+   "assignee_accuracy_matched": 0.935,
+   "deadline_accuracy_matched": 0.891,
+   "evidence_exact_matched": 0.868,
+   "evidence_id_exists": "132/132",
+   "per_meeting": [
+    {
+     "meeting_id": "M01",
+     "seconds": 157.86,
+     "decisions_pred": 10,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M02",
+     "seconds": 163.0,
+     "decisions_pred": 6,
+     "tasks_pred": 6
+    },
+    {
+     "meeting_id": "M03",
+     "seconds": 170.59,
+     "decisions_pred": 6,
+     "tasks_pred": 9
+    },
+    {
+     "meeting_id": "M04",
+     "seconds": 145.9,
+     "decisions_pred": 4,
+     "tasks_pred": 8
+    },
+    {
+     "meeting_id": "M05",
+     "seconds": 138.5,
+     "decisions_pred": 4,
+     "tasks_pred": 8
+    },
+    {
+     "meeting_id": "M06",
+     "seconds": 149.98,
+     "decisions_pred": 7,
+     "tasks_pred": 4
+    },
+    {
+     "meeting_id": "M07",
+     "seconds": 147.77,
+     "decisions_pred": 6,
+     "tasks_pred": 7
+    },
+    {
+     "meeting_id": "M08",
+     "seconds": 208.09,
+     "decisions_pred": 9,
+     "tasks_pred": 8
+    },
+    {
+     "meeting_id": "M09",
+     "seconds": 161.54,
+     "decisions_pred": 6,
+     "tasks_pred": 5
+    },
+    {
+     "meeting_id": "M10",
+     "seconds": 270.32,
+     "decisions_pred": 9,
+     "tasks_pred": 5
+    }
+   ],
+   "note": "Emparejamiento aproximado automático; revisar errores manualmente.",
+   "decisions": {
+    "matched": 30,
+    "predicted": 67,
+    "gold": 56,
+    "precision": 0.448,
+    "recall": 0.536,
+    "f1": 0.488
+   },
+   "tasks": {
+    "matched": 46,
+    "predicted": 65,
+    "gold": 53,
+    "precision": 0.708,
+    "recall": 0.868,
+    "f1": 0.78
+   }
+  },
+  "extended": {
+   "strict_f1": {
+    "decisions": 0.439,
+    "tasks": 0.78
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 2,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 11,
+     "state_ok": 10,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 8,
+     "state_ok": 8,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 5,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 14,
+     "state_ok": 14,
+     "deadline_ok": 12,
+     "assignee_ok": 14
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 26,
+     "state_ok": 26,
+     "deadline_ok": 23,
+     "assignee_ok": 24
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 18,
+     "state_ok": 18,
+     "deadline_ok": 16,
+     "assignee_ok": 17
+    }
+   },
+   "deadline_errors": {
+    "ok": 41,
+    "dia equivocado": 2,
+    "inventado": 2,
+    "hora mal/falta": 1,
+    "omitido": 0
+   },
+   "task_states_predicted": {
+    "final": 64,
+    "pending": 1
+   },
+   "non_participant_assignees": 2,
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.588235294117647,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.6274509803921569
+    },
+    "M02": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.75
+    },
+    "M03": {
+     "decisions_f1": 0.6666666666666666,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.7619047619047619
+    },
+    "M04": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.5555555555555556
+    },
+    "M05": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.5555555555555556
+    },
+    "M06": {
+     "decisions_f1": 0.3333333333333333,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.5952380952380952
+    },
+    "M07": {
+     "decisions_f1": 0.3333333333333333,
+     "tasks_f1": 0.7272727272727273,
+     "strict_f1": 0.5303030303030303
+    },
+    "M08": {
+     "decisions_f1": 0.4,
+     "tasks_f1": 0.7692307692307693,
+     "strict_f1": 0.5846153846153846
+    },
+    "M09": {
+     "decisions_f1": 0.3636363636363636,
+     "tasks_f1": 0.7499999999999999,
+     "strict_f1": 0.5568181818181818
+    },
+    "M10": {
+     "decisions_f1": 0.42857142857142855,
+     "tasks_f1": 0.8000000000000002,
+     "strict_f1": 0.5428571428571429
+    }
+   },
+   "calls_total": 162,
+   "tokens_total": 78191,
+   "invalid_steps_total": 0,
+   "tool_calls_total": 248
+  }
+ },
+ "paired_full_vs_d2": {
+  "decisions_f1": {
+   "wins": 2,
+   "ties": 1,
+   "losses": 7
+  },
+  "tasks_f1": {
+   "wins": 3,
+   "ties": 2,
+   "losses": 5
+  },
+  "strict_f1": {
+   "wins": 7,
+   "ties": 0,
+   "losses": 3
+  }
+ },
+ "meta": {
+  "model": "ministral-3:3b-instruct-2512-q4_K_M",
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "num_ctx": 12288,
+   "num_predict": 2400
+  },
+  "ollama_version": "0.40.11",
+  "model_digest": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+  "package_commit": "d36043b",
+  "prompts": {
+   "CHANGELOG.md": "eb1e87577bc9f5203ea331c410d57e1b61470dcf9fe3899c13494722f716bc24",
+   "auditor.v1.md": "805756e66f0b634f50ca1864e5dd68515d819f2964a3b7ed33b1a0b8625f0ab4",
+   "auditor.v2.md": "101f2048a8a2ec9a2e59c73300a88915eaa66abee98e0c8a46975de2ff5cc2bd",
+   "auditor.v3.md": "ee3099ee7cfaf9829b52255879fde0ab980cc56709b74d26ea790af3b68f7436",
+   "d2_review.v1.md": "2c53a04b7981894b17f75dc4ce362855046f50538945dc7649d5eafc8e0094fa",
+   "d2_system.v1.md": "50cc704dd1b944057796d663c1a9f772f288b8f2c91d5120952705aae469ff9f",
+   "decisions.v1.md": "5971cd326b663057641172c771fa0a00659ab625f3d924c5a56028f5b6be1f12",
+   "decisions.v2.md": "6ea72b68a2e4133974faff0d1d320c75eba703e1a9f0864dc347a8849bc79593",
+   "fewshot/decisions.TR01.md": "2a9e75e24a8dda412bd4fb655c0e0cfa96489cde7a2cf4ca6f74f716c207f5ee",
+   "fewshot/decisions.TR01.v2.md": "045ed02ec7e0810f88c18df3c757495bb7644c9ea03f21e8225ae95bb5a13f7c",
+   "fewshot/tasks.TR01.md": "7b3a461a7b94bdc86c3b312f06e3e85b08cd632cdcab8544cc4977271666e77b",
+   "tasks.v1.md": "7edac483c5c5f355fc73d1ca6e4f2cba34f88c6fdb73f01bee254a27b00f12c3",
+   "tasks.v2.md": "b0e6e6a4a879eb0bd69e96d7d737be00b57cfb41e8601e0c8e54805b78c5eed3"
+  },
+  "conditions": [
+   "baseline",
+   "d2",
+   "full",
+   "no_react",
+   "no_auditor",
+   "no_fewshot",
+   "no_cot",
+   "no_guards"
+  ],
+  "conditions_run": [
+   "baseline",
+   "d2",
+   "full",
+   "no_react",
+   "no_auditor",
+   "no_fewshot",
+   "no_cot",
+   "no_guards"
+  ],
+  "meeting_ids": [
+   "M01",
+   "M02",
+   "M03",
+   "M04",
+   "M05",
+   "M06",
+   "M07",
+   "M08",
+   "M09",
+   "M10"
+  ],
+  "evaluated_meetings": {
+   "baseline": [
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09",
+    "M10"
+   ],
+   "d2": [
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09",
+    "M10"
+   ],
+   "full": [
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09",
+    "M10"
+   ],
+   "no_react": [
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09",
+    "M10"
+   ],
+   "no_auditor": [
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09",
+    "M10"
+   ],
+   "no_fewshot": [
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09",
+    "M10"
+   ],
+   "no_cot": [
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09",
+    "M10"
+   ],
+   "no_guards": [
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09",
+    "M10"
+   ]
+  },
+  "failed": [],
+  "stale_results": [],
+  "created": "2026-10-26T03:09:54.012642+00:00",
+  "split": "test",
+  "demo": false,
+  "limit": null,
+  "ollama_version_by_condition": {
+   "d2": "0.40.11",
+   "no_fewshot": "0.40.11",
+   "no_react": "0.40.11",
+   "full": "0.40.11",
+   "no_auditor": "0.40.11",
+   "no_guards": "0.40.11",
+   "baseline": "0.40.11",
+   "no_cot": "0.40.11"
+  },
+  "model_digest_by_condition": {
+   "d2": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+   "no_fewshot": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+   "no_react": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+   "full": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+   "no_auditor": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+   "no_guards": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+   "baseline": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d",
+   "no_cot": "f04aa1c738f64e13c625b82ae92504fc0260fa6723b509ed1ece0fa188179b1d"
+  }
+ }
+}
