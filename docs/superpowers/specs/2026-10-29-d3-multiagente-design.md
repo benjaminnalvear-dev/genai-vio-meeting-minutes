@@ -37,6 +37,24 @@ Cada agente se justifica por una de estas fallas.
 
 ## 3. Arquitectura
 
+Vista simple:
+
+```mermaid
+flowchart LR
+    A([Transcripción]) --> B[Rastreador]
+    B --> C[Decisiones]
+    B --> D[Tareas]
+    C <-.-> T1[(inspect_evidence<br/>revision_cues)]
+    D <-.-> T2[(resolve_deadline<br/>check_participante)]
+    C --> E[Auditor]
+    D --> E
+    E -.->|revisar, máx. 2 auditorías| C
+    E -.->|revisar, máx. 2 auditorías| D
+    E -->|ok| F([Acta JSON])
+```
+
+Vista detallada (para el documento):
+
 ```mermaid
 flowchart TD
     IN([Transcripción<br/>JSON de la reunión]) -->|texto numerado + fecha + participantes| R
@@ -81,8 +99,8 @@ flowchart TD
 Condiciones de parada:
 - Cada agente tiene un presupuesto de **3 llamadas a herramientas** (Rastreador: 1). Al agotarlo, el esquema
   de acción solo permite `finish`.
-- El loop Auditor → especialista tiene **máximo 2 rondas**. En la ronda 2 el grafo va a `finalizar` aunque
-  haya ítems marcados; esos quedan registrados en la traza.
+- El Auditor corre **máximo 2 veces** (una ronda de corrección). En la segunda auditoría el grafo va a
+  `finalizar` aunque haya ítems marcados; esos quedan registrados en la traza.
 
 ### 3.1 Mecanismo de decisión
 
