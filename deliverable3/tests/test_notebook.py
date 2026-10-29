@@ -38,6 +38,8 @@ def test_notebook_guards_uploads_and_conditions():
     assert "ALL_CONDITIONS = 'baseline,d2,full,no_react,no_auditor,no_fewshot,no_cot,no_guards'" in cfg
     assert "'deliverable3' not in zname" in code and 'en esta celda va deliverable3_colab.zip' in code
     assert "'Fine' not in dname" in data and 'en esta celda va Fine Tuning.zip' in data
+    assert "SOURCE = 'git'" in cfg and "GenAI Constrained+Tool use/Fine Tuning.zip" in data
+    assert "if SOURCE == 'git' and REPO_DATA.exists():" in data
     assert "agent == 'guard'" in trace and '[baranda ' in trace and 'auditor_route' in trace
 
 

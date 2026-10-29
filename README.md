@@ -9,6 +9,25 @@
 
 Sistema que transforma reuniones en español en actas JSON estructuradas y trazables. Cada decisión y tarea conserva una referencia a la intervención que la respalda; además, el flujo identifica cambios de decisión, responsables, plazos, condiciones y asuntos pendientes.
 
+## Entregable 3
+
+El sistema del D2 se reconstruye como **tres agentes** (Decisiones, Tareas y un Auditor con loop de revisión) que deciden cuándo usar herramientas y cuándo devolver o cerrar el acta. Se usa el mismo modelo (Ministral 3B), las mismas 10 reuniones de test y el mismo evaluador.
+
+| Recurso | Contenido |
+|---|---|
+| [README del Entregable 3](./deliverable3/README.md) | Problema, arquitectura, técnicas, resultados, caso de falla y reproducción |
+| Documento técnico (PDF) | *pendiente* |
+| Video | *pendiente* |
+| [Notebook de Colab](./deliverable3/notebooks/D3_Colab.ipynb) | Demo (M01) y experimento completo en GPU T4 |
+| [Trazas](./deliverable3/runs/test/traces/full/) | Mensajes entre agentes de cada reunión; M01 (video) y M09 (caso de falla) |
+| [Prompts versionados](./deliverable3/prompts/) | Un archivo por prompt y versión, con registro de cambios |
+
+| Test (M01–M10) | F1 decisiones | F1 tareas | F1 estricto tareas | Plazo correcto |
+|---|---:|---:|---:|---:|
+| Prompt directo | 0,458 | 0,598 | 0,161 | 35 % |
+| D2 | **0,673** | 0,789 | 0,220 | 42 % |
+| Agentes | 0,556 | 0,775 | **0,775** | **88 %** |
+
 ## Entregable 2
 
 | Recurso | Contenido |
