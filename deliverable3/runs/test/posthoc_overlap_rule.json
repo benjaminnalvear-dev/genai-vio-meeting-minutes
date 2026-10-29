@@ -1,0 +1,1867 @@
+{
+ "full": {
+  "with_rule": {
+   "decisions": {
+    "matched": 30,
+    "predicted": 52,
+    "gold": 56,
+    "precision": 0.577,
+    "recall": 0.536,
+    "f1": 0.556
+   },
+   "tasks": {
+    "matched": 43,
+    "predicted": 58,
+    "gold": 53,
+    "precision": 0.741,
+    "recall": 0.811,
+    "f1": 0.775
+   },
+   "strict_f1": {
+    "decisions": 0.481,
+    "tasks": 0.775
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 2,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 11,
+     "state_ok": 11,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 9,
+     "state_ok": 8,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 6,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 12,
+     "state_ok": 12,
+     "deadline_ok": 9,
+     "assignee_ok": 12
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 25,
+     "state_ok": 25,
+     "deadline_ok": 23,
+     "assignee_ok": 25
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 16,
+     "state_ok": 16,
+     "deadline_ok": 13,
+     "assignee_ok": 15
+    }
+   },
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.6666666666666666,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.6666666666666666
+    },
+    "M02": {
+     "decisions_f1": 0.4,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.5545454545454546
+    },
+    "M03": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.7636363636363637
+    },
+    "M04": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.525
+    },
+    "M05": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.7272727272727273,
+     "strict_f1": 0.5858585858585859
+    },
+    "M06": {
+     "decisions_f1": 0.5454545454545454,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.7012987012987013
+    },
+    "M07": {
+     "decisions_f1": 0.6,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.6000000000000001
+    },
+    "M08": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.8333333333333333,
+     "strict_f1": 0.7803030303030303
+    },
+    "M09": {
+     "decisions_f1": 0.3333333333333333,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.5
+    },
+    "M10": {
+     "decisions_f1": 0.3636363636363636,
+     "tasks_f1": 0.6666666666666665,
+     "strict_f1": 0.515151515151515
+    }
+   }
+  },
+  "without_rule": {
+   "decisions": {
+    "matched": 34,
+    "predicted": 66,
+    "gold": 56,
+    "precision": 0.515,
+    "recall": 0.607,
+    "f1": 0.557
+   },
+   "tasks": {
+    "matched": 44,
+    "predicted": 59,
+    "gold": 53,
+    "precision": 0.746,
+    "recall": 0.83,
+    "f1": 0.786
+   },
+   "strict_f1": {
+    "decisions": 0.492,
+    "tasks": 0.786
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 4,
+     "state_ok": 4,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 14,
+     "state_ok": 14,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 10,
+     "state_ok": 9,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 6,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 13,
+     "state_ok": 13,
+     "deadline_ok": 10,
+     "assignee_ok": 13
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 25,
+     "state_ok": 25,
+     "deadline_ok": 23,
+     "assignee_ok": 25
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 17,
+     "state_ok": 17,
+     "deadline_ok": 14,
+     "assignee_ok": 16
+    }
+   },
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.588235294117647,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.6274509803921569
+    },
+    "M02": {
+     "decisions_f1": 0.5714285714285715,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.6688311688311688
+    },
+    "M03": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.7636363636363637
+    },
+    "M04": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.6222222222222222
+    },
+    "M05": {
+     "decisions_f1": 0.5454545454545454,
+     "tasks_f1": 0.7272727272727273,
+     "strict_f1": 0.5454545454545454
+    },
+    "M06": {
+     "decisions_f1": 0.5454545454545454,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.7012987012987013
+    },
+    "M07": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.5666666666666667
+    },
+    "M08": {
+     "decisions_f1": 0.6666666666666666,
+     "tasks_f1": 0.8333333333333333,
+     "strict_f1": 0.75
+    },
+    "M09": {
+     "decisions_f1": 0.3076923076923077,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.48717948717948717
+    },
+    "M10": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.8000000000000002,
+     "strict_f1": 0.6500000000000001
+    }
+   }
+  }
+ },
+ "no_react": {
+  "with_rule": {
+   "decisions": {
+    "matched": 31,
+    "predicted": 62,
+    "gold": 56,
+    "precision": 0.5,
+    "recall": 0.554,
+    "f1": 0.525
+   },
+   "tasks": {
+    "matched": 42,
+    "predicted": 63,
+    "gold": 53,
+    "precision": 0.667,
+    "recall": 0.792,
+    "f1": 0.724
+   },
+   "strict_f1": {
+    "decisions": 0.424,
+    "tasks": 0.724
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 4,
+     "state_ok": 4,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 9,
+     "state_ok": 8,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 9,
+     "state_ok": 9,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 5,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 5,
+     "state_ok": 4,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 14,
+     "state_ok": 14,
+     "deadline_ok": 10,
+     "assignee_ok": 13
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 26,
+     "state_ok": 26,
+     "deadline_ok": 24,
+     "assignee_ok": 26
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 14,
+     "state_ok": 14,
+     "deadline_ok": 10,
+     "assignee_ok": 13
+    }
+   },
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.6666666666666665
+    },
+    "M02": {
+     "decisions_f1": 0.4615384615384615,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.6538461538461539
+    },
+    "M03": {
+     "decisions_f1": 0.5333333333333333,
+     "tasks_f1": 0.5555555555555556,
+     "strict_f1": 0.5444444444444445
+    },
+    "M04": {
+     "decisions_f1": 0.8000000000000002,
+     "tasks_f1": 0.7272727272727273,
+     "strict_f1": 0.5636363636363637
+    },
+    "M05": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.5666666666666667
+    },
+    "M06": {
+     "decisions_f1": 0.0,
+     "tasks_f1": 0.5454545454545454,
+     "strict_f1": 0.2727272727272727
+    },
+    "M07": {
+     "decisions_f1": 0.3636363636363636,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.5818181818181818
+    },
+    "M08": {
+     "decisions_f1": 0.4,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.6545454545454545
+    },
+    "M09": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.7499999999999999,
+     "strict_f1": 0.625
+    },
+    "M10": {
+     "decisions_f1": 0.8000000000000002,
+     "tasks_f1": 0.6153846153846154,
+     "strict_f1": 0.5076923076923078
+    }
+   }
+  },
+  "without_rule": {
+   "decisions": {
+    "matched": 39,
+    "predicted": 86,
+    "gold": 56,
+    "precision": 0.453,
+    "recall": 0.696,
+    "f1": 0.549
+   },
+   "tasks": {
+    "matched": 42,
+    "predicted": 63,
+    "gold": 53,
+    "precision": 0.667,
+    "recall": 0.792,
+    "f1": 0.724
+   },
+   "strict_f1": {
+    "decisions": 0.451,
+    "tasks": 0.724
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 6,
+     "state_ok": 6,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 16,
+     "state_ok": 15,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 9,
+     "state_ok": 9,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 5,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 6,
+     "state_ok": 4,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 14,
+     "state_ok": 14,
+     "deadline_ok": 10,
+     "assignee_ok": 13
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 26,
+     "state_ok": 26,
+     "deadline_ok": 24,
+     "assignee_ok": 26
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 14,
+     "state_ok": 14,
+     "deadline_ok": 10,
+     "assignee_ok": 13
+    }
+   },
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.631578947368421,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.6491228070175439
+    },
+    "M02": {
+     "decisions_f1": 0.4444444444444444,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.6666666666666666
+    },
+    "M03": {
+     "decisions_f1": 0.5333333333333333,
+     "tasks_f1": 0.5555555555555556,
+     "strict_f1": 0.5444444444444445
+    },
+    "M04": {
+     "decisions_f1": 0.8333333333333333,
+     "tasks_f1": 0.7272727272727273,
+     "strict_f1": 0.6136363636363636
+    },
+    "M05": {
+     "decisions_f1": 0.5714285714285714,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.6142857142857143
+    },
+    "M06": {
+     "decisions_f1": 0.3636363636363636,
+     "tasks_f1": 0.5454545454545454,
+     "strict_f1": 0.4545454545454545
+    },
+    "M07": {
+     "decisions_f1": 0.4,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.6000000000000001
+    },
+    "M08": {
+     "decisions_f1": 0.4615384615384615,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.6853146853146853
+    },
+    "M09": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.7499999999999999,
+     "strict_f1": 0.625
+    },
+    "M10": {
+     "decisions_f1": 0.7692307692307693,
+     "tasks_f1": 0.6153846153846154,
+     "strict_f1": 0.46153846153846156
+    }
+   }
+  }
+ },
+ "no_auditor": {
+  "with_rule": {
+   "decisions": {
+    "matched": 29,
+    "predicted": 49,
+    "gold": 56,
+    "precision": 0.592,
+    "recall": 0.518,
+    "f1": 0.552
+   },
+   "tasks": {
+    "matched": 44,
+    "predicted": 57,
+    "gold": 53,
+    "precision": 0.772,
+    "recall": 0.83,
+    "f1": 0.8
+   },
+   "strict_f1": {
+    "decisions": 0.476,
+    "tasks": 0.8
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 2,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 11,
+     "state_ok": 11,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 8,
+     "state_ok": 7,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 6,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 13,
+     "state_ok": 13,
+     "deadline_ok": 10,
+     "assignee_ok": 13
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 25,
+     "state_ok": 25,
+     "deadline_ok": 24,
+     "assignee_ok": 25
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 17,
+     "state_ok": 17,
+     "deadline_ok": 14,
+     "assignee_ok": 16
+    }
+   },
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.6666666666666666,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.6666666666666666
+    },
+    "M02": {
+     "decisions_f1": 0.4,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.5545454545454546
+    },
+    "M03": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.7636363636363637
+    },
+    "M04": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.525
+    },
+    "M05": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.7333333333333333
+    },
+    "M06": {
+     "decisions_f1": 0.6,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.7285714285714285
+    },
+    "M07": {
+     "decisions_f1": 0.6,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.6000000000000001
+    },
+    "M08": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.8333333333333333,
+     "strict_f1": 0.7803030303030303
+    },
+    "M09": {
+     "decisions_f1": 0.20000000000000004,
+     "tasks_f1": 0.7499999999999999,
+     "strict_f1": 0.475
+    },
+    "M10": {
+     "decisions_f1": 0.3636363636363636,
+     "tasks_f1": 0.8000000000000002,
+     "strict_f1": 0.49090909090909096
+    }
+   }
+  },
+  "without_rule": {
+   "decisions": {
+    "matched": 34,
+    "predicted": 62,
+    "gold": 56,
+    "precision": 0.548,
+    "recall": 0.607,
+    "f1": 0.576
+   },
+   "tasks": {
+    "matched": 44,
+    "predicted": 57,
+    "gold": 53,
+    "precision": 0.772,
+    "recall": 0.83,
+    "f1": 0.8
+   },
+   "strict_f1": {
+    "decisions": 0.508,
+    "tasks": 0.8
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 4,
+     "state_ok": 4,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 14,
+     "state_ok": 14,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 10,
+     "state_ok": 9,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 6,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 13,
+     "state_ok": 13,
+     "deadline_ok": 10,
+     "assignee_ok": 13
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 25,
+     "state_ok": 25,
+     "deadline_ok": 24,
+     "assignee_ok": 25
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 17,
+     "state_ok": 17,
+     "deadline_ok": 14,
+     "assignee_ok": 16
+    }
+   },
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.588235294117647,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.6274509803921569
+    },
+    "M02": {
+     "decisions_f1": 0.5714285714285715,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.6688311688311688
+    },
+    "M03": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.7636363636363637
+    },
+    "M04": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.6222222222222222
+    },
+    "M05": {
+     "decisions_f1": 0.6,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.7
+    },
+    "M06": {
+     "decisions_f1": 0.6,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.7285714285714285
+    },
+    "M07": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.5666666666666667
+    },
+    "M08": {
+     "decisions_f1": 0.6666666666666666,
+     "tasks_f1": 0.8333333333333333,
+     "strict_f1": 0.75
+    },
+    "M09": {
+     "decisions_f1": 0.3636363636363636,
+     "tasks_f1": 0.7499999999999999,
+     "strict_f1": 0.5568181818181818
+    },
+    "M10": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.8000000000000002,
+     "strict_f1": 0.5666666666666668
+    }
+   }
+  }
+ },
+ "no_fewshot": {
+  "with_rule": {
+   "decisions": {
+    "matched": 35,
+    "predicted": 64,
+    "gold": 56,
+    "precision": 0.547,
+    "recall": 0.625,
+    "f1": 0.583
+   },
+   "tasks": {
+    "matched": 38,
+    "predicted": 54,
+    "gold": 53,
+    "precision": 0.704,
+    "recall": 0.717,
+    "f1": 0.71
+   },
+   "strict_f1": {
+    "decisions": 0.45,
+    "tasks": 0.71
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 8,
+     "state_ok": 7,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 13,
+     "state_ok": 12,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 8,
+     "state_ok": 6,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 5,
+     "state_ok": 5,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 6,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 12,
+     "state_ok": 12,
+     "deadline_ok": 11,
+     "assignee_ok": 12
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 23,
+     "state_ok": 23,
+     "deadline_ok": 19,
+     "assignee_ok": 23
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 13,
+     "state_ok": 13,
+     "deadline_ok": 12,
+     "assignee_ok": 13
+    }
+   },
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.7999999999999999,
+     "tasks_f1": 0.923076923076923,
+     "strict_f1": 0.8615384615384615
+    },
+    "M02": {
+     "decisions_f1": 0.625,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.6420454545454545
+    },
+    "M03": {
+     "decisions_f1": 0.6666666666666666,
+     "tasks_f1": 0.5882352941176471,
+     "strict_f1": 0.6274509803921569
+    },
+    "M04": {
+     "decisions_f1": 0.7499999999999999,
+     "tasks_f1": 0.6666666666666665,
+     "strict_f1": 0.7083333333333333
+    },
+    "M05": {
+     "decisions_f1": 0.4615384615384615,
+     "tasks_f1": 0.75,
+     "strict_f1": 0.4519230769230769
+    },
+    "M06": {
+     "decisions_f1": 0.5454545454545454,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.606060606060606
+    },
+    "M07": {
+     "decisions_f1": 0.8,
+     "tasks_f1": 0.6,
+     "strict_f1": 0.5
+    },
+    "M08": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.5
+    },
+    "M09": {
+     "decisions_f1": 0.20000000000000004,
+     "tasks_f1": 0.5,
+     "strict_f1": 0.35000000000000003
+    },
+    "M10": {
+     "decisions_f1": 0.4615384615384615,
+     "tasks_f1": 0.8000000000000002,
+     "strict_f1": 0.5538461538461539
+    }
+   }
+  },
+  "without_rule": {
+   "decisions": {
+    "matched": 39,
+    "predicted": 87,
+    "gold": 56,
+    "precision": 0.448,
+    "recall": 0.696,
+    "f1": 0.545
+   },
+   "tasks": {
+    "matched": 42,
+    "predicted": 61,
+    "gold": 53,
+    "precision": 0.689,
+    "recall": 0.792,
+    "f1": 0.737
+   },
+   "strict_f1": {
+    "decisions": 0.434,
+    "tasks": 0.737
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 8,
+     "state_ok": 7,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 15,
+     "state_ok": 14,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 10,
+     "state_ok": 8,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 5,
+     "state_ok": 5,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 6,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 13,
+     "state_ok": 13,
+     "deadline_ok": 11,
+     "assignee_ok": 13
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 26,
+     "state_ok": 26,
+     "deadline_ok": 22,
+     "assignee_ok": 26
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 14,
+     "state_ok": 14,
+     "deadline_ok": 12,
+     "assignee_ok": 14
+    }
+   },
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.631578947368421,
+     "tasks_f1": 0.923076923076923,
+     "strict_f1": 0.7773279352226721
+    },
+    "M02": {
+     "decisions_f1": 0.5882352941176471,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.6764705882352942
+    },
+    "M03": {
+     "decisions_f1": 0.6666666666666666,
+     "tasks_f1": 0.5882352941176471,
+     "strict_f1": 0.6274509803921569
+    },
+    "M04": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.6666666666666665,
+     "strict_f1": 0.6666666666666665
+    },
+    "M05": {
+     "decisions_f1": 0.5333333333333333,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.5333333333333333
+    },
+    "M06": {
+     "decisions_f1": 0.5454545454545454,
+     "tasks_f1": 0.7499999999999999,
+     "strict_f1": 0.6477272727272727
+    },
+    "M07": {
+     "decisions_f1": 0.7142857142857143,
+     "tasks_f1": 0.5454545454545454,
+     "strict_f1": 0.487012987012987
+    },
+    "M08": {
+     "decisions_f1": 0.4,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.4833333333333333
+    },
+    "M09": {
+     "decisions_f1": 0.3636363636363636,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.5151515151515151
+    },
+    "M10": {
+     "decisions_f1": 0.4,
+     "tasks_f1": 0.8000000000000002,
+     "strict_f1": 0.5333333333333334
+    }
+   }
+  }
+ },
+ "no_cot": {
+  "with_rule": {
+   "decisions": {
+    "matched": 32,
+    "predicted": 64,
+    "gold": 56,
+    "precision": 0.5,
+    "recall": 0.571,
+    "f1": 0.533
+   },
+   "tasks": {
+    "matched": 42,
+    "predicted": 53,
+    "gold": 53,
+    "precision": 0.792,
+    "recall": 0.792,
+    "f1": 0.792
+   },
+   "strict_f1": {
+    "decisions": 0.45,
+    "tasks": 0.792
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 11,
+     "state_ok": 11,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 6,
+     "state_ok": 6,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 2,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 7,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 6,
+     "state_ok": 6,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 13,
+     "state_ok": 13,
+     "deadline_ok": 12,
+     "assignee_ok": 12
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 27,
+     "state_ok": 27,
+     "deadline_ok": 26,
+     "assignee_ok": 27
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 13,
+     "state_ok": 13,
+     "deadline_ok": 12,
+     "assignee_ok": 12
+    }
+   },
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.7058823529411764,
+     "tasks_f1": 0.7692307692307692,
+     "strict_f1": 0.7375565610859728
+    },
+    "M02": {
+     "decisions_f1": 0.30769230769230765,
+     "tasks_f1": 0.8333333333333334,
+     "strict_f1": 0.4935897435897436
+    },
+    "M03": {
+     "decisions_f1": 0.7692307692307692,
+     "tasks_f1": 0.5555555555555556,
+     "strict_f1": 0.5854700854700854
+    },
+    "M04": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.888888888888889,
+     "strict_f1": 0.7171717171717171
+    },
+    "M05": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.888888888888889,
+     "strict_f1": 0.6111111111111112
+    },
+    "M06": {
+     "decisions_f1": 0.6,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.7285714285714285
+    },
+    "M07": {
+     "decisions_f1": 0.6153846153846153,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.6307692307692307
+    },
+    "M08": {
+     "decisions_f1": 0.3333333333333333,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.6212121212121212
+    },
+    "M09": {
+     "decisions_f1": 0.0,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.42857142857142855
+    },
+    "M10": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.8000000000000002,
+     "strict_f1": 0.7333333333333334
+    }
+   }
+  },
+  "without_rule": {
+   "decisions": {
+    "matched": 39,
+    "predicted": 91,
+    "gold": 56,
+    "precision": 0.429,
+    "recall": 0.696,
+    "f1": 0.531
+   },
+   "tasks": {
+    "matched": 42,
+    "predicted": 54,
+    "gold": 53,
+    "precision": 0.778,
+    "recall": 0.792,
+    "f1": 0.785
+   },
+   "strict_f1": {
+    "decisions": 0.463,
+    "tasks": 0.785
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 5,
+     "state_ok": 5,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 15,
+     "state_ok": 15,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 9,
+     "state_ok": 9,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 2,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 7,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 6,
+     "state_ok": 6,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 13,
+     "state_ok": 13,
+     "deadline_ok": 12,
+     "assignee_ok": 12
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 0,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 27,
+     "state_ok": 27,
+     "deadline_ok": 26,
+     "assignee_ok": 27
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 13,
+     "state_ok": 13,
+     "deadline_ok": 12,
+     "assignee_ok": 12
+    }
+   },
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.6,
+     "tasks_f1": 0.7692307692307692,
+     "strict_f1": 0.6846153846153846
+    },
+    "M02": {
+     "decisions_f1": 0.4705882352941177,
+     "tasks_f1": 0.8333333333333334,
+     "strict_f1": 0.5931372549019608
+    },
+    "M03": {
+     "decisions_f1": 0.7142857142857143,
+     "tasks_f1": 0.5555555555555556,
+     "strict_f1": 0.5634920634920635
+    },
+    "M04": {
+     "decisions_f1": 0.7692307692307693,
+     "tasks_f1": 0.888888888888889,
+     "strict_f1": 0.7521367521367521
+    },
+    "M05": {
+     "decisions_f1": 0.5333333333333333,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.6000000000000001
+    },
+    "M06": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.6785714285714286
+    },
+    "M07": {
+     "decisions_f1": 0.5555555555555556,
+     "tasks_f1": 0.8,
+     "strict_f1": 0.6222222222222222
+    },
+    "M08": {
+     "decisions_f1": 0.37499999999999994,
+     "tasks_f1": 0.9090909090909091,
+     "strict_f1": 0.6420454545454545
+    },
+    "M09": {
+     "decisions_f1": 0.0,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.42857142857142855
+    },
+    "M10": {
+     "decisions_f1": 0.7272727272727272,
+     "tasks_f1": 0.8000000000000002,
+     "strict_f1": 0.7636363636363637
+    }
+   }
+  }
+ },
+ "no_guards": {
+  "with_rule": {
+   "decisions": {
+    "matched": 30,
+    "predicted": 67,
+    "gold": 56,
+    "precision": 0.448,
+    "recall": 0.536,
+    "f1": 0.488
+   },
+   "tasks": {
+    "matched": 46,
+    "predicted": 65,
+    "gold": 53,
+    "precision": 0.708,
+    "recall": 0.868,
+    "f1": 0.78
+   },
+   "strict_f1": {
+    "decisions": 0.439,
+    "tasks": 0.78
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 2,
+     "state_ok": 2,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 11,
+     "state_ok": 10,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 8,
+     "state_ok": 8,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 5,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 14,
+     "state_ok": 14,
+     "deadline_ok": 12,
+     "assignee_ok": 14
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 26,
+     "state_ok": 26,
+     "deadline_ok": 23,
+     "assignee_ok": 24
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 18,
+     "state_ok": 18,
+     "deadline_ok": 16,
+     "assignee_ok": 17
+    }
+   },
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.588235294117647,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.6274509803921569
+    },
+    "M02": {
+     "decisions_f1": 0.5,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.75
+    },
+    "M03": {
+     "decisions_f1": 0.6666666666666666,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.7619047619047619
+    },
+    "M04": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.5555555555555556
+    },
+    "M05": {
+     "decisions_f1": 0.6666666666666665,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.5555555555555556
+    },
+    "M06": {
+     "decisions_f1": 0.3333333333333333,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.5952380952380952
+    },
+    "M07": {
+     "decisions_f1": 0.3333333333333333,
+     "tasks_f1": 0.7272727272727273,
+     "strict_f1": 0.5303030303030303
+    },
+    "M08": {
+     "decisions_f1": 0.4,
+     "tasks_f1": 0.7692307692307693,
+     "strict_f1": 0.5846153846153846
+    },
+    "M09": {
+     "decisions_f1": 0.3636363636363636,
+     "tasks_f1": 0.7499999999999999,
+     "strict_f1": 0.5568181818181818
+    },
+    "M10": {
+     "decisions_f1": 0.42857142857142855,
+     "tasks_f1": 0.8000000000000002,
+     "strict_f1": 0.5428571428571429
+    }
+   }
+  },
+  "without_rule": {
+   "decisions": {
+    "matched": 35,
+    "predicted": 85,
+    "gold": 56,
+    "precision": 0.412,
+    "recall": 0.625,
+    "f1": 0.496
+   },
+   "tasks": {
+    "matched": 46,
+    "predicted": 69,
+    "gold": 53,
+    "precision": 0.667,
+    "recall": 0.868,
+    "f1": 0.754
+   },
+   "strict_f1": {
+    "decisions": 0.44,
+    "tasks": 0.754
+   },
+   "per_trap": {
+    "D: con condición": {
+     "gold": 10,
+     "found": 4,
+     "state_ok": 4,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final simple": {
+     "gold": 16,
+     "found": 14,
+     "state_ok": 13,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: final tras reemplazo": {
+     "gold": 10,
+     "found": 9,
+     "state_ok": 9,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: pending": {
+     "gold": 8,
+     "found": 3,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: rejected": {
+     "gold": 11,
+     "found": 5,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "D: superseded": {
+     "gold": 11,
+     "found": 4,
+     "state_ok": 3,
+     "deadline_ok": 0,
+     "assignee_ok": 0
+    },
+    "T: con condición": {
+     "gold": 15,
+     "found": 14,
+     "state_ok": 14,
+     "deadline_ok": 12,
+     "assignee_ok": 14
+    },
+    "T: fecha explícita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: plazo no está en la cita": {
+     "gold": 1,
+     "found": 1,
+     "state_ok": 1,
+     "deadline_ok": 1,
+     "assignee_ok": 1
+    },
+    "T: relativo (hoy/mañana/día)": {
+     "gold": 29,
+     "found": 26,
+     "state_ok": 26,
+     "deadline_ok": 23,
+     "assignee_ok": 24
+    },
+    "T: sin plazo (null)": {
+     "gold": 22,
+     "found": 18,
+     "state_ok": 18,
+     "deadline_ok": 16,
+     "assignee_ok": 17
+    }
+   },
+   "per_meeting": {
+    "M01": {
+     "decisions_f1": 0.5263157894736842,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.5964912280701754
+    },
+    "M02": {
+     "decisions_f1": 0.625,
+     "tasks_f1": 1.0,
+     "strict_f1": 0.8125
+    },
+    "M03": {
+     "decisions_f1": 0.6153846153846153,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.7362637362637362
+    },
+    "M04": {
+     "decisions_f1": 0.8000000000000002,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.6333333333333333
+    },
+    "M05": {
+     "decisions_f1": 0.5454545454545454,
+     "tasks_f1": 0.6666666666666666,
+     "strict_f1": 0.5151515151515151
+    },
+    "M06": {
+     "decisions_f1": 0.3333333333333333,
+     "tasks_f1": 0.8571428571428571,
+     "strict_f1": 0.5952380952380952
+    },
+    "M07": {
+     "decisions_f1": 0.28571428571428575,
+     "tasks_f1": 0.7272727272727273,
+     "strict_f1": 0.5064935064935066
+    },
+    "M08": {
+     "decisions_f1": 0.37499999999999994,
+     "tasks_f1": 0.7142857142857143,
+     "strict_f1": 0.5446428571428571
+    },
+    "M09": {
+     "decisions_f1": 0.42857142857142855,
+     "tasks_f1": 0.7499999999999999,
+     "strict_f1": 0.5178571428571428
+    },
+    "M10": {
+     "decisions_f1": 0.5000000000000001,
+     "tasks_f1": 0.6153846153846154,
+     "strict_f1": 0.4951923076923077
+    }
+   }
+  }
+ },
+ "paired_full_without_rule_vs_d2": {
+  "decisions_f1": {
+   "wins": 3,
+   "ties": 1,
+   "losses": 6
+  },
+  "tasks_f1": {
+   "wins": 4,
+   "ties": 1,
+   "losses": 5
+  },
+  "strict_f1": {
+   "wins": 8,
+   "ties": 0,
+   "losses": 2
+  }
+ }
+}

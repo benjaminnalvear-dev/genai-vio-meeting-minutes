@@ -136,7 +136,7 @@ Los resultados por reunión y por tipo de trampa están en [`summary.json`](runs
 M09 se eligió con un criterio fijado antes de la corrida: la reunión con el peor F1 estricto del sistema completo (0,50; F1 de decisiones 0,33). Traza: [`runs/test/traces/full/M09.jsonl`](runs/test/traces/full/M09.jsonl).
 
 - **Cadena colapsada.** En u16 se propone mover la prueba al lunes 16, y en u17 queda fijada. El agente registró "lunes 16" como `final` en u16 y perdió la propuesta reemplazada.
-- **Frontera decisión/tarea.** Tareas convirtió u17 ("Queda fijada la primera prueba…") en la tarea "Realizar la primera prueba técnica". Luego el Finalizador descartó la decisión de u17 porque citaba el mismo turno que esa tarea, y así se perdió la decisión correcta.
+- **Frontera decisión/tarea.** Tareas convirtió u17 ("Queda fijada la primera prueba…") en la tarea "Realizar la primera prueba técnica". Luego el Finalizador descartó la decisión de u17 porque citaba el mismo turno que esa tarea, y así se perdió la decisión correcta. En toda la corrida, en cambio, esa regla casi no mueve el F1 (ver §9).
 - **Turnos repetidos.** u09/u10 y u12 repiten un mismo compromiso, y Tareas los registró dos veces cada uno (4 tareas por 2 reales).
 - **Pendiente mal anclado.** "Definir activación futura" (u30) quedó fundido en una decisión `final` condicional en u28.
 
@@ -171,9 +171,10 @@ python scripts/run_experiment.py --data "../GenAI Constrained+Tool use/Fine Tuni
 python -m pytest -q
 python scripts/make_figures.py --summary runs/test/results/summary.json --out figuras
 python scripts/benchmark_difficulty.py --data <carpeta con train/validation/test> --out dificultad
+python scripts/replay_from_traces.py --data "../GenAI Constrained+Tool use/Fine Tuning.zip" --out posthoc.json
 ```
 
-`pytest` corre 165 pruebas con un modelo simulado. Las otras dos órdenes regeneran las figuras y la tabla de dificultad.
+`pytest` corre 166 pruebas con un modelo simulado. Las órdenes siguientes regeneran las figuras y la tabla de dificultad, y repiten el diagnóstico post-hoc de §9, que vuelve a ejecutar el grafo con las respuestas del modelo guardadas en las trazas.
 
 **Versión de la corrida reportada:**
 - código: commit `d36043b`;
@@ -215,10 +216,10 @@ deliverable3/
 │   ├── finalize.py Finalizador
 │   ├── evaluate.py evaluador del D2 (copia literal)
 │   └── metrics.py  métricas extendidas (F1 estricto, trampas, plazos)
-├── scripts/        run_experiment, make_figures, benchmark_difficulty, package_for_colab
+├── scripts/        run_experiment, make_figures, benchmark_difficulty, replay_from_traces, package_for_colab
 ├── notebooks/      D3_Colab.ipynb
 ├── runs/           salidas de las corridas: test (8 condiciones) y validation
-├── tests/          165 pruebas
+├── tests/          166 pruebas
 └── docs/           especificación y plan de implementación
 ```
 
@@ -229,7 +230,11 @@ deliverable3/
   - las barandas G0–G7 y `auditor.v3`, porque sin ellas el Auditor empeoraba el acta en 4 de 4 casos;
   - la regla anti-solapamiento del Finalizador.
   - Test se corrió una sola vez, con el commit `d36043b`.
-- **La regla anti-solapamiento no generaliza a test.** En las rúbricas de train y validation una decisión y una tarea nunca citan el mismo turno, y en test pasa una vez. En la corrida de test el Finalizador descartó 15 ítems; en 7 de ellos la rúbrica tenía un ítem de ese tipo en ese turno (ver M09).
+- **La regla anti-solapamiento es neutra en test.** En las rúbricas de train y validation una decisión y una tarea nunca citan el mismo turno; en test pasa una vez.
+  - Se hizo un diagnóstico post-hoc sobre la misma corrida, sin volver a llamar al modelo: el grafo se ejecuta de nuevo con las respuestas guardadas en las trazas. Con la regla, reproduce exactamente las 60 actas oficiales.
+  - Sin la regla, el sistema completo recupera 4 decisiones correctas (como la de M09 u17), pero agrega 10 incorrectas. El F1 de decisiones pasa de 0,556 a 0,557, y el de tareas de 0,775 a 0,786.
+  - **La regresión en decisiones no viene del Finalizador**, sino del agente de Decisiones.
+  - Los números oficiales no cambian. Resultado completo, con las 5 ablaciones: [`posthoc_overlap_rule.json`](runs/test/posthoc_overlap_rule.json) (`scripts/replay_from_traces.py`).
 - **Rúbricas de train y validation con errores conocidos:**
   - "antes del viernes" está anotado como fecha de la reunión + 3 días (43 casos en train, 8 en validation);
   - las decisiones reemplazadas citan el turno del reemplazo, mientras test cita el de la propuesta. Los prompts v2 siguen la convención de test, y por eso el few-shot `decisions.TR01.v2` se aparta a propósito de su rúbrica.
