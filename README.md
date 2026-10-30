@@ -16,7 +16,7 @@ El sistema del D2 se reconstruye como **tres agentes** (Decisiones, Tareas y un 
 | Recurso | Contenido |
 |---|---|
 | [README del Entregable 3](./deliverable3/README.md) | Problema, arquitectura, técnicas, resultados, caso de falla y reproducción |
-| Documento técnico (PDF) | *pendiente* |
+| [Documento técnico (PDF)](./Deliverable_3.pdf) | Una página, compilada desde [LaTeX](./deliverable3/paper/D3.tex) |
 | Video | *pendiente* |
 | [Notebook de Colab](./deliverable3/notebooks/D3_Colab.ipynb) | Demo (M01) y experimento completo en GPU T4 |
 | [Trazas](./deliverable3/runs/test/traces/full/) | Mensajes entre agentes de cada reunión; M01 (video) y M09 (caso de falla) |

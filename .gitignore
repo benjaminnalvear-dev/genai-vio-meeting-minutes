@@ -11,6 +11,9 @@
 !Deliverable_2.pdf
 # D3 result figures (vector versions used by the paper).
 !deliverable3/runs/*/figures/*.pdf
+# D3 one-page paper and the figures its LaTeX source includes.
+!Deliverable_3.pdf
+!deliverable3/paper/figures/*.pdf
 
 # Local render and temporary directories
 output/

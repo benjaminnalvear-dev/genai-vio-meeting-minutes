@@ -6,7 +6,7 @@ El sistema del Entregable 2 (Ministral 3B + JSON restringido + herramientas dete
 
 | Recurso | Enlace |
 |---|---|
-| Documento técnico (1 página, LaTeX) | *pendiente* |
+| Documento técnico (1 página, LaTeX) | [`Deliverable_3.pdf`](../Deliverable_3.pdf) · [fuente](paper/D3.tex) |
 | Video (≤ 3 min) | *pendiente* |
 | Notebook de Colab | [`notebooks/D3_Colab.ipynb`](notebooks/D3_Colab.ipynb) · [abrir en Colab](https://colab.research.google.com/github/benjaminnalvear-dev/genai-vio-meeting-minutes/blob/main/deliverable3/notebooks/D3_Colab.ipynb) |
 | Traza del video (M01) | [`runs/test/traces/full/M01.jsonl`](runs/test/traces/full/M01.jsonl) |
@@ -18,14 +18,14 @@ El sistema del Entregable 2 (Ministral 3B + JSON restringido + herramientas dete
 
 Una reunión en español se transforma en un **acta JSON**: las **decisiones** (con estado `final`, `superseded`, `rejected` o `pending`, y qué decisión reemplaza a cuál) y las **tareas** (responsable, plazo en fecha ISO y condición). Cada ítem cita el turno (`evidence_id`) que lo respalda.
 
-El D2 dejó cuatro fallas diagnosticadas:
+El D2 dejó cuatro errores diagnosticados (se llaman E1–E4 para no confundirlos con la métrica F1; en el [registro de prompts](prompts/CHANGELOG.md) aparecen como F1–F4):
 
-| | Falla del D2 | Dato del D2 (test) |
+| | Error del D2 | Dato del informe del D2 (test) |
 |---|---|---|
-| F1 | Estados de decisión no finales (reemplazos, rechazos, pendientes) | El D2 encontró 10 de 30 |
-| F2 | Plazos relativos mal calculados o inventados | 12 de 39 correctos |
-| F3 | Tareas confirmadas marcadas como `pending` | 47 de 56 |
-| F4 | Nadie verifica que la cita respalde el ítem | Omisiones heredadas |
+| E1 | Estados de decisión no finales (reemplazos, rechazos, pendientes) | El D2 encontró 10 de 30 |
+| E2 | Plazos relativos mal calculados o inventados | 12 de 39 correctos |
+| E3 | Tareas confirmadas marcadas como `pending` | 47 de 56 |
+| E4 | Nadie verifica que la cita respalde el ítem | Omisiones heredadas |
 
 **Por qué el benchmark es difícil.** Las 10 reuniones de test son diálogo natural: 347 turnos, 56 decisiones y 53 tareas. Solo 26 de las 56 decisiones son un "final" directo. El resto son trampas:
 
@@ -56,7 +56,10 @@ flowchart TD
     A -- "veredictos" --> G[Barandas G0–G7 · código]
     G -- "route = decisions / both + ítems marcados" --> D
     G -- "route = tasks / both + ítems marcados" --> K
-    G -- "route = finish, o 2 rondas cumplidas" --> F[Finalizador · código]
+    G -- "route = finish" --> F[Finalizador · código]
+    D -. "lista revisada (1.ª revisión)" .-> A
+    K -. "lista revisada (1.ª revisión)" .-> A
+    K -. "tras la 2.ª revisión" .-> F
     F --> O[Acta JSON]
     D1 -.-> H1[(find_revision_cues · inspect_evidence)]
     K1 -.-> H2[(resolve_deadline · check_participant · inspect_evidence)]
@@ -72,9 +75,9 @@ flowchart TD
 | **Entrega** | `topic_plan`, `decisions` | `tasks` | `verdicts` por ítem, `route` |
 | **Se detiene** | `action = finish`, o al paso 3 | `action = finish`, o al paso 3 | `finish`, o tras 2 rondas de revisión |
 
-**Qué deciden los agentes (por qué no es un pipeline).** En cada paso, Decisiones y Tareas eligen entre pedir herramientas (`call_tools`) o entregar (`finish`). El Auditor elige la ruta: `finish` (se termina), `decisions`, `tasks` o `both` (vuelve a uno o a ambos especialistas, con los ítems marcados). En test, los agentes hicieron 212 llamadas a herramientas, y la ruta varió entre reuniones: 3 terminaron tras la primera auditoría y 7 pasaron por 2 rondas de revisión.
+**Qué deciden los agentes (por qué no es un pipeline).** En cada paso, Decisiones y Tareas eligen entre pedir herramientas (`call_tools`) o entregar (`finish`). El Auditor elige la ruta: `finish` (se termina), `decisions`, `tasks` o `both` (vuelve a uno o a ambos especialistas, con los ítems marcados). En test, los agentes hicieron 212 llamadas a herramientas, y la ruta varió entre reuniones: 3 terminaron tras la primera auditoría y 7 pasaron por 2 rondas de revisión. Las barandas rechazaron 41 de los 70 ítems que el Auditor marcó como erróneos y eliminaron 20 ítems duplicados. Después de una revisión, la lista corregida vuelve al Auditor; tras la segunda revisión pasa directo al Finalizador.
 
-**Por qué esta división.** Decisiones y Tareas fallan de forma distinta (F1 contra F2/F3) y necesitan herramientas distintas. Separarlos le da a un modelo de 3B un prompt corto y enfocado. El Auditor cubre F4: ve el acta entera y detecta omisiones y contradicciones que ningún especialista ve.
+**Por qué esta división.** Decisiones y Tareas fallan de forma distinta (E1 contra E2/E3) y necesitan herramientas distintas. Separarlos le da a un modelo de 3B un prompt corto y enfocado. El Auditor cubre E4: ve el acta entera y detecta omisiones y contradicciones que ningún especialista ve.
 
 **Nodos que son código, no agentes:**
 - **Barandas G0–G7** ([`guards.py`](src/minutes_agents/guards.py)): descartan un veredicto del Auditor cuando las herramientas lo contradicen, por ejemplo un `wrong_deadline` cuyo día coincide con `resolve_deadline`. La ruta se recalcula con los veredictos aceptados.
@@ -88,10 +91,10 @@ Nombres según *The Prompt Report* (Schulhoff et al., 2024):
 
 | Técnica | Dónde | Falla que ataca | Ablación |
 |---|---|---|---|
-| ReAct (razonar → herramienta → observar) | Los 3 agentes | F2 (plazos), F3, F4 | `no_react`: 1 paso, sin herramientas |
-| Self-Criticism (Chain-of-Verification, Self-Refine) | Auditor + loop de revisión | F4 y omisiones | `no_auditor`: 0 rondas |
-| Few-shot (1 reunión de train resuelta) | Decisiones, Tareas | F1 (cadenas), F3 | `no_fewshot` |
-| Chain-of-Thought (`thought`, `topic_plan`) | Los 3 agentes | F1 | `no_cot` |
+| ReAct (razonar → herramienta → observar) | Los 3 agentes | E2 (plazos), E3, E4 | `no_react`: 1 paso, sin herramientas |
+| Self-Criticism (Chain-of-Verification, Self-Refine) | Auditor + loop de revisión | E4 y omisiones | `no_auditor`: 0 rondas |
+| Few-shot (1 reunión de train resuelta) | Decisiones, Tareas | E1 (cadenas), E3 | `no_fewshot` |
+| Chain-of-Thought (`thought`, `topic_plan`) | Los 3 agentes | E1 | `no_cot` |
 | Barandas determinísticas (código, no prompt) | Sobre el Auditor | Veredictos falsos del Auditor | `no_guards` |
 | Role prompting, decomposition, salida estructurada (JSON restringido) | Todos | — | No ablacionadas (se declaran) |
 
@@ -101,20 +104,20 @@ Cada condición es un archivo en [`configs/`](configs/) que cambia **una sola** 
 
 | Condición | F1 decisiones | F1 tareas | F1 estricto dec. | F1 estricto tareas | Estado correcto | Plazo correcto | Tiempo (s) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Prompt directo (baseline) | 0,458 | 0,598 | 0,410 | 0,161 | 0,53 | 0,35 | 180 |
-| D2 | **0,673** | 0,789 | **0,596** | 0,220 | 0,55 | 0,42 | 250 |
-| **Agentes (full)** | 0,556 | 0,775 | 0,481 | 0,775 | 0,95 | 0,88 | 1358 |
-| − ReAct | 0,525 | 0,724 | 0,424 | 0,724 | 0,92 | 0,83 | 1316 |
-| − Auditor | 0,552 | **0,800** | 0,476 | **0,800** | 0,95 | 0,91 | 484 |
-| − Few-shot | 0,583 | 0,710 | 0,450 | 0,710 | 0,89 | 0,87 | 1646 |
-| − CoT | 0,533 | 0,792 | 0,450 | 0,792 | 0,93 | 0,93 | 676 |
-| − Barandas | 0,488 | 0,780 | 0,439 | 0,780 | 0,96 | 0,89 | 1714 |
+| Prompt directo (baseline) | 0,458 | 0,598 | 0,410 | 0,161 | 0,533 | 0,346 | 180 |
+| D2 | **0,673** | 0,789 | **0,596** | 0,220 | 0,551 | 0,419 | 250 |
+| **Agentes (full)** | 0,556 | 0,775 | 0,481 | 0,775 | 0,945 | 0,884 | 1358 |
+| − ReAct | 0,525 | 0,724 | 0,424 | 0,724 | 0,918 | 0,833 | 1316 |
+| − Auditor | 0,552 | **0,800** | 0,476 | **0,800** | 0,945 | 0,909 | 484 |
+| − Few-shot | 0,583 | 0,710 | 0,450 | 0,710 | 0,890 | 0,868 | 1646 |
+| − CoT | 0,533 | 0,792 | 0,450 | 0,792 | 0,932 | 0,929 | 676 |
+| − Barandas | 0,488 | 0,780 | 0,439 | 0,780 | 0,961 | 0,891 | 1714 |
 
 ![F1 por condición](runs/test/figures/f1_by_condition.png)
 
 Cómo leer la tabla:
 - **F1:** combina precisión y cobertura. Un ítem cuenta como encontrado si su texto se parece al menos 0,55 al de la rúbrica (criterio del D2).
-- **F1 estricto:** además exige el estado correcto. Es la métrica que mide F1 y F3.
+- **F1 estricto:** además exige el estado correcto. Es la métrica que mide E1 y E3.
 - **Estado y plazo correctos:** se calculan sobre los ítems emparejados.
 - **Tiempo:** suma de inferencia por paso en GPU T4.
 
@@ -174,7 +177,9 @@ python scripts/benchmark_difficulty.py --data <carpeta con train/validation/test
 python scripts/replay_from_traces.py --data "../GenAI Constrained+Tool use/Fine Tuning.zip" --out posthoc.json
 ```
 
-`pytest` corre 166 pruebas con un modelo simulado. Las órdenes siguientes regeneran las figuras y la tabla de dificultad, y repiten el diagnóstico post-hoc de §9, que vuelve a ejecutar el grafo con las respuestas del modelo guardadas en las trazas.
+El PDF se compila con `python scripts/build_paper.py` (usa `latexmk`; con `--tectonic <ruta>` usa [Tectonic](https://tectonic-typesetting.github.io)). El script regenera las figuras en inglés y falla si el documento no tiene exactamente una página.
+
+`pytest` corre 168 pruebas con un modelo simulado. Las órdenes siguientes regeneran las figuras y la tabla de dificultad, y repiten el diagnóstico post-hoc de §9, que vuelve a ejecutar el grafo con las respuestas del modelo guardadas en las trazas.
 
 **Versión de la corrida reportada:**
 - código: commit `d36043b`;
@@ -216,15 +221,17 @@ deliverable3/
 │   ├── finalize.py Finalizador
 │   ├── evaluate.py evaluador del D2 (copia literal)
 │   └── metrics.py  métricas extendidas (F1 estricto, trampas, plazos)
-├── scripts/        run_experiment, make_figures, benchmark_difficulty, replay_from_traces, package_for_colab
+├── scripts/        run_experiment, make_figures, benchmark_difficulty, replay_from_traces, build_paper, package_for_colab
 ├── notebooks/      D3_Colab.ipynb
 ├── runs/           salidas de las corridas: test (8 condiciones) y validation
-├── tests/          166 pruebas
+├── paper/          fuente LaTeX del documento de 1 página (D3.tex) y sus figuras en inglés
+├── tests/          168 pruebas
 └── docs/           especificación y plan de implementación
 ```
 
 ## 9. Desviaciones y limitaciones
 
+- **Prompt directo y D2 se re-ejecutaron** con sus mismos prompts, en el mismo arnés y la misma versión de Ollama que los agentes, para que todas las condiciones corran igual. El D2 re-ejecutado obtiene 0,673 / 0,789 (F1 decisiones / tareas), contra 0,667 / 0,716 del informe del D2. Se compara contra la re-ejecución, que es la referencia más exigente en tareas.
 - **Validation es un proxy débil.** Train y validation son de plantilla ("Hablante 0X", siempre 2 reemplazos, 1 rechazo y 1 pendiente); test es diálogo natural. En validation el sistema superó al D2 en F1 estricto en 10 de 10 reuniones (F1 de decisiones 0,915 contra 0,847), pero en test no se repitió en decisiones.
 - **Cambios de diseño hechos mirando validation, nunca test:**
   - las barandas G0–G7 y `auditor.v3`, porque sin ellas el Auditor empeoraba el acta en 4 de 4 casos;

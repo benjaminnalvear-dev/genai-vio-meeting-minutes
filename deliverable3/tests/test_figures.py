@@ -114,3 +114,19 @@ def test_every_condition_has_a_label():
     from minutes_agents.experiment import CONDITIONS
     mf = _load()
     assert set(CONDITIONS) <= set(mf.LABELS) and mf.LABELS['no_guards'] == '− Barandas'
+
+
+def test_english_labels_cover_all_conditions_and_categories(tmp_path):
+    from minutes_agents.experiment import CONDITIONS
+    mf = _load()
+    en = mf.TEXT['en']
+    assert set(CONDITIONS) <= set(en['labels']) and en['labels']['no_guards'] == '− Guards'
+    out = mf.make_figures(_write(tmp_path, ['d2', 'full']), tmp_path / 'figs', lang='en')
+    assert len(out) == 4
+
+
+def test_overview_and_heatmap_subset(tmp_path):
+    mf = _load()
+    out = mf.make_figures(_write(tmp_path, ['baseline', 'd2', 'full', 'no_cot']), tmp_path / 'figs', lang='en',
+                          heatmap_conds=['d2', 'full'], overview=True)
+    assert {p.stem for p in out} == {'f1_by_condition', 'trap_heatmap', 'overview'}
