@@ -1,72 +1,59 @@
 # Guion del video · Entregable 3 (≤ 3 min)
 
-Duración objetivo: **2:45**, con 15 s de margen. El texto de cada bloque se lee a un ritmo normal (unas 140 palabras por minuto). Lo que está en *cursiva* es lo que se ve en pantalla.
+El enunciado pide grabar la pantalla con el sistema corriendo sobre entradas reales, mostrando el pipeline, los mensajes intermedios entre agentes y la salida final. Por eso el video es el grafo (unos segundos, para ubicar el pipeline) y luego el Colab con la reunión M01.
+
+Duración objetivo: **unos 2:20**. Lo que está en *cursiva* es lo que se ve en pantalla; lo que va con `>` es lo que se dice.
 
 ## Antes de grabar (no sale en el video)
 
-1. En Colab, con GPU T4, abre `notebooks/D3_Colab.ipynb`.
-2. En la celda 1 deja:
+1. En Colab, con GPU T4, abre `notebooks/D3_Colab.ipynb`. En la celda 1 deja:
    - `MODE = 'DEMO'`;
-   - `SOURCE = 'zip'` (o `'git'` cuando el repositorio ya esté subido);
-   - `PERSIST_DIR = '/content/d3_demo'`. Es una carpeta nueva: así M01 se ejecuta de verdad y no se "reanuda" desde Drive.
-3. Ejecuta las celdas 1 a 4. Instalan Ollama, descargan el modelo y cargan el código y el dataset (~3 min).
-4. Deja abiertos en otra pestaña `Deliverable_3.pdf` y el repositorio.
-5. Graba la pantalla con la Barra de juegos de Windows (`Win + Alt + R`) u OBS, en 1080p.
+   - `SOURCE = 'zip'`;
+   - `PERSIST_DIR = '/content/d3_demo'`. Es una carpeta nueva, para que M01 corra de verdad y no se "reanude".
+2. Ejecuta las celdas 1 a 4 (instalan Ollama, descargan el modelo y cargan el código y el dataset).
+3. Abre la imagen del grafo, [`agent_graph.png`](agent_graph.png), en otra pestaña o ventana.
+4. Graba con la Barra de juegos de Windows (`Win + Alt + R`) u OBS, en 1080p.
 
 ## Guion
 
-### 0:00–0:20 · El problema
+### 0:00–0:25 · El pipeline (imagen del grafo)
 
-*PDF, sección 1: tabla "Why it is hard".*
+*Imagen `agent_graph.png`. Recorrer con el cursor de izquierda a derecha.*
 
-> Convertimos la transcripción de una reunión en un acta: qué se decidió y quién hace qué, para cuándo. Lo difícil es que las reuniones cambian de opinión: de 56 decisiones en test, solo 26 son acuerdos directos. Ahí fallaba el Entregable 2, además de en plazos y estados de tareas.
+> Nuestro sistema convierte la transcripción de una reunión en un acta: decisiones con su estado, y tareas con responsable y plazo. Son tres agentes con el mismo modelo, Ministral 3B: Decisiones, Tareas y un Auditor. Arriba están sus herramientas. Abajo, en rojo, el loop: el Auditor puede devolver el acta a un especialista, máximo dos veces. Las barandas y el Finalizador son código.
 
-### 0:20–0:45 · Los agentes
+### 0:25–0:45 · La ejecución (celdas 1 y 5)
 
-*PDF, el grafo. Señalar cada nodo con el cursor mientras se nombra.*
+*Colab, celda 1: señalar `MODE = 'DEMO'`. Luego ejecutar la celda 5 (acelerar la espera en la edición).*
 
-> Lo reconstruimos como tres agentes con el mismo modelo, Ministral 3B: Decisiones, Tareas y un Auditor que revisa el acta completa. En cada paso, cada agente decide si llama a una herramienta o entrega. El Auditor decide si el acta termina o vuelve a un especialista, con máximo dos revisiones, y unas barandas en código descartan los veredictos que el texto contradice.
+> Lo corremos sobre una reunión real de test, la M01. Primero verifica que el modelo responde y luego procesa la reunión: 64 segundos y 8 llamadas al modelo. Veamos los mensajes entre los agentes.
 
-### 0:45–1:55 · Demo en vivo con la reunión M01
+### 0:45–1:55 · Los mensajes entre agentes (celda 6)
 
-*Colab: ejecutar la celda 5 (acelerar en la edición). Imprime solo el resumen: `Ollama OK.`, `[full] M01  64.0s  8 calls` y `decisions F1 0.667  tasks F1 0.667`.*
+*Bloque `[decisions paso 1] call_tools`: señalar `find_revision_cues` y su observación (u04: "dejemos pendiente el logo").*
 
-> Lo ejecutamos sobre la reunión M01 de test: 64 segundos y 8 llamadas al modelo. Veamos qué pasó dentro.
-
-*Celda 6, bloque `[decisions paso 1] call_tools`: señalar `find_revision_cues` y su observación (u04: "dejemos pendiente el logo").*
-
-> En el paso 1, Decisiones decide llamar a `find_revision_cues`, que le devuelve los turnos con cambios, como u04: "dejemos pendiente el logo". En el paso 2 entrega sus decisiones.
+> En el paso 1, el agente de Decisiones decide no responder todavía: llama a la herramienta `find_revision_cues`, que le devuelve los turnos donde alguien cambia de opinión, como u04: "dejemos pendiente el logo". En el paso 2 entrega sus decisiones.
 
 *Bloque `[tasks paso 1] call_tools`: señalar las observaciones de u33 y u22.*
 
-> Tareas pide cinco plazos y verifica tres responsables. "El viernes 18 antes de las 17:00" pasa a una fecha exacta. Para "dos días después del piloto", la herramienta no adivina y devuelve nulo; el agente lo resuelve con la fecha del piloto.
+> Después, el agente de Tareas pide cinco cálculos de plazo y verifica tres responsables. "El viernes 18 antes de las 17:00" pasa a una fecha exacta. Para "dos días después del piloto", la herramienta no adivina y devuelve nulo; el agente lo resuelve con la fecha del piloto.
 
-*Bloque `[auditor paso 3] finish`: señalar la `Salida` (`wrong_state` sobre d01, `route: decisions`); luego `=== [baranda G3]` y `=== [router]`.*
+*Bloque `[auditor paso 3] finish`: señalar `"route": "decisions"`. Luego `=== [baranda G3]` y `=== [router]`. Hacer una pausa aquí.*
 
-> El Auditor dice que el logo pendiente tiene el estado mal y pide devolverlo a Decisiones. La baranda G3 revisa el texto: u04 sí dice "pendiente". Descarta el veredicto y la ruta pasa de `decisions` a `finish`.
+> Ahora el Auditor revisa todo y dice que la decisión del logo pendiente tiene el estado mal, y pide devolverla a Decisiones. Pero la baranda G3 revisa el texto: el turno u04 sí dice "pendiente". Descarta ese reclamo, y la ruta cambia de `decisions` a `finish`.
 
 *Línea `=== [finalize]`.*
 
-> El Finalizador cierra con 8 decisiones y 5 tareas, cada una con el turno que la respalda.
+> Por eso no hay rondas de revisión, y el Finalizador cierra con 8 decisiones y 5 tareas.
 
-*Celda 7: en el JSON, señalar d03 (`superseded`, "veinte minutos") y d05 (`final`, "quince minutos", `"supersedes": "d03"`); luego, en la tabla de métricas, `deadline_accuracy_matched 1.000`.*
+### 1:55–2:20 · La salida final (celda 7)
 
-> En el acta, el cambio de la demostración de veinte a quince minutos queda enlazado, y los cuatro plazos emparejados son correctos.
+*En el JSON, señalar d03 ("veinte minutos", `superseded`) y d05 ("quince minutos", `final`, `"supersedes": "d03"`). Luego, en la tabla de métricas, `deadline_accuracy_matched 1.000`.*
 
-### 1:55–2:30 · Resultados
-
-*PDF, sección 5: la figura de barras y luego la tabla.*
-
-> Medimos sobre las 10 reuniones de test, con el mismo evaluador del Entregable 2. Frente al D2, el F1 estricto de tareas sube de 0,22 a 0,78; los plazos correctos, de 42 a 88 por ciento; y el estado correcto, de 55 a 94 por ciento. Pero las decisiones empeoran: el F1 baja de 0,67 a 0,56. Las ablaciones —quitar una técnica a la vez— lo explican: sin el ejemplo few-shot, que viene de reuniones de plantilla, las decisiones mejoran, y las barandas son lo que más aporta.
-
-### 2:30–2:45 · Caso de falla y cierre
-
-*PDF, sección 6 y luego el repositorio (`runs/test/traces/`).*
-
-> El peor caso, la M09, muestra el límite: el agente de Decisiones fusiona una cadena de cambios en una sola decisión. Todas las trazas, los prompts versionados y el notebook para reproducir esta demo están en el repositorio.
+> Esta es el acta final. Cada decisión y cada tarea cita el turno que la respalda. El cambio de la demostración, de veinte a quince minutos, quedó enlazado, y los cuatro plazos emparejados son correctos. La traza de esta corrida, los prompts versionados y los resultados sobre las diez reuniones están en el repositorio.
 
 ## Después de grabar
 
 1. Ejecuta la celda 9: descarga `d3_outputs.zip` con la traza de esta corrida.
-2. Sube el video a YouTube como **No listado** (o a Drive, con "cualquier persona con el enlace") y copia el link.
-3. Pasa el link y el zip: la traza del video se guarda en `runs/video/M01.jsonl` y el link se agrega al PDF y al README.
+2. Sube el video a YouTube como **No listado** y copia el link.
+3. Pasa el link y el zip: la traza se guarda en el repositorio y el link se agrega al PDF y al README.
