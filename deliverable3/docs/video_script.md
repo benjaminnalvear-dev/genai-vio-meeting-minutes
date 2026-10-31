@@ -39,15 +39,19 @@ Duración objetivo: **2:45**, con 15 s de margen. El texto de cada bloque se lee
 
 *Bloque `[tasks paso 1] call_tools`: señalar las observaciones de u33 y u22.*
 
-> Tareas pide cinco plazos y verifica tres responsables. "El viernes 18 antes de las 17:00" pasa a una fecha exacta, y lo ambiguo, como "dos días después del piloto", queda nulo en vez de inventarse.
+> Tareas pide cinco plazos y verifica tres responsables. "El viernes 18 antes de las 17:00" pasa a una fecha exacta. Para "dos días después del piloto", la herramienta no adivina y devuelve nulo; el agente lo resuelve con la fecha del piloto.
 
 *Bloque `[auditor paso 3] finish`: señalar la `Salida` (`wrong_state` sobre d01, `route: decisions`); luego `=== [baranda G3]` y `=== [router]`.*
 
 > El Auditor dice que el logo pendiente tiene el estado mal y pide devolverlo a Decisiones. La baranda G3 revisa el texto: u04 sí dice "pendiente". Descarta el veredicto y la ruta pasa de `decisions` a `finish`.
 
-*Línea `=== [finalize]` y luego la celda 7 (acta final).*
+*Línea `=== [finalize]`.*
 
-> El Finalizador cierra con 8 decisiones y 5 tareas, cada una citando el turno que la respalda.
+> El Finalizador cierra con 8 decisiones y 5 tareas, cada una con el turno que la respalda.
+
+*Celda 7: en el JSON, señalar d03 (`superseded`, "veinte minutos") y d05 (`final`, "quince minutos", `"supersedes": "d03"`); luego, en la tabla de métricas, `deadline_accuracy_matched 1.000`.*
+
+> En el acta, el cambio de la demostración de veinte a quince minutos queda enlazado, y los cuatro plazos emparejados son correctos.
 
 ### 1:55–2:30 · Resultados
 
