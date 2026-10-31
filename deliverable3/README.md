@@ -7,7 +7,7 @@ El sistema del Entregable 2 (Ministral 3B + JSON restringido + herramientas dete
 | Recurso | Enlace |
 |---|---|
 | Documento técnico (1 página, LaTeX) | [`Deliverable_3.pdf`](../Deliverable_3.pdf) · [fuente](paper/D3.tex) |
-| Video (≤ 3 min) | *pendiente* |
+| Video (≤ 3 min) | [YouTube](https://www.youtube.com/watch?v=pexxeQTg9Mk) · [guion](docs/video_script.md) · [traza de la corrida grabada](runs/video/) |
 | Notebook de Colab | [`notebooks/D3_Colab.ipynb`](notebooks/D3_Colab.ipynb) · [abrir en Colab](https://colab.research.google.com/github/benjaminnalvear-dev/genai-vio-meeting-minutes/blob/main/deliverable3/notebooks/D3_Colab.ipynb) |
 | Traza del video (M01) | [`runs/test/traces/full/M01.jsonl`](runs/test/traces/full/M01.jsonl) |
 | Traza del caso de falla (M09) | [`runs/test/traces/full/M09.jsonl`](runs/test/traces/full/M09.jsonl) |

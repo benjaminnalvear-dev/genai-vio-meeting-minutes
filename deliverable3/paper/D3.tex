@@ -23,7 +23,7 @@
 \definecolor{code}{HTML}{F3EEE6}
 \definecolor{codeline}{HTML}{9C7A4A}
 \newcommand{\repo}{https://github.com/benjaminnalvear-dev/genai-vio-meeting-minutes}
-\newcommand{\video}{\textit{video: link pending}}
+\newcommand{\video}{\href{https://www.youtube.com/watch?v=pexxeQTg9Mk}{video (M01 demo)}}
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
@@ -208,7 +208,7 @@ D2 & \textbf{.673} & .789 & \textbf{.596} & .220 & .551 & .419 & 250 \\
 Strict F1 .50, decisions F1 .33 (trace \texttt{runs/test/traces/full/M09.jsonl}). The chain ``Friday $\to$ Monday 16'' collapsed into one \texttt{final} at u16. Tasks turned u17 (``Queda fijada la primera prueba'') into a task, so the Finalizer dropped the correct decision on that turn. Turns that repeat a commitment (u09/u10, u12) became duplicate tasks, and the pending ``future activation'' (u30) was merged into a conditional decision. The Decisions agent is where the next iteration should go: longer statements and one chain per topic.
 \par
 \sectionbar{7. REPRODUCIBILITY}
-The graph is a LangGraph \texttt{StateGraph}; every agent uses Ministral~3B Instruct \texttt{q4\_K\_M} (digest \texttt{f04aa1c7}) on Ollama 0.40.11, temperature 0, seed 42. Each prompt is a versioned file in \texttt{deliverable3/prompts/} with a CHANGELOG. Traces of every input are in \texttt{runs/test/traces/}; the video shows M01. In the Colab notebook, \texttt{MODE='DEMO'} reproduces the video and \texttt{'FULL'} the table.
+The graph is a LangGraph \texttt{StateGraph}; every agent uses Ministral~3B Instruct \texttt{q4\_K\_M} (digest \texttt{f04aa1c7}) on Ollama 0.40.11, temperature 0, seed 42. Each prompt is a versioned file in \texttt{deliverable3/prompts/} with a CHANGELOG. Traces of every input are in \texttt{runs/test/traces/}; the video run of M01 (\texttt{runs/video/}) reproduces the evaluated trace event by event. In the Colab notebook, \texttt{MODE='DEMO'} reproduces the video and \texttt{'FULL'} the table.
 \end{minipage}
 
 \end{document}
