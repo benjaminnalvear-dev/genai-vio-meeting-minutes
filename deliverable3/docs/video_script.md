@@ -19,39 +19,37 @@ Duración objetivo: **2:45**, con 15 s de margen. El texto de cada bloque se lee
 
 *PDF, sección 1: tabla "Why it is hard".*
 
-> Nuestro sistema convierte la transcripción de una reunión en un acta: qué se decidió y quién hace qué, para cuándo. El problema es que las reuniones reales cambian de opinión: en nuestras 10 reuniones de prueba, de 56 decisiones solo 26 son acuerdos directos. El resto fueron reemplazadas, rechazadas o quedaron pendientes. El sistema del Entregable 2 fallaba justo ahí, y también en los plazos y en el estado de las tareas.
+> Convertimos la transcripción de una reunión en un acta: qué se decidió y quién hace qué, para cuándo. Lo difícil es que las reuniones cambian de opinión: de 56 decisiones en test, solo 26 son acuerdos directos. Ahí fallaba el Entregable 2, además de en plazos y estados de tareas.
 
 ### 0:20–0:45 · Los agentes
 
 *PDF, el grafo. Señalar cada nodo con el cursor mientras se nombra.*
 
-> Lo reconstruimos como tres agentes con el mismo modelo, Ministral 3B. El agente de Decisiones extrae decisiones y sus cambios; el de Tareas, responsables y plazos; y el Auditor revisa el acta completa. Cada agente decide en cada paso si llama a una herramienta —por ejemplo, la que calcula una fecha relativa— o si entrega su resultado. El Auditor decide si el acta termina o vuelve a un especialista, con un máximo de dos revisiones. Unas barandas en código descartan los veredictos que las herramientas contradicen.
+> Lo reconstruimos como tres agentes con el mismo modelo, Ministral 3B: Decisiones, Tareas y un Auditor que revisa el acta completa. En cada paso, cada agente decide si llama a una herramienta o entrega. El Auditor decide si el acta termina o vuelve a un especialista, con máximo dos revisiones, y unas barandas en código descartan los veredictos que el texto contradice.
 
-### 0:45–1:50 · Demo en vivo con la reunión M01
+### 0:45–1:55 · Demo en vivo con la reunión M01
 
-*Colab: ejecutar la celda 5. Se ve la salida en vivo.*
+*Colab: ejecutar la celda 5 (acelerar en la edición). Imprime solo el resumen: `Ollama OK.`, `[full] M01  64.0s  8 calls` y `decisions F1 0.667  tasks F1 0.667`.*
 
-> Ahora lo ejecutamos sobre una reunión real de test, la M01.
+> Lo ejecutamos sobre la reunión M01 de test: 64 segundos y 8 llamadas al modelo. Veamos qué pasó dentro.
 
-*Mientras corre (se puede acelerar en la edición):*
+*Celda 6, bloque `[decisions paso 1] call_tools`: señalar `find_revision_cues` y su observación (u04: "dejemos pendiente el logo").*
 
-> Cada línea es una llamada al modelo: primero Decisiones, luego Tareas, luego el Auditor.
+> En el paso 1, Decisiones decide llamar a `find_revision_cues`, que le devuelve los turnos con cambios, como u04: "dejemos pendiente el logo". En el paso 2 entrega sus decisiones.
 
-*Celda 6: recorrer la traza de arriba hacia abajo.*
+*Bloque `[tasks paso 1] call_tools`: señalar las observaciones de u33 y u22.*
 
-> Esta es la traza: los mensajes entre agentes. Aquí el agente de Decisiones pidió la herramienta `find_revision_cues` y recibió los turnos donde alguien cambia de opinión. Aquí Tareas usó `resolve_deadline` para convertir "hoy antes de las seis" en una fecha exacta.
+> Tareas pide cinco plazos y verifica tres responsables. "El viernes 18 antes de las 17:00" pasa a una fecha exacta, y lo ambiguo, como "dos días después del piloto", queda nulo en vez de inventarse.
 
-*Detenerse en las líneas `[baranda …]` y `[router]`.*
+*Bloque `[auditor paso 3] finish`: señalar la `Salida` (`wrong_state` sobre d01, `route: decisions`); luego `=== [baranda G3]` y `=== [router]`.*
 
-> Aquí el Auditor pidió revisar una decisión, pero la baranda rechazó ese veredicto: el turno citado sí dice "pendiente". Por eso la ruta queda en `finish` y el acta pasa al Finalizador.
+> El Auditor dice que el logo pendiente tiene el estado mal y pide devolverlo a Decisiones. La baranda G3 revisa el texto: u04 sí dice "pendiente". Descarta el veredicto y la ruta pasa de `decisions` a `finish`.
 
-*Celda 7: el acta final en JSON.*
+*Línea `=== [finalize]` y luego la celda 7 (acta final).*
 
-> Y esta es el acta final. Cada decisión y tarea cita el turno que la respalda.
+> El Finalizador cierra con 8 decisiones y 5 tareas, cada una citando el turno que la respalda.
 
-**Nota:** si la ejecución en vivo toma otra ruta (por ejemplo, una ronda de revisión), narra lo que aparezca en pantalla: "el Auditor marcó X, se devolvió a Y". Lo importante es que se vean los mensajes entre agentes.
-
-### 1:50–2:30 · Resultados
+### 1:55–2:30 · Resultados
 
 *PDF, sección 5: la figura de barras y luego la tabla.*
 
